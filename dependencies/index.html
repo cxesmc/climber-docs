@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Dependencies - Climber-X-docs</title>
+    <title>Dependencies - CLIMBER-X-docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -30,7 +30,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> Climber-X-docs
+          <a href=".." class="icon icon-home"> CLIMBER-X-docs
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
@@ -66,7 +66,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">Climber-X-docs</a>
+          <a href="..">CLIMBER-X-docs</a>
         
       </nav>
       <div class="wy-nav-content">
@@ -83,16 +83,19 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="dependencies">Dependencies</h1>
-<p>Yelmo is dependent on the following libraries:</p>
+<p>CLIMBER-X is dependent on the following libraries:</p>
 <ul>
-<li><a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">NetCDF</a></li>
-<li><a href="http://www.ssisc.org/lis/">Library of Iterative Solvers for Linear Systems</a></li>
-<li>[Optional] <a href="https://github.com/alex-robinson/runner">'runner' Python library (alex-robinson fork)</a></li>
+<li>NetCDF: <a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">NetCDF library</a></li>
+<li>FFTW: <a href="https://www.fftw.org/">Fastest Fourier Transform in the West</a>. FFTW is available as a static library compiled with <code>ifort</code> as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the original source code.</li>
+<li>coordinates: <a href="https://github.com/alex-robinson/coordinates">coordinates</a>, a module to handle grid/points definition, interpolation mapping and subsetting. coordinates is available as a static library compiled with <code>ifort</code> as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the source code.</li>
+<li>LIS: <a href="http://www.ssisc.org/lis/">Library of Iterative Solvers for Linear Systems</a></li>
 </ul>
-<p>YelmoX is additionally dependent on the following library:</p>
-<ul>
-<li>FFTW (ver. 3.9+)</li>
-</ul>
+<p>OPTIONAL:
+- Python 3.x, which is only needed for automatic configuration of the Makefile
+and the use of the scripts <code>job_climber</code> and <code>runcx</code> for job preparation and submission.
+- CDO: <a href="https://code.mpimet.mpg.de/projects/cdo/">Climate Data Operators</a>, used for more efficient
+creation of maps to transform between different coordinate grids.
+- runner: <a href="https://github.com/alex-robinson/runner">'runner' Python library (alex-robinson fork)</a></p>
 <p>Installation tips for each dependency can be found below.</p>
 <h2 id="installing-netcdf-preferably-version-40-or-higher">Installing NetCDF (preferably version 4.0 or higher)</h2>
 <p>The NetCDF library is typically available with different distributions (Linux, Mac, etc).
@@ -130,7 +133,7 @@ a specific compiler, for example for gcc/gfortran use the following configure co
 LD_LIBRARY_PATH=$LISROOT/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH
 </code></pre>
-<p>That's it. LIS should now be available to use with Yelmo.</p>
+<p>That's it. LIS should now be available to use with CLIMBER-X.</p>
 <h2 id="installing-runner">Installing runner</h2>
 <ol>
 <li>Install <code>runner</code> to your system's Python installation via <code>pip</code>, along with dependency <code>tabulate</code>.</li>
