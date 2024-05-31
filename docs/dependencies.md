@@ -1,14 +1,19 @@
 # Dependencies 
 
-Yelmo is dependent on the following libraries:
+CLIMBER-X is dependent on the following libraries:
 
-- [NetCDF](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
-- [Library of Iterative Solvers for Linear Systems](http://www.ssisc.org/lis/)
-- [Optional] ['runner' Python library (alex-robinson fork)](https://github.com/alex-robinson/runner)
+- NetCDF: [NetCDF library](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
+- FFTW: [Fastest Fourier Transform in the West](https://www.fftw.org/). FFTW is available as a static library compiled with `ifort` as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the original source code.
+- coordinates: [coordinates](https://github.com/alex-robinson/coordinates), a module to handle grid/points definition, interpolation mapping and subsetting. coordinates is available as a static library compiled with `ifort` as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the source code.
+- LIS: [Library of Iterative Solvers for Linear Systems](http://www.ssisc.org/lis/)
 
-YelmoX is additionally dependent on the following library:
+OPTIONAL:
+- Python 3.x, which is only needed for automatic configuration of the Makefile
+and the use of the scripts `job_climber` and `runcx` for job preparation and submission.
+- CDO: [Climate Data Operators](https://code.mpimet.mpg.de/projects/cdo/), used for more efficient
+creation of maps to transform between different coordinate grids.
+- runner: ['runner' Python library (alex-robinson fork)](https://github.com/alex-robinson/runner)
 
-- FFTW (ver. 3.9+)
 
 Installation tips for each dependency can be found below.
 
@@ -55,7 +60,7 @@ LD_LIBRARY_PATH=$LISROOT/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH
 ```
 
-That's it. LIS should now be available to use with Yelmo.
+That's it. LIS should now be available to use with CLIMBER-X.
 
 ## Installing runner
 

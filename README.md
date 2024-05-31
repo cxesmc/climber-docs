@@ -21,5 +21,5 @@ repository.
 pip3 install mkdocs
 
 # Install math rendering library
-pip3 install pip3 install https://github.com/mitya57/python-markdown-math/archive/master.zip
+pip3 install https://github.com/mitya57/python-markdown-math/archive/master.zip
 ```

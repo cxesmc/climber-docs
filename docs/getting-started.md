@@ -1,6 +1,6 @@
 # Getting started
 
-Here you can find the basic information and steps needed to get **Yelmo** running.
+Here you can find the basic information and steps needed to get **CLIMBER-X** running.
 
 ## Super-quick start
 
@@ -8,33 +8,36 @@ A summary of commands to get started is given below. For more detailed informati
 
 ```
 # Clone repository
-git clone https://github.com/palma-ice/yelmo.git
-git clone git@github.com:palma-ice/yelmo.git # via ssh
+git clone https://github.com/cxesmc/climber-x.git
+git clone git@github.com:cxesmc/climber-x.git # via ssh
 
 # Enter directory and run configuration script
-cd yelmo
+cd climber-x
 python config.py config/pik_ifort 
 
-# Compile the benchmarks program
+# Compile the model 
 make clean 
-make benchmarks 
+make climber
 
-# Run a test simulation of the EISMINT1-moving experiment
-./runylmo -r -e benchmarks -o output/eismint1-moving -n par-gmd/yelmo_EISMINT_moving.nml
-
-# Compile the initmip program and run the default simulation of Antarctica
-make initmip 
-./runylmo -r -e initmip -o output/ant-pd -n par-gmd/yelmo_Antarctica.nml
+# Run a pre-industrial equilibrium climate-only test simulation
+./job_climber -s -o RUNDIR
 ```
+
 
 ## Dependencies
 
-See: [Dependencies](https://palma-ice.github.io/yelmo-docs/dependencies/) for installation tips.
+See: [Dependencies](https://cxesmc.github.io/climber-docs/dependencies/) for installation tips.
 
-- NetCDF library (preferably version 4.0 or higher)
+- NetCDF: [NetCDF library](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
+- FFTW: [Fastest Fourier Transform in the West](https://www.fftw.org/). FFTW is available as a static library compiled with `ifort` as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the original source code.
+- coordinates: [coordinates](https://github.com/alex-robinson/coordinates), a module to handle grid/points definition, interpolation mapping and subsetting. coordinates is available as a static library compiled with `ifort` as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the source code.
 - LIS: [Library of Iterative Solvers for Linear Systems](http://www.ssisc.org/lis/)
-- [Optional] Python 3.x, which is only needed for automatic configuration of the Makefile and the use of the script `runylmo` for job preparation and submission.
-- [Optional] 'runner' Python library: [https://github.com/alex-robinson/runner](https://github.com/alex-robinson/runner). Used for changing parameters at the command line using `runylmo`, and for running ensembles. 
+- [optional] Python 3.x, which is only needed for automatic configuration of the Makefile
+and the use of the scripts `job_climber` and `runcx` for job preparation and submission.
+- [optional] CDO: [Climate Data Operators](https://code.mpimet.mpg.de/projects/cdo/), used for more efficient
+creation of maps to transform between different coordinate grids.
+- [optional] runner: ['runner' Python library (alex-robinson fork)](https://github.com/alex-robinson/runner)
+
 
 ## Directory structure
 
@@ -43,19 +46,16 @@ See: [Dependencies](https://palma-ice.github.io/yelmo-docs/dependencies/) for in
         Configuration files for compilation on different systems.
     input/
         Location of any input data needed by the model.
-    libs/
-        Auxiliary libraries nesecessary for running the model.
-    libyelmo/
-        Folder containing all compiled files in a standard way with
-        lib/, include/ and bin/ folders.
     output/
         Default location for model output.
-    par/
-        Default parameter files that manage the model configuration.
+    maps/
+        Location of the maps that will be generated to map/interpolate between different grids.
+    nml/
+        Default parameter namelists that manage the model configuration.
+    restart/
+        Location of the restart files needed to continue previous model simulations.
     src/
-        Source code for Yelmo.
-    tests/
-        Source code and analysis scripts for specific model benchmarks and tests.
+        Source code for CLIMBER-X.
 ```
 
 ## Usage
@@ -65,17 +65,15 @@ Follow the steps below to (1) obtain the code, (2) configure the Makefile for yo
 
 ### 1. Get the code.
 
-Clone the repository from [https://github.com/palma-ice/yelmo](https://github.com/palma-ice/yelmo):
+Clone the repository from [https://github.com/cxesmc/climber-x](https://github.com/cxesmc/climber-x):
 
 ```
 # Clone repository
-git clone https://github.com/palma-ice/yelmo.git $YELMOROOT
-git clone git@github.com:palma-ice/yelmo.git  $YELMOROOT # via ssh
+git clone https://github.com/cxesmc/climber-x.git
+git clone git@github.com:cxesmc/climber-x.git # via ssh
 
-cd $YELMOROOT
+cd climber-x
 ```
-
-where `$YELMOROOT` is the installation directory.
 
 If you plan to make changes to the code, it is wise to check out a new branch:
 
@@ -85,178 +83,203 @@ git checkout -b user-dev
 
 You should now be working on the branch `user-dev`.
 
+
 ### 2. Create the system-specific Makefile.
 
-To compile Yelmo, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF` and `LIS` libraries. You can use another file in the config folder as a template, e.g.,
+To compile CLIMBER-X, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF`, `LIS`, `FFTW` libraries. You can use another file in the config folder as a template, e.g.,
+
 
 ```
 cd config
 cp pik_ifort myhost_mycompiler
 ```
 
-then modify the file `myhost_mycompiler` to match your paths. Back in `$YELMOROOT`, you can then generate your Makefile with the provided python configuration script:
+then modify the file `myhost_mycompiler` to match your paths. Back in `climber-x`, you can then generate your Makefile with the provided python configuration script:
 
 ```
-cd $YELMOROOT
+cd ../climber-x
 python config.py config/myhost_mycompiler
 ```
 
-The result should be a Makefile in `$YELMOROOT` that is ready for use.
+The result should be a Makefile that is ready for use.
 
-#### Alternative configuration - quickstart with Docker and VS Code
 
-Instead of a manual install, one way to get up and running quickly with Yelmo is with VS Code and Docker. It works on any plattform and uses a Linux based container. You don't need to know Docker or VS Code to get started. Just install the following:
+### 3. Compiling CLIMBER-X
 
-1. [Docker](https://docs.docker.com/engine/install/)
-2. [VS Code](https://code.visualstudio.com) 
-3. [install the remote development extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack)
-
-Then make sure that Docker is running and start VS Code. 
-Open the folder with the Yelmo code. Say Yes, when VS Code asks you if you want to open it in the container.
-
-Now you can directly go to step 3 below, just make sure that you use the terminal in VS Code.
-
-### 3. Compile the code.
-
-Now you are ready to compile Yelmo as a static library:
+Now you are ready to compile CLIMBER-X:
 
 ```
-make clean    # This step is very important to avoid errors!!
-make yelmo-static [debug=1]
-```
-This will compile all of the Yelmo modules and libraries (as defined in `config/Makefile_yelmo.mk`),
-and link them in a static library. All compiled files can be found in the folder `libyelmo/`.
-
-Once the static library has been compiled, it can be used inside of external Fortran programs and modules
-via the statement `use yelmo`.
-To include/link yelmo-static during compilation of another program, its location must be defined:
-
-```
-INC_YELMO = -I${YELMOROOT}/include
-LIB_YELMO = -L${YELMOROOT}/include -lyelmo
+make clean
+make climber
 ```
 
-Alternatively, several test programs exist in the folder `tests/` to run Yelmo
-as a stand-alone ice sheet.
-For example, it's possible to run different EISMINT benchmarks, MISMIP benchmarks and the
-ISIMIP6 INITMIP simulation for Greenland, respectively:
+That's it. The executable `climber.x` should now be available in the main directory.
+
+To compile the model with debug flags enabled use:
 
 ```
-make benchmarks    # compiles the program `libyelmo/bin/yelmo_benchmarks.x`
-make mismip        # compiles the program `libyelmo/bin/yelmo_mismip.x`
-make initmip       # compiles the program `libyelmo/bin/yelmo_initmip.x`
+make climber debug=1
 ```
 
-The Makefile additionally allows you to specify debugging compiler flags with the option `debug=1`, in case you need to debug the code (e.g., `make benchmarks debug=1`). Using this option, the code will run much slower, so this option is not recommended unless necessary.
-
-### 4. Run the model.
-
-Once an executable has been created, you can run the model. This can be
-achieved via the included Python job submission script `runylmo`. The following steps
-are carried out via the script:
-
-1. The output directory is created.
-2. The executable is copied to the output directory
-3. The relevant parameter files are copied to the output directory.
-4. Links to the input data paths (`input` and `ice_data`) are created in the output directory. Note that many simulations, such as benchmark experiments, do not depend on these external data sources, but the links are made anyway.
-4. The executable is run from the output directory, either as a background process or it is submitted to the queue via `sbatch` (the SLURM workload manager).
-
-To run a benchmark simulation, for example, use the following command:
+To compile the model without openmp use:
 
 ```
-./runylmo -r -e benchmarks -o output/test -n par/yelmo_EISMINT.nml
+make climber openmp=0
 ```
 
-where the option `-r` implies that the model should be run as a background process. If this is omitted, then the output directory will be populated, but no executable will be run, while `-s` instead will submit the simulation to cluster queue system instead of running in the background. The option `-e` lets you specify the executable. For some standard cases, shortcuts have been created:
+An additional command line parameter is available to compile a climate-only setup of the model as described in Willeit et al. 2022:
 
 ```
-benchmarks = libyelmo/bin/yelmo_benchmarks.x
-mismip     = libyelmo/bin/yemo_mismip.x
-initmip    = libyelmo/bin/yelmo_initmip.x
-```
-The last two mandatory arguments `-o OUTDIR` and `-n PAR_PATH` are the output/run directory and the parameter file to be used for this simulation, respectively. In the case of the above simulation, the output directory is defined as `output/test`, where all model parameters (loaded from the file `par/yelmo_EISMINT.nml`) and model output can be found.
-
-It is also possible to modify parameters inline via the option `-p KEY=VAL [KEY=VAL ...]`. The parameter should be specified with its namelist group and its name. E.g., to change the resolution of the EISMINT benchmark experiment to 10km, use:
-
-```
-./runylmo -r -e benchmarks -o output/test -n par/yelmo_EISMINT.nml -p ctrl.dx=10
+make climber climate_only=1
 ```
 
-See `runylmo -h` for more details on the run script. 
+This particular model setup does not require non-climate source code or the LIS library for compilation.
 
-## Test cases
 
-The published model description includes several test simulations for validation
-of the model's performance. The following section describes how to perform these
-tests using the same model version documented in the article. From this point,
-it is assumed that the user has already configured the model for their system
-(see https://palma-ice.github.io/yelmo-docs) and is ready to compile the mode.
+### 4. Running CLIMBER-X
 
-### 1. EISMINT1 moving margin experiment
-To perform the moving margin experiment, compile the benchmarks
-executable and call it with the EISMINT parameter file:
+After CLIMBER-X has been compiled, several steps must be completed to run the executable `climber.x`:
 
-```
-make benchmarks
-./runylmo -r -e benchmarks -o output/eismint-moving -n par-gmd/yelmo_EISMINT_moving.nml
-```
+1. Create a run directory (`RUNDIR`).
+2. Copy namelist parameter files to `RUNDIR`.
+3. Make links to the `input`, `maps` and `restart` directories in `RUNDIR`.
+4. Copy `VILMA` restart files to `RUNDIR` (since these are eventually modified by `climber.x`).
+5. Copy the executable file `climber.x` to `RUNDIR`.
+6. To run on the cluster, create a job submission script (e.g. `job.submit`) in `RUNDIR` to manage various computing options (number of processors, etc).
 
-### 2. EISMINT2 EXPA
-To perform Experiment A from the EISMINT2 benchmarks, compile the benchmarks
-executable and call it with the EXPA parameter file:
+When these steps are completed, `climber.x` should be run directly from `RUNDIR` using the job submission script. E.g., using SLURM:
 
 ```
-make benchmarks
-./runylmo -r -e benchmarks -o output/eismint-expa -n par-gmd/yelmo_EISMINT_expa.nml
+cd RUNDIR
+sbatch job.submit
 ```
 
-### 3. EISMINT2 EXPF
-To perform Experiment F from the EISMINT2 benchmarks, compile the benchmarks
-executable and call it with the EXPF parameter file:
+If not using the cluster, CLIMBER-X can also be run manually by entering the `RUNDIR` and specifying the current directory as an argument:
 
 ```
-make benchmarks
-./runylmo -r -e benchmarks -o output/eismint-expf -n par-gmd/yelmo_EISMINT_expf.nml
+cd RUNDIR
+./climber.x ./ > out.out
 ```
 
-### 4. MISMIP RF
-To perform the MISMIP rate factor experiment, compile the mismip executable
-and call it with the MISMIP parameter file the three parameter permutations of interest (default, subgrid and subgrid+gl-scaling):
+Either of the above will run climber in `RUNDIR` with all simulation output stored in the same directory. Because the directory includes the executable and is self-contained, assuming the contents of the linked directories do not change, the simulation can be re-run at any time.
+
+To perform all of the above steps manually for multiple simulations is very tedious and time-consuming, so a "job" script has been created to handle the process.
+
+Currently two job-script methods are available (`job_climber` and `runcx`), which are described in the sections below.
+
+#### Using `job_climber`
+
+./job_climber
+
+Aside from possible options, `job_climber` is always called with the required argument `-o RUNDIR` that specifies the output directory. So, to run a `climber.x` simulation as a job on the cluster in `RUNDIR`, run the command:
 
 ```
-make mismip
-./runylmo -r -e mismip -o output/mismip-rf-0 -n par-gmd/yelmo_MISMIP3D.nml -p ydyn.beta_gl_stag=0 ydyn.beta_gl_scale=0
-./runylmo -r -e mismip -o output/mismip-rf-1 -n par-gmd/yelmo_MISMIP3D.nml -p ydyn.beta_gl_stag=3 ydyn.beta_gl_scale=0
-./runylmo -r -e mismip -o output/mismip-rf-2 -n par-gmd/yelmo_MISMIP3D.nml -p ydyn.beta_gl_stag=3 ydyn.beta_gl_scale=2
-```
-To additionally change the resolution of the simulations change the parameter `mismip.dx`, e.g. for the default simulation with 10km resolution , call:
-
-```
-./runylmo -r -e mismip -o output/mismip-rf-0-10km -n par-gmd/yelmo_MISMIP3D.nml -p ydyn.beta_gl_stag=0 ydyn.beta_gl_scale=0 mismip.dx=10
+./job_climber -s -o RUNDIR
 ```
 
-### 5. Age profile experiments
-To perform the age profile experiments, compile the Fortran program `tests/test_icetemp.f90`
-and run it:
+where `RUNDIR` is the desired run directory. The option `-s` specifies that the job should be run on the cluster. Alternatively, use `-r` instead of `-s` to simply run it as a background process. Other options include `-c` for the queue name (short, priority, etc), `-w` for the maximum wall clock time to allow in hours, `-j` to specify whether a serial or parallel job is desired (serial or parallel), `-n` to specify the number of processors, and others.
+
+
+### Using `runcx`
+
+Unlike `job_climber`, the newer script `runcx` was designed only to handle running one simulation, while leaving the task of ensemble generation to the Python module `runner`, developed for that task.
+
+See `./runcx -h` for details on possible arguments. Aside from possible options, `runcx` is always called with the required argument `-o RUNDIR` that specifies the output directory. So, to run a `climber.x` simulation as a job on the cluster in `RUNDIR`, run the command:
 
 ```
-make icetemp
-./libyelmo/bin/test_icetemp.x
+./runcx -s -o RUNDIR
 ```
 
-To perform the different permutations, it is necessary to recompile for
-single or double precision after changing the precision parameter `prec` in the file
-`src/yelmo_defs.f90`. The number of vertical grid points can be specified in the main
-program file, as well as the output filename.
+where `RUNDIR` is the desired run directory. The option `-s` specifies that the job should be run on the cluster. Alternatively, use `-r` instead of `-s` to simply run it as a background process. Other options include `-q, --qos` for the queue name (short, priority, etc), `-w, --wall` for the maximum wall clock time to allow in hours, `--part` to name the processor partition (haswell, broadwell, etc), `--omp` to specify the number of processors, and others. See `./runcx -h` for all options.
 
-### 6. Antarctica present-day and glacial simulations
-To perform the Antarctica simulations as presented in the paper, it is necessary
-to compile the `initmip` executable and run with the present-day (pd) and
-glacial (lgm) parameter values:
+Note that various default options can be specified in the script's json-format configuration file `runcx.js`, so as to avoid having to specifying them every time.
 
+Run as a command as above, this script will run a simulation using the parameters as they are specified in the namelist parameter files in the `nml` directory. In addition, it is possible to modify the parameters of one simulation at the command line using the argument `-p KEY=VAL KEY=VAL ...`. So, for example, the following command:
 
 ```
-make initmip
-./runylmo -r -e initmip -o output/ant-pd -n par-gmd/yelmo_Antarctica.nml -p ctrl.clim_nm="clim_pd"
-./runylmo -r -e initmip -o output/ant-lgm -n par-gmd/yelmo_Antarctica.nml -p ctrl.clim_nm="clim_lgm"
+./runcx -s -o RUNDIR -p ctl.n_accel=10
 ```
+
+will run `climber.x` on the cluster in the output directory `RUNDIR` with the control parameter `control.n_accel` set to `10`. Note that `ctl` is a convenient alias for the namelist group `control`, as defined in `runcx.js`.
+
+
+To perform a simulation an ensemble of simulations with modified parameter values, `runcx` should be called via `jobrun` (see below).
+
+#### Using `jobrun` with `runcx`
+
+`jobrun` is a command that is part of the Python `runner` library, found here:
+[https://github.com/alex-robinson/runner](https://github.com/alex-robinson/runner). This command facilitates running ensembles of simulations, or simulations with modified parameters via a convenient command-line interface. See the above `runner` page for its installation instructions.
+
+using `jobrun`, the following command would produce the same simulation as `./runcx -s RUNDIR`:
+
+```
+jobrun ./runcx -s -- -o OUTDIR
+```
+
+The difference here is that all options that follow the `--` are `jobrun` options. So now we don't specify the specific `RUNDIR`, but rather an encapsulating `OUTDIR` that will contain one or many `RUNDIR`'s. In the above example, no parameters are changed, so the simulation is saved in the `default` directory: `OUTDIR/default`.
+
+If we want to change a parameter, this can be done as with the `runcx` script via the `-p` option:
+
+```
+jobrun ./runcx -s -- -o OUTDIR -p ctl.n_accel=10
+```
+
+This will produce one simulation with the parameter `control.n_accel=10`. Since we have changed a parameter for this simulation, `jobrun` treats this as an ensemble, so the output is saved in `OUTDIR/0` for simulation 0. In short, the above command is equivalent to `./runcx -s -o OUTDIR -p ctl.n_accel=10`, but in the former case, the output is stored in `OUTDIR/0` and in the latter case, it is stored directly in `OUTDIR`.
+
+The power of `jobrun` comes when we want to run an ensemble:
+
+```
+jobrun ./runcx -s -- -o OUTDIR -p ctl.n_accel=1,5,10
+```
+
+This ensemble of simulations will appear in `OUTDIR/0`, `OUTDIR/1` and `OUTDIR/2`, respectively.
+
+A more informative output directory can be made using the option `-a` along with `-o`:
+
+```
+jobrun ./runcx -s -- -a -o OUTDIR -p ctl.n_accel=1,5,10
+```
+
+In this case, the run directories are `OUTDIR/ctl.nccl.1`, `OUTDIR/ctl.nccl.5` and `OUTDIR/ctl.nccl.10`, respectively.
+
+General information about the ensemble can be found in the main ensemble directory `OUTDIR`:
+
+- `params.txt` : contains a table of the parameter combinations set on the command line (can be used to run a new ensemble).
+- `info.txt` : the same parameter table as `params.txt`, but also including an index of the `runid` (0,1,2, etc) and the `RUNDIR`:
+
+`info.txt`:
+
+```
+  runid    ctl.n_accel  rundir
+      0              1  ctl.nccl.1
+      1              5  ctl.nccl.5
+      2             10  ctl.nccl.10
+```
+
+It is of course possible to define multiple parameter permutations:
+
+```
+jobrun ./runcx -s -- -o OUTDIR -p ctl.n_accel=1,5,10 smb.alb_ice=0.3,0.4
+```
+
+To generate a more complex ensemble, using e.g. Latin-Hypercube sampling, then a two step approach is often better. First, use the `runner` command `job sample` to build the ensemble, then use `jobrun` to run it:
+
+```
+# Generate ensemble parameters
+job sample -o lhs.txt --seed 4 -N 100 atm.c_trop_2=0.8,1.2 smb.alb_ice=0.3,0.4
+
+# Run ensemble
+jobrun ./runcx -s -- -o OUTDIR -i lhs.txt
+```
+
+This two-step method facilitates checking that the ensemble was generated properly and improves reproducibility, since the exact parameter values are available in the table.
+
+
+### 5. Test simulation
+
+A simple climate-only test simulation for pre-industrial conditions can be run as:
+
+```
+./job_climber -s -f -o OUTDIR
+```
+

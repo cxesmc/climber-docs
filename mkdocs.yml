@@ -1,4 +1,4 @@
-site_name: Climber-X-docs
+site_name: CLIMBER-X-docs
 nav:
     - Home: index.md
     - Getting started: getting-started.md
