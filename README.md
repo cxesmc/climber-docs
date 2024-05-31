@@ -12,3 +12,14 @@ and the corresponding mkdocs module (for eg python3), use:
 Note that whenever the docs folder is updated here, it should be 
 manually synced with the docs folder in the Yelmo 
 repository.
+
+
+### Installing Python libraries
+
+```
+# Install mkdocs library
+pip3 install mkdocs
+
+# Install math rendering library
+pip3 install pip3 install https://github.com/mitya57/python-markdown-math/archive/master.zip
+```
