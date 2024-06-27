@@ -111,8 +111,7 @@
 <h2 id="super-quick-start">Super-quick start</h2>
 <p>A summary of commands to get started is given below. For more detailed information see subsequent sections.</p>
 <pre><code># Clone repository
-git clone https://github.com/cxesmc/climber-x.git
-git clone git@github.com:cxesmc/climber-x.git # via ssh
+git clone git@github.com:cxesmc/climber-x.git
 
 # Enter directory and run configuration script
 cd climber-x
@@ -124,6 +123,17 @@ make climber
 
 # Run a pre-industrial equilibrium climate-only test simulation
 ./job_climber -s -o RUNDIR
+</code></pre>
+<p>Note, if you would also like to run with an interactive ice sheet, then the <strong>Yelmo</strong> code must
+also be downloaded and configured before compiling:</p>
+<pre><code>cd src
+git clone git@github.com:palma-ice/yelmo.git
+python config.py config/pik_ifort
+cd ..
+
+# Compile the model
+make clean
+make climber
 </code></pre>
 <h2 id="dependencies">Dependencies</h2>
 <p>See: <a href="https://cxesmc.github.io/climber-docs/dependencies/">Dependencies</a> for installation tips.</p>
@@ -156,7 +166,7 @@ creation of maps to transform between different coordinate grids.</li>
 </code></pre>
 <h2 id="usage">Usage</h2>
 <p>Follow the steps below to (1) obtain the code, (2) configure the Makefile for your system,
-(3) compile the Yelmo static library and an executable program and (4) run a test simulation.</p>
+(3) compile an executable program and (4) run a test simulation.</p>
 <h3 id="1-get-the-code">1. Get the code.</h3>
 <p>Clone the repository from <a href="https://github.com/cxesmc/climber-x">https://github.com/cxesmc/climber-x</a>:</p>
 <pre><code># Clone repository
