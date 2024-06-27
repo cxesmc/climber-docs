@@ -8,8 +8,7 @@ A summary of commands to get started is given below. For more detailed informati
 
 ```
 # Clone repository
-git clone https://github.com/cxesmc/climber-x.git
-git clone git@github.com:cxesmc/climber-x.git # via ssh
+git clone git@github.com:cxesmc/climber-x.git
 
 # Enter directory and run configuration script
 cd climber-x
@@ -21,6 +20,20 @@ make climber
 
 # Run a pre-industrial equilibrium climate-only test simulation
 ./job_climber -s -o RUNDIR
+```
+
+Note, if you would also like to run with an interactive ice sheet, then the **Yelmo** code must
+also be downloaded and configured before compiling:
+
+```
+cd src
+git clone git@github.com:palma-ice/yelmo.git
+python config.py config/pik_ifort
+cd ..
+
+# Compile the model
+make clean
+make climber
 ```
 
 
@@ -61,7 +74,7 @@ creation of maps to transform between different coordinate grids.
 ## Usage
 
 Follow the steps below to (1) obtain the code, (2) configure the Makefile for your system,
-(3) compile the Yelmo static library and an executable program and (4) run a test simulation.
+(3) compile an executable program and (4) run a test simulation.
 
 ### 1. Get the code.
 
