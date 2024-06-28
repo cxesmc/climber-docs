@@ -21,6 +21,16 @@ cd coordinates
 python config.py config/pik_ifort 
 cd ../../..  # Return to climber-x parent directory
 
+cd src/utils/
+wget https://www.fftw.org/fftw-3.3.10.tar.gz
+tar -xvf fftw-3.3.10.tar.gz
+rm fftw-3.3.10.tar.gz
+cd fftw-3.3.10
+./configure --prefix=$PWD
+make
+make install
+cd ..
+
 # Compile the model 
 make clean 
 make climber-clim
