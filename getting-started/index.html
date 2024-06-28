@@ -117,9 +117,16 @@ git clone git@github.com:cxesmc/climber-x.git
 cd climber-x
 python config.py config/pik_ifort 
 
+# Download and configure additional libraries
+cd src/utils/
+git clone git@github.com:cxesmc/coordinates.git
+cd coordinates
+python config.py config/pik_ifort 
+cd ../../..  # Return to climber-x parent directory
+
 # Compile the model 
 make clean 
-make climber
+make climber-clim
 
 # Run a pre-industrial equilibrium climate-only test simulation
 ./job_climber -s -o RUNDIR
