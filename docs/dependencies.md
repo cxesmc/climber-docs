@@ -1,6 +1,6 @@
 # Dependencies 
 
-CLIMBER-X is dependent on the following libraries:
+**CLIMBER-X** is dependent on the following libraries:
 
 - NetCDF: [NetCDF library](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
 - FFTW: [Fastest Fourier Transform in the West](https://www.fftw.org/). The library will have to be compiled from the original source code.
@@ -34,7 +34,7 @@ installation instructions are available from the Unidata website:
 1. Download and configure the FFTW source:
 [https://www.fftw.org/download.html](https://www.fftw.org/download.html)
 
-```
+```bash
 wget https://www.fftw.org/fftw-3.3.10.tar.gz
 tar -xvf fftw-3.3.10.tar.gz
 rm fftw-3.3.10.tar.gz
@@ -51,7 +51,7 @@ make install
 Configure the package, and install it in the location 
 of your choice (below defined as `$COORDROOT`):
 
-```
+```bash
 git clone git@github.com:cxesmc/coordinates.git $COORDROOT
 cd $COORDROOT
 python config.py config/pik_ifort
@@ -67,7 +67,7 @@ Configure the package, and install it in the location
 of your choice (below defined as `$LISROOT`). Also, make sure to 
 enable the Fortran90 and openmp interface:
 
-```
+```bash
 git clone git@github.com:anishida/lis.git $LISROOT
 ./configure --prefix=$LISROOT --enable-omp --enable-f90
 make
@@ -77,7 +77,7 @@ make install
 Note: make sure to set the environment variables `CC` and `FC`, in order to set
 a specific compiler, for example for gcc/gfortran use the following configure command:
 
-```
+```bash
 CC=gcc FC=gfortran ./configure --prefix=$LISROOT --enable-f90 --enable-omp
 ```
 
@@ -85,7 +85,7 @@ CC=gcc FC=gfortran ./configure --prefix=$LISROOT --enable-f90 --enable-omp
 
 1. Install `runner` to your system's Python installation via `pip`, along with dependency `tabulate`.
 
-```
+```bash
 pip install https://github.com/alex-robinson/runner/archive/refs/heads/master.zip
 pip install tabulate
 ```
