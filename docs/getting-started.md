@@ -7,6 +7,8 @@ Here you can find the basic information and steps needed to get **CLIMBER-X** ru
 A summary of commands to get started is given below, assuming you are installing the PIK cluster using the `ifort` compiler. For more detailed information see subsequent sections.
 
 ```
+### Download the climber code ###
+
 # Clone repository
 git clone git@github.com:cxesmc/climber-x.git
 
@@ -14,13 +16,9 @@ git clone git@github.com:cxesmc/climber-x.git
 cd climber-x
 python config.py config/pik_ifort 
 
-# Download and configure additional libraries
-cd src/utils/
-git clone git@github.com:cxesmc/coordinates.git
-cd coordinates
-python config.py config/pik_ifort 
-cd ../../..  # Return to climber-x parent directory
+### Download and configure additional libraries ###
 
+# fftw
 cd src/utils/
 wget https://www.fftw.org/fftw-3.3.10.tar.gz
 tar -xvf fftw-3.3.10.tar.gz
@@ -31,13 +29,14 @@ make
 make install
 cd ..
 
-cd src/utils
-git clone git@github.com:anishida/lis.git
-cd lis
-./configure --prefix=$PWD/../2.1.5 --enable-omp --enable-f90
-make
-make install
-cd ..
+# coordinates
+cd src/utils/
+git clone git@github.com:cxesmc/coordinates.git
+cd coordinates
+python config.py config/pik_ifort 
+cd ../../..  # Return to climber-x parent directory
+
+### Compile and run ###
 
 # Compile the climate model 
 make cleanall
@@ -47,10 +46,20 @@ make climber-clim
 ./job_climber -s -o RUNDIR
 ```
 
-Note, if you would also like to run with an interactive ice sheet, then the **Yelmo** code must
-also be downloaded and configured before compiling:
+Note, if you would also like to run with an interactive ice sheet, then the `lis`
+library and the **Yelmo** ice-sheet code must also be downloaded and configured before compiling, as well as the :
 
 ```
+# lis
+cd src/utils
+git clone git@github.com:anishida/lis.git
+cd lis
+./configure --prefix=$PWD/../2.1.5 --enable-omp --enable-f90
+make
+make install
+cd ..
+
+# yelmo
 cd src
 git clone git@github.com:palma-ice/yelmo.git
 python config.py config/pik_ifort
@@ -58,7 +67,10 @@ cd ..
 
 # Compile the model
 make cleanall
-make climber
+make climber-ice
+
+# Run
+./job_climber -s -o RUNDIR
 ```
 
 ## Dependencies

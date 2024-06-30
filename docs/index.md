@@ -1,6 +1,6 @@
 # CLIMBER-X 
 
-![Yelmo, Gaudarrama Mountains](img/climber-x.jpg)
+![CLIMBER-X model schematic](img/climber-x-new.png)
 
 Welcome to **CLIMBER-X**, a fast Earth system model.
 
