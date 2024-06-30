@@ -3,9 +3,9 @@
 CLIMBER-X is dependent on the following libraries:
 
 - NetCDF: [NetCDF library](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
-- FFTW: [Fastest Fourier Transform in the West](https://www.fftw.org/). FFTW is available as a static library compiled with `ifort` as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the original source code.
-- coordinates: [coordinates](https://github.com/alex-robinson/coordinates), a module to handle grid/points definition, interpolation mapping and subsetting. coordinates is available as a static library compiled with `ifort` as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the source code.
-- LIS: [Library of Iterative Solvers for Linear Systems](http://www.ssisc.org/lis/)
+- FFTW: [Fastest Fourier Transform in the West](https://www.fftw.org/). The library will have to be compiled from the original source code.
+- coordinates: [coordinates](https://github.com/alex-robinson/coordinates), a module to handle grid/points definition, interpolation mapping and subsetting. The library will have to be compiled from the original source code.
+- LIS: [Library of Iterative Solvers for Linear Systems](http://www.ssisc.org/lis/). The library will have to be compiled from the original source code.
 
 OPTIONAL:
 - Python 3.x, which is only needed for automatic configuration of the Makefile
@@ -29,38 +29,57 @@ installation instructions are available from the Unidata website:
 
 [https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
 
+## Installing FFTW
+
+1. Download and configure the FFTW source:
+[https://www.fftw.org/download.html](https://www.fftw.org/download.html)
+
+```
+wget https://www.fftw.org/fftw-3.3.10.tar.gz
+tar -xvf fftw-3.3.10.tar.gz
+rm fftw-3.3.10.tar.gz
+cd fftw-3.3.10
+./configure --prefix=$FFTWROOT --enable-openmp
+make
+make install
+```
+
+## Installing coordinates
+
+1. Download the coordinates source:
+[https://github.com/cxesmc/coordinates](https://github.com/cxesmc/coordinates).
+Configure the package, and install it in the location 
+of your choice (below defined as `$COORDROOT`):
+
+```
+git clone git@github.com:cxesmc/coordinates.git $COORDROOT
+cd $COORDROOT
+python config.py config/pik_ifort
+make clean
+make coord-static parallel=1
+```
+
 ## Installing LIS
 
 1. Download the LIS source:
 [https://www.ssisc.org/lis/](https://www.ssisc.org/lis/)
-
-2. Configure the package (where is the desired installation location),
-and install it in the location of your choice (below defined as `$LISROOT`). Also, make sure to enable the Fortran90 interface:
+Configure the package, and install it in the location 
+of your choice (below defined as `$LISROOT`). Also, make sure to 
+enable the Fortran90 and openmp interface:
 
 ```
-cd lis-2.0.18
-./configure --prefix=$LISROOT --enable-f90
+git clone git@github.com:anishida/lis.git $LISROOT
+./configure --prefix=$LISROOT --enable-omp --enable-f90
 make
 make install
-make install check
 ```
 
 Note: make sure to set the environment variables `CC` and `FC`, in order to set
 a specific compiler, for example for gcc/gfortran use the following configure command:
 
 ```
-CC=gcc FC=gfortran ./configure --prefix=$LISROOT --enable-f90
+CC=gcc FC=gfortran ./configure --prefix=$LISROOT --enable-f90 --enable-omp
 ```
-
-3. Add LIS path to the `LD_LIBRARY_PATH` in `.bash_profile`, `.bashrc` or `.bash_aliases`:
-
-```
-# lis library paths
-LD_LIBRARY_PATH=$LISROOT/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH
-```
-
-That's it. LIS should now be available to use with CLIMBER-X.
 
 ## Installing runner
 

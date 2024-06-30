@@ -4,7 +4,7 @@ Here you can find the basic information and steps needed to get **CLIMBER-X** ru
 
 ## Super-quick start
 
-A summary of commands to get started is given below. For more detailed information see subsequent sections.
+A summary of commands to get started is given below, assuming you are installing the PIK cluster using the `ifort` compiler. For more detailed information see subsequent sections.
 
 ```
 # Clone repository
@@ -26,13 +26,21 @@ wget https://www.fftw.org/fftw-3.3.10.tar.gz
 tar -xvf fftw-3.3.10.tar.gz
 rm fftw-3.3.10.tar.gz
 cd fftw-3.3.10
-./configure --prefix=$PWD
+./configure --prefix=$PWD --enable-openmp
 make
 make install
 cd ..
 
-# Compile the model 
-make clean 
+cd src/utils
+git clone git@github.com:anishida/lis.git
+cd lis
+./configure --prefix=$PWD/../2.1.5 --enable-omp --enable-f90
+make
+make install
+cd ..
+
+# Compile the climate model 
+make cleanall
 make climber-clim
 
 # Run a pre-industrial equilibrium climate-only test simulation
@@ -49,25 +57,16 @@ python config.py config/pik_ifort
 cd ..
 
 # Compile the model
-make clean
+make cleanall
 make climber
 ```
 
-
 ## Dependencies
 
+Dependencies are: NetCDF, FFTW, coordinates, LIS
+Optional dependencies are: CDO, runner
+
 See: [Dependencies](https://cxesmc.github.io/climber-docs/dependencies/) for installation tips.
-
-- NetCDF: [NetCDF library](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
-- FFTW: [Fastest Fourier Transform in the West](https://www.fftw.org/). FFTW is available as a static library compiled with `ifort` as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the original source code.
-- coordinates: [coordinates](https://github.com/alex-robinson/coordinates), a module to handle grid/points definition, interpolation mapping and subsetting. coordinates is available as a static library compiled with `ifort` as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the source code.
-- LIS: [Library of Iterative Solvers for Linear Systems](http://www.ssisc.org/lis/)
-- [optional] Python 3.x, which is only needed for automatic configuration of the Makefile
-and the use of the scripts `job_climber` and `runcx` for job preparation and submission.
-- [optional] CDO: [Climate Data Operators](https://code.mpimet.mpg.de/projects/cdo/), used for more efficient
-creation of maps to transform between different coordinate grids.
-- [optional] runner: ['runner' Python library (alex-robinson fork)](https://github.com/alex-robinson/runner)
-
 
 ## Directory structure
 
@@ -116,7 +115,9 @@ You should now be working on the branch `user-dev`.
 
 ### 2. Create the system-specific Makefile.
 
-To compile CLIMBER-X, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF`, `LIS`, `FFTW` libraries. You can use another file in the config folder as a template, e.g.,
+To compile CLIMBER-X, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF`, `FFTW`, `coordinates`, and `LIS`,  libraries. Note that it can be convenient to install `FFTW`, `coordinates` and `LIS` as subdirectories of the `src/` folder, to be sure they are compiled consistently with CLIMBER-X.
+
+You can use another configuration file in the config folder as a template, e.g.,
 
 
 ```
@@ -124,7 +125,7 @@ cd config
 cp pik_ifort myhost_mycompiler
 ```
 
-then modify the file `myhost_mycompiler` to match your paths. Back in `climber-x`, you can then generate your Makefile with the provided python configuration script:
+Then you would modify the file `myhost_mycompiler` to match your paths. Back in `climber-x`, you can then generate your Makefile with the provided python configuration script:
 
 ```
 cd ../climber-x
@@ -133,15 +134,27 @@ python config.py config/myhost_mycompiler
 
 The result should be a Makefile that is ready for use.
 
-
 ### 3. Compiling CLIMBER-X
 
-Now you are ready to compile CLIMBER-X:
+Assuming the source has been downloaded and configured, and all dependencies have also been compiled, now you are ready to compile CLIMBER-X:
 
 ```
 make clean
-make climber
+make climber-clim
 ```
+
+There are currently four different versions of CLIMBER-X that can be compiled:
+
+```
+climber-clim: minimal configuration with ocn,atm,lnd,sic
+climber-clim-bgc: clim plus with bgc
+climber-clim-ice: clim plus with ice
+climber-clim-bgc-ice: clim plus with bgc and ice
+```
+
+These can be compiled by calling the individual names, e.g. `make climber-clim` or `make climber-clim-bgc-ice`. By default, it is also possible to call `make climber` as a shorter alias for `make climber-clim-bgc-ice`. 
+
+The climate only version `climber-clim` corresponds to the version described by Willeit et al. (2022). This particular model setup does not require non-climate source code or the LIS library for compilation.
 
 That's it. The executable `climber.x` should now be available in the main directory.
 
@@ -151,20 +164,13 @@ To compile the model with debug flags enabled use:
 make climber debug=1
 ```
 
-To compile the model without openmp use:
+By default, the model is compiled with `openmp`. To compile the model without openmp use:
 
 ```
 make climber openmp=0
 ```
 
-An additional command line parameter is available to compile a climate-only setup of the model as described in Willeit et al. 2022:
-
-```
-make climber climate_only=1
-```
-
-This particular model setup does not require non-climate source code or the LIS library for compilation.
-
+This version should typically not be used. 
 
 ### 4. Running CLIMBER-X
 
