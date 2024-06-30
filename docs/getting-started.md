@@ -78,7 +78,7 @@ make climber-ice
 Dependencies are: NetCDF, FFTW, coordinates, LIS
 Optional dependencies are: CDO, runner
 
-See: [Dependencies](https://cxesmc.github.io/climber-docs/dependencies/) for installation tips.
+See: [Dependencies](dependencies.md) for installation tips.
 
 ## Directory structure
 
@@ -148,7 +148,7 @@ The result should be a Makefile that is ready for use.
 
 ### 3. Compiling CLIMBER-X
 
-Assuming the source has been downloaded and configured, and all dependencies have also been compiled, now you are ready to compile CLIMBER-X:
+Assuming the source has been downloaded and configured, and all [dependencies](dependencies.md) have also been compiled, now you are ready to compile CLIMBER-X:
 
 ```
 make clean
