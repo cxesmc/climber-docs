@@ -52,6 +52,10 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#installing-netcdf-preferably-version-40-or-higher">Installing NetCDF (preferably version 4.0 or higher)</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-fftw">Installing FFTW</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-coordinates">Installing coordinates</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#installing-lis">Installing LIS</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installing-runner">Installing runner</a>
@@ -86,9 +90,9 @@
 <p>CLIMBER-X is dependent on the following libraries:</p>
 <ul>
 <li>NetCDF: <a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">NetCDF library</a></li>
-<li>FFTW: <a href="https://www.fftw.org/">Fastest Fourier Transform in the West</a>. FFTW is available as a static library compiled with <code>ifort</code> as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the original source code.</li>
-<li>coordinates: <a href="https://github.com/alex-robinson/coordinates">coordinates</a>, a module to handle grid/points definition, interpolation mapping and subsetting. coordinates is available as a static library compiled with <code>ifort</code> as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the source code.</li>
-<li>LIS: <a href="http://www.ssisc.org/lis/">Library of Iterative Solvers for Linear Systems</a></li>
+<li>FFTW: <a href="https://www.fftw.org/">Fastest Fourier Transform in the West</a>. The library will have to be compiled from the original source code.</li>
+<li>coordinates: <a href="https://github.com/alex-robinson/coordinates">coordinates</a>, a module to handle grid/points definition, interpolation mapping and subsetting. The library will have to be compiled from the original source code.</li>
+<li>LIS: <a href="http://www.ssisc.org/lis/">Library of Iterative Solvers for Linear Systems</a>. The library will have to be compiled from the original source code.</li>
 </ul>
 <p>OPTIONAL:
 - Python 3.x, which is only needed for automatic configuration of the Makefile
@@ -105,35 +109,49 @@ Installing the NetCDF viewing program <code>ncview</code> is also recommended.</
 <code>netcdf-c</code> and subsequently <code>netcdf-fortran</code> libraries. The source code and
 installation instructions are available from the Unidata website:</p>
 <p><a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html</a></p>
-<h2 id="installing-lis">Installing LIS</h2>
+<h2 id="installing-fftw">Installing FFTW</h2>
 <ol>
-<li>
-<p>Download the LIS source:
-<a href="https://www.ssisc.org/lis/">https://www.ssisc.org/lis/</a></p>
-</li>
-<li>
-<p>Configure the package (where is the desired installation location),
-and install it in the location of your choice (below defined as <code>$LISROOT</code>). Also, make sure to enable the Fortran90 interface:</p>
-</li>
+<li>Download and configure the FFTW source:
+<a href="https://www.fftw.org/download.html">https://www.fftw.org/download.html</a></li>
 </ol>
-<pre><code>cd lis-2.0.18
-./configure --prefix=$LISROOT --enable-f90
+<pre><code>wget https://www.fftw.org/fftw-3.3.10.tar.gz
+tar -xvf fftw-3.3.10.tar.gz
+rm fftw-3.3.10.tar.gz
+cd fftw-3.3.10
+./configure --prefix=$FFTWROOT --enable-openmp
 make
 make install
-make install check
+</code></pre>
+<h2 id="installing-coordinates">Installing coordinates</h2>
+<ol>
+<li>Download the coordinates source:
+<a href="https://github.com/cxesmc/coordinates">https://github.com/cxesmc/coordinates</a>.
+Configure the package, and install it in the location 
+of your choice (below defined as <code>$COORDROOT</code>):</li>
+</ol>
+<pre><code>git clone git@github.com:cxesmc/coordinates.git $COORDROOT
+cd $COORDROOT
+python config.py config/pik_ifort
+make clean
+make coord-static parallel=1
+</code></pre>
+<h2 id="installing-lis">Installing LIS</h2>
+<ol>
+<li>Download the LIS source:
+<a href="https://www.ssisc.org/lis/">https://www.ssisc.org/lis/</a>
+Configure the package, and install it in the location 
+of your choice (below defined as <code>$LISROOT</code>). Also, make sure to 
+enable the Fortran90 and openmp interface:</li>
+</ol>
+<pre><code>git clone git@github.com:anishida/lis.git $LISROOT
+./configure --prefix=$LISROOT --enable-omp --enable-f90
+make
+make install
 </code></pre>
 <p>Note: make sure to set the environment variables <code>CC</code> and <code>FC</code>, in order to set
 a specific compiler, for example for gcc/gfortran use the following configure command:</p>
-<pre><code>CC=gcc FC=gfortran ./configure --prefix=$LISROOT --enable-f90
+<pre><code>CC=gcc FC=gfortran ./configure --prefix=$LISROOT --enable-f90 --enable-omp
 </code></pre>
-<ol>
-<li>Add LIS path to the <code>LD_LIBRARY_PATH</code> in <code>.bash_profile</code>, <code>.bashrc</code> or <code>.bash_aliases</code>:</li>
-</ol>
-<pre><code># lis library paths
-LD_LIBRARY_PATH=$LISROOT/lib:$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH
-</code></pre>
-<p>That's it. LIS should now be available to use with CLIMBER-X.</p>
 <h2 id="installing-runner">Installing runner</h2>
 <ol>
 <li>Install <code>runner</code> to your system's Python installation via <code>pip</code>, along with dependency <code>tabulate</code>.</li>
