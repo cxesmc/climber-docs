@@ -62,6 +62,8 @@ cd ..
 # yelmo
 cd src
 git clone git@github.com:palma-ice/yelmo.git
+cd yelmo
+git checkout climber-x  # Get climber-x branch
 python config.py config/pik_ifort
 cd ..
 
