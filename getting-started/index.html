@@ -110,20 +110,18 @@
 <p>Here you can find the basic information and steps needed to get <strong>CLIMBER-X</strong> running.</p>
 <h2 id="super-quick-start">Super-quick start</h2>
 <p>A summary of commands to get started is given below, assuming you are installing the PIK cluster using the <code>ifort</code> compiler. For more detailed information see subsequent sections.</p>
-<pre><code># Clone repository
+<pre><code>### Download the climber code ###
+
+# Clone repository
 git clone git@github.com:cxesmc/climber-x.git
 
 # Enter directory and run configuration script
 cd climber-x
 python config.py config/pik_ifort 
 
-# Download and configure additional libraries
-cd src/utils/
-git clone git@github.com:cxesmc/coordinates.git
-cd coordinates
-python config.py config/pik_ifort 
-cd ../../..  # Return to climber-x parent directory
+### Download and configure additional libraries ###
 
+# fftw
 cd src/utils/
 wget https://www.fftw.org/fftw-3.3.10.tar.gz
 tar -xvf fftw-3.3.10.tar.gz
@@ -134,13 +132,14 @@ make
 make install
 cd ..
 
-cd src/utils
-git clone git@github.com:anishida/lis.git
-cd lis
-./configure --prefix=$PWD/../2.1.5 --enable-omp --enable-f90
-make
-make install
-cd ..
+# coordinates
+cd src/utils/
+git clone git@github.com:cxesmc/coordinates.git
+cd coordinates
+python config.py config/pik_ifort 
+cd ../../..  # Return to climber-x parent directory
+
+### Compile and run ###
 
 # Compile the climate model 
 make cleanall
@@ -149,16 +148,29 @@ make climber-clim
 # Run a pre-industrial equilibrium climate-only test simulation
 ./job_climber -s -o RUNDIR
 </code></pre>
-<p>Note, if you would also like to run with an interactive ice sheet, then the <strong>Yelmo</strong> code must
-also be downloaded and configured before compiling:</p>
-<pre><code>cd src
+<p>Note, if you would also like to run with an interactive ice sheet, then the <code>lis</code>
+library and the <strong>Yelmo</strong> ice-sheet code must also be downloaded and configured before compiling, as well as the :</p>
+<pre><code># lis
+cd src/utils
+git clone git@github.com:anishida/lis.git
+cd lis
+./configure --prefix=$PWD/../2.1.5 --enable-omp --enable-f90
+make
+make install
+cd ..
+
+# yelmo
+cd src
 git clone git@github.com:palma-ice/yelmo.git
 python config.py config/pik_ifort
 cd ..
 
 # Compile the model
 make cleanall
-make climber
+make climber-ice
+
+# Run
+./job_climber -s -o RUNDIR
 </code></pre>
 <h2 id="dependencies">Dependencies</h2>
 <p>Dependencies are: NetCDF, FFTW, coordinates, LIS
