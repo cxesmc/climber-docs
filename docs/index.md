@@ -12,13 +12,13 @@ allows for an interactive determination of the atmospheric CO2 and methane conce
 CLIMBER-X also includes two different models for the continental ice sheets and a model for the response of 
 the solid Earth to changes in surface load. Specifically, the model includes the following components:
 
-    - SESAM: semi-empirical statistical-dynamical atmosphere model
-    - GOLDSTEIN: 3-D frictional-geostrophic ocean model
-    - HAMOCC: ocean and sediments carbon cycle model
-    - SISIM: sea ice model
-    - PALADYN: land model
-    - Yelmo or SICOPOLIS: ice sheet models
-    - VILMA: viscoelastic lithosphere and mantle model
+- SESAM: semi-empirical statistical-dynamical atmosphere model
+- GOLDSTEIN: 3-D frictional-geostrophic ocean model
+- HAMOCC: ocean and sediments carbon cycle model
+- SISIM: sea ice model
+- PALADYN: land model
+- Yelmo or SICOPOLIS: ice sheet models
+- VILMA: viscoelastic lithosphere and mantle model
 
 The general **CLIMBER-X** design and the details of the climate model component are described in the following article:
 > Willeit, M., Ganopolski, A., Robinson, A., and Edwards, N. R.: The Earth system model CLIMBER-X v1.0 – Part 1: Climate model description and validation, Geosci. Model Dev., 15, 5905–5948, [https://doi.org/10.5194/gmd-15-5905-2022](https://doi.org/10.5194/gmd-15-5905-2022), 2022.
