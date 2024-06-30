@@ -87,7 +87,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="dependencies">Dependencies</h1>
-<p>CLIMBER-X is dependent on the following libraries:</p>
+<p><strong>CLIMBER-X</strong> is dependent on the following libraries:</p>
 <ul>
 <li>NetCDF: <a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">NetCDF library</a></li>
 <li>FFTW: <a href="https://www.fftw.org/">Fastest Fourier Transform in the West</a>. The library will have to be compiled from the original source code.</li>
@@ -114,7 +114,7 @@ installation instructions are available from the Unidata website:</p>
 <li>Download and configure the FFTW source:
 <a href="https://www.fftw.org/download.html">https://www.fftw.org/download.html</a></li>
 </ol>
-<pre><code>wget https://www.fftw.org/fftw-3.3.10.tar.gz
+<pre><code class="language-bash">wget https://www.fftw.org/fftw-3.3.10.tar.gz
 tar -xvf fftw-3.3.10.tar.gz
 rm fftw-3.3.10.tar.gz
 cd fftw-3.3.10
@@ -129,7 +129,7 @@ make install
 Configure the package, and install it in the location 
 of your choice (below defined as <code>$COORDROOT</code>):</li>
 </ol>
-<pre><code>git clone git@github.com:cxesmc/coordinates.git $COORDROOT
+<pre><code class="language-bash">git clone git@github.com:cxesmc/coordinates.git $COORDROOT
 cd $COORDROOT
 python config.py config/pik_ifort
 make clean
@@ -143,20 +143,20 @@ Configure the package, and install it in the location
 of your choice (below defined as <code>$LISROOT</code>). Also, make sure to 
 enable the Fortran90 and openmp interface:</li>
 </ol>
-<pre><code>git clone git@github.com:anishida/lis.git $LISROOT
+<pre><code class="language-bash">git clone git@github.com:anishida/lis.git $LISROOT
 ./configure --prefix=$LISROOT --enable-omp --enable-f90
 make
 make install
 </code></pre>
 <p>Note: make sure to set the environment variables <code>CC</code> and <code>FC</code>, in order to set
 a specific compiler, for example for gcc/gfortran use the following configure command:</p>
-<pre><code>CC=gcc FC=gfortran ./configure --prefix=$LISROOT --enable-f90 --enable-omp
+<pre><code class="language-bash">CC=gcc FC=gfortran ./configure --prefix=$LISROOT --enable-f90 --enable-omp
 </code></pre>
 <h2 id="installing-runner">Installing runner</h2>
 <ol>
 <li>Install <code>runner</code> to your system's Python installation via <code>pip</code>, along with dependency <code>tabulate</code>.</li>
 </ol>
-<pre><code>pip install https://github.com/alex-robinson/runner/archive/refs/heads/master.zip
+<pre><code class="language-bash">pip install https://github.com/alex-robinson/runner/archive/refs/heads/master.zip
 pip install tabulate
 </code></pre>
 <p>That's it! Now check that system command <code>job</code> is available by running <code>job -h</code>. </p>
