@@ -51,10 +51,10 @@ library and the **Yelmo** ice-sheet code must also be downloaded and configured 
 
 ```bash
 # lis
-cd src/utils
-git clone git@github.com:anishida/lis.git
-cd lis
-./configure --prefix=$PWD/../2.1.5 --enable-omp --enable-f90
+cd src/utils/lis
+git clone git@github.com:anishida/lis.git lis-2.1.5
+cd lis-2.1.5
+CC=icc FC=ifort ./configure --prefix=$PWD/../2.1.5 --enable-omp --enable-f90
 make
 make install
 cd ..
