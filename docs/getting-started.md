@@ -23,8 +23,9 @@ cd src/utils/
 wget https://www.fftw.org/fftw-3.3.10.tar.gz
 tar -xvf fftw-3.3.10.tar.gz
 rm fftw-3.3.10.tar.gz
-cd fftw-3.3.10
-./configure --prefix=$PWD --enable-openmp
+mv fftw-3.3.10 fftw
+cd fftw
+./configure --prefix=$PWD --enable-openmp CC=icx F77=ifx 'FFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback' 'CFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback'
 make
 make install
 cd ..
@@ -33,7 +34,7 @@ cd ..
 cd src/utils/
 git clone git@github.com:cxesmc/coordinates.git
 cd coordinates
-python config.py config/pik_ifort 
+python config.py config/pik_hpc2024_ifx 
 cd ../../..  # Return to climber-x parent directory
 
 ### Compile and run ###
@@ -47,16 +48,18 @@ make climber-clim
 ```
 
 Note, if you would also like to run with an interactive ice sheet, then the `lis`
-library and the **Yelmo** ice-sheet code must also be downloaded and configured before compiling, as well as the :
+library and the **Yelmo** ice-sheet code must also be downloaded and configured before compiling :
 
 ```bash
 # lis
 cd src/utils
-git clone git@github.com:anishida/lis.git
-cd lis
-./configure --prefix=$PWD/../2.1.5 --enable-omp --enable-f90
+git clone git@github.com:anishida/lis.git lis-2.1.5
+cd lis-2.1.5
+(If on PIK HPC2024, module load intel/oneAPI/2023.2.0, error when compiling with most recent intel OneAPI 2024.0)
+./configure --prefix=$PWD/../lis --enable-omp --enable-f90 CC=icc FC=ifort 'FFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback' 'CFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback'
 make
 make install
+(If on PIK HPC2024, module load intel/oneAPI/2024.0.0, to revert previous change)
 cd ..
 
 # yelmo
@@ -64,15 +67,15 @@ cd src
 git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
 git checkout climber-x  # Get climber-x branch
-python config.py config/pik_ifort
-cd ..
+python config.py config/pik_hpc2024_ifx
+cd ../..
 
 # Compile the model
 make cleanall
-make climber-ice
+make climber-clim-ice
 
 # Run
-./job_climber -s -o RUNDIR
+./job_climber -s -o RUNDIR 
 ```
 
 ## Dependencies
