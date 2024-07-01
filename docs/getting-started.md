@@ -4,40 +4,83 @@ Here you can find the basic information and steps needed to get **CLIMBER-X** ru
 
 ## Super-quick start
 
-A summary of commands to get started is given below. For more detailed information see subsequent sections.
+A summary of commands to get started is given below, assuming you are installing the PIK cluster using the `ifort` compiler. For more detailed information see subsequent sections.
 
-```
+```bash
+### Download the climber code ###
+
 # Clone repository
-git clone https://github.com/cxesmc/climber-x.git
-git clone git@github.com:cxesmc/climber-x.git # via ssh
+git clone git@github.com:cxesmc/climber-x.git
 
 # Enter directory and run configuration script
 cd climber-x
 python config.py config/pik_ifort 
 
-# Compile the model 
-make clean 
-make climber
+### Download and configure additional libraries ###
+
+# fftw
+cd src/utils/
+wget https://www.fftw.org/fftw-3.3.10.tar.gz
+tar -xvf fftw-3.3.10.tar.gz
+rm fftw-3.3.10.tar.gz
+cd fftw-3.3.10
+./configure --prefix=$PWD --enable-openmp
+make
+make install
+cd ..
+
+# coordinates
+cd src/utils/
+git clone git@github.com:cxesmc/coordinates.git
+cd coordinates
+python config.py config/pik_ifort 
+cd ../../..  # Return to climber-x parent directory
+
+### Compile and run ###
+
+# Compile the climate model 
+make cleanall
+make climber-clim
 
 # Run a pre-industrial equilibrium climate-only test simulation
 ./job_climber -s -o RUNDIR
 ```
 
+Note, if you would also like to run with an interactive ice sheet, then the `lis`
+library and the **Yelmo** ice-sheet code must also be downloaded and configured before compiling, as well as the :
+
+```bash
+# lis
+cd src/utils
+git clone git@github.com:anishida/lis.git
+cd lis
+./configure --prefix=$PWD/../2.1.5 --enable-omp --enable-f90
+make
+make install
+cd ..
+
+# yelmo
+cd src
+git clone git@github.com:palma-ice/yelmo.git
+cd yelmo
+git checkout climber-x  # Get climber-x branch
+python config.py config/pik_ifort
+cd ..
+
+# Compile the model
+make cleanall
+make climber-ice
+
+# Run
+./job_climber -s -o RUNDIR
+```
 
 ## Dependencies
 
-See: [Dependencies](https://cxesmc.github.io/climber-docs/dependencies/) for installation tips.
+Dependencies are: NetCDF, FFTW, coordinates, LIS
+Optional dependencies are: CDO, runner
 
-- NetCDF: [NetCDF library](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
-- FFTW: [Fastest Fourier Transform in the West](https://www.fftw.org/). FFTW is available as a static library compiled with `ifort` as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the original source code.
-- coordinates: [coordinates](https://github.com/alex-robinson/coordinates), a module to handle grid/points definition, interpolation mapping and subsetting. coordinates is available as a static library compiled with `ifort` as part of CLIMBER-X. If another compiler is used, the library will have to be generated from the source code.
-- LIS: [Library of Iterative Solvers for Linear Systems](http://www.ssisc.org/lis/)
-- [optional] Python 3.x, which is only needed for automatic configuration of the Makefile
-and the use of the scripts `job_climber` and `runcx` for job preparation and submission.
-- [optional] CDO: [Climate Data Operators](https://code.mpimet.mpg.de/projects/cdo/), used for more efficient
-creation of maps to transform between different coordinate grids.
-- [optional] runner: ['runner' Python library (alex-robinson fork)](https://github.com/alex-robinson/runner)
-
+See: [Dependencies](dependencies.md) for installation tips.
 
 ## Directory structure
 
@@ -61,13 +104,13 @@ creation of maps to transform between different coordinate grids.
 ## Usage
 
 Follow the steps below to (1) obtain the code, (2) configure the Makefile for your system,
-(3) compile the Yelmo static library and an executable program and (4) run a test simulation.
+(3) compile an executable program and (4) run a test simulation.
 
 ### 1. Get the code.
 
 Clone the repository from [https://github.com/cxesmc/climber-x](https://github.com/cxesmc/climber-x):
 
-```
+```bash
 # Clone repository
 git clone https://github.com/cxesmc/climber-x.git
 git clone git@github.com:cxesmc/climber-x.git # via ssh
@@ -77,7 +120,7 @@ cd climber-x
 
 If you plan to make changes to the code, it is wise to check out a new branch:
 
-```
+```bash
 git checkout -b user-dev
 ```
 
@@ -86,59 +129,64 @@ You should now be working on the branch `user-dev`.
 
 ### 2. Create the system-specific Makefile.
 
-To compile CLIMBER-X, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF`, `LIS`, `FFTW` libraries. You can use another file in the config folder as a template, e.g.,
+To compile **CLIMBER-X**, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF`, `FFTW`, `coordinates`, and `LIS`,  libraries. Note that it can be convenient to install `FFTW`, `coordinates` and `LIS` as subdirectories of the `src/` folder, to be sure they are compiled consistently with **CLIMBER-X**.
+
+You can use another configuration file in the config folder as a template, e.g.,
 
 
-```
+```bash
 cd config
 cp pik_ifort myhost_mycompiler
 ```
 
-then modify the file `myhost_mycompiler` to match your paths. Back in `climber-x`, you can then generate your Makefile with the provided python configuration script:
+Then you would modify the file `myhost_mycompiler` to match your paths. Back in `climber-x`, you can then generate your Makefile with the provided python configuration script:
 
-```
+```bash
 cd ../climber-x
 python config.py config/myhost_mycompiler
 ```
 
 The result should be a Makefile that is ready for use.
 
+### 3. Compiling **CLIMBER-X**
 
-### 3. Compiling CLIMBER-X
+Assuming the source has been downloaded and configured, and all [dependencies](dependencies.md) have also been compiled, now you are ready to compile **CLIMBER-X**:
 
-Now you are ready to compile CLIMBER-X:
-
-```
+```bash
 make clean
-make climber
+make climber-clim
 ```
+
+There are currently four different versions of **CLIMBER-X** that can be compiled:
+
+- `climber-clim`: minimal configuration with ocn,atm,lnd,sic
+- `climber-clim-bgc`: clim plus with bgc
+- `climber-clim-ice`: clim plus with ice
+- `climber-clim-bgc-ice`: clim plus with bgc and ice
+
+These can be compiled by calling the individual names, e.g. `make climber-clim` or `make climber-clim-bgc-ice`. By default, it is also possible to call `make climber` as a shorter alias for `make climber-clim-bgc-ice`. 
+
+The climate only version `climber-clim` corresponds to the version described by Willeit et al. (2022). This particular model setup does not require non-climate source code or the LIS library for compilation.
 
 That's it. The executable `climber.x` should now be available in the main directory.
 
 To compile the model with debug flags enabled use:
 
-```
+```bash
 make climber debug=1
 ```
 
-To compile the model without openmp use:
+By default, the model is compiled with `openmp`. To compile the model without openmp use:
 
-```
+```bash
 make climber openmp=0
 ```
 
-An additional command line parameter is available to compile a climate-only setup of the model as described in Willeit et al. 2022:
-
-```
-make climber climate_only=1
-```
-
-This particular model setup does not require non-climate source code or the LIS library for compilation.
-
+This version should typically not be used. 
 
 ### 4. Running CLIMBER-X
 
-After CLIMBER-X has been compiled, several steps must be completed to run the executable `climber.x`:
+After **CLIMBER-X** has been compiled, several steps must be completed to run the executable `climber.x`:
 
 1. Create a run directory (`RUNDIR`).
 2. Copy namelist parameter files to `RUNDIR`.
@@ -149,14 +197,14 @@ After CLIMBER-X has been compiled, several steps must be completed to run the ex
 
 When these steps are completed, `climber.x` should be run directly from `RUNDIR` using the job submission script. E.g., using SLURM:
 
-```
+```bash
 cd RUNDIR
 sbatch job.submit
 ```
 
-If not using the cluster, CLIMBER-X can also be run manually by entering the `RUNDIR` and specifying the current directory as an argument:
+If not using the cluster, **CLIMBER-X** can also be run manually by entering the `RUNDIR` and specifying the current directory as an argument:
 
-```
+```bash
 cd RUNDIR
 ./climber.x ./ > out.out
 ```
@@ -169,16 +217,13 @@ Currently two job-script methods are available (`job_climber` and `runcx`), whic
 
 #### Using `job_climber`
 
-./job_climber
-
 Aside from possible options, `job_climber` is always called with the required argument `-o RUNDIR` that specifies the output directory. So, to run a `climber.x` simulation as a job on the cluster in `RUNDIR`, run the command:
 
-```
+```bash
 ./job_climber -s -o RUNDIR
 ```
 
 where `RUNDIR` is the desired run directory. The option `-s` specifies that the job should be run on the cluster. Alternatively, use `-r` instead of `-s` to simply run it as a background process. Other options include `-c` for the queue name (short, priority, etc), `-w` for the maximum wall clock time to allow in hours, `-j` to specify whether a serial or parallel job is desired (serial or parallel), `-n` to specify the number of processors, and others.
-
 
 ### Using `runcx`
 
@@ -186,7 +231,7 @@ Unlike `job_climber`, the newer script `runcx` was designed only to handle runni
 
 See `./runcx -h` for details on possible arguments. Aside from possible options, `runcx` is always called with the required argument `-o RUNDIR` that specifies the output directory. So, to run a `climber.x` simulation as a job on the cluster in `RUNDIR`, run the command:
 
-```
+```bash
 ./runcx -s -o RUNDIR
 ```
 
@@ -196,7 +241,7 @@ Note that various default options can be specified in the script's json-format c
 
 Run as a command as above, this script will run a simulation using the parameters as they are specified in the namelist parameter files in the `nml` directory. In addition, it is possible to modify the parameters of one simulation at the command line using the argument `-p KEY=VAL KEY=VAL ...`. So, for example, the following command:
 
-```
+```bash
 ./runcx -s -o RUNDIR -p ctl.n_accel=10
 ```
 
@@ -212,7 +257,7 @@ To perform a simulation an ensemble of simulations with modified parameter value
 
 using `jobrun`, the following command would produce the same simulation as `./runcx -s RUNDIR`:
 
-```
+```bash
 jobrun ./runcx -s -- -o OUTDIR
 ```
 
@@ -220,7 +265,7 @@ The difference here is that all options that follow the `--` are `jobrun` option
 
 If we want to change a parameter, this can be done as with the `runcx` script via the `-p` option:
 
-```
+```bash
 jobrun ./runcx -s -- -o OUTDIR -p ctl.n_accel=10
 ```
 
@@ -228,7 +273,7 @@ This will produce one simulation with the parameter `control.n_accel=10`. Since 
 
 The power of `jobrun` comes when we want to run an ensemble:
 
-```
+```bash
 jobrun ./runcx -s -- -o OUTDIR -p ctl.n_accel=1,5,10
 ```
 
@@ -236,7 +281,7 @@ This ensemble of simulations will appear in `OUTDIR/0`, `OUTDIR/1` and `OUTDIR/2
 
 A more informative output directory can be made using the option `-a` along with `-o`:
 
-```
+```bash
 jobrun ./runcx -s -- -a -o OUTDIR -p ctl.n_accel=1,5,10
 ```
 
@@ -258,13 +303,13 @@ General information about the ensemble can be found in the main ensemble directo
 
 It is of course possible to define multiple parameter permutations:
 
-```
+```bash
 jobrun ./runcx -s -- -o OUTDIR -p ctl.n_accel=1,5,10 smb.alb_ice=0.3,0.4
 ```
 
 To generate a more complex ensemble, using e.g. Latin-Hypercube sampling, then a two step approach is often better. First, use the `runner` command `job sample` to build the ensemble, then use `jobrun` to run it:
 
-```
+```bash
 # Generate ensemble parameters
 job sample -o lhs.txt --seed 4 -N 100 atm.c_trop_2=0.8,1.2 smb.alb_ice=0.3,0.4
 
@@ -279,7 +324,7 @@ This two-step method facilitates checking that the ensemble was generated proper
 
 A simple climate-only test simulation for pre-industrial conditions can be run as:
 
-```
+```bash
 ./job_climber -s -f -o OUTDIR
 ```
 
