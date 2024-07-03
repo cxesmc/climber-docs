@@ -175,14 +175,16 @@ Once you have done so, send us (whom?) an email and you will be granted permissi
 the <code>bgc</code> repository.
 Note that you will need a GitHub account for that.</p>
 <pre><code class="language-bash"># Compile the climate and carbon cycle model 
+make clean
 make climber-clim-bgc
 
-# Run
-./job_climber -s -o RUNDIR 
+# Run a pre-industrial equilibrium simulation with ocean biogeochemistry
+./job_climber -s -f -o RUNDIR -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T&quot;
 </code></pre>
 <h3 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h3>
 <p>If you would also like to run with an interactive ice sheet, then the <code>lis</code>
-library and the <strong>Yelmo</strong> ice-sheet code must also be downloaded and configured before compiling:</p>
+library must be installed, the <strong>Yelmo</strong> ice-sheet code must be downloaded and configured 
+and the solid Earth model VILMA libraries must be downloaded before compiling:</p>
 <pre><code class="language-bash"># lis
 cd src/utils
 git clone git@github.com:anishida/lis.git lis-2.1.5
@@ -202,15 +204,27 @@ git checkout climber-x  # Get climber-x branch
 python config.py config/pik_hpc2024_ifx
 cd ../..
 
+# vilma
+cd src/
+git clone git@github.com:cxesmc/vilma.git  # private repository, premission needed
+cd ..
+
 # Compile the climate and ice sheet model
-make cleanall
+make clean
 make climber-clim-ice
 
-# Run
-./job_climber -s -o RUNDIR 
+# Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
+./job_climber -s -f -o RUNDIR -c short -j parallel -n 16 \&amp;control=&quot;flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM&quot;
 </code></pre>
 <h3 id="fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</h3>
-<p>If you have followed all steps above you will also </p>
+<p>If you have followed all steps above you will also be ready to run fully coupled simulations:</p>
+<pre><code class="language-bash"># Compile the fully coupled model
+make clean
+make climber-clim-bgc-ice  # or equivalently make climber
+
+# Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
+./job_climber -s -f -o RUNDIR -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM&quot;
+</code></pre>
               
             </div>
           </div><footer>
