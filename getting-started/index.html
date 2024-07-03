@@ -154,7 +154,7 @@ make climber-clim
 # Run a pre-industrial equilibrium climate-only test simulation
 ./job_climber -s -o RUNDIR
 </code></pre>
-<p>If you would also like to run CLIMBER-X with an interactive carbon cycle, then the HAMOCC 
+<p>If you would also like to run CLIMBER-X with an interactive carbon cycle, then the <strong>HAMOCC</strong>
 ocean biogeochemistry (<code>bgc</code>) code must also be downloaded:</p>
 <pre><code class="language-bash"># bgc
 cd src/
@@ -178,7 +178,7 @@ make climber-clim-bgc
 </code></pre>
 <p>If you would also like to run with an interactive ice sheet, then the <code>lis</code>
 library must be installed, the <strong>Yelmo</strong> ice-sheet code must be downloaded and configured 
-and the solid Earth model VILMA libraries must be downloaded before compiling:</p>
+and the solid Earth model <strong>VILMA</strong> libraries must be downloaded before compiling:</p>
 <pre><code class="language-bash"># lis
 cd src/utils
 git clone git@github.com:anishida/lis.git lis-2.1.5
@@ -269,10 +269,10 @@ make climber-clim
 </code></pre>
 <p>There are currently four different flavors of <strong>CLIMBER-X</strong> that can be compiled:</p>
 <ul>
-<li><code>climber-clim</code>: minimal configuration with ocn,atm,lnd,sic</li>
-<li><code>climber-clim-bgc</code>: clim plus with bgc</li>
-<li><code>climber-clim-ice</code>: clim plus with ice</li>
-<li><code>climber-clim-bgc-ice</code>: clim plus with bgc and ice</li>
+<li><code>climber-clim</code>: minimal climate configuration with atmosphere, ocean, sea ice and land</li>
+<li><code>climber-clim-bgc</code>: clim plus with ocean biogeochemistry</li>
+<li><code>climber-clim-ice</code>: clim plus with ice sheets</li>
+<li><code>climber-clim-bgc-ice</code>: clim plus with ocean biogeochemistry and ice sheets</li>
 </ul>
 <p>These can be compiled by calling the individual names, e.g. <code>make climber-clim</code> or <code>make climber-clim-bgc-ice</code>. By default, it is also possible to call <code>make climber</code> as a shorter alias for <code>make climber-clim-bgc-ice</code>. </p>
 <p>The climate only version <code>climber-clim</code> corresponds to the version described by Willeit et al. (2022). This particular model setup does not require non-climate source code or the LIS library for compilation.</p>
