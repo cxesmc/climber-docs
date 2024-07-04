@@ -2,19 +2,21 @@
 
 Here you can find the basic information and steps needed to get **CLIMBER-X** running.
 
+If you want to run the model at PIK, see: [Running-at-PIK](running-at-pik.md) for detailed instructions.
+
 ## Super-quick start
 
 A summary of commands to get started is given below, assuming you are installing the PIK cluster using the `ifort` compiler. For more detailed information see subsequent sections.
 
 ```bash
-### Download the climber code ###
+### Download the CLIMBER-X code ###
 
 # Clone repository
 git clone git@github.com:cxesmc/climber-x.git
 
 # Enter directory and run configuration script
 cd climber-x
-python config.py config/pik_ifort 
+python config.py config/pik_ifort
 
 ### Download and configure additional libraries ###
 
@@ -25,7 +27,7 @@ tar -xvf fftw-3.3.10.tar.gz
 rm fftw-3.3.10.tar.gz
 mv fftw-3.3.10 fftw
 cd fftw
-./configure --prefix=$PWD --enable-openmp CC=icx F77=ifx 'FFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback' 'CFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback'
+./configure --prefix=$PWD --enable-openmp CC=icc F77=ifort
 make
 make install
 cd ..
@@ -34,7 +36,7 @@ cd ..
 cd src/utils/
 git clone git@github.com:cxesmc/coordinates.git
 cd coordinates
-python config.py config/pik_hpc2024_ifx 
+python config.py config/pik_ifort 
 cd ../../..  # Return to climber-x parent directory
 
 ### Compile and run ###
@@ -47,19 +49,45 @@ make climber-clim
 ./job_climber -s -o RUNDIR
 ```
 
-Note, if you would also like to run with an interactive ice sheet, then the `lis`
-library and the **Yelmo** ice-sheet code must also be downloaded and configured before compiling :
+If you would also like to run CLIMBER-X with an interactive carbon cycle, then the **HAMOCC**
+ocean biogeochemistry (`bgc`) code must also be downloaded:
+
+```bash
+# bgc
+cd src/
+git clone git@github.com:cxesmc/bgc.git
+cd ..
+```
+Since the HAMOCC model source code is not open source, the `bgc` repository is private at the moment and 
+you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for 
+Meteorology software licence agreement as part of the MPI-ESM ([https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf](https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf)).
+A pre-requisite to access the `bgc` repository is therefore that you agree to the MPI-ESM license
+by following the steps outlined here: [https://code.mpimet.mpg.de/projects/mpi-esm-license](https://code.mpimet.mpg.de/projects/mpi-esm-license).
+Once you have done so, send us (whom?) an email and you will be granted permission to access 
+the `bgc` repository.
+Note that you will need a GitHub account for that.
+
+```bash
+# Compile the climate and carbon cycle model 
+make clean
+make climber-clim-bgc
+
+# Run a pre-industrial equilibrium simulation with ocean biogeochemistry
+./job_climber -s -f -o RUNDIR -c short -j parallel -n 16 \&control="flag_bgc=T"
+```
+
+If you would also like to run with an interactive ice sheet, then the `lis`
+library must be installed, the **Yelmo** ice-sheet code must be downloaded and configured 
+and the solid Earth model **VILMA** libraries must be downloaded before compiling:
 
 ```bash
 # lis
 cd src/utils
 git clone git@github.com:anishida/lis.git lis-2.1.5
 cd lis-2.1.5
-(If on PIK HPC2024, module load intel/oneAPI/2023.2.0, error when compiling with most recent intel OneAPI 2024.0)
-./configure --prefix=$PWD/../lis --enable-omp --enable-f90 CC=icc FC=ifort 'FFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback' 'CFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback'
+./configure --prefix=$PWD/../lis --enable-omp --enable-f90 CC=icc FC=ifort 
 make
 make install
-(If on PIK HPC2024, module load intel/oneAPI/2024.0.0, to revert previous change)
 cd ..
 
 # yelmo
@@ -67,16 +95,33 @@ cd src
 git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
 git checkout climber-x  # Get climber-x branch
-python config.py config/pik_hpc2024_ifx
+python config.py config/pik_ifort
 cd ../..
 
-# Compile the model
-make cleanall
+# vilma
+cd src/
+git clone git@github.com:cxesmc/vilma.git  # private repository, premission needed
+cd ..
+
+# Compile the climate and ice sheet model
+make clean
 make climber-clim-ice
 
-# Run
-./job_climber -s -o RUNDIR 
+# Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
+./job_climber -s -f -o RUNDIR -c short -j parallel -n 16 \&control="flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
 ```
+
+If you have followed all steps above you will also be ready to run fully coupled simulations:
+
+```bash
+# Compile the fully coupled model
+make clean
+make climber-clim-bgc-ice  # or equivalently make climber
+
+# Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
+./job_climber -s -f -o RUNDIR -c short -j parallel -n 16 \&control="flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
+```
+
 
 ## Dependencies
 
@@ -160,12 +205,12 @@ make clean
 make climber-clim
 ```
 
-There are currently four different versions of **CLIMBER-X** that can be compiled:
+There are currently four different flavors of **CLIMBER-X** that can be compiled:
 
-- `climber-clim`: minimal configuration with ocn,atm,lnd,sic
-- `climber-clim-bgc`: clim plus with bgc
-- `climber-clim-ice`: clim plus with ice
-- `climber-clim-bgc-ice`: clim plus with bgc and ice
+- `climber-clim`: minimal climate configuration with atmosphere, ocean, sea ice and land
+- `climber-clim-bgc`: clim plus with ocean biogeochemistry
+- `climber-clim-ice`: clim plus with ice sheets
+- `climber-clim-bgc-ice`: clim plus with ocean biogeochemistry and ice sheets
 
 These can be compiled by calling the individual names, e.g. `make climber-clim` or `make climber-clim-bgc-ice`. By default, it is also possible to call `make climber` as a shorter alias for `make climber-clim-bgc-ice`. 
 

@@ -2,6 +2,7 @@ site_name: CLIMBER-X-docs
 nav:
     - Home: index.md
     - Getting started: getting-started.md
+    - Running at PIK: running-at-pik.md
     - Dependencies: dependencies.md
 #theme: mkdocs
 theme:
