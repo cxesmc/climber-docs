@@ -126,7 +126,7 @@ git clone git@github.com:cxesmc/climber-x.git
 
 # Enter directory and run configuration script
 cd climber-x
-python config.py config/pik_hpc2024_ifx
+python3 config.py config/pik_hpc2024_ifx
 
 ### Download and configure additional libraries ###
 
@@ -140,13 +140,13 @@ cd fftw
 ./configure --prefix=$PWD --enable-openmp CC=icx F77=ifx 'FFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback' 'CFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback'
 make
 make install
-cd ..
+cd ../../..  # Return to climber-x parent directory
 
 # coordinates
 cd src/utils/
 git clone git@github.com:cxesmc/coordinates.git
 cd coordinates
-python config.py config/pik_hpc2024_ifx 
+python3 config.py config/pik_hpc2024_ifx 
 cd ../../..  # Return to climber-x parent directory
 
 ### Compile and run ###
@@ -156,7 +156,7 @@ make cleanall
 make climber-clim
 
 # Run a pre-industrial equilibrium climate-only test simulation
-./job_climber -s -o RUNDIR
+./job_climber -s -f -o output/clim -c short -j parallel -n 16
 </code></pre>
 <h3 id="climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</h3>
 <p>If you would also like to run CLIMBER-X with an interactive carbon cycle, then the <strong>HAMOCC</strong> 
@@ -179,7 +179,7 @@ make clean
 make climber-clim-bgc
 
 # Run a pre-industrial equilibrium simulation with ocean biogeochemistry
-./job_climber -s -f -o RUNDIR -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T&quot;
+./job_climber -s -f -o output/clim-bgc -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T&quot;
 </code></pre>
 <h3 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h3>
 <p>If you would also like to run with an interactive ice sheet, then the <code>lis</code>
@@ -201,7 +201,7 @@ cd src
 git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
 git checkout climber-x  # Get climber-x branch
-python config.py config/pik_hpc2024_ifx
+python3 config.py config/pik_hpc2024_ifx
 cd ../..
 
 # vilma
