@@ -112,10 +112,15 @@ For convenience you can also add those commands to your <code>.profile</code> fi
     module load udunits/2.2.28
     module load ncview/2.1.10
     module load cdo/2.4.1
+    module load git-lfs/3.5.1
 </code></pre>
 <h2 id="get-the-code">Get the code</h2>
 <h3 id="climber-x-climate-model">CLIMBER-X climate model</h3>
-<pre><code class="language-bash">### Download the CLIMBER-X code ###
+<pre><code class="language-bash">
+### Install git-lfs for large file storage handling ###
+git lfs install
+
+### Download the CLIMBER-X code ###
 
 # Clone repository
 git clone git@github.com:cxesmc/climber-x.git
