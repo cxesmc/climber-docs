@@ -112,21 +112,22 @@ For convenience you can also add those commands to your <code>.profile</code> fi
     module load udunits/2.2.28
     module load ncview/2.1.10
     module load cdo/2.4.1
-    module load git-lfs/3.5.1
 </code></pre>
 <h2 id="get-the-code">Get the code</h2>
 <h3 id="climber-x-climate-model">CLIMBER-X climate model</h3>
 <pre><code class="language-bash">
-### Install git-lfs for large file storage handling ###
-git lfs install
-
 ### Download the CLIMBER-X code ###
 
 # Clone repository
 git clone git@github.com:cxesmc/climber-x.git
 
-# Enter directory and run configuration script
+# Enter directory 
 cd climber-x
+
+# Clone input file directory
+git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
+
+# Run configuration script
 python3 config.py config/pik_hpc2024_ifx
 
 ### Download and configure additional libraries ###
@@ -224,7 +225,7 @@ make clean
 make climber-clim-bgc-ice  # or equivalently make climber
 
 # Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
-./job_climber -s -f -o output/climb-bgc-ice -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM&quot;
+./job_climber -s -f -o output/clim-bgc-ice -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM&quot;
 </code></pre>
               
             </div>
