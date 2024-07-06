@@ -19,10 +19,6 @@ For convenience you can also add those commands to your `.profile` file in your 
     module load netcdf-c/4.9.2
     module load netcdf-fortran-intel/4.6.1
     module load udunits/2.2.28
-    module load json-c/0.17
-    module load openssl/3.0.12
-    module load curl/8.4.0
-    module load expat/2.5.0
     module load ncview/2.1.10
     module load cdo/2.4.1
 ```
@@ -32,13 +28,19 @@ For convenience you can also add those commands to your `.profile` file in your 
 ### CLIMBER-X climate model 
 
 ```bash
+
 ### Download the CLIMBER-X code ###
 
 # Clone repository
 git clone git@github.com:cxesmc/climber-x.git
 
-# Enter directory and run configuration script
+# Enter directory 
 cd climber-x
+
+# Clone input file directory
+git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
+
+# Run configuration script
 python3 config.py config/pik_hpc2024_ifx
 
 ### Download and configure additional libraries ###
@@ -124,7 +126,6 @@ cd src
 git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
 git checkout climber-x  # Get climber-x branch
-# in src/yelmo_defs.f90 set:  integer,  parameter :: wp = dp  # set working precision to double precision
 python3 config.py config/pik_hpc2024_ifx
 cd ../..
 
@@ -151,6 +152,6 @@ make clean
 make climber-clim-bgc-ice  # or equivalently make climber
 
 # Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
-./job_climber -s -f -o output/climb-bgc-ice -c short -j parallel -n 16 \&control="flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
+./job_climber -s -f -o output/clim-bgc-ice -c short -j parallel -n 16 \&control="flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
 ```
 
