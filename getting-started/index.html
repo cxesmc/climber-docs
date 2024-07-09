@@ -48,8 +48,6 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#super-quick-start">Super-quick start</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#directory-structure">Directory structure</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
@@ -113,15 +111,38 @@
                 <h1 id="getting-started">Getting started</h1>
 <p>Here you can find the basic information and steps needed to get <strong>CLIMBER-X</strong> running.</p>
 <p>If you want to run the model at PIK, see: <a href="../running-at-pik/">Running-at-PIK</a> for detailed instructions.</p>
+<p>There are currently four different flavors of <strong>CLIMBER-X</strong> that can be set up:</p>
+<ul>
+<li><code>climber-clim</code>: minimal climate model configuration with atmosphere, ocean, sea ice and land (including dynamic vegetation)</li>
+<li><code>climber-clim-bgc</code>: coupled climate-carbon cycle model configuration; clim plus with ocean biogeochemistry</li>
+<li><code>climber-clim-ice</code>: coupled climate-ice sheet model configuration; clim plus with ice sheets</li>
+<li><code>climber-clim-bgc-ice</code>: fully coupled model configuration; clim plus with ocean biogeochemistry and ice sheets</li>
+</ul>
+<p>The model dependencies vary according to the desired model configuration:</p>
+<p>Dependencies are: NetCDF, FFTW, coordinates
+Additional dependencies if using coupled ice sheets are: Yelmo, LIS
+Optional dependencies are: CDO, runner</p>
+<p>See: <a href="../dependencies/">Dependencies</a> for more details.</p>
 <h2 id="super-quick-start">Super-quick start</h2>
-<p>A summary of commands to get started is given below, assuming you are installing the PIK cluster using the <code>ifort</code> compiler. For more detailed information see subsequent sections.</p>
+<p>A summary of example commands to get started is given below using the <code>ifort</code> compiler. For more detailed information see subsequent sections.</p>
 <pre><code class="language-bash">### Download the CLIMBER-X code ###
 
-# Clone repository
+# Clone code repository
 git clone git@github.com:cxesmc/climber-x.git
 
-# Enter directory and run configuration script
+# Enter directory 
 cd climber-x
+
+# Clone input file directory
+git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
+
+# Prepare your configuration script
+cd config
+cp pik_hpc2024_ifx myhost_mycompiler  # use pik_hpc2024_ifx as template
+# Modify the file `myhost_mycompiler` to match your paths. 
+cd ..
+
+# Run configuration script
 python config.py config/pik_ifort
 
 ### Download and configure additional libraries ###
@@ -152,7 +173,7 @@ make cleanall
 make climber-clim
 
 # Run a pre-industrial equilibrium climate-only test simulation
-./job_climber -s -o RUNDIR
+./job_climber -s -o output/clim
 </code></pre>
 <p>If you would also like to run CLIMBER-X with an interactive carbon cycle, then the <strong>HAMOCC</strong>
 ocean biogeochemistry (<code>bgc</code>) code must also be downloaded:</p>
@@ -166,15 +187,14 @@ you need to be given permission in order to access it. HAMOCC is covered by the 
 Meteorology software licence agreement as part of the MPI-ESM (<a href="https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf">https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf</a>).
 A pre-requisite to access the <code>bgc</code> repository is therefore that you agree to the MPI-ESM license
 by following the steps outlined here: <a href="https://code.mpimet.mpg.de/projects/mpi-esm-license">https://code.mpimet.mpg.de/projects/mpi-esm-license</a>.
-Once you have done so, send us (whom?) an email and you will be granted permission to access 
-the <code>bgc</code> repository.
+Once you have done so, send an email to matteo.willeit@gmail.com and you will be granted permission to access the <code>bgc</code> repository.
 Note that you will need a GitHub account for that.</p>
 <pre><code class="language-bash"># Compile the climate and carbon cycle model 
 make clean
 make climber-clim-bgc
 
 # Run a pre-industrial equilibrium simulation with ocean biogeochemistry
-./job_climber -s -f -o RUNDIR -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T&quot;
+./job_climber -s -o output/clim-bgc \&amp;control=&quot;flag_bgc=T&quot;
 </code></pre>
 <p>If you would also like to run with an interactive ice sheet, then the <code>lis</code>
 library must be installed, the <strong>Yelmo</strong> ice-sheet code must be downloaded and configured 
@@ -206,20 +226,16 @@ make clean
 make climber-clim-ice
 
 # Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
-./job_climber -s -f -o RUNDIR -c short -j parallel -n 16 \&amp;control=&quot;flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM&quot;
+./job_climber -s -o output/clim-ice \&amp;control=&quot;flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM&quot;
 </code></pre>
 <p>If you have followed all steps above you will also be ready to run fully coupled simulations:</p>
 <pre><code class="language-bash"># Compile the fully coupled model
 make clean
-make climber-clim-bgc-ice  # or equivalently make climber
+make climber-clim-bgc-ice  # or equivalently: make climber
 
 # Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
-./job_climber -s -f -o RUNDIR -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM&quot;
+./job_climber -s -o output/clim-bgc-ice \&amp;control=&quot;flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM&quot;
 </code></pre>
-<h2 id="dependencies">Dependencies</h2>
-<p>Dependencies are: NetCDF, FFTW, coordinates, LIS
-Optional dependencies are: CDO, runner</p>
-<p>See: <a href="../dependencies/">Dependencies</a> for installation tips.</p>
 <h2 id="directory-structure">Directory structure</h2>
 <pre><code class="language-fortran">    config/
         Configuration files for compilation on different systems.
@@ -241,18 +257,21 @@ Optional dependencies are: CDO, runner</p>
 (3) compile an executable program and (4) run a test simulation.</p>
 <h3 id="1-get-the-code">1. Get the code.</h3>
 <p>Clone the repository from <a href="https://github.com/cxesmc/climber-x">https://github.com/cxesmc/climber-x</a>:</p>
-<pre><code class="language-bash"># Clone repository
+<pre><code class="language-bash"># Clone code repository
 git clone https://github.com/cxesmc/climber-x.git
 git clone git@github.com:cxesmc/climber-x.git # via ssh
 
 cd climber-x
+
+# Clone input file directory
+git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
 </code></pre>
 <p>If you plan to make changes to the code, it is wise to check out a new branch:</p>
 <pre><code class="language-bash">git checkout -b user-dev
 </code></pre>
 <p>You should now be working on the branch <code>user-dev</code>.</p>
 <h3 id="2-create-the-system-specific-makefile">2. Create the system-specific Makefile.</h3>
-<p>To compile <strong>CLIMBER-X</strong>, you need to generate a Makefile that is appropriate for your system. In the folder <code>config</code>, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the <code>NetCDF</code>, <code>FFTW</code>, <code>coordinates</code>, and <code>LIS</code>,  libraries. Note that it can be convenient to install <code>FFTW</code>, <code>coordinates</code> and <code>LIS</code> as subdirectories of the <code>src/</code> folder, to be sure they are compiled consistently with <strong>CLIMBER-X</strong>.</p>
+<p>To compile <strong>CLIMBER-X</strong>, you need to generate a Makefile that is appropriate for your system. In the folder <code>config</code>, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the <code>NetCDF</code>, <code>FFTW</code>, <code>coordinates</code>, <code>Yelmo</code> and <code>LIS</code> libraries. Note that it can be convenient to install <code>FFTW</code>, <code>coordinates</code>, <code>Yelmo</code> and <code>LIS</code> as subdirectories of the <code>src/</code> folder, to be sure they are compiled consistently with <strong>CLIMBER-X</strong>.</p>
 <p>You can use another configuration file in the config folder as a template, e.g.,</p>
 <pre><code class="language-bash">cd config
 cp pik_ifort myhost_mycompiler
