@@ -97,15 +97,19 @@
 <li>FFTW: <a href="https://www.fftw.org/">Fastest Fourier Transform in the West</a>. The library will have to be compiled from the original source code.</li>
 <li>coordinates: <a href="https://github.com/cxesmc/coordinates">coordinates</a>, a module to handle grid/points definition, interpolation mapping and subsetting. The library will have to be compiled from the original source code.</li>
 </ul>
-<p>Needed only if running with coupled ice sheets:
-- Yelmo: <a href="https://github.com/palma-ice/yelmo">Yelmo ice sheet model</a>. The library will have to be compiled from the original source code.
-- LIS: <a href="http://www.ssisc.org/lis/">Library of Iterative Solvers for Linear Systems</a>. The library will have to be compiled from the original source code.</p>
-<p>OPTIONAL:
-- Python 3.x, which is only needed for automatic configuration of the Makefile
-and the use of the scripts <code>job_climber</code> and <code>runcx</code> for job preparation and submission.
-- CDO: <a href="https://code.mpimet.mpg.de/projects/cdo/">Climate Data Operators</a>, used for more efficient
-creation of maps to transform between different coordinate grids.
-- runner: <a href="https://github.com/alex-robinson/runner">'runner' Python library (alex-robinson fork)</a></p>
+<p>Needed only if running with coupled ice sheets:</p>
+<ul>
+<li>Yelmo: <a href="https://github.com/palma-ice/yelmo">Yelmo ice sheet model</a>. The library will have to be compiled from the original source code.</li>
+<li>LIS: <a href="http://www.ssisc.org/lis/">Library of Iterative Solvers for Linear Systems</a>. The library will have to be compiled from the original source code.</li>
+</ul>
+<p>OPTIONAL:</p>
+<ul>
+<li>Python 3.x, which is only needed for automatic configuration of the Makefile
+and the use of the scripts <code>job_climber</code> and <code>runcx</code> for job preparation and submission.</li>
+<li>CDO: <a href="https://code.mpimet.mpg.de/projects/cdo/">Climate Data Operators</a>, used for more efficient
+creation of maps to transform between different coordinate grids.</li>
+<li>runner: <a href="https://github.com/alex-robinson/runner">'runner' Python library (alex-robinson fork)</a></li>
+</ul>
 <p>Installation tips for each dependency can be found below.</p>
 <h2 id="installing-netcdf-preferably-version-40-or-higher">Installing NetCDF (preferably version 4.0 or higher)</h2>
 <p>The NetCDF library is typically available with different distributions (Linux, Mac, etc).
