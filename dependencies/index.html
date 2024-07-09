@@ -120,10 +120,8 @@ Installing the NetCDF viewing program <code>ncview</code> is also recommended.</
 installation instructions are available from the Unidata website:</p>
 <p><a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html</a></p>
 <h2 id="installing-fftw">Installing FFTW</h2>
-<ol>
-<li>Download and configure the FFTW source:
-<a href="https://www.fftw.org/download.html">https://www.fftw.org/download.html</a></li>
-</ol>
+<p>Download and configure the FFTW source:
+<a href="https://www.fftw.org/download.html">https://www.fftw.org/download.html</a></p>
 <pre><code class="language-bash">wget https://www.fftw.org/fftw-3.3.10.tar.gz
 tar -xvf fftw-3.3.10.tar.gz
 rm fftw-3.3.10.tar.gz
@@ -134,12 +132,10 @@ make
 make install
 </code></pre>
 <h2 id="installing-coordinates">Installing coordinates</h2>
-<ol>
-<li>Download the coordinates source:
+<p>Download the coordinates source:
 <a href="https://github.com/cxesmc/coordinates">https://github.com/cxesmc/coordinates</a>.
 Configure the package, and install it in the location 
-of your choice (below defined as <code>$COORDROOT</code>):</li>
-</ol>
+of your choice (below defined as <code>$COORDROOT</code>):</p>
 <pre><code class="language-bash">git clone git@github.com:cxesmc/coordinates.git $COORDROOT
 cd $COORDROOT
 python config.py config/pik_ifort
@@ -147,13 +143,11 @@ make clean
 make coord-static parallel=1
 </code></pre>
 <h2 id="installing-lis">Installing LIS</h2>
-<ol>
-<li>Download the LIS source:
+<p>Download the LIS source:
 <a href="https://www.ssisc.org/lis/">https://www.ssisc.org/lis/</a>
 Configure the package, and install it in the location 
 of your choice (below defined as <code>$LISROOT</code>). Also, make sure to 
-enable the Fortran90 and openmp interface:</li>
-</ol>
+enable the Fortran90 and openmp interface:</p>
 <pre><code class="language-bash">git clone git@github.com:anishida/lis.git $LISROOT
 ./configure --prefix=$LISROOT --enable-omp --enable-f90
 make
