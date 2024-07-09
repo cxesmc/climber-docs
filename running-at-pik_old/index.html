@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Running CLIMBER-X on the HPC2015 at PIK - CLIMBER-X-docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Running CLIMBER-X on the HPC2015 at PIK";
+        var mkdocs_page_input_path = "running-at-pik_old.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CLIMBER-X-docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../running-at-pik/">Running at PIK</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../dependencies/">Dependencies</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CLIMBER-X-docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Running CLIMBER-X on the HPC2015 at PIK</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="running-climber-x-on-the-hpc2015-at-pik">Running CLIMBER-X on the HPC2015 at PIK</h1>
+<p>Here you can find the basic information and steps needed to get <strong>CLIMBER-X</strong> running on the (old) HPC2015  at PIK.</p>
+<h2 id="get-the-code">Get the code</h2>
+<h3 id="climber-x-climate-model">CLIMBER-X climate model</h3>
+<pre><code class="language-bash">
+### Download the CLIMBER-X code ###
+
+# Clone repository
+git clone git@github.com:cxesmc/climber-x.git
+
+# Enter directory 
+cd climber-x
+
+# Clone input file directory
+git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
+
+# Run configuration script
+python3 config.py config/pik_ifort
+
+### Download and configure additional libraries ###
+
+# fftw
+cd src/utils/
+wget https://www.fftw.org/fftw-3.3.10.tar.gz
+tar -xvf fftw-3.3.10.tar.gz
+rm fftw-3.3.10.tar.gz
+mv fftw-3.3.10 fftw
+cd fftw
+./configure --prefix=$PWD --enable-openmp CC=icc F77=ifort 
+make
+make install
+cd ../../..  # Return to climber-x parent directory
+
+# coordinates
+cd src/utils/
+git clone git@github.com:cxesmc/coordinates.git
+cd coordinates
+python3 config.py config/pik_ifort 
+cd ../../..  # Return to climber-x parent directory
+
+### Compile and run ###
+
+# Compile the climate model 
+make cleanall
+make climber-clim
+
+# Run a pre-industrial equilibrium climate-only test simulation
+./job_climber -s -f -o output/clim -c short -j parallel -n 16
+</code></pre>
+<h3 id="climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</h3>
+<p>If you would also like to run CLIMBER-X with an interactive carbon cycle, then the <strong>HAMOCC</strong> 
+ocean biogeochemistry (<code>bgc</code>) code must also be downloaded:</p>
+<pre><code class="language-bash"># bgc
+cd src/
+git clone git@github.com:cxesmc/bgc.git
+cd ..
+</code></pre>
+<p>Since the HAMOCC model source code is not open source, the <code>bgc</code> repository is private at the moment and 
+you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for 
+Meteorology software licence agreement as part of the MPI-ESM (<a href="https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf">https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf</a>).
+A pre-requisite to access the <code>bgc</code> repository is therefore that you agree to the MPI-ESM license
+by following the steps outlined here: <a href="https://code.mpimet.mpg.de/projects/mpi-esm-license">https://code.mpimet.mpg.de/projects/mpi-esm-license</a>.
+Once you have done so, send us (whom?) an email and you will be granted permission to access 
+the <code>bgc</code> repository.
+Note that you will need a GitHub account for that.</p>
+<pre><code class="language-bash"># Compile the climate and carbon cycle model 
+make clean
+make climber-clim-bgc
+
+# Run a pre-industrial equilibrium simulation with ocean biogeochemistry
+./job_climber -s -f -o output/clim-bgc -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T&quot;
+</code></pre>
+<h3 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h3>
+<p>If you would also like to run with an interactive ice sheet, then the <code>lis</code>
+library must be installed, the <strong>Yelmo</strong> ice-sheet code must be downloaded and configured 
+and the solid Earth model <strong>VILMA</strong> libraries must be downloaded before compiling:</p>
+<pre><code class="language-bash"># lis
+cd src/utils
+git clone git@github.com:anishida/lis.git lis-2.1.5
+cd lis-2.1.5
+./configure --prefix=$PWD/../lis --enable-omp --enable-f90 CC=icc FC=ifort 
+make
+make install
+cd ../../..
+
+# yelmo
+cd src
+git clone git@github.com:palma-ice/yelmo.git
+cd yelmo
+git checkout climber-x  # Get climber-x branch
+python3 config.py config/pik_ifort
+cd ../..
+
+# vilma
+cd src/
+git clone git@github.com:cxesmc/vilma.git  # private repository, premission needed
+cd ..
+
+# Compile the climate and ice sheet model
+make clean
+make climber-clim-ice
+
+# Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
+./job_climber -s -f -o output/clim-ice -c short -j parallel -n 16 \&amp;control=&quot;flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM&quot;
+</code></pre>
+<h3 id="fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</h3>
+<p>If you have followed all steps above you will also be ready to run fully coupled simulations:</p>
+<pre><code class="language-bash"># Compile the fully coupled model
+make clean
+make climber-clim-bgc-ice  # or equivalently make climber
+
+# Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
+./job_climber -s -f -o output/clim-bgc-ice -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM&quot;
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
