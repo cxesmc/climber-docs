@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Dir struct - CLIMBER-X-docs</title>
+    <title>Running at AWI - CLIMBER-X-docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Dir struct";
-        var mkdocs_page_input_path = "dir-struct.md";
+        var mkdocs_page_name = "Running at AWI";
+        var mkdocs_page_input_path = "running-at-awi.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -51,6 +51,12 @@
                 <li class="toctree-l1"><a class="reference internal" href="../running-at-pik/">Running at PIK</a>
                 </li>
               </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Running at AWI</a>
+    <ul class="current">
+    </ul>
+                </li>
+              </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../dependencies/">Dependencies</a>
                 </li>
@@ -69,7 +75,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Dir struct</li>
+      <li class="breadcrumb-item active">Running at AWI</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -78,25 +84,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="directory-structure">Directory structure</h2>
-<pre><code class="language-fortran">    config/
-        Configuration files for compilation on different systems.
-    input/
-        Location of any input data needed by the model.
-    output/
-        Default location for model output.
-    maps/
-        Location of the maps that will be generated to map/interpolate between different grids.
-    nml/
-        Default parameter namelists that manage the model configuration.
-    restart/
-        Location of the restart files needed to continue previous model simulations.
-    src/
-        Source code for CLIMBER-X.
-</code></pre>
+                <h1 id="running-climber-x-on-the-albedo-cluster-at-awi">Running CLIMBER-X on the albedo cluster at AWI</h1>
+<p>To run <strong>CLIMBER-X</strong> on the <code>albedo</code> cluster at AWI, essentially the same instructions apply as for <a href="../running-at-pik/">running at PIK</a>.</p>
+<p>The only differences are the following:</p>
+<ol>
+<li>
+<p>A different set of modules needed to be loaded into the environment to get the right compilers and NetCDF libraries etc. installed. For <code>albedo</code> use the following:</p>
+<p><code>bash
+module load intel-oneapi-compilers/2022.1.0
+module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
+module load netcdf-fortran/4.5.4-oneapi2022.1.0
+module load udunits/2.2.28
+module load ncview/2.1.8
+module load cdo/2.2.0
+module load python/3.10.4</code></p>
+</li>
+<li>
+<p>When installing the <code>climber-x-exlib</code> libraries, omit the argument <code>pik</code>:</p>
+<p><code>bash
+cd climber-x-exlib
+./install.sh ifx</code></p>
+</li>
+</ol>
+<p>All other instructions should be the same.</p>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../running-at-pik/" class="btn btn-neutral float-left" title="Running at PIK"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dependencies/" class="btn btn-neutral float-right" title="Dependencies">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -118,6 +135,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../running-at-pik/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../dependencies/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
