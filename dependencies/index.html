@@ -99,7 +99,11 @@
 <ul>
 <li>NetCDF: <a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">NetCDF library</a></li>
 <li>FFTW: <a href="https://www.fftw.org/">Fastest Fourier Transform in the West</a>. The library will have to be compiled from the original source code.</li>
-<li>coordinates: <a href="https://github.com/alex-robinson/coordinates">coordinates</a>, a module to handle grid/points definition, interpolation mapping and subsetting. The library will have to be compiled from the original source code.</li>
+<li>coordinates: <a href="https://github.com/cxesmc/coordinates">coordinates</a>, a module to handle grid/points definition, interpolation mapping and subsetting. The library will have to be compiled from the original source code.</li>
+</ul>
+<p>Needed only if running with coupled ice sheets:</p>
+<ul>
+<li>Yelmo: <a href="https://github.com/palma-ice/yelmo">Yelmo ice sheet model</a>. The library will have to be compiled from the original source code.</li>
 <li>LIS: <a href="http://www.ssisc.org/lis/">Library of Iterative Solvers for Linear Systems</a>. The library will have to be compiled from the original source code.</li>
 </ul>
 <p>OPTIONAL:</p>
@@ -120,25 +124,22 @@ Installing the NetCDF viewing program <code>ncview</code> is also recommended.</
 installation instructions are available from the Unidata website:</p>
 <p><a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html</a></p>
 <h2 id="installing-fftw">Installing FFTW</h2>
-<ol>
-<li>Download and configure the FFTW source:
-<a href="https://www.fftw.org/download.html">https://www.fftw.org/download.html</a></li>
-</ol>
+<p>Download and configure the FFTW source:
+<a href="https://www.fftw.org/download.html">https://www.fftw.org/download.html</a></p>
 <pre><code class="language-bash">wget https://www.fftw.org/fftw-3.3.10.tar.gz
 tar -xvf fftw-3.3.10.tar.gz
 rm fftw-3.3.10.tar.gz
-cd fftw-3.3.10
-./configure --prefix=$FFTWROOT --enable-openmp
+mv fftw-3.3.10 fftw
+cd fftw
+./configure --prefix=$PWD --enable-openmp CC=icc F77=ifort
 make
 make install
 </code></pre>
 <h2 id="installing-coordinates">Installing coordinates</h2>
-<ol>
-<li>Download the coordinates source:
+<p>Download the coordinates source:
 <a href="https://github.com/cxesmc/coordinates">https://github.com/cxesmc/coordinates</a>.
 Configure the package, and install it in the location
-of your choice (below defined as <code>$COORDROOT</code>):</li>
-</ol>
+of your choice (below defined as <code>$COORDROOT</code>):</p>
 <pre><code class="language-bash">git clone git@github.com:cxesmc/coordinates.git $COORDROOT
 cd $COORDROOT
 python config.py config/pik_hpc2024_ifx
@@ -146,13 +147,11 @@ make clean
 make coord-static openmp=1
 </code></pre>
 <h2 id="installing-lis">Installing LIS</h2>
-<ol>
-<li>Download the LIS source:
+<p>Download the LIS source:
 <a href="https://www.ssisc.org/lis/">https://www.ssisc.org/lis/</a>
 Configure the package, and install it in the location
 of your choice (below defined as <code>$LISROOT</code>). Also, make sure to
-enable the Fortran90 and openmp interface:</li>
-</ol>
+enable the Fortran90 and openmp interface:</p>
 <pre><code class="language-bash">git clone git@github.com:anishida/lis.git $LISROOT
 ./configure --prefix=$LISROOT --enable-omp --enable-f90
 make
