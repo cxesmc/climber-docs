@@ -1,4 +1,4 @@
-# Dependencies 
+# Dependencies
 
 **CLIMBER-X** is dependent on the following libraries:
 
@@ -8,12 +8,12 @@
 - LIS: [Library of Iterative Solvers for Linear Systems](http://www.ssisc.org/lis/). The library will have to be compiled from the original source code.
 
 OPTIONAL:
+
 - Python 3.x, which is only needed for automatic configuration of the Makefile
 and the use of the scripts `job_climber` and `runcx` for job preparation and submission.
 - CDO: [Climate Data Operators](https://code.mpimet.mpg.de/projects/cdo/), used for more efficient
 creation of maps to transform between different coordinate grids.
 - runner: ['runner' Python library (alex-robinson fork)](https://github.com/alex-robinson/runner)
-
 
 Installation tips for each dependency can be found below.
 
@@ -48,7 +48,7 @@ make install
 
 1. Download the coordinates source:
 [https://github.com/cxesmc/coordinates](https://github.com/cxesmc/coordinates).
-Configure the package, and install it in the location 
+Configure the package, and install it in the location
 of your choice (below defined as `$COORDROOT`):
 
 ```bash
@@ -63,8 +63,8 @@ make coord-static openmp=1
 
 1. Download the LIS source:
 [https://www.ssisc.org/lis/](https://www.ssisc.org/lis/)
-Configure the package, and install it in the location 
-of your choice (below defined as `$LISROOT`). Also, make sure to 
+Configure the package, and install it in the location
+of your choice (below defined as `$LISROOT`). Also, make sure to
 enable the Fortran90 and openmp interface:
 
 ```bash
@@ -90,6 +90,6 @@ pip install https://github.com/alex-robinson/runner/archive/refs/heads/master.zi
 pip install tabulate
 ```
 
-That's it! Now check that system command `job` is available by running `job -h`. 
+That's it! Now check that system command `job` is available by running `job -h`.
 
 Note that install method `python setup.py install` should be avoided if possible to maintain Python system integrity.
