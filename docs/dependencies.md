@@ -1,4 +1,4 @@
-# Dependencies 
+# Dependencies
 
 **CLIMBER-X** is dependent on the following libraries:
 
@@ -18,7 +18,6 @@ and the use of the scripts `job_climber` and `runcx` for job preparation and sub
 - CDO: [Climate Data Operators](https://code.mpimet.mpg.de/projects/cdo/), used for more efficient
 creation of maps to transform between different coordinate grids.
 - runner: ['runner' Python library (alex-robinson fork)](https://github.com/alex-robinson/runner)
-
 
 Installation tips for each dependency can be found below.
 
@@ -54,23 +53,23 @@ make install
 
 Download the coordinates source:
 [https://github.com/cxesmc/coordinates](https://github.com/cxesmc/coordinates).
-Configure the package, and install it in the location 
+Configure the package, and install it in the location
 of your choice (below defined as `$COORDROOT`):
 
 ```bash
 git clone git@github.com:cxesmc/coordinates.git $COORDROOT
 cd $COORDROOT
-python config.py config/pik_ifort
+python config.py config/pik_hpc2024_ifx
 make clean
-make coord-static parallel=1
+make coord-static openmp=1
 ```
 
 ## Installing LIS
 
 Download the LIS source:
 [https://www.ssisc.org/lis/](https://www.ssisc.org/lis/)
-Configure the package, and install it in the location 
-of your choice (below defined as `$LISROOT`). Also, make sure to 
+Configure the package, and install it in the location
+of your choice (below defined as `$LISROOT`). Also, make sure to
 enable the Fortran90 and openmp interface:
 
 ```bash
@@ -96,6 +95,6 @@ pip install https://github.com/alex-robinson/runner/archive/refs/heads/master.zi
 pip install tabulate
 ```
 
-That's it! Now check that system command `job` is available by running `job -h`. 
+That's it! Now check that system command `job` is available by running `job -h`.
 
 Note that install method `python setup.py install` should be avoided if possible to maintain Python system integrity.

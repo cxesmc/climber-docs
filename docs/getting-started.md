@@ -2,7 +2,8 @@
 
 Here you can find the basic information and steps needed to get **CLIMBER-X** running.
 
-If you want to run the model at PIK, see: [Running-at-PIK](running-at-pik.md) for detailed instructions.
+Some step-by-step commands are given for specific environments. 
+To see how to install CLIMBER-X on the HPC2024 cluster at PIK, see: [Running-at-PIK](running-at-pik.md) for detailed instructions.
 
 There are currently four different flavors of **CLIMBER-X** that can be set up:
 
@@ -175,7 +176,7 @@ make climber-clim-bgc-ice  # or equivalently: make climber
 Follow the steps below to (1) obtain the code, (2) configure the Makefile for your system,
 (3) compile an executable program and (4) run a test simulation.
 
-### 1. Get the code.
+### 1. Get the code
 
 Clone the repository from [https://github.com/cxesmc/climber-x](https://github.com/cxesmc/climber-x):
 
@@ -198,13 +199,11 @@ git checkout -b user-dev
 
 You should now be working on the branch `user-dev`.
 
-
-### 2. Create the system-specific Makefile.
+### 2. Create the system-specific Makefile
 
 To compile **CLIMBER-X**, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF`, `FFTW`, `coordinates`, `Yelmo` and `LIS` libraries. Note that it can be convenient to install `FFTW`, `coordinates`, `Yelmo` and `LIS` as subdirectories of the `src/` folder, to be sure they are compiled consistently with **CLIMBER-X**.
 
 You can use another configuration file in the config folder as a template, e.g.,
-
 
 ```bash
 cd config
@@ -236,7 +235,7 @@ There are currently four different flavors of **CLIMBER-X** that can be compiled
 - `climber-clim-ice`: clim plus with ice sheets
 - `climber-clim-bgc-ice`: clim plus with ocean biogeochemistry and ice sheets
 
-These can be compiled by calling the individual names, e.g. `make climber-clim` or `make climber-clim-bgc-ice`. By default, it is also possible to call `make climber` as a shorter alias for `make climber-clim-bgc-ice`. 
+These can be compiled by calling the individual names, e.g. `make climber-clim` or `make climber-clim-bgc-ice`. By default, it is also possible to call `make climber` as a shorter alias for `make climber-clim-bgc-ice`.
 
 The climate only version `climber-clim` corresponds to the version described by Willeit et al. (2022). This particular model setup does not require non-climate source code or the LIS library for compilation.
 
@@ -254,7 +253,7 @@ By default, the model is compiled with `openmp`. To compile the model without op
 make climber openmp=0
 ```
 
-This version should typically not be used. 
+This version should typically not be used.
 
 ### 4. Running CLIMBER-X
 
@@ -319,7 +318,6 @@ Run as a command as above, this script will run a simulation using the parameter
 
 will run `climber.x` on the cluster in the output directory `RUNDIR` with the control parameter `control.n_accel` set to `10`. Note that `ctl` is a convenient alias for the namelist group `control`, as defined in `runcx.js`.
 
-
 To perform a simulation an ensemble of simulations with modified parameter values, `runcx` should be called via `jobrun` (see below).
 
 #### Using `jobrun` with `runcx`
@@ -366,7 +364,7 @@ General information about the ensemble can be found in the main ensemble directo
 
 `info.txt`:
 
-```
+```python
   runid    ctl.n_accel  rundir
       0              1  ctl.nccl.1
       1              5  ctl.nccl.5
@@ -391,7 +389,6 @@ jobrun ./runcx -s -- -o OUTDIR -i lhs.txt
 
 This two-step method facilitates checking that the ensemble was generated properly and improves reproducibility, since the exact parameter values are available in the table.
 
-
 ### 5. Test simulation
 
 A simple climate-only test simulation for pre-industrial conditions can be run as:
@@ -399,4 +396,3 @@ A simple climate-only test simulation for pre-industrial conditions can be run a
 ```bash
 ./job_climber -s -f -o OUTDIR
 ```
-
