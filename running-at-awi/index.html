@@ -88,24 +88,22 @@
 <p>To run <strong>CLIMBER-X</strong> on the <code>albedo</code> cluster at AWI, essentially the same instructions apply as for <a href="../running-at-pik/">running at PIK</a>.</p>
 <p>The only differences are the following:</p>
 <ol>
-<li>
-<p>A different set of modules needed to be loaded into the environment to get the right compilers and NetCDF libraries etc. installed. For <code>albedo</code> use the following:</p>
-<p><code>bash
-module load intel-oneapi-compilers/2022.1.0
-module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
-module load netcdf-fortran/4.5.4-oneapi2022.1.0
-module load udunits/2.2.28
-module load ncview/2.1.8
-module load cdo/2.2.0
-module load python/3.10.4</code></p>
-</li>
-<li>
-<p>When installing the <code>climber-x-exlib</code> libraries, omit the argument <code>pik</code>:</p>
-<p><code>bash
-cd climber-x-exlib
-./install.sh ifx</code></p>
-</li>
+<li>A different set of modules needed to be loaded into the environment to get the right compilers and NetCDF libraries etc. installed. For <code>albedo</code> use the following:</li>
 </ol>
+<pre><code class="language-bash">    module load intel-oneapi-compilers/2022.1.0
+    module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
+    module load netcdf-fortran/4.5.4-oneapi2022.1.0
+    module load udunits/2.2.28
+    module load ncview/2.1.8
+    module load cdo/2.2.0
+    module load python/3.10.4
+</code></pre>
+<ol>
+<li>When installing the <code>climber-x-exlib</code> libraries, omit the argument <code>pik</code>:</li>
+</ol>
+<pre><code class="language-bash">    cd climber-x-exlib
+    ./install.sh ifx
+</code></pre>
 <p>All other instructions should be the same.</p>
               
             </div>
