@@ -54,9 +54,9 @@ of your choice (below defined as `$COORDROOT`):
 ```bash
 git clone git@github.com:cxesmc/coordinates.git $COORDROOT
 cd $COORDROOT
-python config.py config/pik_ifort
+python config.py config/pik_hpc2024_ifx
 make clean
-make coord-static parallel=1
+make coord-static openmp=1
 ```
 
 ## Installing LIS
