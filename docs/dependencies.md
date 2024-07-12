@@ -4,10 +4,15 @@
 
 - NetCDF: [NetCDF library](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
 - FFTW: [Fastest Fourier Transform in the West](https://www.fftw.org/). The library will have to be compiled from the original source code.
-- coordinates: [coordinates](https://github.com/alex-robinson/coordinates), a module to handle grid/points definition, interpolation mapping and subsetting. The library will have to be compiled from the original source code.
+- coordinates: [coordinates](https://github.com/cxesmc/coordinates), a module to handle grid/points definition, interpolation mapping and subsetting. The library will have to be compiled from the original source code.
+
+Needed only if running with coupled ice sheets:
+
+- Yelmo: [Yelmo ice sheet model](https://github.com/palma-ice/yelmo). The library will have to be compiled from the original source code.
 - LIS: [Library of Iterative Solvers for Linear Systems](http://www.ssisc.org/lis/). The library will have to be compiled from the original source code.
 
 OPTIONAL:
+
 - Python 3.x, which is only needed for automatic configuration of the Makefile
 and the use of the scripts `job_climber` and `runcx` for job preparation and submission.
 - CDO: [Climate Data Operators](https://code.mpimet.mpg.de/projects/cdo/), used for more efficient
@@ -31,22 +36,23 @@ installation instructions are available from the Unidata website:
 
 ## Installing FFTW
 
-1. Download and configure the FFTW source:
+Download and configure the FFTW source:
 [https://www.fftw.org/download.html](https://www.fftw.org/download.html)
 
 ```bash
 wget https://www.fftw.org/fftw-3.3.10.tar.gz
 tar -xvf fftw-3.3.10.tar.gz
 rm fftw-3.3.10.tar.gz
-cd fftw-3.3.10
-./configure --prefix=$FFTWROOT --enable-openmp
+mv fftw-3.3.10 fftw
+cd fftw
+./configure --prefix=$PWD --enable-openmp CC=icc F77=ifort
 make
 make install
 ```
 
 ## Installing coordinates
 
-1. Download the coordinates source:
+Download the coordinates source:
 [https://github.com/cxesmc/coordinates](https://github.com/cxesmc/coordinates).
 Configure the package, and install it in the location 
 of your choice (below defined as `$COORDROOT`):
@@ -61,7 +67,7 @@ make coord-static parallel=1
 
 ## Installing LIS
 
-1. Download the LIS source:
+Download the LIS source:
 [https://www.ssisc.org/lis/](https://www.ssisc.org/lis/)
 Configure the package, and install it in the location 
 of your choice (below defined as `$LISROOT`). Also, make sure to 
