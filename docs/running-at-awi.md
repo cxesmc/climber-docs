@@ -16,11 +16,11 @@ The only differences are the following:
     module load python/3.10.4
 ```
 
-2. When installing the `climber-x-exlib` libraries, omit the argument `pik`:
+2. When installing the `climber-x-exlib` libraries, use the `dkrz` specific script:
 
 ```bash
     cd climber-x-exlib
-    ./install.sh ifx
+    ./install_dkrz.sh ifx
 ```
 
 All other instructions should be the same.
