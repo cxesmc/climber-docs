@@ -2,19 +2,155 @@
 
 Here you can find the basic information and steps needed to get **CLIMBER-X** running.
 
-If you want to run the model at PIK, see: [Running-at-PIK](running-at-pik.md) for detailed instructions.
+Some step-by-step commands are given for specific environments. 
+To see how to install CLIMBER-X on the HPC2024 cluster at PIK, see: [Running-at-PIK](running-at-pik.md) for detailed instructions.
+
+There are currently four different flavors of **CLIMBER-X** that can be set up:
+
+- `climber-clim`: minimal climate model configuration with atmosphere, ocean, sea ice and land (including dynamic vegetation)
+- `climber-clim-bgc`: coupled climate-carbon cycle model configuration; clim plus with ocean biogeochemistry
+- `climber-clim-ice`: coupled climate-ice sheet model configuration; clim plus with ice sheets
+- `climber-clim-bgc-ice`: fully coupled model configuration; clim plus with ocean biogeochemistry and ice sheets
+
+The model dependencies vary according to the desired model configuration:
+
+- Dependencies are: NetCDF, FFTW, coordinates
+- Additional dependencies if using coupled ice sheets are: Yelmo, LIS
+- Optional dependencies are: CDO, runner
+
+See: [Dependencies](dependencies.md) for more details.
+
 
 ## Super-quick start
 
-Some step-by-step commands are given for specific environments. To see how
-to install **CLIMBER-X** on the HPC2024 cluster at PIK, see [Running-at-PIK](running-at-pik.md).
+A summary of example commands to get started is given below using the `ifort` compiler. For more detailed information see subsequent sections.
 
-## Dependencies
+```bash
+### Download the CLIMBER-X code ###
 
-Dependencies are: NetCDF, FFTW, coordinates, LIS
-Optional dependencies are: CDO, runner
+# Clone code repository
+git clone git@github.com:cxesmc/climber-x.git
 
-See: [Dependencies](dependencies.md) for installation tips.
+# Enter directory 
+cd climber-x
+
+# Clone input file directory
+git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
+
+# Prepare your configuration script
+cd config
+cp pik_hpc2024_ifx myhost_mycompiler  # use pik_hpc2024_ifx as template
+# Modify the file `myhost_mycompiler` to match your paths. 
+cd ..
+
+# Run configuration script
+python config.py config/pik_ifort
+
+### Download and configure additional libraries ###
+
+# fftw
+cd src/utils/
+wget https://www.fftw.org/fftw-3.3.10.tar.gz
+tar -xvf fftw-3.3.10.tar.gz
+rm fftw-3.3.10.tar.gz
+mv fftw-3.3.10 fftw
+cd fftw
+./configure --prefix=$PWD --enable-openmp CC=icc F77=ifort
+make
+make install
+cd ..
+
+# coordinates
+cd src/utils/
+git clone git@github.com:cxesmc/coordinates.git
+cd coordinates
+python config.py config/pik_ifort 
+cd ../../..  # Return to climber-x parent directory
+
+### Compile and run ###
+
+# Compile the climate model 
+make cleanall
+make climber-clim
+
+# Run a pre-industrial equilibrium climate-only test simulation
+./job_climber -s -o output/clim
+```
+
+If you would also like to run CLIMBER-X with an interactive carbon cycle, then the **HAMOCC**
+ocean biogeochemistry (`bgc`) code must also be downloaded:
+
+```bash
+# bgc
+cd src/
+git clone git@github.com:cxesmc/bgc.git
+cd ..
+```
+Since the HAMOCC model source code is not open source, the `bgc` repository is private at the moment and 
+you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for 
+Meteorology software licence agreement as part of the MPI-ESM ([https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf](https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf)).
+A pre-requisite to access the `bgc` repository is therefore that you agree to the MPI-ESM license
+by following the steps outlined here: [https://code.mpimet.mpg.de/projects/mpi-esm-license](https://code.mpimet.mpg.de/projects/mpi-esm-license).
+Once you have done so, send an email to matteo.willeit@gmail.com and you will be granted permission to access the `bgc` repository.
+Note that you will need a GitHub account for that.
+
+```bash
+# Compile the climate and carbon cycle model 
+make clean
+make climber-clim-bgc
+
+# Run a pre-industrial equilibrium simulation with ocean biogeochemistry
+./job_climber -s -o output/clim-bgc \&control="flag_bgc=T"
+```
+
+If you would also like to run with an interactive ice sheet, then the `lis`
+library must be installed, the **Yelmo** ice-sheet code must be downloaded and configured 
+and the solid Earth model **VILMA** libraries must be downloaded before compiling:
+
+```bash
+# lis
+cd src/utils
+git clone git@github.com:anishida/lis.git lis-2.1.5
+cd lis-2.1.5
+./configure --prefix=$PWD/../lis --enable-omp --enable-f90 CC=icc FC=ifort 
+make
+make install
+cd ..
+
+# yelmo
+cd src
+git clone git@github.com:palma-ice/yelmo.git
+cd yelmo
+git checkout climber-x  # Get climber-x branch
+python config.py config/pik_ifort
+cd ../..
+
+# vilma
+cd src/
+git clone git@github.com:cxesmc/vilma.git  # private repository, premission needed
+cd ..
+```
+Since the VILMA model code is not open source, the `vilma` repository is private at the moment and you need to be given permission in order to access it. Please send an email to [Matteo Willeit and Volker Klemann](mailto:matteo.willeit@gmail.com,volkerk@gfz-potsdam.de?subject=[GitHub]%20VILMA%20access) and you will be granted permission to access the `vilma` repository.
+
+```bash
+# Compile the climate and ice sheet model
+make clean
+make climber-clim-ice
+
+# Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
+./job_climber -s -o output/clim-ice \&control="flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
+```
+
+If you have followed all steps above you will also be ready to run fully coupled simulations:
+
+```bash
+# Compile the fully coupled model
+make clean
+make climber-clim-bgc-ice  # or equivalently: make climber
+
+# Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
+./job_climber -s -o output/clim-bgc-ice \&control="flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
+```
 
 ## Directory structure
 
@@ -45,11 +181,14 @@ Follow the steps below to (1) obtain the code, (2) configure the Makefile for yo
 Clone the repository from [https://github.com/cxesmc/climber-x](https://github.com/cxesmc/climber-x):
 
 ```bash
-# Clone repository
+# Clone code repository
 git clone https://github.com/cxesmc/climber-x.git
 git clone git@github.com:cxesmc/climber-x.git # via ssh
 
 cd climber-x
+
+# Clone input file directory
+git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
 ```
 
 If you plan to make changes to the code, it is wise to check out a new branch:
@@ -62,7 +201,7 @@ You should now be working on the branch `user-dev`.
 
 ### 2. Create the system-specific Makefile
 
-To compile **CLIMBER-X**, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF`, `FFTW`, `coordinates`, and `LIS`,  libraries. Note that it can be convenient to install `FFTW`, `coordinates` and `LIS` as subdirectories of the `src/` folder, to be sure they are compiled consistently with **CLIMBER-X**.
+To compile **CLIMBER-X**, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF`, `FFTW`, `coordinates`, `Yelmo` and `LIS` libraries. Note that it can be convenient to install `FFTW`, `coordinates`, `Yelmo` and `LIS` as subdirectories of the `src/` folder, to be sure they are compiled consistently with **CLIMBER-X**.
 
 You can use another configuration file in the config folder as a template, e.g.,
 
