@@ -2,7 +2,7 @@
 
 Here you can find the basic information and steps needed to get **CLIMBER-X** running.
 
-Some step-by-step commands are given for specific environments. 
+Some step-by-step commands are given for specific environments.
 To see how to install CLIMBER-X on the HPC2024 cluster at PIK, see: [Running-at-PIK](running-at-pik.md) for detailed instructions.
 
 There are currently four different flavors of **CLIMBER-X** that can be set up:
@@ -19,7 +19,6 @@ The model dependencies vary according to the desired model configuration:
 - Optional dependencies are: CDO, runner
 
 See: [Dependencies](dependencies.md) for more details.
-
 
 ## Super-quick start
 
@@ -86,12 +85,13 @@ cd src/
 git clone git@github.com:cxesmc/bgc.git
 cd ..
 ```
-Since the HAMOCC model source code is not open source, the `bgc` repository is private at the moment and 
-you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for 
+
+Since the HAMOCC model source code is not open source, the `bgc` repository is private at the moment and
+you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for
 Meteorology software licence agreement as part of the MPI-ESM ([https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf](https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf)).
 A pre-requisite to access the `bgc` repository is therefore that you agree to the MPI-ESM license
 by following the steps outlined here: [https://code.mpimet.mpg.de/projects/mpi-esm-license](https://code.mpimet.mpg.de/projects/mpi-esm-license).
-Once you have done so, send an email to matteo.willeit@gmail.com and you will be granted permission to access the `bgc` repository.
+Once you have done so, send an email to [matteo.willeit@gmail.com](mailto:matteo.willeit@gmail.com) and you will be granted permission to access the `bgc` repository.
 Note that you will need a GitHub account for that.
 
 ```bash
@@ -104,7 +104,7 @@ make climber-clim-bgc
 ```
 
 If you would also like to run with an interactive ice sheet, then the `lis`
-library must be installed, the **Yelmo** ice-sheet code must be downloaded and configured 
+library must be installed, the **Yelmo** ice-sheet code must be downloaded and configured
 and the solid Earth model **VILMA** libraries must be downloaded before compiling:
 
 ```bash
@@ -130,6 +130,7 @@ cd src/
 git clone git@github.com:cxesmc/vilma.git  # private repository, premission needed
 cd ..
 ```
+
 Since the VILMA model code is not open source, the `vilma` repository is private at the moment and you need to be given permission in order to access it. Please send an email to [Matteo Willeit and Volker Klemann](mailto:matteo.willeit@gmail.com,volkerk@gfz-potsdam.de?subject=[GitHub]%20VILMA%20access) and you will be granted permission to access the `vilma` repository.
 
 ```bash
