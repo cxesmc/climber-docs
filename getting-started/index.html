@@ -114,7 +114,7 @@
               
                 <h1 id="getting-started">Getting started</h1>
 <p>Here you can find the basic information and steps needed to get <strong>CLIMBER-X</strong> running.</p>
-<p>Some step-by-step commands are given for specific environments. 
+<p>Some step-by-step commands are given for specific environments.
 To see how to install CLIMBER-X on the HPC2024 cluster at PIK, see: <a href="../running-at-pik/">Running-at-PIK</a> for detailed instructions.</p>
 <p>There are currently four different flavors of <strong>CLIMBER-X</strong> that can be set up:</p>
 <ul>
@@ -189,12 +189,12 @@ cd src/
 git clone git@github.com:cxesmc/bgc.git
 cd ..
 </code></pre>
-<p>Since the HAMOCC model source code is not open source, the <code>bgc</code> repository is private at the moment and 
-you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for 
+<p>Since the HAMOCC model source code is not open source, the <code>bgc</code> repository is private at the moment and
+you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for
 Meteorology software licence agreement as part of the MPI-ESM (<a href="https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf">https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf</a>).
 A pre-requisite to access the <code>bgc</code> repository is therefore that you agree to the MPI-ESM license
 by following the steps outlined here: <a href="https://code.mpimet.mpg.de/projects/mpi-esm-license">https://code.mpimet.mpg.de/projects/mpi-esm-license</a>.
-Once you have done so, send an email to matteo.willeit@gmail.com and you will be granted permission to access the <code>bgc</code> repository.
+Once you have done so, send an email to <a href="mailto:matteo.willeit@gmail.com">matteo.willeit@gmail.com</a> and you will be granted permission to access the <code>bgc</code> repository.
 Note that you will need a GitHub account for that.</p>
 <pre><code class="language-bash"># Compile the climate and carbon cycle model 
 make clean
@@ -204,7 +204,7 @@ make climber-clim-bgc
 ./job_climber -s -o output/clim-bgc \&amp;control=&quot;flag_bgc=T&quot;
 </code></pre>
 <p>If you would also like to run with an interactive ice sheet, then the <code>lis</code>
-library must be installed, the <strong>Yelmo</strong> ice-sheet code must be downloaded and configured 
+library must be installed, the <strong>Yelmo</strong> ice-sheet code must be downloaded and configured
 and the solid Earth model <strong>VILMA</strong> libraries must be downloaded before compiling:</p>
 <pre><code class="language-bash"># lis
 cd src/utils
