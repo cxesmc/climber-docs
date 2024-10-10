@@ -5,6 +5,7 @@ nav:
     - Running at PIK: running-at-pik.md
     - Running at AWI: running-at-awi.md
     - Dependencies: dependencies.md
+    - Variables list: var-list.md
 #theme: mkdocs
 theme:
     name: readthedocs
