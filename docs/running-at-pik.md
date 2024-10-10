@@ -47,7 +47,7 @@ git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
 cd ..
 git clone git@github.com:cxesmc/climber-x-exlib.git
 cd climber-x-exlib
-./install.sh ifx pik
+./install_pik.sh ifx
 EXLIBSRC=$PWD
 cd ../climber-x/src/utils/
 ln -s $EXLIBSRC/exlib ./
@@ -99,22 +99,11 @@ make climber-clim-bgc
 
 ### CLIMBER-X climate and ice sheet model
 
-If you would also like to run with an interactive ice sheet, then the `lis`
-library must be installed, the **Yelmo** ice-sheet code must be downloaded and configured
-and the solid Earth model **VILMA** libraries must be downloaded before compiling:
+If you would also like to run with an interactive ice sheet, the **Yelmo** ice-sheet code 
+must be downloaded and configured and the solid Earth model **VILMA** libraries must be 
+downloaded before compiling:
 
 ```bash
-# lis
-cd src/utils
-git clone git@github.com:anishida/lis.git lis-2.1.5
-cd lis-2.1.5
-module load intel/oneAPI/2023.2.0 #(error when compiling with most recent intel OneAPI 2024.0)
-./configure --prefix=$PWD/../lis --enable-omp --enable-f90 CC=icc FC=ifort 'FFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback' 'CFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback'
-make
-make install
-module load intel/oneAPI/2024.0.0 #(to revert previous change)
-cd ../../..
-
 # yelmo
 cd src
 git clone git@github.com:palma-ice/yelmo.git
