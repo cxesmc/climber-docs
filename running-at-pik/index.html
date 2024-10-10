@@ -142,7 +142,7 @@ git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
 cd ..
 git clone git@github.com:cxesmc/climber-x-exlib.git
 cd climber-x-exlib
-./install.sh ifx pik
+./install_pik.sh ifx
 EXLIBSRC=$PWD
 cd ../climber-x/src/utils/
 ln -s $EXLIBSRC/exlib ./
@@ -186,21 +186,10 @@ make climber-clim-bgc
 ./job_climber -s -f -o output/clim-bgc -c short -j parallel -n 16 \&amp;control=&quot;flag_bgc=T&quot;
 </code></pre>
 <h3 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h3>
-<p>If you would also like to run with an interactive ice sheet, then the <code>lis</code>
-library must be installed, the <strong>Yelmo</strong> ice-sheet code must be downloaded and configured
-and the solid Earth model <strong>VILMA</strong> libraries must be downloaded before compiling:</p>
-<pre><code class="language-bash"># lis
-cd src/utils
-git clone git@github.com:anishida/lis.git lis-2.1.5
-cd lis-2.1.5
-module load intel/oneAPI/2023.2.0 #(error when compiling with most recent intel OneAPI 2024.0)
-./configure --prefix=$PWD/../lis --enable-omp --enable-f90 CC=icc FC=ifort 'FFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback' 'CFLAGS=-Ofast -march=core-avx2 -mtune=core-avx2 -traceback'
-make
-make install
-module load intel/oneAPI/2024.0.0 #(to revert previous change)
-cd ../../..
-
-# yelmo
+<p>If you would also like to run with an interactive ice sheet, the <strong>Yelmo</strong> ice-sheet code 
+must be downloaded and configured and the solid Earth model <strong>VILMA</strong> libraries must be 
+downloaded before compiling:</p>
+<pre><code class="language-bash"># yelmo
 cd src
 git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
