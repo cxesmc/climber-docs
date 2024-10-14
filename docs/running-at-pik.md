@@ -52,9 +52,6 @@ EXLIBSRC=$PWD
 cd ../climber-x/src/utils/
 ln -s $EXLIBSRC/exlib ./
 cd ../..   # Return to climber-x parent directory
-# choose serial or openmp version of libraries
-ln -s src/utils/exlib/fftw-omp src/utils/fftw
-ln -s src/utils/exlib/lis-omp src/utils/lis
 
 # Download and configure coordinates
 cd src/utils/
