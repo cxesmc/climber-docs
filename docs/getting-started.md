@@ -34,7 +34,7 @@ git clone git@github.com:cxesmc/climber-x.git
 cd climber-x
 
 # Clone input file directory
-git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
+git clone https://gitlab.pik-potsdam.de/cxesmc/climber-x-input.git
 
 # Prepare your configuration script
 cd config
