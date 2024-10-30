@@ -4,12 +4,10 @@
 Welcome to **CLIMBER-X**, a fast Earth system model.
 
 **CLIMBER-X** simulates the response of the Earth system to changes in different climate forcings, 
-such as changes in greenhouse gas concentrations or in the Earth's orbital configuration. To do so the model 
-represents the physical processes in atmosphere, ocean and on land that determine the climate state of the Earth. 
-It also simulates the bio- and geochemical processes in the biosphere, soil, ocean and marine sediments and therefore 
-allows for an interactive determination of the atmospheric CO2 and methane concentrations. 
-**CLIMBER-X** also includes two different models for the continental ice sheets and a model for the response of 
-the solid Earth to changes in surface load. Specifically, the model includes the following components:
+such as changes in greenhouse gas concentrations or in the Earth's orbital configuration. To do so the model
+represents the physical processes in atmosphere, ocean and on land that determine the climate state of the Earth.
+It also simulates the bio- and geochemical processes in the biosphere, soil, ocean and marine sediments and therefore allows for an interactive determination of the atmospheric CO2 and methane concentrations.
+**CLIMBER-X** also includes two different models for the continental ice sheets and a model for the response of the solid Earth to changes in surface load. Specifically, the model includes the following components:
 
 - SESAM: semi-empirical statistical-dynamical atmosphere model
 - GOLDSTEIN: 3-D frictional-geostrophic ocean model

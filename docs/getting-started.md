@@ -14,144 +14,10 @@ There are currently four different flavors of **CLIMBER-X** that can be set up:
 
 The model dependencies vary according to the desired model configuration:
 
-- Dependencies are: NetCDF, FFTW, coordinates
+- Dependencies are: NetCDF, coordinates, Python3.x, runner, CDO
 - Additional dependencies if using coupled ice sheets are: Yelmo, LIS
-- Optional dependencies are: CDO, runner
 
 See: [Dependencies](dependencies.md) for more details.
-
-## Super-quick start
-
-A summary of example commands to get started is given below using the `ifort` compiler. For more detailed information see subsequent sections.
-
-```bash
-### Download the CLIMBER-X code ###
-
-# Clone code repository
-git clone git@github.com:cxesmc/climber-x.git
-
-# Enter directory 
-cd climber-x
-
-# Clone input file directory
-git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
-
-# Prepare your configuration script
-cd config
-cp pik_hpc2024_ifx myhost_mycompiler  # use pik_hpc2024_ifx as template
-# Modify the file `myhost_mycompiler` to match your paths. 
-cd ..
-
-# Run configuration script
-python config.py config/pik_ifort
-
-### Download and configure additional libraries ###
-
-# fftw
-cd src/utils/
-wget https://www.fftw.org/fftw-3.3.10.tar.gz
-tar -xvf fftw-3.3.10.tar.gz
-rm fftw-3.3.10.tar.gz
-mv fftw-3.3.10 fftw
-cd fftw
-./configure --prefix=$PWD --enable-openmp CC=icc F77=ifort
-make
-make install
-cd ..
-
-# coordinates
-cd src/utils/
-git clone git@github.com:cxesmc/coordinates.git
-cd coordinates
-python config.py config/pik_ifort 
-cd ../../..  # Return to climber-x parent directory
-
-### Compile and run ###
-
-# Compile the climate model 
-make cleanall
-make climber-clim
-
-# Run a pre-industrial equilibrium climate-only test simulation
-./job_climber -s -o output/clim
-```
-
-If you would also like to run CLIMBER-X with an interactive carbon cycle, then the **HAMOCC**
-ocean biogeochemistry (`bgc`) code must also be downloaded:
-
-```bash
-# bgc
-cd src/
-git clone git@github.com:cxesmc/bgc.git
-cd ..
-```
-
-Since the HAMOCC model source code is not open source, the `bgc` repository is private at the moment and
-you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for
-Meteorology software licence agreement as part of the MPI-ESM ([https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf](https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf)).
-A pre-requisite to access the `bgc` repository is therefore that you agree to the MPI-ESM license
-by following the steps outlined here: [https://code.mpimet.mpg.de/projects/mpi-esm-license](https://code.mpimet.mpg.de/projects/mpi-esm-license).
-Once you have done so, send an email to [matteo.willeit@gmail.com](mailto:matteo.willeit@gmail.com) and you will be granted permission to access the `bgc` repository.
-Note that you will need a GitHub account for that.
-
-```bash
-# Compile the climate and carbon cycle model 
-make clean
-make climber-clim-bgc
-
-# Run a pre-industrial equilibrium simulation with ocean biogeochemistry
-./job_climber -s -o output/clim-bgc \&control="flag_bgc=T"
-```
-
-If you would also like to run with an interactive ice sheet, then the `lis`
-library must be installed, the **Yelmo** ice-sheet code must be downloaded and configured
-and the solid Earth model **VILMA** libraries must be downloaded before compiling:
-
-```bash
-# lis
-cd src/utils
-git clone git@github.com:anishida/lis.git lis-2.1.5
-cd lis-2.1.5
-./configure --prefix=$PWD/../lis --enable-omp --enable-f90 CC=icc FC=ifort 
-make
-make install
-cd ..
-
-# yelmo
-cd src
-git clone git@github.com:palma-ice/yelmo.git
-cd yelmo
-git checkout climber-x  # Get climber-x branch
-python config.py config/pik_ifort
-cd ../..
-
-# vilma
-cd src/
-git clone git@github.com:cxesmc/vilma.git  # private repository, premission needed
-cd ..
-```
-
-Since the VILMA model code is not open source, the `vilma` repository is private at the moment and you need to be given permission in order to access it. Please send an email to [Matteo Willeit and Volker Klemann](mailto:matteo.willeit@gmail.com,volkerk@gfz-potsdam.de?subject=[GitHub]%20VILMA%20access) and you will be granted permission to access the `vilma` repository.
-
-```bash
-# Compile the climate and ice sheet model
-make clean
-make climber-clim-ice
-
-# Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
-./job_climber -s -o output/clim-ice \&control="flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
-```
-
-If you have followed all steps above you will also be ready to run fully coupled simulations:
-
-```bash
-# Compile the fully coupled model
-make clean
-make climber-clim-bgc-ice  # or equivalently: make climber
-
-# Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
-./job_climber -s -o output/clim-bgc-ice \&control="flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
-```
 
 ## Directory structure
 
@@ -274,78 +140,72 @@ cd RUNDIR
 sbatch job.submit
 ```
 
-If not using the cluster, **CLIMBER-X** can also be run manually by entering the `RUNDIR` and specifying the current directory as an argument:
+If not using the cluster, **CLIMBER-X** can also be run manually by entering the `RUNDIR` and running the following:
 
 ```bash
 cd RUNDIR
-./climber.x ./ > out.out
+./climber.x > out.out
 ```
 
 Either of the above will run climber in `RUNDIR` with all simulation output stored in the same directory. Because the directory includes the executable and is self-contained, assuming the contents of the linked directories do not change, the simulation can be re-run at any time.
 
-To perform all of the above steps manually for multiple simulations is very tedious and time-consuming, so a "job" script has been created to handle the process.
+To perform all of the above steps manually for multiple simulations is very tedious and time-consuming, so a "run" script called `runme` is used to handle the process.
 
-Currently two job-script methods are available (`job_climber` and `runcx`), which are described in the sections below.
+### Using `runme`
 
-#### Using `job_climber`
+Before using `runme`, the user should store a configuration file with some personal choices. To get started, copy the template config file to the main directory:
 
-Aside from possible options, `job_climber` is always called with the required argument `-o RUNDIR` that specifies the output directory. So, to run a `climber.x` simulation as a job on the cluster in `RUNDIR`, run the command:
-
-```bash
-./job_climber -s -o RUNDIR
+```
+cp .runme/runme_config .runme_config
 ```
 
-where `RUNDIR` is the desired run directory. The option `-s` specifies that the job should be run on the cluster. Alternatively, use `-r` instead of `-s` to simply run it as a background process. Other options include `-c` for the queue name (short, priority, etc), `-w` for the maximum wall clock time to allow in hours, `-j` to specify whether a serial or parallel job is desired (serial or parallel), `-n` to specify the number of processors, and others.
+Next edit `.runme_config` so that the choices match your configuration. Mostly, this means setting `hpc` to the name of your current system and `account` to the default account to be used for your jobs submitted via SLURM. Also you can add your email address if you would like to receive notifications from SLURM about your jobs.
 
-### Using `runcx`
+Now `runme` is ready for use. See `./runme -h` for details on possible arguments.
 
-Unlike `job_climber`, the newer script `runcx` was designed only to handle running one simulation, while leaving the task of ensemble generation to the Python module `runner`, developed for that task.
-
-See `./runcx -h` for details on possible arguments. Aside from possible options, `runcx` is always called with the required argument `-o RUNDIR` that specifies the output directory. So, to run a `climber.x` simulation as a job on the cluster in `RUNDIR`, run the command:
+Note that aside from possible optional arguments, `runme` is always called with the required argument `-o RUNDIR` that specifies the output directory. So, to run a `climber.x` simulation as a job on the cluster in `RUNDIR`, run the command:
 
 ```bash
-./runcx -s -o RUNDIR
+./runme -rs -o RUNDIR
 ```
 
-where `RUNDIR` is the desired run directory. The option `-s` specifies that the job should be run on the cluster. Alternatively, use `-r` instead of `-s` to simply run it as a background process. Other options include `-q, --qos` for the queue name (short, priority, etc), `-w, --wall` for the maximum wall clock time to allow in hours, `--part` to name the processor partition (haswell, broadwell, etc), `--omp` to specify the number of processors, and others. See `./runcx -h` for all options.
+where `RUNDIR` is the desired run directory. The option `-r` says that the job should actually be run (instead of just prepared) and `-s` specifies that the job should be run on the cluster. If `-r` is used alone, then the job is simply run as a background process. Other options include `-q, --queue` for the queue alias (short, priority, etc.), `-w, --wall` for the maximum wall clock time to allow in format HH:MM:SS, `--part` to name the processor partition (priority, standard, smp, etc), `--omp` to specify the number of processors, and others. See `./runme -h` for all options.
 
-Note that various default options can be specified in the script's json-format configuration file `runcx.js`, so as to avoid having to specifying them every time.
-
-Run as a command as above, this script will run a simulation using the parameters as they are specified in the namelist parameter files in the `nml` directory. In addition, it is possible to modify the parameters of one simulation at the command line using the argument `-p KEY=VAL KEY=VAL ...`. So, for example, the following command:
+When called as above, this script will run a simulation using the parameters as they are specified in the namelist parameter files in the `nml` directory. In addition, it is possible to modify the parameters of one simulation at the command line using the argument `-p KEY=VAL KEY=VAL ...`. So, for example, the following command:
 
 ```bash
-./runcx -s -o RUNDIR -p ctl.n_accel=10
+./runme -s -o RUNDIR -p ctl.n_accel=10
 ```
 
-will run `climber.x` on the cluster in the output directory `RUNDIR` with the control parameter `control.n_accel` set to `10`. Note that `ctl` is a convenient alias for the namelist group `control`, as defined in `runcx.js`.
+will run `climber.x` on the cluster in the output directory `RUNDIR` with the control parameter `control.n_accel` set to `10`. Note that `ctl` is a convenient alias for the namelist group `control`, as defined in `.runme/climberx_info.json`.
 
-To perform a simulation an ensemble of simulations with modified parameter values, `runcx` should be called via `jobrun` (see below).
+To perform a simulation an ensemble of simulations with modified parameter values, `runme` should be called via `jobrun` (see below).
 
-#### Using `jobrun` with `runcx`
+#### Using `jobrun` with `runme`
 
 `jobrun` is a command that is part of the Python `runner` library, found here:
-[https://github.com/alex-robinson/runner](https://github.com/alex-robinson/runner). This command facilitates running ensembles of simulations, or simulations with modified parameters via a convenient command-line interface. See the above `runner` page for its installation instructions.
+[https://github.com/cxesmc/runner](https://github.com/cxesmc/runner). This command facilitates running ensembles of simulations, or simulations with modified parameters via a convenient command-line interface. See [Dependencies](dependencies.md) for its installation instructions.
 
-using `jobrun`, the following command would produce the same simulation as `./runcx -s RUNDIR`:
-
-```bash
-jobrun ./runcx -s -- -o OUTDIR
-```
-
-The difference here is that all options that follow the `--` are `jobrun` options. So now we don't specify the specific `RUNDIR`, but rather an encapsulating `OUTDIR` that will contain one or many `RUNDIR`'s. In the above example, no parameters are changed, so the simulation is saved in the `default` directory: `OUTDIR/default`.
-
-If we want to change a parameter, this can be done as with the `runcx` script via the `-p` option:
+Using `jobrun`, the following command would produce the same simulation as `./runme -s RUNDIR`:
 
 ```bash
-jobrun ./runcx -s -- -o OUTDIR -p ctl.n_accel=10
+jobrun ./runme -rs -o OUTDIR
 ```
 
-This will produce one simulation with the parameter `control.n_accel=10`. Since we have changed a parameter for this simulation, `jobrun` treats this as an ensemble, so the output is saved in `OUTDIR/0` for simulation 0. In short, the above command is equivalent to `./runcx -s -o OUTDIR -p ctl.n_accel=10`, but in the former case, the output is stored in `OUTDIR/0` and in the latter case, it is stored directly in `OUTDIR`.
+The difference here is that now we don't specify the specific `RUNDIR`, but rather an encapsulating `OUTDIR` that will contain one or more `RUNDIR`'s. In the above example, no parameters are changed, so the simulation is saved in the `default` directory: `OUTDIR/default`.
+
+If we want to change a parameter, this can be done as with the `runme` script via the `-p` option:
+
+```bash
+jobrun ./runme -rs -o OUTDIR -p ctl.n_accel=10
+```
+
+This will produce one simulation with the parameter `control.n_accel=10`. Since we have changed a parameter for this simulation, `jobrun` treats this as an ensemble, so the output is saved in `OUTDIR/0` for simulation 0. In short, the above command is equivalent to `./runme -s -o OUTDIR -p ctl.n_accel=10`, but in the former case, the output is stored in `OUTDIR/0` and in the latter case, it is stored directly in `OUTDIR`.
 
 The power of `jobrun` comes when we want to run an ensemble:
 
 ```bash
-jobrun ./runcx -s -- -o OUTDIR -p ctl.n_accel=1,5,10
+jobrun ./runme -rs -o OUTDIR -p ctl.n_accel=1,5,10
 ```
 
 This ensemble of simulations will appear in `OUTDIR/0`, `OUTDIR/1` and `OUTDIR/2`, respectively.
@@ -353,7 +213,7 @@ This ensemble of simulations will appear in `OUTDIR/0`, `OUTDIR/1` and `OUTDIR/2
 A more informative output directory can be made using the option `-a` along with `-o`:
 
 ```bash
-jobrun ./runcx -s -- -a -o OUTDIR -p ctl.n_accel=1,5,10
+jobrun ./runme -rs -a -o OUTDIR -p ctl.n_accel=1,5,10
 ```
 
 In this case, the run directories are `OUTDIR/ctl.nccl.1`, `OUTDIR/ctl.nccl.5` and `OUTDIR/ctl.nccl.10`, respectively.
@@ -375,7 +235,7 @@ General information about the ensemble can be found in the main ensemble directo
 It is of course possible to define multiple parameter permutations:
 
 ```bash
-jobrun ./runcx -s -- -o OUTDIR -p ctl.n_accel=1,5,10 smb.alb_ice=0.3,0.4
+jobrun ./runme -rs -o OUTDIR -p ctl.n_accel=1,5,10 smb.alb_ice=0.3,0.4
 ```
 
 To generate a more complex ensemble, using e.g. Latin-Hypercube sampling, then a two step approach is often better. First, use the `runner` command `job sample` to build the ensemble, then use `jobrun` to run it:
@@ -385,7 +245,7 @@ To generate a more complex ensemble, using e.g. Latin-Hypercube sampling, then a
 job sample -o lhs.txt --seed 4 -N 100 atm.c_trop_2=0.8,1.2 smb.alb_ice=0.3,0.4
 
 # Run ensemble
-jobrun ./runcx -s -- -o OUTDIR -i lhs.txt
+jobrun ./runme -rs -o OUTDIR -i lhs.txt
 ```
 
 This two-step method facilitates checking that the ensemble was generated properly and improves reproducibility, since the exact parameter values are available in the table.
@@ -395,5 +255,5 @@ This two-step method facilitates checking that the ensemble was generated proper
 A simple climate-only test simulation for pre-industrial conditions can be run as:
 
 ```bash
-./job_climber -s -f -o OUTDIR
+./runme -rs -o OUTDIR
 ```

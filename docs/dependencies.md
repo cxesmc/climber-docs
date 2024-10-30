@@ -3,21 +3,18 @@
 **CLIMBER-X** is dependent on the following libraries:
 
 - NetCDF: [NetCDF library](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
-- FFTW: [Fastest Fourier Transform in the West](https://www.fftw.org/). The library will have to be compiled from the original source code.
 - coordinates: [coordinates](https://github.com/cxesmc/coordinates), a module to handle grid/points definition, interpolation mapping and subsetting. The library will have to be compiled from the original source code.
+
+- Python 3.x, which is only needed for automatic configuration of the Makefile
+and the use of the `runme` script for job preparation and submission.
+- runner: ['runner' Python library (cxesmc fork)](https://github.com/cxesmc/runner)
+- CDO: [Climate Data Operators](https://code.mpimet.mpg.de/projects/cdo/), used for more efficient
+creation of maps to transform between different coordinate grids.
 
 Needed only if running with coupled ice sheets:
 
 - Yelmo: [Yelmo ice sheet model](https://github.com/palma-ice/yelmo). The library will have to be compiled from the original source code.
 - LIS: [Library of Iterative Solvers for Linear Systems](http://www.ssisc.org/lis/). The library will have to be compiled from the original source code.
-
-OPTIONAL:
-
-- Python 3.x, which is only needed for automatic configuration of the Makefile
-and the use of the scripts `job_climber` and `runcx` for job preparation and submission.
-- CDO: [Climate Data Operators](https://code.mpimet.mpg.de/projects/cdo/), used for more efficient
-creation of maps to transform between different coordinate grids.
-- runner: ['runner' Python library (alex-robinson fork)](https://github.com/alex-robinson/runner)
 
 Installation tips for each dependency can be found below.
 
@@ -32,22 +29,6 @@ If you want to install NetCDF from source, then you must install both the
 installation instructions are available from the Unidata website:
 
 [https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
-
-## Installing FFTW
-
-Download and configure the FFTW source:
-[https://www.fftw.org/download.html](https://www.fftw.org/download.html)
-
-```bash
-wget https://www.fftw.org/fftw-3.3.10.tar.gz
-tar -xvf fftw-3.3.10.tar.gz
-rm fftw-3.3.10.tar.gz
-mv fftw-3.3.10 fftw
-cd fftw
-./configure --prefix=$PWD --enable-openmp CC=icc F77=ifort
-make
-make install
-```
 
 ## Installing coordinates
 
@@ -88,13 +69,16 @@ CC=gcc FC=gfortran ./configure --prefix=$LISROOT --enable-f90 --enable-omp
 
 ## Installing runner
 
-1. Install `runner` to your system's Python installation via `pip`, along with dependency `tabulate`.
+1. Install `runner` to your system's Python installation via `pip`.
 
 ```bash
-pip install https://github.com/alex-robinson/runner/archive/refs/heads/master.zip
-pip install tabulate
+pip install https://github.com/cxesmc/runner/archive/refs/heads/master.zip
 ```
 
 That's it! Now check that system command `job` is available by running `job -h`.
+If the command is not found, it means that the Python bin directory is not available in your `PATH`. To add it, typically something like this is needed in your .profile or .bashrc file:
 
-Note that install method `python setup.py install` should be avoided if possible to maintain Python system integrity.
+```bash
+PATH=${PATH}:${HOME}/.local/bin
+export PATH
+```

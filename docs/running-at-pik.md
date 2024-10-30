@@ -67,7 +67,7 @@ make cleanall
 make climber-clim
 
 # Run a pre-industrial equilibrium climate-only test simulation
-./job_climber -s -f -o output/clim -c short -j parallel -n 16
+./runme -rs -q short --omp 32 -o output/clim
 ```
 
 ### CLIMBER-X climate and carbon cycle model
@@ -149,5 +149,5 @@ make clean
 make climber-clim-bgc-ice  # or equivalently make climber
 
 # Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
-./job_climber -s -f -o output/clim-bgc-ice -c short -j parallel -n 16 \&control="flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
+./runme -s -f -o output/clim-bgc-ice -c short -j parallel -n 16 \&control="flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
 ```
