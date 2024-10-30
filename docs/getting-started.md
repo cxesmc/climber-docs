@@ -155,7 +155,7 @@ To perform all of the above steps manually for multiple simulations is very tedi
 
 Before using `runme`, the user should store a configuration file with some personal choices. To get started, copy the template config file to the main directory:
 
-```
+```bash
 cp .runme/runme_config .runme_config
 ```
 
