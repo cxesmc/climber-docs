@@ -3,7 +3,7 @@
 Here you can find the basic information and steps needed to get **CLIMBER-X** running.
 
 Some step-by-step commands are given for specific environments.
-To see how to install CLIMBER-X on the HPC2024 cluster at PIK, see: [Running-at-PIK](running-at-pik.md) for detailed instructions.
+To see how to install CLIMBER-X on an HPC, see: [Running-on-hpc](running-on-hpc.md) for detailed instructions.
 
 There are currently four different flavors of **CLIMBER-X** that can be set up:
 
