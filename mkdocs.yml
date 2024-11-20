@@ -2,8 +2,7 @@ site_name: CLIMBER-X-docs
 nav:
     - Home: index.md
     - Getting started: getting-started.md
-    - Running at PIK: running-at-pik.md
-    - Running at AWI: running-at-awi.md
+    - Running on an HPC: running-on-hpc.md
     - Dependencies: dependencies.md
     - Variables list: var-list.md
 #theme: mkdocs

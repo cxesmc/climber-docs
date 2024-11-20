@@ -1,8 +1,8 @@
-# Running CLIMBER-X on the HPC2024 (FOOTE) at PIK
+running-on-hpc
 
-Here you can find the basic information and steps needed to get **CLIMBER-X** running on the HPC2024 (FOOTE) at PIK.
+# Notes for specific systems
 
-## Loading required modules
+## Running at PIK on HPC2024 (foote)
 
 The following modules have to be loaded in order to compile and run the model.
 For convenience you can also add those commands to your `.profile` file in your home directory.
@@ -23,9 +23,59 @@ For convenience you can also add those commands to your `.profile` file in your 
     module load cdo/2.4.2
 ```
 
-## Get the code
+When installing `climber-x-exlib` (see further below) using the `pik` script:
 
-### CLIMBER-X climate model
+```bash
+./install_pik.sh ifx
+```
+
+## Running at AWI on albedo
+
+Load the following modules in your `.bashrc` file in your home directory.
+
+```bash
+    module load intel-oneapi-compilers/2022.1.0
+    module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
+    module load netcdf-fortran/4.5.4-oneapi2022.1.0
+    module load udunits/2.2.28
+    module load ncview/2.1.8
+    module load cdo/2.2.0
+    module load python/3.10.4
+```
+
+When installing `climber-x-exlib` (see further below) using the `dkrz` script:
+
+```bash
+./install_dkrz.sh ifx
+```
+
+## Running at DKRZ on levante
+
+Load the following modules in your `.bashrc` file in your home directory.
+
+```bash
+# Tools
+module load cdo/2.4.0-gcc-11.2.0
+module load esmvaltool/2.5.0
+module load ncview/2.1.8-gcc-11.2.0
+module load git/2.43.3-gcc-11.2.0
+module load python3/2023.01-gcc-11.2.0
+
+# Compilers and libs
+module load intel-oneapi-compilers/2023.2.1-gcc-11.2.0
+module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
+module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
+```
+
+When installing `climber-x-exlib` (see further below) using the `dkrz` script:
+
+```bash
+./install_dkrz.sh ifx
+```
+
+# Get the code
+
+## CLIMBER-X climate model
 
 ```bash
 
@@ -38,7 +88,7 @@ git clone git@github.com:cxesmc/climber-x.git
 cd climber-x
 
 # Run configuration script
-python3 config.py config/pik_hpc2024_ifx
+python config.py config/pik_hpc2024_ifx   # Or config file for your system
 
 # Clone input file directory
 git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
@@ -47,7 +97,7 @@ git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
 cd ..
 git clone git@github.com:cxesmc/climber-x-exlib.git
 cd climber-x-exlib
-./install_pik.sh ifx
+./install_pik.sh ifx   # Use install_dkrz.sh as needed
 EXLIBSRC=$PWD
 cd ../climber-x/src/utils/
 ln -s $EXLIBSRC/exlib ./
@@ -57,7 +107,7 @@ cd ../..   # Return to climber-x parent directory
 cd src/utils/
 git clone git@github.com:cxesmc/coordinates.git
 cd coordinates
-python3 config.py config/pik_hpc2024_ifx 
+python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
 cd ../../..   # Return to climber-x parent directory
 
 ### Compile and run ###
@@ -65,6 +115,13 @@ cd ../../..   # Return to climber-x parent directory
 # Compile the climate model 
 make cleanall
 make climber-clim
+
+# Set up your `runme` config file for your system
+cp .runme/runme_config .runme_config
+# - Edit hpc and account name to match your settings
+
+# Make sure to install the `runner` package too
+pip install https://github.com/cxesmc/runner/archive/refs/heads/master.zip
 
 # Run a pre-industrial equilibrium climate-only test simulation
 ./runme -rs -q short --omp 32 -o output/clim
@@ -81,8 +138,9 @@ cd src/
 git clone git@github.com:cxesmc/bgc.git
 cd ..
 ```
+
 Since the HAMOCC model code is not open source, the `bgc` repository is private at the moment and 
-you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for 
+you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for
 Meteorology software licence agreement as part of the MPI-ESM ([https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf](https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf)).
 A pre-requisite to access the `bgc` repository is therefore that you agree to the MPI-ESM license
 by following the steps outlined here: [https://code.mpimet.mpg.de/projects/mpi-esm-license](https://code.mpimet.mpg.de/projects/mpi-esm-license).
@@ -94,7 +152,7 @@ make clean
 make climber-clim-bgc
 
 # Run a pre-industrial equilibrium simulation with ocean biogeochemistry
-./job_climber -s -f -o output/clim-bgc -c short -j parallel -n 16 \&control="flag_bgc=T"
+./runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
 ```
 
 ### CLIMBER-X climate and ice sheet model
@@ -109,7 +167,7 @@ cd src
 git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
 git checkout climber-x  # Get climber-x branch
-python3 config.py config/pik_hpc2024_ifx
+python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
 cd ../..
 
 # vilma
@@ -125,7 +183,7 @@ make clean
 make climber-clim-ice
 
 # Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
-./job_climber -s -f -o output/clim-ice -c short -j parallel -n 16 \&control="flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
+./runme -rs -q short --omp 16 -o output/clim-ice -p ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 ```
 
 ### Fully coupled CLIMBER-X configuration
@@ -138,5 +196,5 @@ make clean
 make climber-clim-bgc-ice  # or equivalently make climber
 
 # Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
-./runme -s -f -o output/clim-bgc-ice -c short -j parallel -n 16 \&control="flag_bgc=T flag_ice=T flag_geo=T flag_smb=T flag_imo=T ice_model_name=yelmo ice_domain_name=GRL-16KM"
+./runme -s -q short --omp 16 -o output/clim-bgc-ice -p ctl.flag_bgc=T ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 ```
