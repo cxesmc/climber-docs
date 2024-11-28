@@ -93,40 +93,210 @@
                 <h1 id="variables-list">Variables list</h1>
 <h2 id="atmosphere">Atmosphere</h2>
 <h3 id="atmnc">atm.nc</h3>
-<p>| variable      | dimensions | units       | long_name                                              |
-+---------------|------------|-------------|-------------------------------------------------------+
-| fw_atl_indpac | 2D         | Sv          | Freshwater transport from Atlantic to Indo-Pacific     |
-| fw_pac_atl    | 2D         | Sv          | Freshwater transport from Pacific to Atlantic          |
-| had_fi        | 2D         | Deg         |                                                        |
-| had_width     | 2D         | Deg         |                                                        |
-| acbarz        | 3D         | Rad         | Zonal mean cross-isobar angle                          |
-| coszm         | 3D         |             | Radiation weighted daily mean cosine of solar zenith angle |
-| ekez          | 3D         | m²/s²       | Zonal mean eddy kinetic energy                         |
-| faycptg       | 3D         | PW          | Meridional cp*T transport by mean circulation          |
-| faydseg       | 3D         | PW          | Meridional dry static energy transport by mean circulation |
-| fayg          | 3D         |             |                                                        |
-| fayleg        | 3D         | PW          | Meridional latent heat transport by mean circulation   |
-| faywtrg       | 3D         | kg/s        | Meridional moisture transport by mean circulation      |
-| frlnd         | 3D         |             | Land fraction in grid cell                             |
-| frocn         | 3D         |             | Ocean fraction in grid cell                            |
-| fyseg         | 3D         | PW          | Total meridional dry static energy transport           |
-| fyheatg       | 3D         | PW          | Total meridional heat transport                        |
-| fyleg         | 3D         | PW          | Total meridional latent heat transport                 |
-| fywtrg        | 3D         | kg/s        | Total meridional moisture transport                    |
-| ptrop         | 3D         |             | Relative pressure at tropopause                        |
-| slope         | 3D         | m/m         | Topography slope                                       |
-| slope_x       | 3D         | m/m         | Topography slope in zonal direction                   |
-| slope_y       | 3D         | m/m         | Topography slope in meridional direction              |
-| slpz          | 3D         | Pa          | Zonal mean sea level pressure                         |
-| solarm        | 3D         | W/m²        | Daily mean TOA incoming solar radiation               |
-| tskslz        | 3D         | K           | Zonal mean skin temperature reduced to sea level      |
-| tslz          | 3D         | K           | Zonal mean sea level temperature                      |
-| uz500         | 3D         | m/s         | Zonal mean 500 hPa zonal wind                         |
-| uz850         | 3D         | m/s         | Zonal mean 850 hPa zonal wind                         |
-| vabz          | 3D         | m/s         | Zonal mean meridional ageostrophic wind in PBL        |
-| zsa           | 3D         | m           | Grid cell average surface elevation                   |
-| zsa_smooth    | 3D         | m           | Grid cell average smoothed surface elevation          |
-+---------------|------------|-------------|-------------------------------------------------------+</p>
+<table>
+<thead>
+<tr>
+<th>variable</th>
+<th>dimensions</th>
+<th>units</th>
+<th>long_name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fw_atl_indpac</td>
+<td>2D</td>
+<td>Sv</td>
+<td>Freshwater transport from Atlantic to Indo-Pacific</td>
+</tr>
+<tr>
+<td>fw_pac_atl</td>
+<td>2D</td>
+<td>Sv</td>
+<td>Freshwater transport from Pacific to Atlantic</td>
+</tr>
+<tr>
+<td>had_fi</td>
+<td>2D</td>
+<td>Deg</td>
+<td></td>
+</tr>
+<tr>
+<td>had_width</td>
+<td>2D</td>
+<td>Deg</td>
+<td></td>
+</tr>
+<tr>
+<td>acbarz</td>
+<td>3D</td>
+<td>Rad</td>
+<td>Zonal mean cross-isobar angle</td>
+</tr>
+<tr>
+<td>coszm</td>
+<td>3D</td>
+<td></td>
+<td>Radiation weighted daily mean cosine of solar zenith angle</td>
+</tr>
+<tr>
+<td>ekez</td>
+<td>3D</td>
+<td>m²/s²</td>
+<td>Zonal mean eddy kinetic energy</td>
+</tr>
+<tr>
+<td>faycptg</td>
+<td>3D</td>
+<td>PW</td>
+<td>Meridional cp*T transport by mean circulation</td>
+</tr>
+<tr>
+<td>faydseg</td>
+<td>3D</td>
+<td>PW</td>
+<td>Meridional dry static energy transport by mean circulation</td>
+</tr>
+<tr>
+<td>fayg</td>
+<td>3D</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>fayleg</td>
+<td>3D</td>
+<td>PW</td>
+<td>Meridional latent heat transport by mean circulation</td>
+</tr>
+<tr>
+<td>faywtrg</td>
+<td>3D</td>
+<td>kg/s</td>
+<td>Meridional moisture transport by mean circulation</td>
+</tr>
+<tr>
+<td>frlnd</td>
+<td>3D</td>
+<td></td>
+<td>Land fraction in grid cell</td>
+</tr>
+<tr>
+<td>frocn</td>
+<td>3D</td>
+<td></td>
+<td>Ocean fraction in grid cell</td>
+</tr>
+<tr>
+<td>fyseg</td>
+<td>3D</td>
+<td>PW</td>
+<td>Total meridional dry static energy transport</td>
+</tr>
+<tr>
+<td>fyheatg</td>
+<td>3D</td>
+<td>PW</td>
+<td>Total meridional heat transport</td>
+</tr>
+<tr>
+<td>fyleg</td>
+<td>3D</td>
+<td>PW</td>
+<td>Total meridional latent heat transport</td>
+</tr>
+<tr>
+<td>fywtrg</td>
+<td>3D</td>
+<td>kg/s</td>
+<td>Total meridional moisture transport</td>
+</tr>
+<tr>
+<td>ptrop</td>
+<td>3D</td>
+<td></td>
+<td>Relative pressure at tropopause</td>
+</tr>
+<tr>
+<td>slope</td>
+<td>3D</td>
+<td>m/m</td>
+<td>Topography slope</td>
+</tr>
+<tr>
+<td>slope_x</td>
+<td>3D</td>
+<td>m/m</td>
+<td>Topography slope in zonal direction</td>
+</tr>
+<tr>
+<td>slope_y</td>
+<td>3D</td>
+<td>m/m</td>
+<td>Topography slope in meridional direction</td>
+</tr>
+<tr>
+<td>slpz</td>
+<td>3D</td>
+<td>Pa</td>
+<td>Zonal mean sea level pressure</td>
+</tr>
+<tr>
+<td>solarm</td>
+<td>3D</td>
+<td>W/m²</td>
+<td>Daily mean TOA incoming solar radiation</td>
+</tr>
+<tr>
+<td>tskslz</td>
+<td>3D</td>
+<td>K</td>
+<td>Zonal mean skin temperature reduced to sea level</td>
+</tr>
+<tr>
+<td>tslz</td>
+<td>3D</td>
+<td>K</td>
+<td>Zonal mean sea level temperature</td>
+</tr>
+<tr>
+<td>uz500</td>
+<td>3D</td>
+<td>m/s</td>
+<td>Zonal mean 500 hPa zonal wind</td>
+</tr>
+<tr>
+<td>uz850</td>
+<td>3D</td>
+<td>m/s</td>
+<td>Zonal mean 850 hPa zonal wind</td>
+</tr>
+<tr>
+<td>vabz</td>
+<td>3D</td>
+<td>m/s</td>
+<td>Zonal mean meridional ageostrophic wind in PBL</td>
+</tr>
+<tr>
+<td>zsa</td>
+<td>3D</td>
+<td>m</td>
+<td>Grid cell average surface elevation</td>
+</tr>
+<tr>
+<td>zsa_smooth</td>
+<td>3D</td>
+<td>m</td>
+<td>Grid cell average smoothed surface elevation</td>
+</tr>
+<tr>
+<td>---------------</td>
+<td>------------</td>
+<td>-------------</td>
+<td>-------------------------------------------------------</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
