@@ -4,7 +4,7 @@ nav:
     - Getting started: getting-started.md
     - Running on an HPC: running-on-hpc.md
     - Dependencies: dependencies.md
-    - Variables list: var-list.md
+    - Variables list: climber-variables-atm.md
 #theme: mkdocs
 theme:
     name: readthedocs
