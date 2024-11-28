@@ -1,8 +1,6 @@
 # Variables list
 
-## Atmosphere
-
-### atm.nc
+## Atmosphere (atm.nc)
 
 | variable      | dimensions | units       | long_name                                              |
 |---------------|------------|-------------|--------------------------------------------------------|
@@ -37,4 +35,3 @@
 | vabz          | 3D         | m/s         | Zonal mean meridional ageostrophic wind in PBL        |
 | zsa           | 3D         | m           | Grid cell average surface elevation                   |
 | zsa_smooth    | 3D         | m           | Grid cell average smoothed surface elevation          |
-|---------------|------------|-------------|-------------------------------------------------------|
