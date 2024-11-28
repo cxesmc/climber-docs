@@ -1,3 +1,9 @@
+# Variables list
+
+## Atmosphere
+
+### atm.nc
+
 | variable      | dimensions | units       | long_name                                              |
 +---------------|------------|-------------|-------------------------------------------------------+
 | fw_atl_indpac | 2D         | Sv          | Freshwater transport from Atlantic to Indo-Pacific     |
