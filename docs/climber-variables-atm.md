@@ -5,7 +5,7 @@
 ### atm.nc
 
 | variable      | dimensions | units       | long_name                                              |
-+---------------|------------|-------------|-------------------------------------------------------+
+|---------------|------------|-------------|--------------------------------------------------------|
 | fw_atl_indpac | 2D         | Sv          | Freshwater transport from Atlantic to Indo-Pacific     |
 | fw_pac_atl    | 2D         | Sv          | Freshwater transport from Pacific to Atlantic          |
 | had_fi        | 2D         | Deg         |                                                        |
@@ -37,4 +37,4 @@
 | vabz          | 3D         | m/s         | Zonal mean meridional ageostrophic wind in PBL        |
 | zsa           | 3D         | m           | Grid cell average surface elevation                   |
 | zsa_smooth    | 3D         | m           | Grid cell average smoothed surface elevation          |
-+---------------|------------|-------------|-------------------------------------------------------+
+|---------------|------------|-------------|-------------------------------------------------------|
