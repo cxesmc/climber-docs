@@ -136,7 +136,9 @@ ocean biogeochemistry (`bgc`) code must also be downloaded:
 # bgc
 cd src/
 git clone git@github.com:cxesmc/bgc.git
-cd ..
+cd bgc/
+git submodule update --init --recursive     # for submodule M4AGO 
+cd ../..
 ```
 
 Since the HAMOCC model code is not open source, the `bgc` repository is private at the moment and 
