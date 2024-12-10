@@ -99,9 +99,8 @@ git clone git@github.com:cxesmc/climber-x-exlib.git
 cd climber-x-exlib
 ./install_pik.sh ifx   # Use install_dkrz.sh as needed
 EXLIBSRC=$PWD
-cd ../climber-x/src/utils/
-ln -s $EXLIBSRC/exlib ./
-cd ../..   # Return to climber-x parent directory
+cd ../climber-x/
+ln -s $EXLIBSRC/exlib ./src/utils/
 
 # Download and configure coordinates
 cd src/utils/
@@ -141,12 +140,12 @@ git submodule update --init --recursive     # for submodule M4AGO
 cd ../..
 ```
 
-Since the HAMOCC model code is not open source, the `bgc` repository is private at the moment and 
+Since the HAMOCC model code is not open source, the `bgc` repository is private at the moment and
 you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for
 Meteorology software licence agreement as part of the MPI-ESM ([https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf](https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf)).
 A pre-requisite to access the `bgc` repository is therefore that you agree to the MPI-ESM license
 by following the steps outlined here: [https://code.mpimet.mpg.de/projects/mpi-esm-license](https://code.mpimet.mpg.de/projects/mpi-esm-license).
-Once you have done so, send an email to [Matteo Willeit](mailto:matteo.willeit@gmail.com?subject=[GitHub]%20bgc%20source%20code) and you will be granted permission to access the `bgc` repository. 
+Once you have done so, send an email to [Matteo Willeit](mailto:matteo.willeit@gmail.com?subject=[GitHub]%20bgc%20source%20code) and you will be granted permission to access the `bgc` repository.
 
 ```bash
 # Compile the climate and carbon cycle model 
@@ -159,8 +158,8 @@ make climber-clim-bgc
 
 #### CLIMBER-X climate and ice sheet model
 
-If you would also like to run with an interactive ice sheet, the **Yelmo** ice-sheet code 
-must be downloaded and configured and the solid Earth model **VILMA** libraries must be 
+If you would also like to run with an interactive ice sheet, the **Yelmo** ice-sheet code
+must be downloaded and configured and the solid Earth model **VILMA** libraries must be
 downloaded before compiling:
 
 ```bash
@@ -168,17 +167,17 @@ downloaded before compiling:
 cd src
 git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
-git checkout climber-x  # Get climber-x branch
+git checkout climber-x                     # Get climber-x branch
 python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
-cd libs/ 
-ln -s $EXLIBSRC/exlib ./
-cd ../../..   # Return to climber-x parent directory
+ln -s $EXLIBSRC/exlib ./libs/              # Link absolute path
+cd ../..            # Return to climber-x parent directory
 
 # vilma
 cd src/
 git clone git@github.com:cxesmc/vilma.git  # private repository, premission needed
 cd ..
 ```
+
 Since the VILMA model code is not open source, the `vilma` repository is private at the moment and you need to be given permission in order to access it. Please send an email to [Matteo Willeit and Volker Klemann](mailto:matteo.willeit@gmail.com,volkerk@gfz-potsdam.de?subject=[GitHub]%20VILMA%20access) and you will be granted permission to access the `vilma` repository.
 
 ```bash
