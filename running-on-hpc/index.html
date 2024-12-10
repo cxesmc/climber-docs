@@ -50,11 +50,29 @@
               <ul class="current">
                 <li class="toctree-l1 current"><a class="reference internal current" href="#">Running on an HPC</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#running-at-pik-on-hpc2024-foote">Running at PIK on HPC2024 (foote)</a>
+    <li class="toctree-l2"><a class="reference internal" href="#notes-for-specific-systems">Notes for specific systems</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#running-at-pik-on-hpc2024-foote">Running at PIK on HPC2024 (foote)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#running-at-awi-on-albedo">Running at AWI on albedo</a>
+    <li class="toctree-l3"><a class="reference internal" href="#running-at-awi-on-albedo">Running at AWI on albedo</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#running-at-dkrz-on-levante">Running at DKRZ on levante</a>
+    <li class="toctree-l3"><a class="reference internal" href="#running-at-dkrz-on-levante">Running at DKRZ on levante</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#get-the-code">Get the code</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#climber-x-climate-model">CLIMBER-X climate model</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
     </li>
     </ul>
                 </li>
@@ -90,9 +108,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>running-on-hpc</p>
-<h1 id="notes-for-specific-systems">Notes for specific systems</h1>
-<h2 id="running-at-pik-on-hpc2024-foote">Running at PIK on HPC2024 (foote)</h2>
+                <h1 id="running-on-an-hpc">Running on an HPC</h1>
+<h2 id="notes-for-specific-systems">Notes for specific systems</h2>
+<h3 id="running-at-pik-on-hpc2024-foote">Running at PIK on HPC2024 (foote)</h3>
 <p>The following modules have to be loaded in order to compile and run the model.
 For convenience you can also add those commands to your <code>.profile</code> file in your home directory.</p>
 <pre><code class="language-bash">    module purge
@@ -112,9 +130,9 @@ For convenience you can also add those commands to your <code>.profile</code> fi
 <p>When installing <code>climber-x-exlib</code> (see further below) using the <code>pik</code> script:</p>
 <pre><code class="language-bash">./install_pik.sh ifx
 </code></pre>
-<h2 id="running-at-awi-on-albedo">Running at AWI on albedo</h2>
+<h3 id="running-at-awi-on-albedo">Running at AWI on albedo</h3>
 <p>Load the following modules in your <code>.bashrc</code> file in your home directory.</p>
-<pre><code class="language-bash">    module load intel-oneapi-compilers/2022.1.0
+<pre><code class="language-bash">    module load intel-oneapi-compilers/2024.0.0
     module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
     module load netcdf-fortran/4.5.4-oneapi2022.1.0
     module load udunits/2.2.28
@@ -125,7 +143,7 @@ For convenience you can also add those commands to your <code>.profile</code> fi
 <p>When installing <code>climber-x-exlib</code> (see further below) using the <code>dkrz</code> script:</p>
 <pre><code class="language-bash">./install_dkrz.sh ifx
 </code></pre>
-<h2 id="running-at-dkrz-on-levante">Running at DKRZ on levante</h2>
+<h3 id="running-at-dkrz-on-levante">Running at DKRZ on levante</h3>
 <p>Load the following modules in your <code>.bashrc</code> file in your home directory.</p>
 <pre><code class="language-bash"># Tools
 module load cdo/2.4.0-gcc-11.2.0
@@ -142,8 +160,8 @@ module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
 <p>When installing <code>climber-x-exlib</code> (see further below) using the <code>dkrz</code> script:</p>
 <pre><code class="language-bash">./install_dkrz.sh ifx
 </code></pre>
-<h1 id="get-the-code">Get the code</h1>
-<h2 id="climber-x-climate-model">CLIMBER-X climate model</h2>
+<h2 id="get-the-code">Get the code</h2>
+<h3 id="climber-x-climate-model">CLIMBER-X climate model</h3>
 <pre><code class="language-bash">
 ### Download the CLIMBER-X code ###
 
@@ -192,7 +210,7 @@ pip install https://github.com/cxesmc/runner/archive/refs/heads/master.zip
 # Run a pre-industrial equilibrium climate-only test simulation
 ./runme -rs -q short --omp 32 -o output/clim
 </code></pre>
-<h3 id="climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</h3>
+<h4 id="climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</h4>
 <p>If you would also like to run CLIMBER-X with an interactive carbon cycle, then the <strong>HAMOCC</strong>
 ocean biogeochemistry (<code>bgc</code>) code must also be downloaded:</p>
 <pre><code class="language-bash"># bgc
@@ -215,7 +233,7 @@ make climber-clim-bgc
 # Run a pre-industrial equilibrium simulation with ocean biogeochemistry
 ./runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
 </code></pre>
-<h3 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h3>
+<h4 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h4>
 <p>If you would also like to run with an interactive ice sheet, the <strong>Yelmo</strong> ice-sheet code 
 must be downloaded and configured and the solid Earth model <strong>VILMA</strong> libraries must be 
 downloaded before compiling:</p>
@@ -242,7 +260,7 @@ make climber-clim-ice
 # Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
 ./runme -rs -q short --omp 16 -o output/clim-ice -p ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 </code></pre>
-<h3 id="fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</h3>
+<h4 id="fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</h4>
 <p>If you have followed all steps above you will also be ready to run fully coupled simulations:</p>
 <pre><code class="language-bash"># Compile the fully coupled model
 make clean
