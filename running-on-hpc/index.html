@@ -219,12 +219,12 @@ cd bgc/
 git submodule update --init --recursive     # for submodule M4AGO 
 cd ../..
 </code></pre>
-<p>Since the HAMOCC model code is not open source, the <code>bgc</code> repository is private at the moment and 
+<p>Since the HAMOCC model code is not open source, the <code>bgc</code> repository is private at the moment and
 you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for
 Meteorology software licence agreement as part of the MPI-ESM (<a href="https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf">https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf</a>).
 A pre-requisite to access the <code>bgc</code> repository is therefore that you agree to the MPI-ESM license
 by following the steps outlined here: <a href="https://code.mpimet.mpg.de/projects/mpi-esm-license">https://code.mpimet.mpg.de/projects/mpi-esm-license</a>.
-Once you have done so, send an email to <a href="mailto:matteo.willeit@gmail.com?subject=[GitHub]%20bgc%20source%20code">Matteo Willeit</a> and you will be granted permission to access the <code>bgc</code> repository. </p>
+Once you have done so, send an email to <a href="mailto:matteo.willeit@gmail.com?subject=[GitHub]%20bgc%20source%20code">Matteo Willeit</a> and you will be granted permission to access the <code>bgc</code> repository.</p>
 <pre><code class="language-bash"># Compile the climate and carbon cycle model 
 make clean
 make climber-clim-bgc
@@ -233,18 +233,17 @@ make climber-clim-bgc
 ./runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
 </code></pre>
 <h4 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h4>
-<p>If you would also like to run with an interactive ice sheet, the <strong>Yelmo</strong> ice-sheet code 
-must be downloaded and configured and the solid Earth model <strong>VILMA</strong> libraries must be 
+<p>If you would also like to run with an interactive ice sheet, the <strong>Yelmo</strong> ice-sheet code
+must be downloaded and configured and the solid Earth model <strong>VILMA</strong> libraries must be
 downloaded before compiling:</p>
 <pre><code class="language-bash"># yelmo
 cd src
 git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
-git checkout climber-x  # Get climber-x branch
+git checkout climber-x                     # Get climber-x branch
 python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
-cd libs/ 
-ln -s $EXLIBSRC/exlib ./
-cd ../../..   # Return to climber-x parent directory
+ln -s $EXLIBSRC/exlib ./libs/              # Link absolute path
+cd ../..            # Return to climber-x parent directory
 
 # vilma
 cd src/
