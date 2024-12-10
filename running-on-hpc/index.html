@@ -183,9 +183,8 @@ git clone git@github.com:cxesmc/climber-x-exlib.git
 cd climber-x-exlib
 ./install_pik.sh ifx   # Use install_dkrz.sh as needed
 EXLIBSRC=$PWD
-cd ../climber-x/src/utils/
-ln -s $EXLIBSRC/exlib ./
-cd ../..   # Return to climber-x parent directory
+cd ../climber-x/
+ln -s $EXLIBSRC/exlib ./src/utils/
 
 # Download and configure coordinates
 cd src/utils/
