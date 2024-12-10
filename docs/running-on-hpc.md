@@ -1,8 +1,8 @@
-running-on-hpc
+# Running on an HPC
 
-# Notes for specific systems
+## Notes for specific systems
 
-## Running at PIK on HPC2024 (foote)
+### Running at PIK on HPC2024 (foote)
 
 The following modules have to be loaded in order to compile and run the model.
 For convenience you can also add those commands to your `.profile` file in your home directory.
@@ -23,18 +23,18 @@ For convenience you can also add those commands to your `.profile` file in your 
     module load cdo/2.4.2
 ```
 
-When installing `climber-x-exlib` (see further below) using the `pik` script:
+When installing `climber-x-exlib` (see further below) use the `pik` script:
 
 ```bash
 ./install_pik.sh ifx
 ```
 
-## Running at AWI on albedo
+### Running at AWI on albedo
 
 Load the following modules in your `.bashrc` file in your home directory.
 
 ```bash
-    module load intel-oneapi-compilers/2022.1.0
+    module load intel-oneapi-compilers/2024.0.0
     module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
     module load netcdf-fortran/4.5.4-oneapi2022.1.0
     module load udunits/2.2.28
@@ -43,13 +43,13 @@ Load the following modules in your `.bashrc` file in your home directory.
     module load python/3.10.4
 ```
 
-When installing `climber-x-exlib` (see further below) using the `dkrz` script:
+When installing `climber-x-exlib` (see further below) use the `dkrz` script:
 
 ```bash
 ./install_dkrz.sh ifx
 ```
 
-## Running at DKRZ on levante
+### Running at DKRZ on levante
 
 Load the following modules in your `.bashrc` file in your home directory.
 
@@ -67,15 +67,15 @@ module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
 module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
 ```
 
-When installing `climber-x-exlib` (see further below) using the `dkrz` script:
+When installing `climber-x-exlib` (see further below) use the `dkrz` script:
 
 ```bash
 ./install_dkrz.sh ifx
 ```
 
-# Get the code
+## Get the code
 
-## CLIMBER-X climate model
+### CLIMBER-X climate model
 
 ```bash
 
@@ -127,7 +127,7 @@ pip install https://github.com/cxesmc/runner/archive/refs/heads/master.zip
 ./runme -rs -q short --omp 32 -o output/clim
 ```
 
-### CLIMBER-X climate and carbon cycle model
+#### CLIMBER-X climate and carbon cycle model
 
 If you would also like to run CLIMBER-X with an interactive carbon cycle, then the **HAMOCC**
 ocean biogeochemistry (`bgc`) code must also be downloaded:
@@ -157,7 +157,7 @@ make climber-clim-bgc
 ./runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
 ```
 
-### CLIMBER-X climate and ice sheet model
+#### CLIMBER-X climate and ice sheet model
 
 If you would also like to run with an interactive ice sheet, the **Yelmo** ice-sheet code 
 must be downloaded and configured and the solid Earth model **VILMA** libraries must be 
@@ -190,7 +190,7 @@ make climber-clim-ice
 ./runme -rs -q short --omp 16 -o output/clim-ice -p ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 ```
 
-### Fully coupled CLIMBER-X configuration
+#### Fully coupled CLIMBER-X configuration
 
 If you have followed all steps above you will also be ready to run fully coupled simulations:
 
