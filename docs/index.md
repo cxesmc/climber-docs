@@ -1,5 +1,5 @@
 
-![CLIMBER-X model schematic](img/climber-x-new.png)
+![CLIMBER-X model schematic](img/climber-x.png)
 
 Welcome to **CLIMBER-X**, a fast Earth system model.
 
