@@ -43,10 +43,10 @@ Load the following modules in your `.bashrc` file in your home directory.
     module load python/3.10.4
 ```
 
-When installing `climber-x-exlib` (see further below) use the `dkrz` script:
+When installing `climber-x-exlib` (see further below) use the `awi` script (which is actually a link to the `dkrz` script since they work the same way):
 
 ```bash
-./install_dkrz.sh ifx
+./install_awi.sh ifx
 ```
 
 ### Running at DKRZ on levante
