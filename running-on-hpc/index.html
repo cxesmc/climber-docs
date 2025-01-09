@@ -63,14 +63,12 @@
     <li class="toctree-l2"><a class="reference internal" href="#get-the-code">Get the code</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#climber-x-climate-model">CLIMBER-X climate model</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</a>
+    <li class="toctree-l3"><a class="reference internal" href="#climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</a>
+    <li class="toctree-l3"><a class="reference internal" href="#climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</a>
     </li>
-        </ul>
+    <li class="toctree-l3"><a class="reference internal" href="#fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</a>
     </li>
         </ul>
     </li>
@@ -166,7 +164,8 @@ module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
 ### Download the CLIMBER-X code ###
 
 # Clone repository
-git clone git@github.com:cxesmc/climber-x.git
+git clone https://github.com/cxesmc/climber-x.git
+git clone git@github.com:cxesmc/climber-x.git # via ssh
 
 # Enter directory 
 cd climber-x
@@ -175,7 +174,8 @@ cd climber-x
 python config.py config/pik_hpc2024_ifx   # Or config file for your system
 
 # Clone input file directory
-git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
+git clone https://gitlab.pik-potsdam.de/cxesmc/climber-x-input.git input
+git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input    # via ssh
 
 # Step back and clone and install external libraries repository
 cd ..
@@ -209,7 +209,7 @@ pip install https://github.com/cxesmc/runner/archive/refs/heads/master.zip
 # Run a pre-industrial equilibrium climate-only test simulation
 ./runme -rs -q short --omp 32 -o output/clim
 </code></pre>
-<h4 id="climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</h4>
+<h3 id="climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</h3>
 <p>If you would also like to run CLIMBER-X with an interactive carbon cycle, then the <strong>HAMOCC</strong>
 ocean biogeochemistry (<code>bgc</code>) code must also be downloaded:</p>
 <pre><code class="language-bash"># bgc
@@ -232,7 +232,7 @@ make climber-clim-bgc
 # Run a pre-industrial equilibrium simulation with ocean biogeochemistry
 ./runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
 </code></pre>
-<h4 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h4>
+<h3 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h3>
 <p>If you would also like to run with an interactive ice sheet, the <strong>Yelmo</strong> ice-sheet code
 must be downloaded and configured and the solid Earth model <strong>VILMA</strong> libraries must be
 downloaded before compiling:</p>
@@ -258,7 +258,7 @@ make climber-clim-ice
 # Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
 ./runme -rs -q short --omp 16 -o output/clim-ice -p ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 </code></pre>
-<h4 id="fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</h4>
+<h3 id="fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</h3>
 <p>If you have followed all steps above you will also be ready to run fully coupled simulations:</p>
 <pre><code class="language-bash"># Compile the fully coupled model
 make clean
