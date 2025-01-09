@@ -55,7 +55,9 @@ git clone git@github.com:cxesmc/climber-x.git # via ssh
 cd climber-x
 
 # Clone input file directory
-git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
+git clone https://gitlab.pik-potsdam.de/cxesmc/climber-x-input.git input
+git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input    # via ssh
+
 ```
 
 If you plan to make changes to the code, it is wise to check out a new branch:

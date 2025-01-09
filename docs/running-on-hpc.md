@@ -82,7 +82,8 @@ When installing `climber-x-exlib` (see further below) use the `dkrz` script:
 ### Download the CLIMBER-X code ###
 
 # Clone repository
-git clone git@github.com:cxesmc/climber-x.git
+git clone https://github.com/cxesmc/climber-x.git
+git clone git@github.com:cxesmc/climber-x.git # via ssh
 
 # Enter directory 
 cd climber-x
@@ -91,7 +92,8 @@ cd climber-x
 python config.py config/pik_hpc2024_ifx   # Or config file for your system
 
 # Clone input file directory
-git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input
+git clone https://gitlab.pik-potsdam.de/cxesmc/climber-x-input.git input
+git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input    # via ssh
 
 # Step back and clone and install external libraries repository
 cd ..
@@ -126,7 +128,7 @@ pip install https://github.com/cxesmc/runner/archive/refs/heads/master.zip
 ./runme -rs -q short --omp 32 -o output/clim
 ```
 
-#### CLIMBER-X climate and carbon cycle model
+### CLIMBER-X climate and carbon cycle model
 
 If you would also like to run CLIMBER-X with an interactive carbon cycle, then the **HAMOCC**
 ocean biogeochemistry (`bgc`) code must also be downloaded:
@@ -156,7 +158,7 @@ make climber-clim-bgc
 ./runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
 ```
 
-#### CLIMBER-X climate and ice sheet model
+### CLIMBER-X climate and ice sheet model
 
 If you would also like to run with an interactive ice sheet, the **Yelmo** ice-sheet code
 must be downloaded and configured and the solid Earth model **VILMA** libraries must be
@@ -189,7 +191,7 @@ make climber-clim-ice
 ./runme -rs -q short --omp 16 -o output/clim-ice -p ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 ```
 
-#### Fully coupled CLIMBER-X configuration
+### Fully coupled CLIMBER-X configuration
 
 If you have followed all steps above you will also be ready to run fully coupled simulations:
 
