@@ -23,7 +23,7 @@ For convenience you can also add those commands to your `.profile` file in your 
     module load cdo/2.4.2
 ```
 
-When installing `climber-x-exlib` (see further below) use the `pik` script:
+When installing `fesm-utils` (see [Dependencies](dependencies.md)) use the `pik` script:
 
 ```bash
 ./install_pik.sh ifx
@@ -43,7 +43,7 @@ Load the following modules in your `.bashrc` file in your home directory.
     module load python/3.10.4
 ```
 
-When installing `climber-x-exlib` (see further below) use the `awi` script (which is actually a link to the `dkrz` script since they work the same way):
+When installing `fesm-utils` (see [Dependencies](dependencies.md)) use the `awi` script (which is actually a link to the `dkrz` script since they work the same way):
 
 ```bash
 ./install_awi.sh ifx
@@ -67,7 +67,7 @@ module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
 module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
 ```
 
-When installing `climber-x-exlib` (see further below) use the `dkrz` script:
+When installing `fesm-utils` (see [Dependencies](dependencies.md)) use the `dkrz` script:
 
 ```bash
 ./install_dkrz.sh ifx
@@ -97,12 +97,12 @@ git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input    # via ss
 
 # Step back and clone and install external libraries repository
 cd ..
-git clone git@github.com:cxesmc/climber-x-exlib.git
-cd climber-x-exlib
+git clone git@github.com:cxesmc/fesm-utils.git
+cd fesm-utils
 ./install_pik.sh ifx   # Use install_dkrz.sh as needed
-EXLIBSRC=$PWD
+FESMUSRC=$PWD
 cd ../climber-x/
-ln -s $EXLIBSRC/exlib ./src/utils/
+ln -s $FESMUSRC ./src/utils/
 
 # Download and configure coordinates
 cd src/utils/
@@ -171,7 +171,7 @@ git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
 git checkout climber-x                     # Get climber-x branch
 python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
-ln -s $EXLIBSRC/exlib ./libs/              # Link absolute path
+ln -s $FESMUSRC ./libs/              # Link absolute path
 cd ../..            # Return to climber-x parent directory
 
 # vilma
