@@ -34,12 +34,12 @@ installation instructions are available from the Unidata website:
 ## Installing coordinates
 
 Download the coordinates source:
-[https://github.com/cxesmc/coordinates](https://github.com/cxesmc/coordinates).
+[https://github.com/fesmc/coordinates](https://github.com/fesmc/coordinates).
 Configure the package, and install it in the location
 of your choice (below defined as `$COORDROOT`):
 
 ```bash
-git clone git@github.com:cxesmc/coordinates.git $COORDROOT
+git clone git@github.com:fesmc/coordinates.git $COORDROOT
 cd $COORDROOT
 python config.py config/pik_hpc2024_ifx
 make clean
