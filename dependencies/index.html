@@ -58,7 +58,7 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installing-coordinates">Installing coordinates</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#installing-lis">Installing LIS</a>
+    <li class="toctree-l2"><a class="reference internal" href="#install-lis-and-fftw">Install LIS and FFTW</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#installing-runner">Installing runner</a>
     </li>
@@ -96,6 +96,7 @@
 <p><strong>CLIMBER-X</strong> is dependent on the following libraries:</p>
 <ul>
 <li>NetCDF: <a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">NetCDF library</a></li>
+<li>FFTW (ver. 3.9+)</li>
 <li>
 <p>coordinates: <a href="https://github.com/cxesmc/coordinates">coordinates</a>, a module to handle grid/points definition, interpolation mapping and subsetting. The library will have to be compiled from the original source code.</p>
 </li>
@@ -103,7 +104,7 @@
 <p>Python 3.x, which is only needed for automatic configuration of the Makefile
 and the use of the <code>runme</code> script for job preparation and submission.</p>
 </li>
-<li>runner: <a href="https://github.com/cxesmc/runner">'runner' Python library (cxesmc fork)</a></li>
+<li>runner: <a href="https://github.com/fesmc/runner">'runner' Python library (fesmc version)</a></li>
 <li>CDO: <a href="https://code.mpimet.mpg.de/projects/cdo/">Climate Data Operators</a>, used for more efficient
 creation of maps to transform between different coordinate grids.</li>
 </ul>
@@ -132,26 +133,15 @@ python config.py config/pik_hpc2024_ifx
 make clean
 make coord-static openmp=1
 </code></pre>
-<h2 id="installing-lis">Installing LIS</h2>
-<p>Download the LIS source:
-<a href="https://www.ssisc.org/lis/">https://www.ssisc.org/lis/</a>
-Configure the package, and install it in the location
-of your choice (below defined as <code>$LISROOT</code>). Also, make sure to
-enable the Fortran90 and openmp interface:</p>
-<pre><code class="language-bash">git clone git@github.com:anishida/lis.git $LISROOT
-./configure --prefix=$LISROOT --enable-omp --enable-f90
-make
-make install
-</code></pre>
-<p>Note: make sure to set the environment variables <code>CC</code> and <code>FC</code>, in order to set
-a specific compiler, for example for gcc/gfortran use the following configure command:</p>
-<pre><code class="language-bash">CC=gcc FC=gfortran ./configure --prefix=$LISROOT --enable-f90 --enable-omp
-</code></pre>
+<h2 id="install-lis-and-fftw">Install LIS and FFTW</h2>
+<p>These packages could be installed individually and linked into the <code>libs</code> directory of Yelmox and Yelmo. However, to ensure the right versions are used, etc., we have now made a separate repository for managing the installation of LIS and FFTW from the versions available in that repository. This repository is managed as part of the Fast Earth System Model Community (FESMC).</p>
+<p>Please download the code from this repository and see the README for installation instructions:
+<a href="https://github.com/fesmc-utils">https://github.com/fesmc-utils</a></p>
 <h2 id="installing-runner">Installing runner</h2>
 <ol>
 <li>Install <code>runner</code> to your system's Python installation via <code>pip</code>.</li>
 </ol>
-<pre><code class="language-bash">pip install https://github.com/cxesmc/runner/archive/refs/heads/master.zip
+<pre><code class="language-bash">pip install https://github.com/fesmc/runner/archive/refs/heads/master.zip
 </code></pre>
 <p>That's it! Now check that system command <code>job</code> is available by running <code>job -h</code>.
 If the command is not found, it means that the Python bin directory is not available in your <code>PATH</code>. To add it, typically something like this is needed in your .profile or .bashrc file:</p>

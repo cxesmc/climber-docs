@@ -125,7 +125,7 @@ For convenience you can also add those commands to your <code>.profile</code> fi
     module load ncview/2.1.10
     module load cdo/2.4.2
 </code></pre>
-<p>When installing <code>climber-x-exlib</code> (see further below) use the <code>pik</code> script:</p>
+<p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>pik</code> script:</p>
 <pre><code class="language-bash">./install_pik.sh ifx
 </code></pre>
 <h3 id="running-at-awi-on-albedo">Running at AWI on albedo</h3>
@@ -138,7 +138,7 @@ For convenience you can also add those commands to your <code>.profile</code> fi
     module load cdo/2.2.0
     module load python/3.10.4
 </code></pre>
-<p>When installing <code>climber-x-exlib</code> (see further below) use the <code>awi</code> script (which is actually a link to the <code>dkrz</code> script since they work the same way):</p>
+<p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>awi</code> script (which is actually a link to the <code>dkrz</code> script since they work the same way):</p>
 <pre><code class="language-bash">./install_awi.sh ifx
 </code></pre>
 <h3 id="running-at-dkrz-on-levante">Running at DKRZ on levante</h3>
@@ -155,7 +155,7 @@ module load intel-oneapi-compilers/2023.2.1-gcc-11.2.0
 module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
 module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
 </code></pre>
-<p>When installing <code>climber-x-exlib</code> (see further below) use the <code>dkrz</code> script:</p>
+<p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>dkrz</code> script:</p>
 <pre><code class="language-bash">./install_dkrz.sh ifx
 </code></pre>
 <h2 id="get-the-code">Get the code</h2>
@@ -179,12 +179,12 @@ git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input    # via ss
 
 # Step back and clone and install external libraries repository
 cd ..
-git clone git@github.com:cxesmc/climber-x-exlib.git
-cd climber-x-exlib
+git clone git@github.com:cxesmc/fesm-utils.git
+cd fesm-utils
 ./install_pik.sh ifx   # Use install_dkrz.sh as needed
-EXLIBSRC=$PWD
+FESMUSRC=$PWD
 cd ../climber-x/
-ln -s $EXLIBSRC/exlib ./src/utils/
+ln -s $FESMUSRC ./src/utils/
 
 # Download and configure coordinates
 cd src/utils/
@@ -242,7 +242,7 @@ git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
 git checkout climber-x                     # Get climber-x branch
 python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
-ln -s $EXLIBSRC/exlib ./libs/              # Link absolute path
+ln -s $FESMUSRC ./libs/              # Link absolute path
 cd ../..            # Return to climber-x parent directory
 
 # vilma
