@@ -46,12 +46,12 @@ make clean
 make coord-static openmp=1
 ```
 
-## Install LIS and FFTW
+## Install LIS, FFTW and utils
 
-These packages could be installed individually and linked into the `libs` directory of Yelmox and Yelmo. However, to ensure the right versions are used, etc., we have now made a separate repository for managing the installation of LIS and FFTW from the versions available in that repository. This repository is managed as part of the Fast Earth System Model Community (FESMC).
+These packages could be installed individually and linked into the main directories of Yelmox and Yelmo. However, to ensure the right versions are used, etc., we have now made a separate repository for managing the installation of LIS and FFTW from the versions available in that repository, as well as some custom modules. This repository is managed as part of the Fast Earth System Model Community (FESMC).
 
 Please download the code from this repository and see the README for installation instructions:
-[https://github.com/fesm-utils](https://github.com/fesm-utils)
+[https://github.com/fesmc/fesm-utils](https://github.com/fesmc/fesm-utils)
 
 ## Installing runner
 
