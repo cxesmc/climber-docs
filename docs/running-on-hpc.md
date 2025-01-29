@@ -97,7 +97,7 @@ git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input    # via ss
 
 # Step back and clone and install external libraries repository
 cd ..
-git clone git@github.com:cxesmc/fesm-utils.git
+git clone git@github.com:fesmc/fesm-utils.git
 cd fesm-utils
 ./install_pik.sh ifx   # Use install_dkrz.sh as needed
 FESMUSRC=$PWD
@@ -106,10 +106,17 @@ ln -s $FESMUSRC ./src/utils/
 
 # Download and configure coordinates
 cd src/utils/
-git clone git@github.com:cxesmc/coordinates.git
+git clone git@github.com:fesmc/coordinates.git
 cd coordinates
 python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
 cd ../../..   # Return to climber-x parent directory
+
+# Install other external utils library
+cd src/utils/fesm-utils/utils
+python config.py config/pik_hpc2024_ifx  # replace with config file for your system
+make clean
+make fesmutils-static openmp=1
+cd ../../../.. # Return to climber-x parent directory
 
 ### Compile and run ###
 
