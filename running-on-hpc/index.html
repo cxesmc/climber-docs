@@ -197,7 +197,8 @@ cd ../../..   # Return to climber-x parent directory
 cd src/utils/fesm-utils/utils
 python config.py config/pik_hpc2024_ifx  # replace with config file for your system
 make clean
-make fesmutils-static openmp=1
+make fesmutils-static openmp=0  # serial version    
+make fesmutils-static openmp=1  # parallel version
 cd ../../../.. # Return to climber-x parent directory
 
 ### Compile and run ###
@@ -249,7 +250,7 @@ git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
 git checkout climber-x                     # Get climber-x branch
 python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
-ln -s $FESMUSRC ./libs/              # Link absolute path
+ln -s $FESMUSRC .              # Link absolute path
 cd ../..            # Return to climber-x parent directory
 
 # vilma
