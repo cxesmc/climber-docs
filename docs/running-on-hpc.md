@@ -180,7 +180,6 @@ cd yelmo
 git checkout climber-x                     # Get climber-x branch
 python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
 ln -s $FESMUSRC .              # Link absolute path
-cp input/yelmo-variables-y*.md ../../input/	# copy yelmo variables for io
 cd ../..            # Return to climber-x parent directory
 
 # vilma
