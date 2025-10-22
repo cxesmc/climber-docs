@@ -49,13 +49,11 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Installation</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#1-get-the-code">1. Get the code</a>
+    <li class="toctree-l2"><a class="reference internal" href="#1-get-the-code">1. Get the code</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#3-compiling-climber-x">3. Compiling CLIMBER-X</a>
+    <li class="toctree-l2"><a class="reference internal" href="#2-create-the-system-specific-makefile">2. Create the system-specific Makefile</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#3-compiling-climber-x">3. Compiling CLIMBER-X</a>
     </li>
     </ul>
                   </li>
@@ -121,10 +119,9 @@
 <li>Additional dependencies if using coupled ice sheets are: Yelmo, LIS</li>
 </ul>
 <p>See: <a href="../dependencies/">Dependencies</a> for more details.</p>
-<h2 id="usage">Usage</h2>
 <p>Follow the steps below to (1) obtain the code, (2) configure the Makefile(s) for your system,
 (3) compile an executable program </p>
-<h3 id="1-get-the-code">1. Get the code</h3>
+<h2 id="1-get-the-code">1. Get the code</h2>
 <p>Clone the repository from <a href="https://github.com/cxesmc/climber-x">https://github.com/cxesmc/climber-x</a>:</p>
 <pre><code class="language-bash"># Clone code repository
 git clone https://github.com/cxesmc/climber-x.git
@@ -170,16 +167,11 @@ cd ../..            # Return to climber-x parent directory
 cd src/
 git clone git@github.com:cxesmc/vilma.git  # private repository, premission needed
 cd ..
-
-
-### 2. Create the system-specific Makefile
-
-To compile **CLIMBER-X**, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF`, `FFTW`, `coordinates`, `Yelmo` and `LIS` libraries. Note that it can be convenient to install `FFTW`, `coordinates`, `Yelmo` and `LIS` as subdirectories of the `src/` folder, to be sure they are compiled consistently with **CLIMBER-X**.
-
-You can use another configuration file in the config folder as a template, e.g.,
-
-```bash
-cd config
+</code></pre>
+<h2 id="2-create-the-system-specific-makefile">2. Create the system-specific Makefile</h2>
+<p>To compile <strong>CLIMBER-X</strong>, you need to generate a Makefile that is appropriate for your system. In the folder <code>config</code>, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the <code>NetCDF</code>, <code>FFTW</code>, <code>coordinates</code>, <code>Yelmo</code> and <code>LIS</code> libraries. Note that it can be convenient to install <code>FFTW</code>, <code>coordinates</code>, <code>Yelmo</code> and <code>LIS</code> as subdirectories of the <code>src/</code> folder, to be sure they are compiled consistently with <strong>CLIMBER-X</strong>.</p>
+<p>You can use another configuration file in the config folder as a template, e.g.,</p>
+<pre><code class="language-bash">cd config
 cp pik_ifort myhost_mycompiler
 </code></pre>
 <p>Then you would modify the file <code>myhost_mycompiler</code> to match your paths. Back in <code>climber-x</code>, you can then generate your Makefile with the provided python configuration script:</p>
@@ -192,7 +184,7 @@ python config.py config/myhost_mycompiler
 python config.py config/myhost_mycompiler 
 cd ../..
 </code></pre>
-<h3 id="3-compiling-climber-x">3. Compiling <strong>CLIMBER-X</strong></h3>
+<h2 id="3-compiling-climber-x">3. Compiling <strong>CLIMBER-X</strong></h2>
 <p>Assuming the source has been downloaded and configured, and all <a href="../dependencies/">dependencies</a> have also been compiled, now you are ready to compile <strong>CLIMBER-X</strong>.</p>
 <p>There are currently four different flavors of <strong>CLIMBER-X</strong> that can be compiled:</p>
 <ul>
