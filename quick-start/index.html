@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Running on an HPC - CLIMBER-X-docs</title>
+    <title>Quick start - CLIMBER-X-docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Running on an HPC";
-        var mkdocs_page_input_path = "running-on-hpc.md";
+        var mkdocs_page_name = "Quick start";
+        var mkdocs_page_input_path = "quick-start.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -44,7 +44,7 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Getting started</span></p>
-              <ul>
+              <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
@@ -53,7 +53,27 @@
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../dependencies/">Dependencies</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../quick-start/">Quick start</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Quick start</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#climber-x-climate-model">CLIMBER-X climate model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#notes-for-specific-systems">Notes for specific systems</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#running-at-pik-on-hpc2024-foote">Running at PIK on HPC2024 (foote)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-at-awi-on-albedo">Running at AWI on albedo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#running-at-dkrz-on-levante">Running at DKRZ on levante</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Use cases</span></p>
@@ -86,7 +106,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Running on an HPC</li>
+          <li class="breadcrumb-item">Getting started</li>
+      <li class="breadcrumb-item active">Quick start</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -95,60 +116,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="running-on-an-hpc">Running on an HPC</h1>
-<h2 id="notes-for-specific-systems">Notes for specific systems</h2>
-<h3 id="running-at-pik-on-hpc2024-foote">Running at PIK on HPC2024 (foote)</h3>
-<p>The following modules have to be loaded in order to compile and run the model.
-For convenience you can also add those commands to your <code>.profile</code> file in your home directory.</p>
-<pre><code class="language-bash">    module purge
-    module use /p/system/modulefiles/compiler \
-               /p/system/modulefiles/gpu \
-               /p/system/modulefiles/libraries \
-               /p/system/modulefiles/parallel \
-               /p/system/modulefiles/tools
-
-    module load intel/oneAPI/2024.0.0
-    module load netcdf-c/4.9.2
-    module load netcdf-fortran-intel/4.6.1
-    module load udunits/2.2.28
-    module load ncview/2.1.10
-    module load cdo/2.4.2
-</code></pre>
-<p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>pik</code> script:</p>
-<pre><code class="language-bash">./install_pik.sh ifx
-</code></pre>
-<h3 id="running-at-awi-on-albedo">Running at AWI on albedo</h3>
-<p>Load the following modules in your <code>.bashrc</code> file in your home directory.</p>
-<pre><code class="language-bash">    module load intel-oneapi-compilers/2024.0.0
-    module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
-    module load netcdf-fortran/4.5.4-oneapi2022.1.0
-    module load udunits/2.2.28
-    module load ncview/2.1.8
-    module load cdo/2.2.0
-    module load python/3.10.4
-</code></pre>
-<p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>awi</code> script (which is actually a link to the <code>dkrz</code> script since they work the same way):</p>
-<pre><code class="language-bash">./install_awi.sh ifx
-</code></pre>
-<h3 id="running-at-dkrz-on-levante">Running at DKRZ on levante</h3>
-<p>Load the following modules in your <code>.bashrc</code> file in your home directory.</p>
-<pre><code class="language-bash"># Tools
-module load cdo/2.4.0-gcc-11.2.0
-module load esmvaltool/2.5.0
-module load ncview/2.1.8-gcc-11.2.0
-module load git/2.43.3-gcc-11.2.0
-module load python3/2023.01-gcc-11.2.0
-
-# Compilers and libs
-module load intel-oneapi-compilers/2023.2.1-gcc-11.2.0
-module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
-module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
-</code></pre>
-<p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>dkrz</code> script:</p>
-<pre><code class="language-bash">./install_dkrz.sh ifx
-</code></pre>
-<h2 id="get-the-code">Get the code</h2>
-<h3 id="climber-x-climate-model">CLIMBER-X climate model</h3>
+                <h1 id="quick-start">Quick start</h1>
+<h2 id="climber-x-climate-model">CLIMBER-X climate model</h2>
 <pre><code class="language-bash">
 ### Download the CLIMBER-X code ###
 
@@ -206,7 +175,7 @@ pip install https://github.com/fesmc/runner/archive/refs/heads/master.zip
 # Run a pre-industrial equilibrium climate-only test simulation
 ./runme -rs -q short --omp 32 -o output/clim
 </code></pre>
-<h3 id="climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</h3>
+<h2 id="climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</h2>
 <p>If you would also like to run CLIMBER-X with an interactive carbon cycle, then the <strong>HAMOCC</strong>
 ocean biogeochemistry (<code>bgc</code>) code must also be downloaded:</p>
 <pre><code class="language-bash"># bgc
@@ -229,7 +198,7 @@ make climber-clim-bgc
 # Run a pre-industrial equilibrium simulation with ocean biogeochemistry
 ./runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
 </code></pre>
-<h3 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h3>
+<h2 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h2>
 <p>If you would also like to run with an interactive ice sheet, the <strong>Yelmo</strong> ice-sheet code
 must be downloaded and configured and the solid Earth model <strong>VILMA</strong> libraries must be
 downloaded before compiling:</p>
@@ -255,7 +224,7 @@ make climber-clim-ice
 # Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
 ./runme -rs -q short --omp 16 -o output/clim-ice -p ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 </code></pre>
-<h3 id="fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</h3>
+<h2 id="fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</h2>
 <p>If you have followed all steps above you will also be ready to run fully coupled simulations:</p>
 <pre><code class="language-bash"># Compile the fully coupled model
 make clean
@@ -264,9 +233,64 @@ make climber-clim-bgc-ice  # or equivalently make climber
 # Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
 ./runme -s -q short --omp 16 -o output/clim-bgc-ice -p ctl.flag_bgc=T ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 </code></pre>
+<h2 id="notes-for-specific-systems">Notes for specific systems</h2>
+<h3 id="running-at-pik-on-hpc2024-foote">Running at PIK on HPC2024 (foote)</h3>
+<p>The following modules have to be loaded in order to compile and run the model.
+For convenience you can also add those commands to your <code>.profile</code> file in your home directory.</p>
+<pre><code class="language-bash">    module purge
+    module use /p/system/modulefiles/compiler \
+               /p/system/modulefiles/gpu \
+               /p/system/modulefiles/libraries \
+               /p/system/modulefiles/parallel \
+               /p/system/modulefiles/tools
+
+    module load intel/oneAPI/2024.0.0
+    module load netcdf-c/4.9.2
+    module load netcdf-fortran-intel/4.6.1
+    module load udunits/2.2.28
+    module load ncview/2.1.10
+    module load cdo/2.4.2
+</code></pre>
+<p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>pik</code> script:</p>
+<pre><code class="language-bash">./install_pik.sh ifx
+</code></pre>
+<h3 id="running-at-awi-on-albedo">Running at AWI on albedo</h3>
+<p>Load the following modules in your <code>.bashrc</code> file in your home directory.</p>
+<pre><code class="language-bash">    module load intel-oneapi-compilers/2024.0.0
+    module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
+    module load netcdf-fortran/4.5.4-oneapi2022.1.0
+    module load udunits/2.2.28
+    module load ncview/2.1.8
+    module load cdo/2.2.0
+    module load python/3.10.4
+</code></pre>
+<p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>awi</code> script (which is actually a link to the <code>dkrz</code> script since they work the same way):</p>
+<pre><code class="language-bash">./install_awi.sh ifx
+</code></pre>
+<h3 id="running-at-dkrz-on-levante">Running at DKRZ on levante</h3>
+<p>Load the following modules in your <code>.bashrc</code> file in your home directory.</p>
+<pre><code class="language-bash"># Tools
+module load cdo/2.4.0-gcc-11.2.0
+module load esmvaltool/2.5.0
+module load ncview/2.1.8-gcc-11.2.0
+module load git/2.43.3-gcc-11.2.0
+module load python3/2023.01-gcc-11.2.0
+
+# Compilers and libs
+module load intel-oneapi-compilers/2023.2.1-gcc-11.2.0
+module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
+module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
+</code></pre>
+<p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>dkrz</code> script:</p>
+<pre><code class="language-bash">./install_dkrz.sh ifx
+</code></pre>
               
             </div>
           </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../dependencies/" class="btn btn-neutral float-left" title="Dependencies"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../use-cases/01-piControl/" class="btn btn-neutral float-right" title="piControl">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
 
   <hr/>
 
@@ -288,6 +312,10 @@ make climber-clim-bgc-ice  # or equivalently make climber
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
+      <span><a href="../dependencies/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../use-cases/01-piControl/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

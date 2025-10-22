@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Usage - CLIMBER-X-docs</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Usage";
+        var mkdocs_page_input_path = "usage.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> CLIMBER-X-docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Usage</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#using-runme">Using runme</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#using-jobrun-with-runme">Using jobrun with runme</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dependencies/">Dependencies</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../quick-start/">Quick start</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Use cases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../use-cases/01-piControl/">piControl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../use-cases/02-historical/">historical</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../climber-variables-atm/">atm.nc</a>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="https://github.com/cxesmc">GitHub</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">CLIMBER-X-docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Getting started</li>
+      <li class="breadcrumb-item active">Usage</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="running-climber-x">Running CLIMBER-X</h1>
+<p>After <strong>CLIMBER-X</strong> has been compiled, several steps must be completed to run the executable <code>climber.x</code>:</p>
+<ol>
+<li>Create a run directory (<code>RUNDIR</code>).</li>
+<li>Copy namelist parameter files to <code>RUNDIR</code>.</li>
+<li>Make links to the <code>input</code>, <code>maps</code> and <code>restart</code> directories in <code>RUNDIR</code>.</li>
+<li>Copy <code>VILMA</code> restart files to <code>RUNDIR</code> (since these are eventually modified by <code>climber.x</code>).</li>
+<li>Copy the executable file <code>climber.x</code> to <code>RUNDIR</code>.</li>
+<li>To run on the cluster, create a job submission script (e.g. <code>job.submit</code>) in <code>RUNDIR</code> to manage various computing options (number of processors, etc).</li>
+</ol>
+<p>When these steps are completed, <code>climber.x</code> should be run directly from <code>RUNDIR</code> using the job submission script. E.g., using SLURM:</p>
+<pre><code class="language-bash">cd RUNDIR
+sbatch job.submit
+</code></pre>
+<p>If not using the cluster, <strong>CLIMBER-X</strong> can also be run manually by entering the <code>RUNDIR</code> and running the following:</p>
+<pre><code class="language-bash">cd RUNDIR
+./climber.x &gt; out.out
+</code></pre>
+<p>Either of the above will run climber in <code>RUNDIR</code> with all simulation output stored in the same directory. Because the directory includes the executable and is self-contained, assuming the contents of the linked directories do not change, the simulation can be re-run at any time.</p>
+<p>To perform all of the above steps manually for multiple simulations is very tedious and time-consuming, so a "run" script called <code>runme</code> is used to handle the process.</p>
+<h2 id="using-runme">Using <code>runme</code></h2>
+<p>Before using <code>runme</code>, the user should store a configuration file with some personal choices. To get started, copy the template config file to the main directory:</p>
+<pre><code class="language-bash">cp .runme/runme_config .runme_config
+</code></pre>
+<p>Next edit <code>.runme_config</code> so that the choices match your configuration. Mostly, this means setting <code>hpc</code> to the name of your current system and <code>account</code> to the default account to be used for your jobs submitted via SLURM. Also you can add your email address if you would like to receive notifications from SLURM about your jobs.</p>
+<p>Now <code>runme</code> is ready for use. See <code>./runme -h</code> for details on possible arguments.</p>
+<p>Note that aside from possible optional arguments, <code>runme</code> is always called with the required argument <code>-o RUNDIR</code> that specifies the output directory. So, to run a <code>climber.x</code> simulation as a job on the cluster in <code>RUNDIR</code>, run the command:</p>
+<pre><code class="language-bash">./runme -rs -o RUNDIR
+</code></pre>
+<p>where <code>RUNDIR</code> is the desired run directory. The option <code>-r</code> says that the job should actually be run (instead of just prepared) and <code>-s</code> specifies that the job should be run on the cluster. If <code>-r</code> is used alone, then the job is simply run as a background process. Other options include <code>-q, --queue</code> for the queue alias (short, priority, etc.), <code>-w, --wall</code> for the maximum wall clock time to allow in format HH:MM:SS, <code>--part</code> to name the processor partition (priority, standard, smp, etc), <code>--omp</code> to specify the number of processors, and others. See <code>./runme -h</code> for all options.</p>
+<p>When called as above, this script will run a simulation using the parameters as they are specified in the namelist parameter files in the <code>nml</code> directory. In addition, it is possible to modify the parameters of one simulation at the command line using the argument <code>-p KEY=VAL KEY=VAL ...</code>. So, for example, the following command:</p>
+<pre><code class="language-bash">./runme -s -o RUNDIR -p ctl.n_accel=10
+</code></pre>
+<p>will run <code>climber.x</code> on the cluster in the output directory <code>RUNDIR</code> with the control parameter <code>control.n_accel</code> set to <code>10</code>. Note that <code>ctl</code> is a convenient alias for the namelist group <code>control</code>, as defined in <code>.runme/climberx_info.json</code>.</p>
+<p>To perform a simulation an ensemble of simulations with modified parameter values, <code>runme</code> should be called via <code>jobrun</code> (see below).</p>
+<h3 id="using-jobrun-with-runme">Using <code>jobrun</code> with <code>runme</code></h3>
+<p><code>jobrun</code> is a command that is part of the Python <code>runner</code> library, found here:
+<a href="https://github.com/cxesmc/runner">https://github.com/cxesmc/runner</a>. This command facilitates running ensembles of simulations, or simulations with modified parameters via a convenient command-line interface. See <a href="../dependencies/">Dependencies</a> for its installation instructions.</p>
+<p>Using <code>jobrun</code>, the following command would produce the same simulation as <code>./runme -s RUNDIR</code>:</p>
+<pre><code class="language-bash">jobrun ./runme -rs -o OUTDIR
+</code></pre>
+<p>The difference here is that now we don't specify the specific <code>RUNDIR</code>, but rather an encapsulating <code>OUTDIR</code> that will contain one or more <code>RUNDIR</code>'s. In the above example, no parameters are changed, so the simulation is saved in the <code>default</code> directory: <code>OUTDIR/default</code>.</p>
+<p>If we want to change a parameter, this can be done as with the <code>runme</code> script via the <code>-p</code> option:</p>
+<pre><code class="language-bash">jobrun ./runme -rs -o OUTDIR -p ctl.n_accel=10
+</code></pre>
+<p>This will produce one simulation with the parameter <code>control.n_accel=10</code>. Since we have changed a parameter for this simulation, <code>jobrun</code> treats this as an ensemble, so the output is saved in <code>OUTDIR/0</code> for simulation 0. In short, the above command is equivalent to <code>./runme -s -o OUTDIR -p ctl.n_accel=10</code>, but in the former case, the output is stored in <code>OUTDIR/0</code> and in the latter case, it is stored directly in <code>OUTDIR</code>.</p>
+<p>The power of <code>jobrun</code> comes when we want to run an ensemble:</p>
+<pre><code class="language-bash">jobrun ./runme -rs -o OUTDIR -p ctl.n_accel=1,5,10
+</code></pre>
+<p>This ensemble of simulations will appear in <code>OUTDIR/0</code>, <code>OUTDIR/1</code> and <code>OUTDIR/2</code>, respectively.</p>
+<p>A more informative output directory can be made using the option <code>-a</code> along with <code>-o</code>:</p>
+<pre><code class="language-bash">jobrun ./runme -rs -a -o OUTDIR -p ctl.n_accel=1,5,10
+</code></pre>
+<p>In this case, the run directories are <code>OUTDIR/ctl.nccl.1</code>, <code>OUTDIR/ctl.nccl.5</code> and <code>OUTDIR/ctl.nccl.10</code>, respectively.</p>
+<p>General information about the ensemble can be found in the main ensemble directory <code>OUTDIR</code>:</p>
+<ul>
+<li><code>params.txt</code> : contains a table of the parameter combinations set on the command line (can be used to run a new ensemble).</li>
+<li><code>info.txt</code> : the same parameter table as <code>params.txt</code>, but also including an index of the <code>runid</code> (0,1,2, etc) and the <code>RUNDIR</code>:</li>
+</ul>
+<p><code>info.txt</code>:</p>
+<pre><code class="language-python">  runid    ctl.n_accel  rundir
+      0              1  ctl.nccl.1
+      1              5  ctl.nccl.5
+      2             10  ctl.nccl.10
+</code></pre>
+<p>It is of course possible to define multiple parameter permutations:</p>
+<pre><code class="language-bash">jobrun ./runme -rs -o OUTDIR -p ctl.n_accel=1,5,10 smb.alb_ice=0.3,0.4
+</code></pre>
+<p>To generate a more complex ensemble, using e.g. Latin-Hypercube sampling, then a two step approach is often better. First, use the <code>runner</code> command <code>job sample</code> to build the ensemble, then use <code>jobrun</code> to run it:</p>
+<pre><code class="language-bash"># Generate ensemble parameters
+job sample -o lhs.txt --seed 4 -N 100 atm.c_trop_2=0.8,1.2 smb.alb_ice=0.3,0.4
+
+# Run ensemble
+jobrun ./runme -rs -o OUTDIR -i lhs.txt
+</code></pre>
+<p>This two-step method facilitates checking that the ensemble was generated properly and improves reproducibility, since the exact parameter values are available in the table.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../installation/" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../dependencies/" class="btn btn-neutral float-right" title="Dependencies">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../installation/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../dependencies/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
