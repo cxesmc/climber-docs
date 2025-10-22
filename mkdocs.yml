@@ -1,10 +1,15 @@
 site_name: CLIMBER-X-docs
 nav:
     - Home: index.md
-    - Getting started: getting-started.md
-    - Running on an HPC: running-on-hpc.md
-    - Dependencies: dependencies.md
-    - Variables list: climber-variables-atm.md
+    - Getting started:
+      - Getting started: getting-started.md
+      - Running on an HPC: running-on-hpc.md
+      - Dependencies: dependencies.md
+    - Use cases:
+      - piControl: use-cases/01-piControl/index.md
+      - historical: use-cases/02-historical/index.md
+    - Variables lists: 
+      - atm.nc: climber-variables-atm.md
 #theme: mkdocs
 theme:
     name: readthedocs
