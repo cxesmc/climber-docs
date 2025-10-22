@@ -130,7 +130,7 @@ cp .runme/runme_config .runme_config
 # - Edit hpc and account name to match your settings
 
 # Make sure to install the `runner` package too
-pip install https://github.com/cxesmc/runner/archive/refs/heads/master.zip
+pip install https://github.com/fesmc/runner/archive/refs/heads/master.zip 
 
 # Run a pre-industrial equilibrium climate-only test simulation
 ./runme -rs -q short --omp 32 -o output/clim
