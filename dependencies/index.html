@@ -55,6 +55,8 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#installing-netcdf-preferably-version-40-or-higher">Installing NetCDF (preferably version 4.0 or higher)</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#installing-cdo">Installing CDO</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#installing-coordinates">Installing coordinates</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#install-lis-fftw-and-utils">Install LIS, FFTW and utils</a>
@@ -75,12 +77,8 @@
               </ul>
               <p class="caption"><span class="caption-text">Variables lists</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../climber-variables-atm/">atm.nc</a>
+                  <li class="toctree-l1"><a class="" href="../var_lists/atm.md">atm.nc</a>
                   </li>
-              </ul>
-              <ul>
-                <li class="toctree-l1"><a class="" href="https://github.com/cxesmc">GitHub</a>
-                </li>
               </ul>
       </div>
     </div>
@@ -136,6 +134,9 @@ Installing the NetCDF viewing program <code>ncview</code> is also recommended.</
 <code>netcdf-c</code> and subsequently <code>netcdf-fortran</code> libraries. The source code and
 installation instructions are available from the Unidata website:</p>
 <p><a href="https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html">https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html</a></p>
+<h2 id="installing-cdo">Installing CDO</h2>
+<p>The Climate Data Operators can be installed following the instructions here:
+<a href="https://code.mpimet.mpg.de/projects/cdo/embedded/index.html#x1-30001.1">https://code.mpimet.mpg.de/projects/cdo/</a></p>
 <h2 id="installing-coordinates">Installing coordinates</h2>
 <p>Download the coordinates source:
 <a href="https://github.com/fesmc/coordinates">https://github.com/fesmc/coordinates</a>.
@@ -148,7 +149,7 @@ make clean
 make coord-static openmp=1
 </code></pre>
 <h2 id="install-lis-fftw-and-utils">Install LIS, FFTW and utils</h2>
-<p>These packages could be installed individually and linked into the main directories of Yelmox and Yelmo. However, to ensure the right versions are used, etc., we have now made a separate repository for managing the installation of LIS and FFTW from the versions available in that repository, as well as some custom modules. This repository is managed as part of the Fast Earth System Model Community (FESMC).</p>
+<p>These packages could be installed individually and linked into the main directories of climber-x and yelmo. However, to ensure the right versions are used, etc., we have now made a separate repository for managing the installation of LIS and FFTW from the versions available in that repository, as well as some custom modules. This repository is managed as part of the Fast Earth System Model Community (FESMC).</p>
 <p>Please download the code from this repository and see the README for installation instructions:
 <a href="https://github.com/fesmc/fesm-utils">https://github.com/fesmc/fesm-utils</a></p>
 <h2 id="installing-runner">Installing runner</h2>
