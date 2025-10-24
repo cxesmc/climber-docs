@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>co2_ts.nc - CLIMBER-X-docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "co2_ts.nc";
+        var mkdocs_page_input_path = "var_lists/co2_ts.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> CLIMBER-X-docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/">Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dependencies/">Dependencies</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quick-start/">Quick start</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Use cases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/01-piControl/">piControl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm/">atm.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm_ts/">atm_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn/">ocn.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn_ts/">ocn_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic/">sic.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic_ts/">sic_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_carb/">lnd_carb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_lake/">lnd_lake.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_soil/">lnd_soil.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_surf/">lnd_surf.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_ts/">lnd_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc/">bgc.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc_ts/">bgc_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">co2_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ch4_ts/">ch4_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_hires/">geo_hires.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo/">geo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_ts/">geo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico/">ice_sico.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico_ts/">ice_sico_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo/">ice_yelmo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo_ts/">ice_yelmo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">smb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb_ts/">smb_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb/">bmb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb_ts/">bmb_ts.nc</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CLIMBER-X-docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Variables lists</li>
+      <li class="breadcrumb-item active">co2_ts.nc</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Dimensions</th>
+<th>Units</th>
+<th>Long Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lat</td>
+<td>lat</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>time</td>
+<td>time</td>
+<td>years BP</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lon</td>
+<td>lon</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>dClnd_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>net land carbon flux to atmosphere</td>
+</tr>
+<tr>
+<td>d13C_lnd</td>
+<td>time</td>
+<td>permil</td>
+<td>delta 13 C of land-atmosphere flux</td>
+</tr>
+<tr>
+<td>dCvolc_cum</td>
+<td>time</td>
+<td>GtC</td>
+<td>cumulative volcanic CO2 degassing</td>
+</tr>
+<tr>
+<td>dC14weath_dt</td>
+<td>time</td>
+<td>kgC/yr</td>
+<td>CO2 14 consumption by weathering</td>
+</tr>
+<tr>
+<td>dC14dec_dt</td>
+<td>time</td>
+<td>kgC/yr</td>
+<td>C14 decay</td>
+</tr>
+<tr>
+<td>dCemis_cum</td>
+<td>time</td>
+<td>GtC</td>
+<td>cumulative carbon emissions to atmosphere</td>
+</tr>
+<tr>
+<td>co2</td>
+<td>time</td>
+<td>ppm</td>
+<td>atmospheric co2 concentration</td>
+</tr>
+<tr>
+<td>C14atm</td>
+<td>time</td>
+<td>kgC</td>
+<td>atmospheric carbon 14</td>
+</tr>
+<tr>
+<td>dCweath_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>CO2 consumption by weathering</td>
+</tr>
+<tr>
+<td>d13C</td>
+<td>time</td>
+<td>permil</td>
+<td>atmospheric delta 13 C</td>
+</tr>
+<tr>
+<td>dCocn_cum</td>
+<td>time</td>
+<td>GtC</td>
+<td>cumulative net ocean carbon flux to atmosphere</td>
+</tr>
+<tr>
+<td>dClnd_cum</td>
+<td>time</td>
+<td>GtC</td>
+<td>cumulative net land carbon flux to atmosphere</td>
+</tr>
+<tr>
+<td>dC14lnd_dt</td>
+<td>time</td>
+<td>kgC/yr</td>
+<td>net land carbon 14 flux to atmosphere</td>
+</tr>
+<tr>
+<td>dCemis_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>carbon emissions to atmosphere</td>
+</tr>
+<tr>
+<td>dCemis_extra_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>carbon emissions to atmosphere from additional feedbacks</td>
+</tr>
+<tr>
+<td>dC14prod_dt</td>
+<td>time</td>
+<td>kgC/yr</td>
+<td>C14 production rate</td>
+</tr>
+<tr>
+<td>dCweath_cum</td>
+<td>time</td>
+<td>GtC</td>
+<td>cumulative CO2 consumption by weathering</td>
+</tr>
+<tr>
+<td>dCemis_extra_cum</td>
+<td>time</td>
+<td>GtC</td>
+<td>cumulative carbon emissions to atmosphere from additional feedbacks</td>
+</tr>
+<tr>
+<td>Catm</td>
+<td>time</td>
+<td>GtC</td>
+<td>atmospheric carbon</td>
+</tr>
+<tr>
+<td>dCvolc_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>volcanic CO2 degassing</td>
+</tr>
+<tr>
+<td>D14C</td>
+<td>time</td>
+<td>permil</td>
+<td>atmospheric Delta 14 C</td>
+</tr>
+<tr>
+<td>d13C_ocn</td>
+<td>time</td>
+<td>permil</td>
+<td>delta 13 C of ocean-atmosphere flux</td>
+</tr>
+<tr>
+<td>dC13volc_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>volcaninc CO2 13 degassing</td>
+</tr>
+<tr>
+<td>C13atm</td>
+<td>time</td>
+<td>GtC</td>
+<td>atmospheric carbon 13</td>
+</tr>
+<tr>
+<td>dCocn_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>net ocean carbon flux to atmosphere</td>
+</tr>
+<tr>
+<td>dC13weath_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>CO2 13 consumption by weathering</td>
+</tr>
+<tr>
+<td>dC13ocn_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>net ocean carbon 13 flux to atmosphere</td>
+</tr>
+<tr>
+<td>dC13lnd_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>net land carbon 13 flux to atmosphere</td>
+</tr>
+<tr>
+<td>dC14ocn_dt</td>
+<td>time</td>
+<td>kgC/yr</td>
+<td>net ocean carbon 14 flux to atmosphere</td>
+</tr>
+<tr>
+<td>dCH4_dt</td>
+<td>time</td>
+<td>GtC/yr</td>
+<td>carbon flux to atmosphere due to oxidation of anthropogenic CH4</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../bgc_ts/" class="btn btn-neutral float-left" title="bgc_ts.nc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ch4_ts/" class="btn btn-neutral float-right" title="ch4_ts.nc">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../bgc_ts/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ch4_ts/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

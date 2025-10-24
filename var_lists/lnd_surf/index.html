@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>lnd_surf.nc - CLIMBER-X-docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "lnd_surf.nc";
+        var mkdocs_page_input_path = "var_lists/lnd_surf.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> CLIMBER-X-docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/">Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dependencies/">Dependencies</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quick-start/">Quick start</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Use cases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/01-piControl/">piControl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm/">atm.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm_ts/">atm_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn/">ocn.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn_ts/">ocn_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic/">sic.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic_ts/">sic_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_carb/">lnd_carb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_lake/">lnd_lake.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_soil/">lnd_soil.nc</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">lnd_surf.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_ts/">lnd_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc/">bgc.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc_ts/">bgc_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../co2_ts/">co2_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ch4_ts/">ch4_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_hires/">geo_hires.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo/">geo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_ts/">geo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico/">ice_sico.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico_ts/">ice_sico_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo/">ice_yelmo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo_ts/">ice_yelmo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">smb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb_ts/">smb_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb/">bmb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb_ts/">bmb_ts.nc</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CLIMBER-X-docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Variables lists</li>
+      <li class="breadcrumb-item active">lnd_surf.nc</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Dimensions</th>
+<th>Units</th>
+<th>Long Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nsurf</td>
+<td>nsurf</td>
+<td>n/a</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lat</td>
+<td>lat</td>
+<td>degrees_north</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>month</td>
+<td>month</td>
+<td>months</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>time</td>
+<td>time</td>
+<td>years BP</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>nsoil</td>
+<td>nsoil</td>
+<td>n/a</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>npft</td>
+<td>npft</td>
+<td>n/a</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lon</td>
+<td>lon</td>
+<td>degrees_east</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>tsnow</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>K</td>
+<td>snow layer temperature</td>
+</tr>
+<tr>
+<td>Ri</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>/</td>
+<td>bulk richardson number</td>
+</tr>
+<tr>
+<td>ecan</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>kg/m2/day</td>
+<td>evaporation from canopy</td>
+</tr>
+<tr>
+<td>calving</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>kg/m2/day weq</td>
+<td>calving</td>
+</tr>
+<tr>
+<td>dust_e</td>
+<td>lon, lat, month, time</td>
+<td>g/m2/mon</td>
+<td>total dust emission</td>
+</tr>
+<tr>
+<td>tskin_g</td>
+<td>lon, lat, month, time</td>
+<td>K</td>
+<td>skin temperature</td>
+</tr>
+<tr>
+<td>tskin_amp_g</td>
+<td>lon, lat, month, time</td>
+<td>K</td>
+<td>amplitude of diurnal cycle of skin temperature</td>
+</tr>
+<tr>
+<td>rs_g</td>
+<td>lon, lat, month, time</td>
+<td>s/m</td>
+<td>surface resistance</td>
+</tr>
+<tr>
+<td>lwnet</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>W/m2</td>
+<td>net longwave radiation at the surface</td>
+</tr>
+<tr>
+<td>alb_dir_g</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>surface albedo</td>
+</tr>
+<tr>
+<td>rsursub</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>kg/m2/day</td>
+<td>ratio surface runoff to drainage</td>
+</tr>
+<tr>
+<td>albsnw</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>/</td>
+<td>snow albedo</td>
+</tr>
+<tr>
+<td>Ch</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>/</td>
+<td>exchange coefficient for scalars</td>
+</tr>
+<tr>
+<td>icemelt</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>kg/m2/day</td>
+<td>icemelt</td>
+</tr>
+<tr>
+<td>Ch_g</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>exchange coefficient for scalars</td>
+</tr>
+<tr>
+<td>dust_e_d</td>
+<td>lon, lat, month, time</td>
+<td>g/m2/mon</td>
+<td>dust emission from desert</td>
+</tr>
+<tr>
+<td>alb</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>/</td>
+<td>surface albedo</td>
+</tr>
+<tr>
+<td>le_g</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>latent heat flux</td>
+</tr>
+<tr>
+<td>swe_max</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>kg/m2</td>
+<td>seasonal maximum snow water equivalent</td>
+</tr>
+<tr>
+<td>tskin</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>K</td>
+<td>skin temperature</td>
+</tr>
+<tr>
+<td>wtab</td>
+<td>lon, lat, month, time</td>
+<td>m</td>
+<td>water table depth</td>
+</tr>
+<tr>
+<td>vpd</td>
+<td>lon, lat, month, time</td>
+<td>Pa</td>
+<td>vapor pressure deficit</td>
+</tr>
+<tr>
+<td>lwnet_g</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>net longwave radiation at the surface</td>
+</tr>
+<tr>
+<td>scf</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>/</td>
+<td>snow cover fraction</td>
+</tr>
+<tr>
+<td>fsurf</td>
+<td>lon, lat, nsurf, time</td>
+<td>/</td>
+<td>surface type fractions</td>
+</tr>
+<tr>
+<td>tskin_amp</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>K</td>
+<td>amplitude of diurnal cycle of skin temperature</td>
+</tr>
+<tr>
+<td>hsnow</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>m</td>
+<td>snow thickness</td>
+</tr>
+<tr>
+<td>swe</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>kg/m2</td>
+<td>snow water equivalent</td>
+</tr>
+<tr>
+<td>trans_g</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>transpiration</td>
+</tr>
+<tr>
+<td>g_g</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>ground heat flux</td>
+</tr>
+<tr>
+<td>fcansn</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>/</td>
+<td>fraction of canopy covered by snow</td>
+</tr>
+<tr>
+<td>slh</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>W/m2</td>
+<td>sum of sensible and latent heat flux</td>
+</tr>
+<tr>
+<td>wind</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>m/s</td>
+<td>wind speed</td>
+</tr>
+<tr>
+<td>z0h</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>m</td>
+<td>surface roughness length for scalars</td>
+</tr>
+<tr>
+<td>snowmelt</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>kg/m2/day</td>
+<td>snowmelt</td>
+</tr>
+<tr>
+<td>alb_dif</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>/</td>
+<td>surface diffuse albedo</td>
+</tr>
+<tr>
+<td>sh_g</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>sensible heat flux</td>
+</tr>
+<tr>
+<td>ef_g</td>
+<td>lon, lat, month, time</td>
+<td>1</td>
+<td>evaporative fraction</td>
+</tr>
+<tr>
+<td>slh_g</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>sum of sensible and latent heat flux</td>
+</tr>
+<tr>
+<td>swnet_g</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>net shortwave radiation at the surface</td>
+</tr>
+<tr>
+<td>fwet</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>saturated fraction</td>
+</tr>
+<tr>
+<td>fveg</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>vegetation fraction</td>
+</tr>
+<tr>
+<td>gdd5</td>
+<td>lon, lat, time</td>
+<td>K</td>
+<td>growing degree days above 5 degC</td>
+</tr>
+<tr>
+<td>z0m</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>m</td>
+<td>surface roughness length for momentum</td>
+</tr>
+<tr>
+<td>ef</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>1</td>
+<td>evaporative fraction</td>
+</tr>
+<tr>
+<td>drain</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>kg/m2/day</td>
+<td>drainage</td>
+</tr>
+<tr>
+<td>trans</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>kg/m2/day</td>
+<td>transpiration from vegetation</td>
+</tr>
+<tr>
+<td>dust_con</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>mg/kg</td>
+<td>dust_concentration in snow</td>
+</tr>
+<tr>
+<td>etot</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>kg/m2/day</td>
+<td>evapotranspiration</td>
+</tr>
+<tr>
+<td>ra_g</td>
+<td>lon, lat, month, time</td>
+<td>s/m</td>
+<td>aerodynamic resistance</td>
+</tr>
+<tr>
+<td>inf</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>infiltration</td>
+</tr>
+<tr>
+<td>dust_e_s</td>
+<td>lon, lat, month, time</td>
+<td>g/m2/mon</td>
+<td>dust emission from shrubland</td>
+</tr>
+<tr>
+<td>etot_g</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>evapotranspiration</td>
+</tr>
+<tr>
+<td>alb_dif_g</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>surface diffuse albedo</td>
+</tr>
+<tr>
+<td>g</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>W/m2</td>
+<td>ground heat flux</td>
+</tr>
+<tr>
+<td>alt</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>active layer thickness</td>
+</tr>
+<tr>
+<td>cti_lim</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>critical CTI index</td>
+</tr>
+<tr>
+<td>Ri_g</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>bulk Richardson number</td>
+</tr>
+<tr>
+<td>t2m_min_mon</td>
+<td>lon, lat, time</td>
+<td>degC</td>
+<td>near-surface air temperature of the coldest month</td>
+</tr>
+<tr>
+<td>le</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>W/m2</td>
+<td>latent heat flux</td>
+</tr>
+<tr>
+<td>swnet</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>W/m2</td>
+<td>net shortwave radiation at the surface</td>
+</tr>
+<tr>
+<td>fwetmaxpot</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>potential maximum wetland extent</td>
+</tr>
+<tr>
+<td>n2o</td>
+<td>lon, lat, month, time</td>
+<td>gN2O-N/m2/mon</td>
+<td>N2O emissions</td>
+</tr>
+<tr>
+<td>fwetmax</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>maxmiumum monthly wetland extent</td>
+</tr>
+<tr>
+<td>dust_e_g</td>
+<td>lon, lat, month, time</td>
+<td>g/m2/mon</td>
+<td>dust emission from grassland</td>
+</tr>
+<tr>
+<td>esur</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>kg/m2/day</td>
+<td>evaporation from soil</td>
+</tr>
+<tr>
+<td>runsur</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>kg/m2/day</td>
+<td>surface unoff</td>
+</tr>
+<tr>
+<td>alb_dir</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>/</td>
+<td>surface direct beam albedo</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>W/m2</td>
+<td>sensible heat flux</td>
+</tr>
+<tr>
+<td>rag</td>
+<td>lon, lat, npft, month, time</td>
+<td>s/m</td>
+<td>aerodynamic resistance below canopy</td>
+</tr>
+<tr>
+<td>betas</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>1</td>
+<td>surface evaporation coefficient</td>
+</tr>
+<tr>
+<td>esur_g</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>surface evaporation</td>
+</tr>
+<tr>
+<td>alb_g</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>surface albedo</td>
+</tr>
+<tr>
+<td>fland</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>land fraction</td>
+</tr>
+<tr>
+<td>flx_melt</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>W/m2</td>
+<td>heat flux going into snowmelt</td>
+</tr>
+<tr>
+<td>rag_g</td>
+<td>lon, lat, month, time</td>
+<td>s/m</td>
+<td>aerodynamic resistance below canopy</td>
+</tr>
+<tr>
+<td>ra</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>s/m</td>
+<td>aerodynamic resistance</td>
+</tr>
+<tr>
+<td>runoff</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>kg/m2/day</td>
+<td>total runoff (surface runoff + drainage)</td>
+</tr>
+<tr>
+<td>fcanwat</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>/</td>
+<td>fraction of canopy covered by water</td>
+</tr>
+<tr>
+<td>tlake</td>
+<td>lon, lat, month, time</td>
+<td>K</td>
+<td>top layer lake temperature</td>
+</tr>
+<tr>
+<td>snow_grain</td>
+<td>lon, lat, nsoil, month, time</td>
+<td>micro m</td>
+<td>snow grain size</td>
+</tr>
+<tr>
+<td>ecan_g</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>canopy evaporation</td>
+</tr>
+<tr>
+<td>rs</td>
+<td>lon, lat, nsurf, month, time</td>
+<td>s/m</td>
+<td>surface resistance</td>
+</tr>
+<tr>
+<td>dust_dep</td>
+<td>lon, lat, month, time</td>
+<td>g/m2/mon</td>
+<td>total dust deposition</td>
+</tr>
+<tr>
+<td>flx_melt_g</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>heat flux going into snowmelt</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../lnd_soil/" class="btn btn-neutral float-left" title="lnd_soil.nc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../lnd_ts/" class="btn btn-neutral float-right" title="lnd_ts.nc">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../lnd_soil/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../lnd_ts/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

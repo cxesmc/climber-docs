@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>geo.nc - CLIMBER-X-docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "geo.nc";
+        var mkdocs_page_input_path = "var_lists/geo.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> CLIMBER-X-docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/">Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dependencies/">Dependencies</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quick-start/">Quick start</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Use cases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/01-piControl/">piControl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm/">atm.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm_ts/">atm_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn/">ocn.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn_ts/">ocn_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic/">sic.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic_ts/">sic_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_carb/">lnd_carb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_lake/">lnd_lake.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_soil/">lnd_soil.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_surf/">lnd_surf.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_ts/">lnd_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc/">bgc.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc_ts/">bgc_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../co2_ts/">co2_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ch4_ts/">ch4_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_hires/">geo_hires.nc</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">geo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_ts/">geo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico/">ice_sico.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico_ts/">ice_sico_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo/">ice_yelmo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo_ts/">ice_yelmo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">smb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb_ts/">smb_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb/">bmb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb_ts/">bmb_ts.nc</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CLIMBER-X-docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Variables lists</li>
+      <li class="breadcrumb-item active">geo.nc</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Dimensions</th>
+<th>Units</th>
+<th>Long Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lat</td>
+<td>lat</td>
+<td>degrees_north</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>time</td>
+<td>time</td>
+<td>years BP</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lon</td>
+<td>lon</td>
+<td>degrees_east</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>nbr</td>
+<td>nbr</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>f_ocn2</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>ocean fraction, excluding floating ice</td>
+</tr>
+<tr>
+<td>z_ice</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>mean ice elevation</td>
+</tr>
+<tr>
+<td>q_geo</td>
+<td>lon, lat, time</td>
+<td>W/m2</td>
+<td>geothermal heat flux</td>
+</tr>
+<tr>
+<td>j_coast_nbr</td>
+<td>lon, lat, nbr, time</td>
+<td>/</td>
+<td>j index of neighbors of coastal cells</td>
+</tr>
+<tr>
+<td>f_ice</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>ice fraction</td>
+</tr>
+<tr>
+<td>z_lake</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>mean lake elevation</td>
+</tr>
+<tr>
+<td>i_runoff_veg</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>i index of runoff destination from ice-free land</td>
+</tr>
+<tr>
+<td>f_lnd</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>land fraction</td>
+</tr>
+<tr>
+<td>j_runoff_ice</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>j index of runoff destination from ice-sheet</td>
+</tr>
+<tr>
+<td>idivide_pac_atl</td>
+<td>lat, time</td>
+<td>/</td>
+<td>i-index of continental divide between Pacific and Atlantic</td>
+</tr>
+<tr>
+<td>z_veg</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>mean elevation of ice-free land</td>
+</tr>
+<tr>
+<td>j_runoff</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>j index of runoff destination</td>
+</tr>
+<tr>
+<td>z_bed</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>mean bedrock elevation</td>
+</tr>
+<tr>
+<td>idivide_atl_indpac</td>
+<td>lat, time</td>
+<td>/</td>
+<td>i-index of continental divide between Atlantic and Pacific</td>
+</tr>
+<tr>
+<td>j_runoff_veg</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>j index of runoff destination from ice-free land</td>
+</tr>
+<tr>
+<td>z_ocn</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>mean elevation of ocean</td>
+</tr>
+<tr>
+<td>f_ice_flt</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>floating ice fraction</td>
+</tr>
+<tr>
+<td>f_drain_veg</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>drainage fraction to ocean from ice-free land</td>
+</tr>
+<tr>
+<td>z_ocn_min</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>min elevation of ocean</td>
+</tr>
+<tr>
+<td>z_veg_min</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>min elevation of ice-free land</td>
+</tr>
+<tr>
+<td>z_sur</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>grid cell mean surface elevation</td>
+</tr>
+<tr>
+<td>mask_coast2</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>coast mask</td>
+</tr>
+<tr>
+<td>drain_basin</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>drainage basins to ocean</td>
+</tr>
+<tr>
+<td>i_runoff_ice</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>i index of runoff destination from ice-sheet</td>
+</tr>
+<tr>
+<td>z_sur_lnd_std</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>standard deviation of surface elevation, ice-free land only</td>
+</tr>
+<tr>
+<td>f_ice_grd</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>grounded ice fraction</td>
+</tr>
+<tr>
+<td>f_lake</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>lake fraction</td>
+</tr>
+<tr>
+<td>z_veg_max</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>max elevation of ice-free land</td>
+</tr>
+<tr>
+<td>i_runoff</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>i index of runoff destination</td>
+</tr>
+<tr>
+<td>f_drain_ice</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>drainage fration to ocean from ice sheets</td>
+</tr>
+<tr>
+<td>z_ocn_max</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>max elevation of ocean</td>
+</tr>
+<tr>
+<td>mask_coast</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>coast mask</td>
+</tr>
+<tr>
+<td>f_ocn</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>ocean fraction, including floating ice</td>
+</tr>
+<tr>
+<td>z_veg_std</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>standard deviation of surface elevation, ice-free land only</td>
+</tr>
+<tr>
+<td>z_ocn_max_q</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>quantile elevation of ocean</td>
+</tr>
+<tr>
+<td>z_sur_smooth_std</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>standard deviation of surface elevation</td>
+</tr>
+<tr>
+<td>i_coast_nbr</td>
+<td>lon, lat, nbr, time</td>
+<td>/</td>
+<td>i index of neighbors of coastal cells</td>
+</tr>
+<tr>
+<td>z_sur_std</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>standard deviation of surface elevation</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../geo_hires/" class="btn btn-neutral float-left" title="geo_hires.nc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../geo_ts/" class="btn btn-neutral float-right" title="geo_ts.nc">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../geo_hires/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../geo_ts/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>ice_sico_ts.nc - CLIMBER-X-docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ice_sico_ts.nc";
+        var mkdocs_page_input_path = "var_lists/ice_sico_ts.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> CLIMBER-X-docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/">Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dependencies/">Dependencies</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quick-start/">Quick start</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Use cases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/01-piControl/">piControl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm/">atm.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm_ts/">atm_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn/">ocn.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn_ts/">ocn_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic/">sic.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic_ts/">sic_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_carb/">lnd_carb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_lake/">lnd_lake.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_soil/">lnd_soil.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_surf/">lnd_surf.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_ts/">lnd_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc/">bgc.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc_ts/">bgc_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../co2_ts/">co2_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ch4_ts/">ch4_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_hires/">geo_hires.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo/">geo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_ts/">geo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico/">ice_sico.nc</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">ice_sico_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo/">ice_yelmo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo_ts/">ice_yelmo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">smb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb_ts/">smb_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb/">bmb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb_ts/">bmb_ts.nc</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CLIMBER-X-docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Variables lists</li>
+      <li class="breadcrumb-item active">ice_sico_ts.nc</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Dimensions</th>
+<th>Units</th>
+<th>Long Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time</td>
+<td>time</td>
+<td>years BP</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>x</td>
+<td>x</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>y</td>
+<td>y</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>mb_tot</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>total mass balance</td>
+</tr>
+<tr>
+<td>Q_b</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>basal melting rate</td>
+</tr>
+<tr>
+<td>vs_max</td>
+<td>time</td>
+<td>m/yr</td>
+<td>maximum surface speed</td>
+</tr>
+<tr>
+<td>disc_lsc</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>Ice discharge from ice flow, large scale</td>
+</tr>
+<tr>
+<td>A_tot</td>
+<td>time</td>
+<td>mln km2</td>
+<td>total ice area</td>
+</tr>
+<tr>
+<td>Q_temp</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>drainage rate from the temperate ice layer</td>
+</tr>
+<tr>
+<td>V_af</td>
+<td>time</td>
+<td>mln km3</td>
+<td>ice volume above floatation</td>
+</tr>
+<tr>
+<td>smb_tot</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>total surface mass balance</td>
+</tr>
+<tr>
+<td>bmb_tot</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>total basal mass balance</td>
+</tr>
+<tr>
+<td>H_t_max</td>
+<td>time</td>
+<td>m</td>
+<td>maximum thickness of temperate ice</td>
+</tr>
+<tr>
+<td>bmb_gr_tot</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>total basal mass balance of grounded ice</td>
+</tr>
+<tr>
+<td>disc_ssc</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>Ice discharge from parameterization, small scale</td>
+</tr>
+<tr>
+<td>mbp</td>
+<td>time</td>
+<td>1</td>
+<td>mass balance partition</td>
+</tr>
+<tr>
+<td>V_grd</td>
+<td>time</td>
+<td>mln km3</td>
+<td>grounded ice volume</td>
+</tr>
+<tr>
+<td>V_flt</td>
+<td>time</td>
+<td>mln km3</td>
+<td>floating ice volume</td>
+</tr>
+<tr>
+<td>bmb_fl_tot</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>total basal mass balance of floating ice</td>
+</tr>
+<tr>
+<td>calv_tot</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>total calving</td>
+</tr>
+<tr>
+<td>dV_dt</td>
+<td>time</td>
+<td>m3/yr</td>
+<td>rate of ice volume change</td>
+</tr>
+<tr>
+<td>A_flt</td>
+<td>time</td>
+<td>mln km2</td>
+<td>floating ice area</td>
+</tr>
+<tr>
+<td>zs_max</td>
+<td>time</td>
+<td>m</td>
+<td>maximum surface elevation</td>
+</tr>
+<tr>
+<td>f_temp</td>
+<td>time</td>
+<td>1</td>
+<td>fraction of basal area covered by temperate ice</td>
+</tr>
+<tr>
+<td>H_max</td>
+<td>time</td>
+<td>m</td>
+<td>maximum ice thickness</td>
+</tr>
+<tr>
+<td>A_grd</td>
+<td>time</td>
+<td>mln km2</td>
+<td>grounded ice area</td>
+</tr>
+<tr>
+<td>mb_resid</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>residual of the total mass balance</td>
+</tr>
+<tr>
+<td>Tbh_max</td>
+<td>time</td>
+<td>decG</td>
+<td>maximum basal temperature relative to pmp</td>
+</tr>
+<tr>
+<td>V_tot</td>
+<td>time</td>
+<td>mln km3</td>
+<td>total ice volume</td>
+</tr>
+<tr>
+<td>runoff_tot</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>total runoff</td>
+</tr>
+<tr>
+<td>A_temp</td>
+<td>time</td>
+<td>mln km2</td>
+<td>area covered by temperate ice</td>
+</tr>
+<tr>
+<td>V_sle</td>
+<td>time</td>
+<td>m sle</td>
+<td>ice volume in SLE</td>
+</tr>
+<tr>
+<td>V_temp</td>
+<td>time</td>
+<td>mln km3</td>
+<td>volume of temperate ice</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ice_sico/" class="btn btn-neutral float-left" title="ice_sico.nc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ice_yelmo/" class="btn btn-neutral float-right" title="ice_yelmo.nc">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ice_sico/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ice_yelmo/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

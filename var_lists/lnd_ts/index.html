@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>lnd_ts.nc - CLIMBER-X-docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "lnd_ts.nc";
+        var mkdocs_page_input_path = "var_lists/lnd_ts.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> CLIMBER-X-docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/">Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dependencies/">Dependencies</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quick-start/">Quick start</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Use cases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/01-piControl/">piControl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm/">atm.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm_ts/">atm_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn/">ocn.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn_ts/">ocn_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic/">sic.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic_ts/">sic_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_carb/">lnd_carb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_lake/">lnd_lake.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_soil/">lnd_soil.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_surf/">lnd_surf.nc</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">lnd_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc/">bgc.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc_ts/">bgc_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../co2_ts/">co2_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ch4_ts/">ch4_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_hires/">geo_hires.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo/">geo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_ts/">geo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico/">ice_sico.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico_ts/">ice_sico_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo/">ice_yelmo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo_ts/">ice_yelmo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">smb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb_ts/">smb_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb/">bmb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb_ts/">bmb_ts.nc</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CLIMBER-X-docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Variables lists</li>
+      <li class="breadcrumb-item active">lnd_ts.nc</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Dimensions</th>
+<th>Units</th>
+<th>Long Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lat</td>
+<td>lat</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>time</td>
+<td>time</td>
+<td>years BP</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>npft</td>
+<td>npft</td>
+<td>n/a</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lon</td>
+<td>lon</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>npp</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>net primary productivity</td>
+</tr>
+<tr>
+<td>npp_pimask</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>net primary productivity in pre-industrial permafrost area</td>
+</tr>
+<tr>
+<td>d13ch4</td>
+<td>time</td>
+<td>permil</td>
+<td>d13C of methane emissions</td>
+</tr>
+<tr>
+<td>calving</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>calving</td>
+</tr>
+<tr>
+<td>dust_e</td>
+<td>time</td>
+<td>Tg/yr</td>
+<td>total dust emission</td>
+</tr>
+<tr>
+<td>temp</td>
+<td>time</td>
+<td>degC</td>
+<td>land temperaure</td>
+</tr>
+<tr>
+<td>Acrop</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>cropland area</td>
+</tr>
+<tr>
+<td>Cmin</td>
+<td>time</td>
+<td>PgC</td>
+<td>mineral soil carbon</td>
+</tr>
+<tr>
+<td>Csoil3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters soil carbon</td>
+</tr>
+<tr>
+<td>Cpeat3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters carbon in peat</td>
+</tr>
+<tr>
+<td>prc</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>precipitation</td>
+</tr>
+<tr>
+<td>Cveg_pimask</td>
+<td>time</td>
+<td>PgC</td>
+<td>vegetation carbon in pre-industrial permafrost area</td>
+</tr>
+<tr>
+<td>Csoil60N</td>
+<td>time</td>
+<td>PgC</td>
+<td>total soil carbon north of 60N</td>
+</tr>
+<tr>
+<td>Clake1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter carbon below lake water</td>
+</tr>
+<tr>
+<td>Cshelf3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters carbon below ocean shelf water</td>
+</tr>
+<tr>
+<td>Agrass</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>grass area</td>
+</tr>
+<tr>
+<td>poc_export</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>particulate organic carbon export through rivers</td>
+</tr>
+<tr>
+<td>Aperm</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>permafrost area</td>
+</tr>
+<tr>
+<td>Cinert</td>
+<td>time</td>
+<td>PgC</td>
+<td>inert land carbon (frozen soils and below ice sheets)</td>
+</tr>
+<tr>
+<td>Ashelf</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>global shelf area</td>
+</tr>
+<tr>
+<td>Clake3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters carbon below lake water</td>
+</tr>
+<tr>
+<td>ch4lake</td>
+<td>time</td>
+<td>TgCH4/yr</td>
+<td>methane emissions from lakes</td>
+</tr>
+<tr>
+<td>Cice1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter carbon below ice sheets</td>
+</tr>
+<tr>
+<td>n2otrop</td>
+<td>time</td>
+<td>TgN2O-N/yr</td>
+<td>tropical N2O emissions</td>
+</tr>
+<tr>
+<td>Cmin3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters mineral soil carbon</td>
+</tr>
+<tr>
+<td>Apasture</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>pasture area</td>
+</tr>
+<tr>
+<td>Cpeat</td>
+<td>time</td>
+<td>PgC</td>
+<td>carbon in peat</td>
+</tr>
+<tr>
+<td>Awettrop</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>tropical wetland area</td>
+</tr>
+<tr>
+<td>weath_carb</td>
+<td>time</td>
+<td>Tmol C/yr</td>
+<td>carbonate weathering</td>
+</tr>
+<tr>
+<td>Cmin1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter mineral soil carbon</td>
+</tr>
+<tr>
+<td>ch4trop</td>
+<td>time</td>
+<td>TgCH4/yr</td>
+<td>tropical methane emissions</td>
+</tr>
+<tr>
+<td>Cice</td>
+<td>time</td>
+<td>PgC</td>
+<td>carbon below ice sheets</td>
+</tr>
+<tr>
+<td>Aveg</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>global vegetated area</td>
+</tr>
+<tr>
+<td>Cflx_atm_lnd</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>net atmosphere-land carbon flux</td>
+</tr>
+<tr>
+<td>Awetextrop</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>extratropical wetland area</td>
+</tr>
+<tr>
+<td>Aland</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>global land area</td>
+</tr>
+<tr>
+<td>Cfast</td>
+<td>time</td>
+<td>PgC</td>
+<td>fast soil carbon</td>
+</tr>
+<tr>
+<td>Cperm</td>
+<td>time</td>
+<td>PgC</td>
+<td>carbon in permafrost area</td>
+</tr>
+<tr>
+<td>gpp</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>gross primary productivity</td>
+</tr>
+<tr>
+<td>Cslow</td>
+<td>time</td>
+<td>PgC</td>
+<td>slow soil carbon</td>
+</tr>
+<tr>
+<td>ch4shelf</td>
+<td>time</td>
+<td>TgCH4/yr</td>
+<td>methane emissions from ocean shelf</td>
+</tr>
+<tr>
+<td>A_BL</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>Broadleaf forest area</td>
+</tr>
+<tr>
+<td>Cperm1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter carbon in permafrost area</td>
+</tr>
+<tr>
+<td>drain</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>drainage</td>
+</tr>
+<tr>
+<td>Cice3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters carbon below ice sheets</td>
+</tr>
+<tr>
+<td>Cperm3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters carbon in permafrost area</td>
+</tr>
+<tr>
+<td>trans</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>transpiration</td>
+</tr>
+<tr>
+<td>Cperm1m_pimask</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter carbon in pre-industrial permafrost area</td>
+</tr>
+<tr>
+<td>Apeatpot</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>potential peatland area</td>
+</tr>
+<tr>
+<td>Vsnow</td>
+<td>time</td>
+<td>10^12 m^3</td>
+<td>total snow volume</td>
+</tr>
+<tr>
+<td>Aforest</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>forest area</td>
+</tr>
+<tr>
+<td>weath_loess</td>
+<td>time</td>
+<td>Tmol C/yr</td>
+<td>loess carbonate weathering</td>
+</tr>
+<tr>
+<td>Aice</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>global ice area</td>
+</tr>
+<tr>
+<td>A_SH</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>Shrubland area</td>
+</tr>
+<tr>
+<td>Alake</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>global lake area</td>
+</tr>
+<tr>
+<td>Adesert</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>desert area</td>
+</tr>
+<tr>
+<td>A_NL</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>Needleleaf forest area</td>
+</tr>
+<tr>
+<td>Cland</td>
+<td>time</td>
+<td>PgC</td>
+<td>total land carbon</td>
+</tr>
+<tr>
+<td>Cshelf1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter carbon below ocean shelf water</td>
+</tr>
+<tr>
+<td>Ainund</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>inundated area excluding peatlands</td>
+</tr>
+<tr>
+<td>n2o</td>
+<td>time</td>
+<td>TgN2O-N/yr</td>
+<td>N2O emissions</td>
+</tr>
+<tr>
+<td>esur</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>surface evaporation</td>
+</tr>
+<tr>
+<td>runsur</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>surface runoff</td>
+</tr>
+<tr>
+<td>Cflx_burial</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>carbon burial flux (lost from the system)</td>
+</tr>
+<tr>
+<td>A_C3</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>C3 grassland area</td>
+</tr>
+<tr>
+<td>evp</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>evapotranspiration</td>
+</tr>
+<tr>
+<td>doc_export</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>dissolved organic carbon export through rivers</td>
+</tr>
+<tr>
+<td>Cveg</td>
+<td>time</td>
+<td>PgC</td>
+<td>vegetation carbon</td>
+</tr>
+<tr>
+<td>ch4extrop</td>
+<td>time</td>
+<td>TgCH4/yr</td>
+<td>extratropical methane emissions</td>
+</tr>
+<tr>
+<td>A_C4</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>C4 grassland area</td>
+</tr>
+<tr>
+<td>co2</td>
+<td>time</td>
+<td>ppm</td>
+<td>atmospheric CO2</td>
+</tr>
+<tr>
+<td>Clitter</td>
+<td>time</td>
+<td>PgC</td>
+<td>litter carbon</td>
+</tr>
+<tr>
+<td>ch4</td>
+<td>time</td>
+<td>TgCH4/yr</td>
+<td>methane emissions</td>
+</tr>
+<tr>
+<td>Csoil1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter soil carbon</td>
+</tr>
+<tr>
+<td>n2oextrop</td>
+<td>time</td>
+<td>TgN2O-N/yr</td>
+<td>extratropical N2O emissions</td>
+</tr>
+<tr>
+<td>d13Cflx_burial</td>
+<td>time</td>
+<td>permil</td>
+<td>d13C of carbon burial flux</td>
+</tr>
+<tr>
+<td>Awet</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>wetland area</td>
+</tr>
+<tr>
+<td>runoff</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>total runoff (surface runoff + drainage)</td>
+</tr>
+<tr>
+<td>Csoil</td>
+<td>time</td>
+<td>PgC</td>
+<td>total soil carbon</td>
+</tr>
+<tr>
+<td>Clake</td>
+<td>time</td>
+<td>PgC</td>
+<td>carbon below lake water</td>
+</tr>
+<tr>
+<td>Ashrub</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>shrub area</td>
+</tr>
+<tr>
+<td>Cperm3m_pimask</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters carbon in pre-industrial permafrost area</td>
+</tr>
+<tr>
+<td>Apeat</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>peatland area</td>
+</tr>
+<tr>
+<td>Cpeat1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter carbon in peat</td>
+</tr>
+<tr>
+<td>Cshelf</td>
+<td>time</td>
+<td>PgC</td>
+<td>carbon below ocean shelf water</td>
+</tr>
+<tr>
+<td>sresp</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>soil respiration</td>
+</tr>
+<tr>
+<td>Csoil60N1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter soil carbon north of 60N</td>
+</tr>
+<tr>
+<td>C13flx_atm_lnd</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>net atmosphere-land carbon 13 flux</td>
+</tr>
+<tr>
+<td>weath_sil</td>
+<td>time</td>
+<td>Tmol C/yr</td>
+<td>silicate weathering</td>
+</tr>
+<tr>
+<td>C14flx_atm_lnd</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>net atmosphere-land carbon 14 flux</td>
+</tr>
+<tr>
+<td>Cperm_pimask</td>
+<td>time</td>
+<td>PgC</td>
+<td>carbon in pre-industrial permafrost area</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../lnd_surf/" class="btn btn-neutral float-left" title="lnd_surf.nc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../bgc/" class="btn btn-neutral float-right" title="bgc.nc">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../lnd_surf/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../bgc/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

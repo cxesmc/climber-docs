@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>sic.nc - CLIMBER-X-docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "sic.nc";
+        var mkdocs_page_input_path = "var_lists/sic.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> CLIMBER-X-docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/">Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dependencies/">Dependencies</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quick-start/">Quick start</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Use cases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/01-piControl/">piControl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm/">atm.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm_ts/">atm_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn/">ocn.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn_ts/">ocn_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">sic.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic_ts/">sic_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_carb/">lnd_carb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_lake/">lnd_lake.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_soil/">lnd_soil.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_surf/">lnd_surf.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_ts/">lnd_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc/">bgc.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc_ts/">bgc_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../co2_ts/">co2_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ch4_ts/">ch4_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_hires/">geo_hires.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo/">geo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_ts/">geo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico/">ice_sico.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico_ts/">ice_sico_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo/">ice_yelmo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo_ts/">ice_yelmo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">smb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb_ts/">smb_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb/">bmb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb_ts/">bmb_ts.nc</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CLIMBER-X-docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Variables lists</li>
+      <li class="breadcrumb-item active">sic.nc</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Dimensions</th>
+<th>Units</th>
+<th>Long Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lat</td>
+<td>lat</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>month</td>
+<td>month</td>
+<td>months</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>time</td>
+<td>time</td>
+<td>years BP</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lonu</td>
+<td>lonu</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lon</td>
+<td>lon</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>latv</td>
+<td>latv</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>type</td>
+<td>type</td>
+<td>[tot,adv,diff]</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>tocn</td>
+<td>lon, lat, month, time</td>
+<td>�C</td>
+<td>ocean skin temperature</td>
+</tr>
+<tr>
+<td>flx_melt_top</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>snow/ice melt flux from top</td>
+</tr>
+<tr>
+<td>tauyo</td>
+<td>lon, lat, month, time</td>
+<td>N/m2</td>
+<td>meridional ocean stress on sea ice</td>
+</tr>
+<tr>
+<td>vsic</td>
+<td>lon, latv, month, time</td>
+<td>cm/s</td>
+<td>meridional sea ice drift on v-grid</td>
+</tr>
+<tr>
+<td>sh_ocn</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>sensible heat flux from ocean</td>
+</tr>
+<tr>
+<td>p-e</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>precipitation - evaporation</td>
+</tr>
+<tr>
+<td>fsic</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>sea ice fraction</td>
+</tr>
+<tr>
+<td>fwt</td>
+<td>type, latv, month, time</td>
+<td>Sv</td>
+<td>Meridional freshwater transport by sea ice</td>
+</tr>
+<tr>
+<td>lh_sic</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>latent heat flux over sea ice</td>
+</tr>
+<tr>
+<td>str_s</td>
+<td>lonu, latv, month, time</td>
+<td>Pa m</td>
+<td>The shearing stress tensor component</td>
+</tr>
+<tr>
+<td>str_d</td>
+<td>lon, lat, month, time</td>
+<td>Pa m</td>
+<td>The divergence stress tensor component</td>
+</tr>
+<tr>
+<td>tauya</td>
+<td>lon, lat, month, time</td>
+<td>N/m2</td>
+<td>meridional wind stress on sea ice</td>
+</tr>
+<tr>
+<td>fw</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>sea ice freshwater flux to the ocean</td>
+</tr>
+<tr>
+<td>fx_sic</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>heat flux to the ocean from sea ice fraction</td>
+</tr>
+<tr>
+<td>dh_sic_dt_dyn</td>
+<td>lon, lat, month, time</td>
+<td>m/day</td>
+<td>sea ice thickness change from transport</td>
+</tr>
+<tr>
+<td>cdh_ocn</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>drag coefficient for heat over ocean water</td>
+</tr>
+<tr>
+<td>cde_sic</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>drag coefficient for moisture over sea ice</td>
+</tr>
+<tr>
+<td>alb_ocn</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>ocean albedo</td>
+</tr>
+<tr>
+<td>fw_brines</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>freshwater flux to the ocean from brine rejection</td>
+</tr>
+<tr>
+<td>lh_ocn</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>latent heat flux from ocean</td>
+</tr>
+<tr>
+<td>str_t</td>
+<td>lon, lat, month, time</td>
+<td>Pa m</td>
+<td>The tension stress tensor component</td>
+</tr>
+<tr>
+<td>focn</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>ocean fraction</td>
+</tr>
+<tr>
+<td>cde_ocn</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>drag coefficient for moisture over ocean water</td>
+</tr>
+<tr>
+<td>fx_ocn</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>heat flux to the ocean from ice free fraction</td>
+</tr>
+<tr>
+<td>hsnow</td>
+<td>lon, lat, month, time</td>
+<td>m</td>
+<td>snow thickness of sea ice fraction</td>
+</tr>
+<tr>
+<td>usic</td>
+<td>lonu, lat, month, time</td>
+<td>cm/s</td>
+<td>zonal sea ice drift on u-grid</td>
+</tr>
+<tr>
+<td>dh_sic_dt_therm_sic</td>
+<td>lon, lat, month, time</td>
+<td>m/day</td>
+<td>sea ice thickness change from thermodynamics over sea ice area</td>
+</tr>
+<tr>
+<td>snow</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>snowfall</td>
+</tr>
+<tr>
+<td>tsic</td>
+<td>lon, lat, month, time</td>
+<td>�C</td>
+<td>sea ice skin temperature</td>
+</tr>
+<tr>
+<td>fwp</td>
+<td>type, latv, month, time</td>
+<td>Sv</td>
+<td>Meridional freshwater transport by sea ice in the Indo-Pacific</td>
+</tr>
+<tr>
+<td>sh_sic</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>sensible heat flux over sea ice</td>
+</tr>
+<tr>
+<td>fx</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>heat flux to the ocean</td>
+</tr>
+<tr>
+<td>lwu_ocn</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>upwelling longwave radiation from ocean</td>
+</tr>
+<tr>
+<td>dust_con</td>
+<td>lon, lat, month, time</td>
+<td>mg/kg</td>
+<td>dust concentration in snow</td>
+</tr>
+<tr>
+<td>fw_sic</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>sea ice freshwater flux to the ocean from sea ice fraction</td>
+</tr>
+<tr>
+<td>rain</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>rainfall</td>
+</tr>
+<tr>
+<td>fwa</td>
+<td>type, latv, month, time</td>
+<td>Sv</td>
+<td>Meridional freshwater transport by sea ice in the Atlantic</td>
+</tr>
+<tr>
+<td>hsic</td>
+<td>lon, lat, month, time</td>
+<td>m</td>
+<td>sea ice thickness of sea ice fraction</td>
+</tr>
+<tr>
+<td>cdh_sic</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>drag coefficient for heat over sea ice</td>
+</tr>
+<tr>
+<td>dh_sic_dt_therm_ocn</td>
+<td>lon, lat, month, time</td>
+<td>m/day</td>
+<td>sea ice thickness change from thermodynamics in leads</td>
+</tr>
+<tr>
+<td>lwu</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>upwelling longwave radiation</td>
+</tr>
+<tr>
+<td>evp_ocn</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>evaporation from ocean</td>
+</tr>
+<tr>
+<td>tauxo</td>
+<td>lon, lat, month, time</td>
+<td>N/m2</td>
+<td>zonal ocean stress on sea ice</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>sensible heat flux</td>
+</tr>
+<tr>
+<td>evp</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>evaporation/sublimation</td>
+</tr>
+<tr>
+<td>tauxa</td>
+<td>lon, lat, month, time</td>
+<td>N/m2</td>
+<td>zonal wind stress on sea ice</td>
+</tr>
+<tr>
+<td>evp_sic</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>sublimation from sea ice</td>
+</tr>
+<tr>
+<td>lwu_sic</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>upwelling longwave radiation over sea ice</td>
+</tr>
+<tr>
+<td>flx_melt_bot</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>snow/ice melt flux from bottom</td>
+</tr>
+<tr>
+<td>dh_sic_dt_therm</td>
+<td>lon, lat, month, time</td>
+<td>m/day</td>
+<td>sea ice thickness change from thermodynamics</td>
+</tr>
+<tr>
+<td>lh</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>latent heat flux</td>
+</tr>
+<tr>
+<td>snow_grain</td>
+<td>lon, lat, month, time</td>
+<td>micro m</td>
+<td>snow grain size</td>
+</tr>
+<tr>
+<td>alb_sic</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>sea ice albedo</td>
+</tr>
+<tr>
+<td>fw_ocn</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>sea ice freshwater flux to the ocean from ice free fraction</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../ocn_ts/" class="btn btn-neutral float-left" title="ocn_ts.nc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../sic_ts/" class="btn btn-neutral float-right" title="sic_ts.nc">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../ocn_ts/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../sic_ts/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

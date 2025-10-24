@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>ice_sico.nc - CLIMBER-X-docs</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "ice_sico.nc";
+        var mkdocs_page_input_path = "var_lists/ice_sico.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> CLIMBER-X-docs
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../getting-started/">Getting started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../installation/">Installation</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../usage/">Usage</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../dependencies/">Dependencies</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../quick-start/">Quick start</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Use cases</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/01-piControl/">piControl</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm/">atm.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../atm_ts/">atm_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn/">ocn.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ocn_ts/">ocn_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic/">sic.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../sic_ts/">sic_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_carb/">lnd_carb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_lake/">lnd_lake.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_soil/">lnd_soil.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_surf/">lnd_surf.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../lnd_ts/">lnd_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc/">bgc.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bgc_ts/">bgc_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../co2_ts/">co2_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ch4_ts/">ch4_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_hires/">geo_hires.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo/">geo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../geo_ts/">geo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">ice_sico.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_sico_ts/">ice_sico_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo/">ice_yelmo.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../ice_yelmo_ts/">ice_yelmo_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb/">smb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../smb_ts/">smb_ts.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb/">bmb.nc</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../bmb_ts/">bmb_ts.nc</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">CLIMBER-X-docs</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Variables lists</li>
+      <li class="breadcrumb-item active">ice_sico.nc</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Dimensions</th>
+<th>Units</th>
+<th>Long Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>kr</td>
+<td>kr</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>kc</td>
+<td>kc</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>time</td>
+<td>time</td>
+<td>years BP</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>kt</td>
+<td>kt</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>x</td>
+<td>x</td>
+<td>km</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>y</td>
+<td>y</td>
+<td>km</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Q_b</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Basal melting rate + Water drainage from the temperate layer</td>
+</tr>
+<tr>
+<td>vy_m_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical mean of horizontal velocity vy</td>
+</tr>
+<tr>
+<td>q_geo</td>
+<td>x, y, time</td>
+<td>W/m2</td>
+<td>geothermal heat flux</td>
+</tr>
+<tr>
+<td>ratio_sl_y</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Ratio of basal to surface velocity (slip ratio) in y-direction at (i+1/2,j)?</td>
+</tr>
+<tr>
+<td>p_b</td>
+<td>x, y, time</td>
+<td>Pa</td>
+<td>Basal pressure</td>
+</tr>
+<tr>
+<td>vh_m_ssa</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical mean of SSA horizontal velocity</td>
+</tr>
+<tr>
+<td>sigma_level_c</td>
+<td>kc</td>
+<td>1</td>
+<td>sigma level in cold ice</td>
+</tr>
+<tr>
+<td>ratio_sl_x</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Ratio of basal to surface velocity (slip ratio) in x-direction at (i+1/2,j)</td>
+</tr>
+<tr>
+<td>calving</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>calving flux</td>
+</tr>
+<tr>
+<td>maske</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>ice-land-sea mask</td>
+</tr>
+<tr>
+<td>q_gl_g</td>
+<td>x, y, time</td>
+<td>m2/yr</td>
+<td>Horizontal volume flux across the grounding line</td>
+</tr>
+<tr>
+<td>mask_mar</td>
+<td>x, y, time</td>
+<td>1</td>
+<td>margina ring mask</td>
+</tr>
+<tr>
+<td>vh_b</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vh at the ice base</td>
+</tr>
+<tr>
+<td>zl</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of the lithosphere surface</td>
+</tr>
+<tr>
+<td>tau_b_drag</td>
+<td>x, y, time</td>
+<td>Pa</td>
+<td>Basal drag</td>
+</tr>
+<tr>
+<td>vh_m_sia</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical mean of SIA horizontal velocity</td>
+</tr>
+<tr>
+<td>n_cts</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>mask for polythermal conditions</td>
+</tr>
+<tr>
+<td>H_eff</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Effective thickness at shelf ice front</td>
+</tr>
+<tr>
+<td>tau_b_driving</td>
+<td>x, y, time</td>
+<td>Pa</td>
+<td>Driving stress</td>
+</tr>
+<tr>
+<td>vis_int_g</td>
+<td>x, y, time</td>
+<td>Pa s m</td>
+<td>Depth-integrated viscosity</td>
+</tr>
+<tr>
+<td>dzs_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the topography of the free surface</td>
+</tr>
+<tr>
+<td>eta</td>
+<td>y</td>
+<td>m</td>
+<td>y-coordinate</td>
+</tr>
+<tr>
+<td>vy_m_sia</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>y depth-averaged horizontal velocity from SIA</td>
+</tr>
+<tr>
+<td>zb</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of the ice base</td>
+</tr>
+<tr>
+<td>temp_b</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>Temperature at the ice base</td>
+</tr>
+<tr>
+<td>p_b_red_lim</td>
+<td>x, y, time</td>
+<td>Pa</td>
+<td>Reduced basal pressure</td>
+</tr>
+<tr>
+<td>flag_shelfy_stream</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Shelfy stream flag</td>
+</tr>
+<tr>
+<td>temp_s</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>surface temperature</td>
+</tr>
+<tr>
+<td>sigma_level_r</td>
+<td>kr</td>
+<td>1</td>
+<td>sigma level in litosphere</td>
+</tr>
+<tr>
+<td>vx_m_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical mean of horizontal velocity vx</td>
+</tr>
+<tr>
+<td>Q_tld</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Water drainage from the temperate layer</td>
+</tr>
+<tr>
+<td>runoff_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied runoff flux</td>
+</tr>
+<tr>
+<td>Q_b_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied Basal melting rate + Water drainage from the temperate layer</td>
+</tr>
+<tr>
+<td>c_slide</td>
+<td>x, y, time</td>
+<td>m/(a*Pa^(p-q))</td>
+<td>basal sliding coefficient</td>
+</tr>
+<tr>
+<td>mask_ablation_type</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Mask indicating ablation type</td>
+</tr>
+<tr>
+<td>beta_drag</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>basal drag parameter for shelfy stream</td>
+</tr>
+<tr>
+<td>vh_m</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical mean of horizontal velocity vh</td>
+</tr>
+<tr>
+<td>maske_old</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>ice-land-sea mask (old)</td>
+</tr>
+<tr>
+<td>xi</td>
+<td>x</td>
+<td>m</td>
+<td>x-coordinate</td>
+</tr>
+<tr>
+<td>H</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Thickness of ice</td>
+</tr>
+<tr>
+<td>vx_b_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vx at the ice base</td>
+</tr>
+<tr>
+<td>vx_m_sia</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>x depth-averaged horizontal velocity from SIA</td>
+</tr>
+<tr>
+<td>zl_fil</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of the filtered lithosphere surface</td>
+</tr>
+<tr>
+<td>mb_source</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>total mass balance</td>
+</tr>
+<tr>
+<td>dH_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the ice thickness</td>
+</tr>
+<tr>
+<td>as_perp_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied surface mass balance</td>
+</tr>
+<tr>
+<td>vy_b_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vy at the ice base</td>
+</tr>
+<tr>
+<td>am_perp</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Volume flux across the z=zm interface</td>
+</tr>
+<tr>
+<td>H_temp</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>thickness of the temperate ice layer</td>
+</tr>
+<tr>
+<td>zm</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of z=zm interface</td>
+</tr>
+<tr>
+<td>z_sl</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>sea level</td>
+</tr>
+<tr>
+<td>vh_s</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vh at the ice surface</td>
+</tr>
+<tr>
+<td>kc_cts</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Grid index of the CTS position</td>
+</tr>
+<tr>
+<td>calving_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied calving flux</td>
+</tr>
+<tr>
+<td>zl_std</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>sub-grid standard deviation of topography of the lithosphere surface</td>
+</tr>
+<tr>
+<td>phi</td>
+<td>x, y</td>
+<td>degN</td>
+<td>geographic latitude</td>
+</tr>
+<tr>
+<td>H_calv</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Calvin Threshold</td>
+</tr>
+<tr>
+<td>Q_bm</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Basal melting rate</td>
+</tr>
+<tr>
+<td>H_cold</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Thickness of the cold ice layer</td>
+</tr>
+<tr>
+<td>p_b_w</td>
+<td>x, y, time</td>
+<td>Pa</td>
+<td>Basal water pressure</td>
+</tr>
+<tr>
+<td>f_sed</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>sediment fraction</td>
+</tr>
+<tr>
+<td>vz_s</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical velocity vz at the ice surface</td>
+</tr>
+<tr>
+<td>temph_b</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>Temperature at the ice base relative to the pressure melting point</td>
+</tr>
+<tr>
+<td>vy_s_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vy at the ice surface</td>
+</tr>
+<tr>
+<td>dH_t_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the thickness of the lower (kt) ice layer</td>
+</tr>
+<tr>
+<td>vb_t</td>
+<td>x, y, time</td>
+<td>m/a</td>
+<td>threshold basal velocity for regularized Coulomb law</td>
+</tr>
+<tr>
+<td>weigh_ssta_sia_x</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>weight of SStA vs SIA in x-direction at (i+1/2,j)</td>
+</tr>
+<tr>
+<td>vx_m_ssa</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>x depth-averaged horizontal velocity from SSA</td>
+</tr>
+<tr>
+<td>c_fric</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>basal friction coefficient</td>
+</tr>
+<tr>
+<td>H_sed</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>sediment thickness</td>
+</tr>
+<tr>
+<td>dH_c_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the thickness of the upper (kc) ice layer</td>
+</tr>
+<tr>
+<td>flag_shelfy_stream_x</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Shelfy stream flag in x-direction, at (i+1/2,j)</td>
+</tr>
+<tr>
+<td>id_mask</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Mask indicating ice IDs</td>
+</tr>
+<tr>
+<td>delta</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Fraction of overburden pressure at saturation</td>
+</tr>
+<tr>
+<td>vz_b</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical velocity vz at the ice base</td>
+</tr>
+<tr>
+<td>sigma_level_t</td>
+<td>kt</td>
+<td>1</td>
+<td>sigma level in temperate ice</td>
+</tr>
+<tr>
+<td>qy</td>
+<td>x, y, time</td>
+<td>m2/yr</td>
+<td>Horizontal volume flux qy</td>
+</tr>
+<tr>
+<td>weigh_ssta_sia_y</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>weight of SStA vs SIA in y-direction at (i,j+1/2)</td>
+</tr>
+<tr>
+<td>zs</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of the free surface</td>
+</tr>
+<tr>
+<td>lambda</td>
+<td>x, y</td>
+<td>degE</td>
+<td>geographic longitude</td>
+</tr>
+<tr>
+<td>qx</td>
+<td>x, y, time</td>
+<td>m2/yr</td>
+<td>Horizontal volume flux qx</td>
+</tr>
+<tr>
+<td>dzl_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the topography of the lithosphere surface</td>
+</tr>
+<tr>
+<td>vx_s_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vx at the ice surface</td>
+</tr>
+<tr>
+<td>cst_dist</td>
+<td>x, y, time</td>
+<td>km</td>
+<td>coastal distance</td>
+</tr>
+<tr>
+<td>H_w</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Thickness of the water column under the ice base</td>
+</tr>
+<tr>
+<td>runoff</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>runoff flux</td>
+</tr>
+<tr>
+<td>as_perp</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>surface mass balance</td>
+</tr>
+<tr>
+<td>dis_perp</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied calving flux from discharge parameterisation</td>
+</tr>
+<tr>
+<td>mb_source_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied total mass balance</td>
+</tr>
+<tr>
+<td>cos_grad_tc</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Cosine of angle between surface gradient and cst dist gradient</td>
+</tr>
+<tr>
+<td>dzm_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the topography of the z=zm interface</td>
+</tr>
+<tr>
+<td>zl0</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of isostatically relaxed lithosphere surface</td>
+</tr>
+<tr>
+<td>temp_g</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>ground temperature</td>
+</tr>
+<tr>
+<td>H_flow</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Thickness of ice after dynamics (without source term)</td>
+</tr>
+<tr>
+<td>accum</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>accumulation flux</td>
+</tr>
+<tr>
+<td>accum_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied accumulation flux</td>
+</tr>
+<tr>
+<td>vy_m_ssa</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>y depth-averaged horizontal velocity from SSA</td>
+</tr>
+<tr>
+<td>flag_shelfy_stream_y</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Shelfy stream flag in y-direction, at (i,j+1/2)</td>
+</tr>
+<tr>
+<td>dzb_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the topography of the ice base</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../geo_ts/" class="btn btn-neutral float-left" title="geo_ts.nc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ice_sico_ts/" class="btn btn-neutral float-right" title="ice_sico_ts.nc">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../geo_ts/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../ice_sico_ts/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
