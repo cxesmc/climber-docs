@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">ice_yelmo.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -155,6 +155,12 @@
 </thead>
 <tbody>
 <tr>
+<td>age_iso</td>
+<td>age_iso</td>
+<td>kyr</td>
+<td>N/A</td>
+</tr>
+<tr>
 <td>month</td>
 <td>month</td>
 <td>month</td>
@@ -164,6 +170,12 @@
 <td>pc_steps</td>
 <td>pc_steps</td>
 <td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>pd_age_iso</td>
+<td>pd_age_iso</td>
+<td>kyr</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -179,136 +191,28 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>age_iso</td>
-<td>age_iso</td>
-<td>kyr</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>zeta_rock</td>
-<td>zeta_rock</td>
-<td>1</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>zeta</td>
-<td>zeta</td>
-<td>1</td>
-<td>N/A</td>
-</tr>
-<tr>
 <td>yc</td>
 <td>yc</td>
 <td>km</td>
 <td>N/A</td>
 </tr>
 <tr>
+<td>zeta</td>
+<td>zeta</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
 <td>zeta_ac</td>
 <td>zeta_ac</td>
 <td>1</td>
 <td>N/A</td>
 </tr>
 <tr>
-<td>pd_age_iso</td>
-<td>pd_age_iso</td>
-<td>kyr</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>Q_b</td>
-<td>xc, yc, time</td>
-<td>mW m^-2</td>
-<td>Basal frictional heating</td>
-</tr>
-<tr>
-<td>bmb</td>
-<td>xc, yc, time</td>
-<td>m/a ice equiv.</td>
-<td>Basal mass balance</td>
-</tr>
-<tr>
-<td>ice_allowed</td>
-<td>xc, yc</td>
-<td>N/A</td>
-<td>Ice-allowed mask</td>
-</tr>
-<tr>
-<td>uxy_s</td>
-<td>xc, yc, time</td>
-<td>m/a</td>
-<td>Surface velocity (magnitude)</td>
-</tr>
-<tr>
-<td>ssa_iter_avg</td>
-<td>time</td>
-<td>N/A</td>
-<td>Average Picard iterations for SSA convergence</td>
-</tr>
-<tr>
-<td>T_prime_b</td>
-<td>xc, yc, time</td>
-<td>K</td>
-<td>Basal homologous ice temperature</td>
-</tr>
-<tr>
-<td>pc_tau_max</td>
-<td>xc, yc, time</td>
-<td>m a**-1</td>
-<td>Maximum truncation error over last N timestep (magnitude)</td>
-</tr>
-<tr>
-<td>mask_bed</td>
-<td>xc, yc, time</td>
-<td>N/A</td>
-<td>Bed mask</td>
-</tr>
-<tr>
-<td>dt_avg</td>
-<td>time</td>
-<td>yr</td>
-<td>Average timestep</td>
-</tr>
-<tr>
-<td>visc_eff_int</td>
-<td>xc, yc, time</td>
-<td>Pa a m</td>
-<td>Depth-integrated effective viscosity (SSA)</td>
-</tr>
-<tr>
-<td>uxy_b</td>
-<td>xc, yc, time</td>
-<td>m/a</td>
-<td>Basal velocity (magnitude)</td>
-</tr>
-<tr>
-<td>mb_resid</td>
-<td>xc, yc, time</td>
-<td>m</td>
-<td>Residual mass balance</td>
-</tr>
-<tr>
-<td>bmb_shlf</td>
-<td>xc, yc, time</td>
-<td>m/a ice equiv.</td>
-<td>Shelf basal mass balance</td>
-</tr>
-<tr>
-<td>z_bed</td>
-<td>xc, yc, time</td>
-<td>m</td>
-<td>Bedrock elevation</td>
-</tr>
-<tr>
-<td>f_grnd</td>
-<td>xc, yc, time</td>
+<td>zeta_rock</td>
+<td>zeta_rock</td>
 <td>1</td>
-<td>Grounded ice fraction</td>
-</tr>
-<tr>
-<td>dist_grline</td>
-<td>xc, yc, time</td>
-<td>m</td>
-<td>Distance to grounding line</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td>area</td>
@@ -323,6 +227,174 @@
 <td>Hydrological basins</td>
 </tr>
 <tr>
+<td>beta</td>
+<td>xc, yc, time</td>
+<td>Pa a m^-1</td>
+<td>Basal friction coefficient</td>
+</tr>
+<tr>
+<td>bmb</td>
+<td>xc, yc, time</td>
+<td>m/a ice equiv.</td>
+<td>Basal mass balance</td>
+</tr>
+<tr>
+<td>bmb_shlf</td>
+<td>xc, yc, time</td>
+<td>m/a ice equiv.</td>
+<td>Shelf basal mass balance</td>
+</tr>
+<tr>
+<td>cmb</td>
+<td>xc, yc, time</td>
+<td>m/a ice equiv.</td>
+<td>Calving mass balance</td>
+</tr>
+<tr>
+<td>dHidt</td>
+<td>xc, yc, time</td>
+<td>m/a</td>
+<td>Ice thickness change</td>
+</tr>
+<tr>
+<td>dist_grline</td>
+<td>xc, yc, time</td>
+<td>m</td>
+<td>Distance to grounding line</td>
+</tr>
+<tr>
+<td>dmb</td>
+<td>xc, yc, time</td>
+<td>m/a ice equiv.</td>
+<td>Discharge mass balance (subgrid)</td>
+</tr>
+<tr>
+<td>dt_avg</td>
+<td>time</td>
+<td>yr</td>
+<td>Average timestep</td>
+</tr>
+<tr>
+<td>enh_bar</td>
+<td>xc, yc, time</td>
+<td>1</td>
+<td>Vertically averaged enhancement factor</td>
+</tr>
+<tr>
+<td>eta_avg</td>
+<td>time</td>
+<td>m a**-1</td>
+<td>Average eta (maximum PC truncation error)</td>
+</tr>
+<tr>
+<td>f_grnd</td>
+<td>xc, yc, time</td>
+<td>1</td>
+<td>Grounded ice fraction</td>
+</tr>
+<tr>
+<td>f_ice</td>
+<td>xc, yc, time</td>
+<td>1</td>
+<td>Total ice fraction</td>
+</tr>
+<tr>
+<td>f_pmp</td>
+<td>xc, yc, time</td>
+<td>1</td>
+<td>Fraction of grid point at pmp</td>
+</tr>
+<tr>
+<td>H_calv</td>
+<td>xc, yc, time</td>
+<td>m</td>
+<td>Threshold ice thickness for calving</td>
+</tr>
+<tr>
+<td>H_ice</td>
+<td>xc, yc, time</td>
+<td>m</td>
+<td>Ice thickness</td>
+</tr>
+<tr>
+<td>H_sed</td>
+<td>xc, yc</td>
+<td>m</td>
+<td>Stdev(z_bed)</td>
+</tr>
+<tr>
+<td>H_w</td>
+<td>xc, yc, time</td>
+<td>m water equiv.</td>
+<td>Basal water layer thickness</td>
+</tr>
+<tr>
+<td>ice_allowed</td>
+<td>xc, yc</td>
+<td>N/A</td>
+<td>Ice-allowed mask</td>
+</tr>
+<tr>
+<td>mask_bed</td>
+<td>xc, yc, time</td>
+<td>N/A</td>
+<td>Bed mask</td>
+</tr>
+<tr>
+<td>mb_net</td>
+<td>xc, yc, time</td>
+<td>m</td>
+<td>Net mass balance</td>
+</tr>
+<tr>
+<td>mb_resid</td>
+<td>xc, yc, time</td>
+<td>m</td>
+<td>Residual mass balance</td>
+</tr>
+<tr>
+<td>N_eff</td>
+<td>xc, yc, time</td>
+<td>Pa</td>
+<td>Effective pressure</td>
+</tr>
+<tr>
+<td>pc_tau_max</td>
+<td>xc, yc, time</td>
+<td>m a**-1</td>
+<td>Maximum truncation error over last N timestep (magnitude)</td>
+</tr>
+<tr>
+<td>Q_b</td>
+<td>xc, yc, time</td>
+<td>mW m^-2</td>
+<td>Basal frictional heating</td>
+</tr>
+<tr>
+<td>Q_geo</td>
+<td>xc, yc</td>
+<td>mW/m^2</td>
+<td>Geothermal heat flux</td>
+</tr>
+<tr>
+<td>Q_ice_b</td>
+<td>xc, yc, time</td>
+<td>mW m^-2</td>
+<td>Basal ice heat flow</td>
+</tr>
+<tr>
+<td>Q_rock</td>
+<td>xc, yc, time</td>
+<td>mW m^-2</td>
+<td>Bedrock surface heat flow</td>
+</tr>
+<tr>
+<td>regions</td>
+<td>xc, yc</td>
+<td>(0 - 8)</td>
+<td>Domain regions</td>
+</tr>
+<tr>
 <td>smb</td>
 <td>xc, yc, time</td>
 <td>m/a ice equiv.</td>
@@ -335,28 +407,22 @@
 <td>Model speed (Yelmo only)</td>
 </tr>
 <tr>
+<td>ssa_iter_avg</td>
+<td>time</td>
+<td>N/A</td>
+<td>Average Picard iterations for SSA convergence</td>
+</tr>
+<tr>
 <td>T_ice</td>
 <td>xc, yc, zeta, time</td>
 <td>K</td>
 <td>Ice temperature</td>
 </tr>
 <tr>
-<td>f_ice</td>
+<td>T_prime_b</td>
 <td>xc, yc, time</td>
-<td>1</td>
-<td>Total ice fraction</td>
-</tr>
-<tr>
-<td>N_eff</td>
-<td>xc, yc, time</td>
-<td>Pa</td>
-<td>Effective pressure</td>
-</tr>
-<tr>
-<td>H_calv</td>
-<td>xc, yc, time</td>
-<td>m</td>
-<td>Threshold ice thickness for calving</td>
+<td>K</td>
+<td>Basal homologous ice temperature</td>
 </tr>
 <tr>
 <td>taub</td>
@@ -365,100 +431,28 @@
 <td>Basal dragging stress (magnitude)</td>
 </tr>
 <tr>
-<td>dHidt</td>
-<td>xc, yc, time</td>
-<td>m/a</td>
-<td>Ice thickness change</td>
-</tr>
-<tr>
-<td>H_sed</td>
-<td>xc, yc</td>
-<td>m</td>
-<td>Stdev(z_bed)</td>
-</tr>
-<tr>
-<td>H_ice</td>
-<td>xc, yc, time</td>
-<td>m</td>
-<td>Ice thickness</td>
-</tr>
-<tr>
-<td>z_srf</td>
-<td>xc, yc, time</td>
-<td>m</td>
-<td>Surface elevation</td>
-</tr>
-<tr>
-<td>Q_ice_b</td>
-<td>xc, yc, time</td>
-<td>mW m^-2</td>
-<td>Basal ice heat flow</td>
-</tr>
-<tr>
-<td>y2D</td>
-<td>xc, yc</td>
-<td>km</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>cmb</td>
-<td>xc, yc, time</td>
-<td>m/a ice equiv.</td>
-<td>Calving mass balance</td>
-</tr>
-<tr>
-<td>mb_net</td>
-<td>xc, yc, time</td>
-<td>m</td>
-<td>Net mass balance</td>
-</tr>
-<tr>
-<td>f_pmp</td>
-<td>xc, yc, time</td>
-<td>1</td>
-<td>Fraction of grid point at pmp</td>
-</tr>
-<tr>
-<td>Q_geo</td>
-<td>xc, yc</td>
-<td>mW/m^2</td>
-<td>Geothermal heat flux</td>
-</tr>
-<tr>
-<td>z_bed_sd</td>
-<td>xc, yc</td>
-<td>m</td>
-<td>Stdev(z_bed)</td>
-</tr>
-<tr>
 <td>taud</td>
 <td>xc, yc, time</td>
 <td>Pa</td>
 <td>Driving stress</td>
 </tr>
 <tr>
-<td>H_w</td>
+<td>uxy_b</td>
 <td>xc, yc, time</td>
-<td>m water equiv.</td>
-<td>Basal water layer thickness</td>
+<td>m/a</td>
+<td>Basal velocity (magnitude)</td>
 </tr>
 <tr>
-<td>Q_rock</td>
+<td>uxy_s</td>
 <td>xc, yc, time</td>
-<td>mW m^-2</td>
-<td>Bedrock surface heat flow</td>
+<td>m/a</td>
+<td>Surface velocity (magnitude)</td>
 </tr>
 <tr>
-<td>eta_avg</td>
-<td>time</td>
-<td>m a**-1</td>
-<td>Average eta (maximum PC truncation error)</td>
-</tr>
-<tr>
-<td>beta</td>
+<td>visc_eff_int</td>
 <td>xc, yc, time</td>
-<td>Pa a m^-1</td>
-<td>Basal friction coefficient</td>
+<td>Pa a m</td>
+<td>Depth-integrated effective viscosity (SSA)</td>
 </tr>
 <tr>
 <td>x2D</td>
@@ -467,22 +461,28 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>enh_bar</td>
-<td>xc, yc, time</td>
-<td>1</td>
-<td>Vertically averaged enhancement factor</td>
-</tr>
-<tr>
-<td>dmb</td>
-<td>xc, yc, time</td>
-<td>m/a ice equiv.</td>
-<td>Discharge mass balance (subgrid)</td>
-</tr>
-<tr>
-<td>regions</td>
+<td>y2D</td>
 <td>xc, yc</td>
-<td>(0 - 8)</td>
-<td>Domain regions</td>
+<td>km</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>z_bed</td>
+<td>xc, yc, time</td>
+<td>m</td>
+<td>Bedrock elevation</td>
+</tr>
+<tr>
+<td>z_bed_sd</td>
+<td>xc, yc</td>
+<td>m</td>
+<td>Stdev(z_bed)</td>
+</tr>
+<tr>
+<td>z_srf</td>
+<td>xc, yc, time</td>
+<td>m</td>
+<td>Surface elevation</td>
 </tr>
 </tbody>
 </table>

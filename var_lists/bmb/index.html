@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">bmb.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -179,10 +179,10 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>s_bmb_mask</td>
+<td>bmb</td>
 <td>x, y, month, time</td>
-<td>psu</td>
-<td>water salinity used for basal mass balance, masked with ice shelf mask</td>
+<td>kg/m2/s</td>
+<td>basal mass balance of floating ice</td>
 </tr>
 <tr>
 <td>bmb_ann</td>
@@ -191,22 +191,64 @@
 <td>annual basal mass balance of floating ice</td>
 </tr>
 <tr>
-<td>bmb</td>
+<td>bmb_ann_mask</td>
+<td>x, y, time</td>
+<td>m/a</td>
+<td>annual basal mass balance of floating ice, masked with ice shelf mask</td>
+</tr>
+<tr>
+<td>bmb_mask</td>
 <td>x, y, month, time</td>
 <td>kg/m2/s</td>
-<td>basal mass balance of floating ice</td>
+<td>basal mass balance of floating ice, masked with ice shelf mask</td>
 </tr>
 <tr>
-<td>zb_mask</td>
+<td>lambda</td>
+<td>x, y</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>mask_ice_shelf</td>
 <td>x, y, time</td>
-<td>m</td>
-<td>elevation of ice base relative to sea level, masked with ice shelf mask</td>
+<td>N/A</td>
+<td>ice mask</td>
 </tr>
 <tr>
-<td>t_freeze_mask</td>
+<td>mask_ocn_lake</td>
+<td>x, y, time</td>
+<td>N/A</td>
+<td>ocean/lake mask</td>
+</tr>
+<tr>
+<td>phi</td>
+<td>x, y</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>s_bmb</td>
+<td>x, y, month, time</td>
+<td>psu</td>
+<td>water salinity used for basal mass balance</td>
+</tr>
+<tr>
+<td>s_bmb_mask</td>
+<td>x, y, month, time</td>
+<td>psu</td>
+<td>water salinity used for basal mass balance, masked with ice shelf mask</td>
+</tr>
+<tr>
+<td>s_disc</td>
+<td>x, y, time</td>
+<td>psu</td>
+<td>water salinity used for small-scale basal melt in ice sheet model</td>
+</tr>
+<tr>
+<td>t_bmb</td>
 <td>x, y, month, time</td>
 <td>degC</td>
-<td>freezing temperature at the ice shelf base, masked with ice shelf mask</td>
+<td>water temperature used for basal mass balance</td>
 </tr>
 <tr>
 <td>t_bmb_mask</td>
@@ -221,52 +263,16 @@
 <td>water temperature used for small-scale basal melt in ice sheet_model</td>
 </tr>
 <tr>
-<td>t_bmb</td>
+<td>t_freeze</td>
 <td>x, y, month, time</td>
 <td>degC</td>
-<td>water temperature used for basal mass balance</td>
+<td>freezing temperature at the ice shelf base</td>
 </tr>
 <tr>
-<td>bmb_mask</td>
+<td>t_freeze_mask</td>
 <td>x, y, month, time</td>
-<td>kg/m2/s</td>
-<td>basal mass balance of floating ice, masked with ice shelf mask</td>
-</tr>
-<tr>
-<td>phi</td>
-<td>x, y</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>lambda</td>
-<td>x, y</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>s_disc</td>
-<td>x, y, time</td>
-<td>psu</td>
-<td>water salinity used for small-scale basal melt in ice sheet model</td>
-</tr>
-<tr>
-<td>mask_ocn_lake</td>
-<td>x, y, time</td>
-<td>N/A</td>
-<td>ocean/lake mask</td>
-</tr>
-<tr>
-<td>s_bmb</td>
-<td>x, y, month, time</td>
-<td>psu</td>
-<td>water salinity used for basal mass balance</td>
-</tr>
-<tr>
-<td>bmb_ann_mask</td>
-<td>x, y, time</td>
-<td>m/a</td>
-<td>annual basal mass balance of floating ice, masked with ice shelf mask</td>
+<td>degC</td>
+<td>freezing temperature at the ice shelf base, masked with ice shelf mask</td>
 </tr>
 <tr>
 <td>zb</td>
@@ -275,16 +281,10 @@
 <td>elevation of ice base relative to sea level</td>
 </tr>
 <tr>
-<td>t_freeze</td>
-<td>x, y, month, time</td>
-<td>degC</td>
-<td>freezing temperature at the ice shelf base</td>
-</tr>
-<tr>
-<td>mask_ice_shelf</td>
+<td>zb_mask</td>
 <td>x, y, time</td>
-<td>N/A</td>
-<td>ice mask</td>
+<td>m</td>
+<td>elevation of ice base relative to sea level, masked with ice shelf mask</td>
 </tr>
 </tbody>
 </table>

@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">ice_sico_ts.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -173,28 +173,22 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>mb_tot</td>
+<td>A_flt</td>
 <td>time</td>
-<td>Gt/a</td>
-<td>total mass balance</td>
+<td>mln km2</td>
+<td>floating ice area</td>
 </tr>
 <tr>
-<td>Q_b</td>
+<td>A_grd</td>
 <td>time</td>
-<td>Gt/a</td>
-<td>basal melting rate</td>
+<td>mln km2</td>
+<td>grounded ice area</td>
 </tr>
 <tr>
-<td>vs_max</td>
+<td>A_temp</td>
 <td>time</td>
-<td>m/yr</td>
-<td>maximum surface speed</td>
-</tr>
-<tr>
-<td>disc_lsc</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>Ice discharge from ice flow, large scale</td>
+<td>mln km2</td>
+<td>area covered by temperate ice</td>
 </tr>
 <tr>
 <td>A_tot</td>
@@ -203,34 +197,10 @@
 <td>total ice area</td>
 </tr>
 <tr>
-<td>Q_temp</td>
+<td>bmb_fl_tot</td>
 <td>time</td>
 <td>Gt/a</td>
-<td>drainage rate from the temperate ice layer</td>
-</tr>
-<tr>
-<td>V_af</td>
-<td>time</td>
-<td>mln km3</td>
-<td>ice volume above floatation</td>
-</tr>
-<tr>
-<td>smb_tot</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>total surface mass balance</td>
-</tr>
-<tr>
-<td>bmb_tot</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>total basal mass balance</td>
-</tr>
-<tr>
-<td>H_t_max</td>
-<td>time</td>
-<td>m</td>
-<td>maximum thickness of temperate ice</td>
+<td>total basal mass balance of floating ice</td>
 </tr>
 <tr>
 <td>bmb_gr_tot</td>
@@ -239,34 +209,10 @@
 <td>total basal mass balance of grounded ice</td>
 </tr>
 <tr>
-<td>disc_ssc</td>
+<td>bmb_tot</td>
 <td>time</td>
 <td>Gt/a</td>
-<td>Ice discharge from parameterization, small scale</td>
-</tr>
-<tr>
-<td>mbp</td>
-<td>time</td>
-<td>1</td>
-<td>mass balance partition</td>
-</tr>
-<tr>
-<td>V_grd</td>
-<td>time</td>
-<td>mln km3</td>
-<td>grounded ice volume</td>
-</tr>
-<tr>
-<td>V_flt</td>
-<td>time</td>
-<td>mln km3</td>
-<td>floating ice volume</td>
-</tr>
-<tr>
-<td>bmb_fl_tot</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>total basal mass balance of floating ice</td>
+<td>total basal mass balance</td>
 </tr>
 <tr>
 <td>calv_tot</td>
@@ -275,22 +221,22 @@
 <td>total calving</td>
 </tr>
 <tr>
+<td>disc_lsc</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>Ice discharge from ice flow, large scale</td>
+</tr>
+<tr>
+<td>disc_ssc</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>Ice discharge from parameterization, small scale</td>
+</tr>
+<tr>
 <td>dV_dt</td>
 <td>time</td>
 <td>m3/yr</td>
 <td>rate of ice volume change</td>
-</tr>
-<tr>
-<td>A_flt</td>
-<td>time</td>
-<td>mln km2</td>
-<td>floating ice area</td>
-</tr>
-<tr>
-<td>zs_max</td>
-<td>time</td>
-<td>m</td>
-<td>maximum surface elevation</td>
 </tr>
 <tr>
 <td>f_temp</td>
@@ -305,10 +251,10 @@
 <td>maximum ice thickness</td>
 </tr>
 <tr>
-<td>A_grd</td>
+<td>H_t_max</td>
 <td>time</td>
-<td>mln km2</td>
-<td>grounded ice area</td>
+<td>m</td>
+<td>maximum thickness of temperate ice</td>
 </tr>
 <tr>
 <td>mb_resid</td>
@@ -317,16 +263,28 @@
 <td>residual of the total mass balance</td>
 </tr>
 <tr>
-<td>Tbh_max</td>
+<td>mb_tot</td>
 <td>time</td>
-<td>decG</td>
-<td>maximum basal temperature relative to pmp</td>
+<td>Gt/a</td>
+<td>total mass balance</td>
 </tr>
 <tr>
-<td>V_tot</td>
+<td>mbp</td>
 <td>time</td>
-<td>mln km3</td>
-<td>total ice volume</td>
+<td>1</td>
+<td>mass balance partition</td>
+</tr>
+<tr>
+<td>Q_b</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>basal melting rate</td>
+</tr>
+<tr>
+<td>Q_temp</td>
+<td>time</td>
+<td>Gt/a</td>
+<td>drainage rate from the temperate ice layer</td>
 </tr>
 <tr>
 <td>runoff_tot</td>
@@ -335,10 +293,34 @@
 <td>total runoff</td>
 </tr>
 <tr>
-<td>A_temp</td>
+<td>smb_tot</td>
 <td>time</td>
-<td>mln km2</td>
-<td>area covered by temperate ice</td>
+<td>Gt/a</td>
+<td>total surface mass balance</td>
+</tr>
+<tr>
+<td>Tbh_max</td>
+<td>time</td>
+<td>decG</td>
+<td>maximum basal temperature relative to pmp</td>
+</tr>
+<tr>
+<td>V_af</td>
+<td>time</td>
+<td>mln km3</td>
+<td>ice volume above floatation</td>
+</tr>
+<tr>
+<td>V_flt</td>
+<td>time</td>
+<td>mln km3</td>
+<td>floating ice volume</td>
+</tr>
+<tr>
+<td>V_grd</td>
+<td>time</td>
+<td>mln km3</td>
+<td>grounded ice volume</td>
 </tr>
 <tr>
 <td>V_sle</td>
@@ -351,6 +333,24 @@
 <td>time</td>
 <td>mln km3</td>
 <td>volume of temperate ice</td>
+</tr>
+<tr>
+<td>V_tot</td>
+<td>time</td>
+<td>mln km3</td>
+<td>total ice volume</td>
+</tr>
+<tr>
+<td>vs_max</td>
+<td>time</td>
+<td>m/yr</td>
+<td>maximum surface speed</td>
+</tr>
+<tr>
+<td>zs_max</td>
+<td>time</td>
+<td>m</td>
+<td>maximum surface elevation</td>
 </tr>
 </tbody>
 </table>

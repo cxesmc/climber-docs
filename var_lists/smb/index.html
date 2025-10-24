@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">smb.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -185,40 +185,22 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>smb_ice</td>
-<td>x, y, time</td>
-<td>kg/m2/yr</td>
-<td>annual surface mass balance, for ice cells only</td>
-</tr>
-<tr>
-<td>z_sur_eff</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>effective surface elevation</td>
-</tr>
-<tr>
-<td>mask_margin</td>
+<td>alb_bg</td>
 <td>x, y, time</td>
 <td>/</td>
-<td>ice margin mask</td>
+<td>backround (ice/bare soil) albedo</td>
 </tr>
 <tr>
-<td>f_ice</td>
+<td>alb_ice</td>
 <td>x, y, time</td>
 <td>/</td>
-<td>sub-grid ice sheet fraction due to orography</td>
+<td>ice albedo</td>
 </tr>
 <tr>
-<td>z_sur_i</td>
+<td>area</td>
 <td>x, y, time</td>
-<td>m</td>
-<td>interpolated surface elevation</td>
-</tr>
-<tr>
-<td>refreezing_ann</td>
-<td>x, y, time</td>
-<td>kg/m2/yr</td>
-<td>refreezing</td>
+<td>km^2</td>
+<td>grid cell area</td>
 </tr>
 <tr>
 <td>dz_dx_sur</td>
@@ -227,34 +209,46 @@
 <td>zonal gradient of surface elevation</td>
 </tr>
 <tr>
+<td>dz_dy_sur</td>
+<td>x, y, time</td>
+<td>m/m</td>
+<td>meridional gradient of surface elevation</td>
+</tr>
+<tr>
+<td>dz_sur</td>
+<td>x, y, time</td>
+<td>m/m</td>
+<td>surface elevation gradient</td>
+</tr>
+<tr>
+<td>evp_ann</td>
+<td>x, y, time</td>
+<td>kg/m2/yr</td>
+<td>annual sublimation</td>
+</tr>
+<tr>
+<td>evp_ann_ice</td>
+<td>x, y, time</td>
+<td>kg/m2/yr</td>
+<td>annual sublimation, for ice cells only</td>
+</tr>
+<tr>
 <td>f_ele</td>
 <td>x, y, time</td>
 <td>/</td>
 <td>elevation factor for precipitation downscaling</td>
 </tr>
 <tr>
-<td>melt_ann_ice</td>
-<td>x, y, time</td>
-<td>kg/m2/yr</td>
-<td>annual melt, for ice cells only</td>
-</tr>
-<tr>
-<td>mask_ice</td>
+<td>f_ice</td>
 <td>x, y, time</td>
 <td>/</td>
-<td>ice mask</td>
+<td>sub-grid ice sheet fraction due to orography</td>
 </tr>
 <tr>
-<td>t_ice</td>
+<td>h_ice</td>
 <td>x, y, time</td>
-<td>degC</td>
-<td>surface ice temperature (10 m firn)</td>
-</tr>
-<tr>
-<td>phi</td>
-<td>x, y</td>
-<td>N/A</td>
-<td>N/A</td>
+<td>m</td>
+<td>ice thickness</td>
 </tr>
 <tr>
 <td>lambda</td>
@@ -263,10 +257,70 @@
 <td>N/A</td>
 </tr>
 <tr>
+<td>mask_ice</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>ice mask</td>
+</tr>
+<tr>
+<td>mask_margin</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>ice margin mask</td>
+</tr>
+<tr>
+<td>mask_maxice</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>mask of maximum allowed ice sheet extent</td>
+</tr>
+<tr>
+<td>mask_smb</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>mask where semi is applied</td>
+</tr>
+<tr>
+<td>melt_ann</td>
+<td>x, y, time</td>
+<td>kg/m2/yr</td>
+<td>annual surface melt</td>
+</tr>
+<tr>
+<td>melt_ann_ice</td>
+<td>x, y, time</td>
+<td>kg/m2/yr</td>
+<td>annual melt, for ice cells only</td>
+</tr>
+<tr>
+<td>pdd</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>positive degree days</td>
+</tr>
+<tr>
+<td>phi</td>
+<td>x, y</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>prc_ann</td>
+<td>x, y, time</td>
+<td>kg/m2/yr</td>
+<td>annual precipitation</td>
+</tr>
+<tr>
 <td>prc_ann_ice</td>
 <td>x, y, time</td>
 <td>kg/m2/yr</td>
 <td>annual precipitation, for ice cells only</td>
+</tr>
+<tr>
+<td>refreezing_ann</td>
+<td>x, y, time</td>
+<td>kg/m2/yr</td>
+<td>refreezing</td>
 </tr>
 <tr>
 <td>refreezing_ann_ice</td>
@@ -281,78 +335,6 @@
 <td>annual runoff</td>
 </tr>
 <tr>
-<td>smb_pdd</td>
-<td>x, y, time</td>
-<td>kg/m2/yr</td>
-<td>annual surface mass balance using PDD scheme</td>
-</tr>
-<tr>
-<td>z_sur</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>surface elevation</td>
-</tr>
-<tr>
-<td>z_sur_fil</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>smoothed surface elevation</td>
-</tr>
-<tr>
-<td>mask_smb</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>mask where semi is applied</td>
-</tr>
-<tr>
-<td>area</td>
-<td>x, y, time</td>
-<td>km^2</td>
-<td>grid cell area</td>
-</tr>
-<tr>
-<td>t_ground_i</td>
-<td>x, y, time</td>
-<td>degC</td>
-<td>interpolated ground temperature</td>
-</tr>
-<tr>
-<td>smb_noice</td>
-<td>x, y, time</td>
-<td>kg/m2/yr</td>
-<td>annual surface mass balance, for ice-free cells only</td>
-</tr>
-<tr>
-<td>t_ground</td>
-<td>x, y, time</td>
-<td>degC</td>
-<td>ground temperature (soil temperature over land and bottom water temperatature over ocean)</td>
-</tr>
-<tr>
-<td>prc_ann</td>
-<td>x, y, time</td>
-<td>kg/m2/yr</td>
-<td>annual precipitation</td>
-</tr>
-<tr>
-<td>evp_ann_ice</td>
-<td>x, y, time</td>
-<td>kg/m2/yr</td>
-<td>annual sublimation, for ice cells only</td>
-</tr>
-<tr>
-<td>alb_bg</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>backround (ice/bare soil) albedo</td>
-</tr>
-<tr>
-<td>dz_dy_sur</td>
-<td>x, y, time</td>
-<td>m/m</td>
-<td>meridional gradient of surface elevation</td>
-</tr>
-<tr>
 <td>runoff_ann_ice</td>
 <td>x, y, time</td>
 <td>kg/m2/yr</td>
@@ -365,34 +347,22 @@
 <td>annual surface mass balance</td>
 </tr>
 <tr>
-<td>mask_maxice</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>mask of maximum allowed ice sheet extent</td>
-</tr>
-<tr>
-<td>h_ice</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>ice thickness</td>
-</tr>
-<tr>
-<td>melt_ann</td>
+<td>smb_ice</td>
 <td>x, y, time</td>
 <td>kg/m2/yr</td>
-<td>annual surface melt</td>
+<td>annual surface mass balance, for ice cells only</td>
 </tr>
 <tr>
-<td>dz_sur</td>
-<td>x, y, time</td>
-<td>m/m</td>
-<td>surface elevation gradient</td>
-</tr>
-<tr>
-<td>snow_ann_ice</td>
+<td>smb_noice</td>
 <td>x, y, time</td>
 <td>kg/m2/yr</td>
-<td>annual snowfall, for ice cells only</td>
+<td>annual surface mass balance, for ice-free cells only</td>
+</tr>
+<tr>
+<td>smb_pdd</td>
+<td>x, y, time</td>
+<td>kg/m2/yr</td>
+<td>annual surface mass balance using PDD scheme</td>
 </tr>
 <tr>
 <td>snow_ann</td>
@@ -401,28 +371,58 @@
 <td>annual snowfall</td>
 </tr>
 <tr>
-<td>pdd</td>
-<td>x, y, time</td>
-<td>degC</td>
-<td>positive degree days</td>
-</tr>
-<tr>
-<td>evp_ann</td>
+<td>snow_ann_ice</td>
 <td>x, y, time</td>
 <td>kg/m2/yr</td>
-<td>annual sublimation</td>
+<td>annual snowfall, for ice cells only</td>
+</tr>
+<tr>
+<td>t_ground</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>ground temperature (soil temperature over land and bottom water temperatature over ocean)</td>
+</tr>
+<tr>
+<td>t_ground_i</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>interpolated ground temperature</td>
+</tr>
+<tr>
+<td>t_ice</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>surface ice temperature (10 m firn)</td>
+</tr>
+<tr>
+<td>z_sur</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>surface elevation</td>
+</tr>
+<tr>
+<td>z_sur_eff</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>effective surface elevation</td>
+</tr>
+<tr>
+<td>z_sur_fil</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>smoothed surface elevation</td>
+</tr>
+<tr>
+<td>z_sur_i</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>interpolated surface elevation</td>
 </tr>
 <tr>
 <td>z_sur_std</td>
 <td>x, y, time</td>
 <td>m</td>
 <td>sub-grid standard deviation of surface elevation</td>
-</tr>
-<tr>
-<td>alb_ice</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>ice albedo</td>
 </tr>
 </tbody>
 </table>

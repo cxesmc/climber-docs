@@ -63,9 +63,39 @@
                   <li class="toctree-l1"><a class="reference internal" href="../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Output files</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#atmosphere">Atmosphere</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ocean">Ocean</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#sea-ice">Sea ice</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#land">Land</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ocean-biogeochemistry">Ocean biogeochemistry</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#atmospheric-co2">Atmospheric CO2</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#atmospheric-ch4">Atmospheric CH4</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#geography-and-topography">Geography and Topography</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ice-sheets">Ice sheets</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#yelmo">Yelmo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sicopolis">SICOPOLIS</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#surface-mass-balance-of-ice-sheets">Surface mass balance of ice sheets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#basal-mass-balance-of-ice-sheets">Basal mass balance of ice sheets</a>
+    </li>
+    </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="atm/">atm.nc</a>
                   </li>
@@ -134,7 +164,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">Output files</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -144,32 +174,72 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>atm.md
-atm_ts.md
-ocn.md
-ocn_ts.md
-sic.md
-sic_ts.md
-lnd_carb.md
-lnd_lake.md
-lnd_soil.md
-lnd_surf.md
-lnd_ts.md
-bgc.md
-bgc_ts.md
-co2_ts.md
-ch4_ts.md
-geo_hires.md
-geo.md
-geo_ts.md
-ice_sico.md
-ice_sico_ts.md
-ice_yelmo.md
-ice_yelmo_ts.md
-smb.md
-smb_ts.md
-bmb.md
-bmb_ts.md</p>
+                <h1 id="output-files">Output files</h1>
+<p>Each model component has its own separate output files, one for the spatially explicit output (<code>*.nc</code>) and one for the output of global/integrated/averaged time series (<code>*_ts.nc</code>).</p>
+<h2 id="atmosphere">Atmosphere</h2>
+<ul>
+<li>atm.nc</li>
+<li>atm_ts.nc</li>
+</ul>
+<h2 id="ocean">Ocean</h2>
+<ul>
+<li>ocn.nc</li>
+<li>ocn_ts.nc</li>
+</ul>
+<h2 id="sea-ice">Sea ice</h2>
+<ul>
+<li>sic.nc</li>
+<li>sic_ts.nc</li>
+</ul>
+<h2 id="land">Land</h2>
+<ul>
+<li>lnd_carb.nc</li>
+<li>lnd_lake.nc</li>
+<li>lnd_soil.nc</li>
+<li>lnd_surf.nc</li>
+<li>lnd_ts.nc</li>
+</ul>
+<h2 id="ocean-biogeochemistry">Ocean biogeochemistry</h2>
+<ul>
+<li>bgc.nc</li>
+<li>bgc_ts.nc</li>
+</ul>
+<h2 id="atmospheric-co2">Atmospheric CO2</h2>
+<ul>
+<li>co2_ts.nc</li>
+</ul>
+<h2 id="atmospheric-ch4">Atmospheric CH4</h2>
+<ul>
+<li>ch4_ts.nc</li>
+</ul>
+<h2 id="geography-and-topography">Geography and Topography</h2>
+<ul>
+<li>geo_hires.nc</li>
+<li>geo.nc</li>
+<li>geo_ts.nc</li>
+</ul>
+<h2 id="ice-sheets">Ice sheets</h2>
+<p>All ice-sheets related output will have a separate output file for each of the ice sheet domains, with the domain name included in the file name.</p>
+<h3 id="yelmo">Yelmo</h3>
+<ul>
+<li>ice_yelmo.nc</li>
+<li>ice_yelmo_ts.nc</li>
+</ul>
+<h3 id="sicopolis">SICOPOLIS</h3>
+<ul>
+<li>ice_sico.nc</li>
+<li>ice_sico_ts.nc</li>
+</ul>
+<h2 id="surface-mass-balance-of-ice-sheets">Surface mass balance of ice sheets</h2>
+<ul>
+<li>smb.nc</li>
+<li>smb_ts.nc</li>
+</ul>
+<h2 id="basal-mass-balance-of-ice-sheets">Basal mass balance of ice sheets</h2>
+<ul>
+<li>bmb.nc</li>
+<li>bmb_ts.nc</li>
+</ul>
               
             </div>
           </div><footer>

@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">geo.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -161,12 +161,6 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>time</td>
-<td>time</td>
-<td>years BP</td>
-<td>N/A</td>
-</tr>
-<tr>
 <td>lon</td>
 <td>lon</td>
 <td>degrees_east</td>
@@ -179,136 +173,10 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>f_ocn2</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>ocean fraction, excluding floating ice</td>
-</tr>
-<tr>
-<td>z_ice</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>mean ice elevation</td>
-</tr>
-<tr>
-<td>q_geo</td>
-<td>lon, lat, time</td>
-<td>W/m2</td>
-<td>geothermal heat flux</td>
-</tr>
-<tr>
-<td>j_coast_nbr</td>
-<td>lon, lat, nbr, time</td>
-<td>/</td>
-<td>j index of neighbors of coastal cells</td>
-</tr>
-<tr>
-<td>f_ice</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>ice fraction</td>
-</tr>
-<tr>
-<td>z_lake</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>mean lake elevation</td>
-</tr>
-<tr>
-<td>i_runoff_veg</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>i index of runoff destination from ice-free land</td>
-</tr>
-<tr>
-<td>f_lnd</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>land fraction</td>
-</tr>
-<tr>
-<td>j_runoff_ice</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>j index of runoff destination from ice-sheet</td>
-</tr>
-<tr>
-<td>idivide_pac_atl</td>
-<td>lat, time</td>
-<td>/</td>
-<td>i-index of continental divide between Pacific and Atlantic</td>
-</tr>
-<tr>
-<td>z_veg</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>mean elevation of ice-free land</td>
-</tr>
-<tr>
-<td>j_runoff</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>j index of runoff destination</td>
-</tr>
-<tr>
-<td>z_bed</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>mean bedrock elevation</td>
-</tr>
-<tr>
-<td>idivide_atl_indpac</td>
-<td>lat, time</td>
-<td>/</td>
-<td>i-index of continental divide between Atlantic and Pacific</td>
-</tr>
-<tr>
-<td>j_runoff_veg</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>j index of runoff destination from ice-free land</td>
-</tr>
-<tr>
-<td>z_ocn</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>mean elevation of ocean</td>
-</tr>
-<tr>
-<td>f_ice_flt</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>floating ice fraction</td>
-</tr>
-<tr>
-<td>f_drain_veg</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>drainage fraction to ocean from ice-free land</td>
-</tr>
-<tr>
-<td>z_ocn_min</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>min elevation of ocean</td>
-</tr>
-<tr>
-<td>z_veg_min</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>min elevation of ice-free land</td>
-</tr>
-<tr>
-<td>z_sur</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>grid cell mean surface elevation</td>
-</tr>
-<tr>
-<td>mask_coast2</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>coast mask</td>
+<td>time</td>
+<td>time</td>
+<td>years BP</td>
+<td>N/A</td>
 </tr>
 <tr>
 <td>drain_basin</td>
@@ -317,16 +185,28 @@
 <td>drainage basins to ocean</td>
 </tr>
 <tr>
-<td>i_runoff_ice</td>
+<td>f_drain_ice</td>
 <td>lon, lat, time</td>
 <td>/</td>
-<td>i index of runoff destination from ice-sheet</td>
+<td>drainage fration to ocean from ice sheets</td>
 </tr>
 <tr>
-<td>z_sur_lnd_std</td>
+<td>f_drain_veg</td>
 <td>lon, lat, time</td>
-<td>m</td>
-<td>standard deviation of surface elevation, ice-free land only</td>
+<td>/</td>
+<td>drainage fraction to ocean from ice-free land</td>
+</tr>
+<tr>
+<td>f_ice</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>ice fraction</td>
+</tr>
+<tr>
+<td>f_ice_flt</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>floating ice fraction</td>
 </tr>
 <tr>
 <td>f_ice_grd</td>
@@ -341,34 +221,10 @@
 <td>lake fraction</td>
 </tr>
 <tr>
-<td>z_veg_max</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>max elevation of ice-free land</td>
-</tr>
-<tr>
-<td>i_runoff</td>
+<td>f_lnd</td>
 <td>lon, lat, time</td>
 <td>/</td>
-<td>i index of runoff destination</td>
-</tr>
-<tr>
-<td>f_drain_ice</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>drainage fration to ocean from ice sheets</td>
-</tr>
-<tr>
-<td>z_ocn_max</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>max elevation of ocean</td>
-</tr>
-<tr>
-<td>mask_coast</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>coast mask</td>
+<td>land fraction</td>
 </tr>
 <tr>
 <td>f_ocn</td>
@@ -377,22 +233,10 @@
 <td>ocean fraction, including floating ice</td>
 </tr>
 <tr>
-<td>z_veg_std</td>
+<td>f_ocn2</td>
 <td>lon, lat, time</td>
-<td>m</td>
-<td>standard deviation of surface elevation, ice-free land only</td>
-</tr>
-<tr>
-<td>z_ocn_max_q</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>quantile elevation of ocean</td>
-</tr>
-<tr>
-<td>z_sur_smooth_std</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>standard deviation of surface elevation</td>
+<td>/</td>
+<td>ocean fraction, excluding floating ice</td>
 </tr>
 <tr>
 <td>i_coast_nbr</td>
@@ -401,10 +245,166 @@
 <td>i index of neighbors of coastal cells</td>
 </tr>
 <tr>
+<td>i_runoff</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>i index of runoff destination</td>
+</tr>
+<tr>
+<td>i_runoff_ice</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>i index of runoff destination from ice-sheet</td>
+</tr>
+<tr>
+<td>i_runoff_veg</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>i index of runoff destination from ice-free land</td>
+</tr>
+<tr>
+<td>idivide_atl_indpac</td>
+<td>lat, time</td>
+<td>/</td>
+<td>i-index of continental divide between Atlantic and Pacific</td>
+</tr>
+<tr>
+<td>idivide_pac_atl</td>
+<td>lat, time</td>
+<td>/</td>
+<td>i-index of continental divide between Pacific and Atlantic</td>
+</tr>
+<tr>
+<td>j_coast_nbr</td>
+<td>lon, lat, nbr, time</td>
+<td>/</td>
+<td>j index of neighbors of coastal cells</td>
+</tr>
+<tr>
+<td>j_runoff</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>j index of runoff destination</td>
+</tr>
+<tr>
+<td>j_runoff_ice</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>j index of runoff destination from ice-sheet</td>
+</tr>
+<tr>
+<td>j_runoff_veg</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>j index of runoff destination from ice-free land</td>
+</tr>
+<tr>
+<td>mask_coast</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>coast mask</td>
+</tr>
+<tr>
+<td>mask_coast2</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>coast mask</td>
+</tr>
+<tr>
+<td>q_geo</td>
+<td>lon, lat, time</td>
+<td>W/m2</td>
+<td>geothermal heat flux</td>
+</tr>
+<tr>
+<td>z_bed</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>mean bedrock elevation</td>
+</tr>
+<tr>
+<td>z_ice</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>mean ice elevation</td>
+</tr>
+<tr>
+<td>z_lake</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>mean lake elevation</td>
+</tr>
+<tr>
+<td>z_ocn</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>mean elevation of ocean</td>
+</tr>
+<tr>
+<td>z_ocn_max</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>max elevation of ocean</td>
+</tr>
+<tr>
+<td>z_ocn_max_q</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>quantile elevation of ocean</td>
+</tr>
+<tr>
+<td>z_ocn_min</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>min elevation of ocean</td>
+</tr>
+<tr>
+<td>z_sur</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>grid cell mean surface elevation</td>
+</tr>
+<tr>
+<td>z_sur_lnd_std</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>standard deviation of surface elevation, ice-free land only</td>
+</tr>
+<tr>
+<td>z_sur_smooth_std</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>standard deviation of surface elevation</td>
+</tr>
+<tr>
 <td>z_sur_std</td>
 <td>lon, lat, time</td>
 <td>m</td>
 <td>standard deviation of surface elevation</td>
+</tr>
+<tr>
+<td>z_veg</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>mean elevation of ice-free land</td>
+</tr>
+<tr>
+<td>z_veg_max</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>max elevation of ice-free land</td>
+</tr>
+<tr>
+<td>z_veg_min</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>min elevation of ice-free land</td>
+</tr>
+<tr>
+<td>z_veg_std</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>standard deviation of surface elevation, ice-free land only</td>
 </tr>
 </tbody>
 </table>

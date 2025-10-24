@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">lnd_ts.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -161,9 +161,9 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>time</td>
-<td>time</td>
-<td>years BP</td>
+<td>lon</td>
+<td>lon</td>
+<td>1</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -173,46 +173,40 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>lon</td>
-<td>lon</td>
-<td>1</td>
+<td>time</td>
+<td>time</td>
+<td>years BP</td>
 <td>N/A</td>
 </tr>
 <tr>
-<td>npp</td>
+<td>A_BL</td>
 <td>time</td>
-<td>PgC/yr</td>
-<td>net primary productivity</td>
+<td>mln km^2</td>
+<td>Broadleaf forest area</td>
 </tr>
 <tr>
-<td>npp_pimask</td>
+<td>A_C3</td>
 <td>time</td>
-<td>PgC/yr</td>
-<td>net primary productivity in pre-industrial permafrost area</td>
+<td>mln km^2</td>
+<td>C3 grassland area</td>
 </tr>
 <tr>
-<td>d13ch4</td>
+<td>A_C4</td>
 <td>time</td>
-<td>permil</td>
-<td>d13C of methane emissions</td>
+<td>mln km^2</td>
+<td>C4 grassland area</td>
 </tr>
 <tr>
-<td>calving</td>
+<td>A_NL</td>
 <td>time</td>
-<td>10^15 kg/yr</td>
-<td>calving</td>
+<td>mln km^2</td>
+<td>Needleleaf forest area</td>
 </tr>
 <tr>
-<td>dust_e</td>
+<td>A_SH</td>
 <td>time</td>
-<td>Tg/yr</td>
-<td>total dust emission</td>
-</tr>
-<tr>
-<td>temp</td>
-<td>time</td>
-<td>degC</td>
-<td>land temperaure</td>
+<td>mln km^2</td>
+<td>Shrubland area</td>
 </tr>
 <tr>
 <td>Acrop</td>
@@ -221,52 +215,16 @@
 <td>cropland area</td>
 </tr>
 <tr>
-<td>Cmin</td>
+<td>Adesert</td>
 <td>time</td>
-<td>PgC</td>
-<td>mineral soil carbon</td>
+<td>mln km^2</td>
+<td>desert area</td>
 </tr>
 <tr>
-<td>Csoil3m</td>
+<td>Aforest</td>
 <td>time</td>
-<td>PgC</td>
-<td>top 3 meters soil carbon</td>
-</tr>
-<tr>
-<td>Cpeat3m</td>
-<td>time</td>
-<td>PgC</td>
-<td>top 3 meters carbon in peat</td>
-</tr>
-<tr>
-<td>prc</td>
-<td>time</td>
-<td>10^15 kg/yr</td>
-<td>precipitation</td>
-</tr>
-<tr>
-<td>Cveg_pimask</td>
-<td>time</td>
-<td>PgC</td>
-<td>vegetation carbon in pre-industrial permafrost area</td>
-</tr>
-<tr>
-<td>Csoil60N</td>
-<td>time</td>
-<td>PgC</td>
-<td>total soil carbon north of 60N</td>
-</tr>
-<tr>
-<td>Clake1m</td>
-<td>time</td>
-<td>PgC</td>
-<td>top meter carbon below lake water</td>
-</tr>
-<tr>
-<td>Cshelf3m</td>
-<td>time</td>
-<td>PgC</td>
-<td>top 3 meters carbon below ocean shelf water</td>
+<td>mln km^2</td>
+<td>forest area</td>
 </tr>
 <tr>
 <td>Agrass</td>
@@ -275,58 +233,28 @@
 <td>grass area</td>
 </tr>
 <tr>
-<td>poc_export</td>
-<td>time</td>
-<td>PgC/yr</td>
-<td>particulate organic carbon export through rivers</td>
-</tr>
-<tr>
-<td>Aperm</td>
+<td>Aice</td>
 <td>time</td>
 <td>mln km^2</td>
-<td>permafrost area</td>
+<td>global ice area</td>
 </tr>
 <tr>
-<td>Cinert</td>
-<td>time</td>
-<td>PgC</td>
-<td>inert land carbon (frozen soils and below ice sheets)</td>
-</tr>
-<tr>
-<td>Ashelf</td>
+<td>Ainund</td>
 <td>time</td>
 <td>mln km^2</td>
-<td>global shelf area</td>
+<td>inundated area excluding peatlands</td>
 </tr>
 <tr>
-<td>Clake3m</td>
+<td>Alake</td>
 <td>time</td>
-<td>PgC</td>
-<td>top 3 meters carbon below lake water</td>
+<td>mln km^2</td>
+<td>global lake area</td>
 </tr>
 <tr>
-<td>ch4lake</td>
+<td>Aland</td>
 <td>time</td>
-<td>TgCH4/yr</td>
-<td>methane emissions from lakes</td>
-</tr>
-<tr>
-<td>Cice1m</td>
-<td>time</td>
-<td>PgC</td>
-<td>top meter carbon below ice sheets</td>
-</tr>
-<tr>
-<td>n2otrop</td>
-<td>time</td>
-<td>TgN2O-N/yr</td>
-<td>tropical N2O emissions</td>
-</tr>
-<tr>
-<td>Cmin3m</td>
-<td>time</td>
-<td>PgC</td>
-<td>top 3 meters mineral soil carbon</td>
+<td>mln km^2</td>
+<td>global land area</td>
 </tr>
 <tr>
 <td>Apasture</td>
@@ -335,10 +263,52 @@
 <td>pasture area</td>
 </tr>
 <tr>
-<td>Cpeat</td>
+<td>Apeat</td>
 <td>time</td>
-<td>PgC</td>
-<td>carbon in peat</td>
+<td>mln km^2</td>
+<td>peatland area</td>
+</tr>
+<tr>
+<td>Apeatpot</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>potential peatland area</td>
+</tr>
+<tr>
+<td>Aperm</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>permafrost area</td>
+</tr>
+<tr>
+<td>Ashelf</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>global shelf area</td>
+</tr>
+<tr>
+<td>Ashrub</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>shrub area</td>
+</tr>
+<tr>
+<td>Aveg</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>global vegetated area</td>
+</tr>
+<tr>
+<td>Awet</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>wetland area</td>
+</tr>
+<tr>
+<td>Awetextrop</td>
+<td>time</td>
+<td>mln km^2</td>
+<td>extratropical wetland area</td>
 </tr>
 <tr>
 <td>Awettrop</td>
@@ -347,16 +317,64 @@
 <td>tropical wetland area</td>
 </tr>
 <tr>
-<td>weath_carb</td>
+<td>C13flx_atm_lnd</td>
 <td>time</td>
-<td>Tmol C/yr</td>
-<td>carbonate weathering</td>
+<td>PgC/yr</td>
+<td>net atmosphere-land carbon 13 flux</td>
 </tr>
 <tr>
-<td>Cmin1m</td>
+<td>C14flx_atm_lnd</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>net atmosphere-land carbon 14 flux</td>
+</tr>
+<tr>
+<td>calving</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>calving</td>
+</tr>
+<tr>
+<td>Cfast</td>
 <td>time</td>
 <td>PgC</td>
-<td>top meter mineral soil carbon</td>
+<td>fast soil carbon</td>
+</tr>
+<tr>
+<td>Cflx_atm_lnd</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>net atmosphere-land carbon flux</td>
+</tr>
+<tr>
+<td>Cflx_burial</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>carbon burial flux (lost from the system)</td>
+</tr>
+<tr>
+<td>ch4</td>
+<td>time</td>
+<td>TgCH4/yr</td>
+<td>methane emissions</td>
+</tr>
+<tr>
+<td>ch4extrop</td>
+<td>time</td>
+<td>TgCH4/yr</td>
+<td>extratropical methane emissions</td>
+</tr>
+<tr>
+<td>ch4lake</td>
+<td>time</td>
+<td>TgCH4/yr</td>
+<td>methane emissions from lakes</td>
+</tr>
+<tr>
+<td>ch4shelf</td>
+<td>time</td>
+<td>TgCH4/yr</td>
+<td>methane emissions from ocean shelf</td>
 </tr>
 <tr>
 <td>ch4trop</td>
@@ -371,76 +389,10 @@
 <td>carbon below ice sheets</td>
 </tr>
 <tr>
-<td>Aveg</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>global vegetated area</td>
-</tr>
-<tr>
-<td>Cflx_atm_lnd</td>
-<td>time</td>
-<td>PgC/yr</td>
-<td>net atmosphere-land carbon flux</td>
-</tr>
-<tr>
-<td>Awetextrop</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>extratropical wetland area</td>
-</tr>
-<tr>
-<td>Aland</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>global land area</td>
-</tr>
-<tr>
-<td>Cfast</td>
+<td>Cice1m</td>
 <td>time</td>
 <td>PgC</td>
-<td>fast soil carbon</td>
-</tr>
-<tr>
-<td>Cperm</td>
-<td>time</td>
-<td>PgC</td>
-<td>carbon in permafrost area</td>
-</tr>
-<tr>
-<td>gpp</td>
-<td>time</td>
-<td>PgC/yr</td>
-<td>gross primary productivity</td>
-</tr>
-<tr>
-<td>Cslow</td>
-<td>time</td>
-<td>PgC</td>
-<td>slow soil carbon</td>
-</tr>
-<tr>
-<td>ch4shelf</td>
-<td>time</td>
-<td>TgCH4/yr</td>
-<td>methane emissions from ocean shelf</td>
-</tr>
-<tr>
-<td>A_BL</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>Broadleaf forest area</td>
-</tr>
-<tr>
-<td>Cperm1m</td>
-<td>time</td>
-<td>PgC</td>
-<td>top meter carbon in permafrost area</td>
-</tr>
-<tr>
-<td>drain</td>
-<td>time</td>
-<td>10^15 kg/yr</td>
-<td>drainage</td>
+<td>top meter carbon below ice sheets</td>
 </tr>
 <tr>
 <td>Cice3m</td>
@@ -449,208 +401,10 @@
 <td>top 3 meters carbon below ice sheets</td>
 </tr>
 <tr>
-<td>Cperm3m</td>
+<td>Cinert</td>
 <td>time</td>
 <td>PgC</td>
-<td>top 3 meters carbon in permafrost area</td>
-</tr>
-<tr>
-<td>trans</td>
-<td>time</td>
-<td>10^15 kg/yr</td>
-<td>transpiration</td>
-</tr>
-<tr>
-<td>Cperm1m_pimask</td>
-<td>time</td>
-<td>PgC</td>
-<td>top meter carbon in pre-industrial permafrost area</td>
-</tr>
-<tr>
-<td>Apeatpot</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>potential peatland area</td>
-</tr>
-<tr>
-<td>Vsnow</td>
-<td>time</td>
-<td>10^12 m^3</td>
-<td>total snow volume</td>
-</tr>
-<tr>
-<td>Aforest</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>forest area</td>
-</tr>
-<tr>
-<td>weath_loess</td>
-<td>time</td>
-<td>Tmol C/yr</td>
-<td>loess carbonate weathering</td>
-</tr>
-<tr>
-<td>Aice</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>global ice area</td>
-</tr>
-<tr>
-<td>A_SH</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>Shrubland area</td>
-</tr>
-<tr>
-<td>Alake</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>global lake area</td>
-</tr>
-<tr>
-<td>Adesert</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>desert area</td>
-</tr>
-<tr>
-<td>A_NL</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>Needleleaf forest area</td>
-</tr>
-<tr>
-<td>Cland</td>
-<td>time</td>
-<td>PgC</td>
-<td>total land carbon</td>
-</tr>
-<tr>
-<td>Cshelf1m</td>
-<td>time</td>
-<td>PgC</td>
-<td>top meter carbon below ocean shelf water</td>
-</tr>
-<tr>
-<td>Ainund</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>inundated area excluding peatlands</td>
-</tr>
-<tr>
-<td>n2o</td>
-<td>time</td>
-<td>TgN2O-N/yr</td>
-<td>N2O emissions</td>
-</tr>
-<tr>
-<td>esur</td>
-<td>time</td>
-<td>10^15 kg/yr</td>
-<td>surface evaporation</td>
-</tr>
-<tr>
-<td>runsur</td>
-<td>time</td>
-<td>10^15 kg/yr</td>
-<td>surface runoff</td>
-</tr>
-<tr>
-<td>Cflx_burial</td>
-<td>time</td>
-<td>PgC/yr</td>
-<td>carbon burial flux (lost from the system)</td>
-</tr>
-<tr>
-<td>A_C3</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>C3 grassland area</td>
-</tr>
-<tr>
-<td>evp</td>
-<td>time</td>
-<td>10^15 kg/yr</td>
-<td>evapotranspiration</td>
-</tr>
-<tr>
-<td>doc_export</td>
-<td>time</td>
-<td>PgC/yr</td>
-<td>dissolved organic carbon export through rivers</td>
-</tr>
-<tr>
-<td>Cveg</td>
-<td>time</td>
-<td>PgC</td>
-<td>vegetation carbon</td>
-</tr>
-<tr>
-<td>ch4extrop</td>
-<td>time</td>
-<td>TgCH4/yr</td>
-<td>extratropical methane emissions</td>
-</tr>
-<tr>
-<td>A_C4</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>C4 grassland area</td>
-</tr>
-<tr>
-<td>co2</td>
-<td>time</td>
-<td>ppm</td>
-<td>atmospheric CO2</td>
-</tr>
-<tr>
-<td>Clitter</td>
-<td>time</td>
-<td>PgC</td>
-<td>litter carbon</td>
-</tr>
-<tr>
-<td>ch4</td>
-<td>time</td>
-<td>TgCH4/yr</td>
-<td>methane emissions</td>
-</tr>
-<tr>
-<td>Csoil1m</td>
-<td>time</td>
-<td>PgC</td>
-<td>top meter soil carbon</td>
-</tr>
-<tr>
-<td>n2oextrop</td>
-<td>time</td>
-<td>TgN2O-N/yr</td>
-<td>extratropical N2O emissions</td>
-</tr>
-<tr>
-<td>d13Cflx_burial</td>
-<td>time</td>
-<td>permil</td>
-<td>d13C of carbon burial flux</td>
-</tr>
-<tr>
-<td>Awet</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>wetland area</td>
-</tr>
-<tr>
-<td>runoff</td>
-<td>time</td>
-<td>10^15 kg/yr</td>
-<td>total runoff (surface runoff + drainage)</td>
-</tr>
-<tr>
-<td>Csoil</td>
-<td>time</td>
-<td>PgC</td>
-<td>total soil carbon</td>
+<td>inert land carbon (frozen soils and below ice sheets)</td>
 </tr>
 <tr>
 <td>Clake</td>
@@ -659,22 +413,58 @@
 <td>carbon below lake water</td>
 </tr>
 <tr>
-<td>Ashrub</td>
-<td>time</td>
-<td>mln km^2</td>
-<td>shrub area</td>
-</tr>
-<tr>
-<td>Cperm3m_pimask</td>
+<td>Clake1m</td>
 <td>time</td>
 <td>PgC</td>
-<td>top 3 meters carbon in pre-industrial permafrost area</td>
+<td>top meter carbon below lake water</td>
 </tr>
 <tr>
-<td>Apeat</td>
+<td>Clake3m</td>
 <td>time</td>
-<td>mln km^2</td>
-<td>peatland area</td>
+<td>PgC</td>
+<td>top 3 meters carbon below lake water</td>
+</tr>
+<tr>
+<td>Cland</td>
+<td>time</td>
+<td>PgC</td>
+<td>total land carbon</td>
+</tr>
+<tr>
+<td>Clitter</td>
+<td>time</td>
+<td>PgC</td>
+<td>litter carbon</td>
+</tr>
+<tr>
+<td>Cmin</td>
+<td>time</td>
+<td>PgC</td>
+<td>mineral soil carbon</td>
+</tr>
+<tr>
+<td>Cmin1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter mineral soil carbon</td>
+</tr>
+<tr>
+<td>Cmin3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters mineral soil carbon</td>
+</tr>
+<tr>
+<td>co2</td>
+<td>time</td>
+<td>ppm</td>
+<td>atmospheric CO2</td>
+</tr>
+<tr>
+<td>Cpeat</td>
+<td>time</td>
+<td>PgC</td>
+<td>carbon in peat</td>
 </tr>
 <tr>
 <td>Cpeat1m</td>
@@ -683,16 +473,94 @@
 <td>top meter carbon in peat</td>
 </tr>
 <tr>
+<td>Cpeat3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters carbon in peat</td>
+</tr>
+<tr>
+<td>Cperm</td>
+<td>time</td>
+<td>PgC</td>
+<td>carbon in permafrost area</td>
+</tr>
+<tr>
+<td>Cperm1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter carbon in permafrost area</td>
+</tr>
+<tr>
+<td>Cperm1m_pimask</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter carbon in pre-industrial permafrost area</td>
+</tr>
+<tr>
+<td>Cperm3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters carbon in permafrost area</td>
+</tr>
+<tr>
+<td>Cperm3m_pimask</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters carbon in pre-industrial permafrost area</td>
+</tr>
+<tr>
+<td>Cperm_pimask</td>
+<td>time</td>
+<td>PgC</td>
+<td>carbon in pre-industrial permafrost area</td>
+</tr>
+<tr>
 <td>Cshelf</td>
 <td>time</td>
 <td>PgC</td>
 <td>carbon below ocean shelf water</td>
 </tr>
 <tr>
-<td>sresp</td>
+<td>Cshelf1m</td>
 <td>time</td>
-<td>PgC/yr</td>
-<td>soil respiration</td>
+<td>PgC</td>
+<td>top meter carbon below ocean shelf water</td>
+</tr>
+<tr>
+<td>Cshelf3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters carbon below ocean shelf water</td>
+</tr>
+<tr>
+<td>Cslow</td>
+<td>time</td>
+<td>PgC</td>
+<td>slow soil carbon</td>
+</tr>
+<tr>
+<td>Csoil</td>
+<td>time</td>
+<td>PgC</td>
+<td>total soil carbon</td>
+</tr>
+<tr>
+<td>Csoil1m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top meter soil carbon</td>
+</tr>
+<tr>
+<td>Csoil3m</td>
+<td>time</td>
+<td>PgC</td>
+<td>top 3 meters soil carbon</td>
+</tr>
+<tr>
+<td>Csoil60N</td>
+<td>time</td>
+<td>PgC</td>
+<td>total soil carbon north of 60N</td>
 </tr>
 <tr>
 <td>Csoil60N1m</td>
@@ -701,28 +569,160 @@
 <td>top meter soil carbon north of 60N</td>
 </tr>
 <tr>
-<td>C13flx_atm_lnd</td>
+<td>Cveg</td>
+<td>time</td>
+<td>PgC</td>
+<td>vegetation carbon</td>
+</tr>
+<tr>
+<td>Cveg_pimask</td>
+<td>time</td>
+<td>PgC</td>
+<td>vegetation carbon in pre-industrial permafrost area</td>
+</tr>
+<tr>
+<td>d13Cflx_burial</td>
+<td>time</td>
+<td>permil</td>
+<td>d13C of carbon burial flux</td>
+</tr>
+<tr>
+<td>d13ch4</td>
+<td>time</td>
+<td>permil</td>
+<td>d13C of methane emissions</td>
+</tr>
+<tr>
+<td>doc_export</td>
 <td>time</td>
 <td>PgC/yr</td>
-<td>net atmosphere-land carbon 13 flux</td>
+<td>dissolved organic carbon export through rivers</td>
+</tr>
+<tr>
+<td>drain</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>drainage</td>
+</tr>
+<tr>
+<td>dust_e</td>
+<td>time</td>
+<td>Tg/yr</td>
+<td>total dust emission</td>
+</tr>
+<tr>
+<td>esur</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>surface evaporation</td>
+</tr>
+<tr>
+<td>evp</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>evapotranspiration</td>
+</tr>
+<tr>
+<td>gpp</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>gross primary productivity</td>
+</tr>
+<tr>
+<td>n2o</td>
+<td>time</td>
+<td>TgN2O-N/yr</td>
+<td>N2O emissions</td>
+</tr>
+<tr>
+<td>n2oextrop</td>
+<td>time</td>
+<td>TgN2O-N/yr</td>
+<td>extratropical N2O emissions</td>
+</tr>
+<tr>
+<td>n2otrop</td>
+<td>time</td>
+<td>TgN2O-N/yr</td>
+<td>tropical N2O emissions</td>
+</tr>
+<tr>
+<td>npp</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>net primary productivity</td>
+</tr>
+<tr>
+<td>npp_pimask</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>net primary productivity in pre-industrial permafrost area</td>
+</tr>
+<tr>
+<td>poc_export</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>particulate organic carbon export through rivers</td>
+</tr>
+<tr>
+<td>prc</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>precipitation</td>
+</tr>
+<tr>
+<td>runoff</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>total runoff (surface runoff + drainage)</td>
+</tr>
+<tr>
+<td>runsur</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>surface runoff</td>
+</tr>
+<tr>
+<td>sresp</td>
+<td>time</td>
+<td>PgC/yr</td>
+<td>soil respiration</td>
+</tr>
+<tr>
+<td>temp</td>
+<td>time</td>
+<td>degC</td>
+<td>land temperaure</td>
+</tr>
+<tr>
+<td>trans</td>
+<td>time</td>
+<td>10^15 kg/yr</td>
+<td>transpiration</td>
+</tr>
+<tr>
+<td>Vsnow</td>
+<td>time</td>
+<td>10^12 m^3</td>
+<td>total snow volume</td>
+</tr>
+<tr>
+<td>weath_carb</td>
+<td>time</td>
+<td>Tmol C/yr</td>
+<td>carbonate weathering</td>
+</tr>
+<tr>
+<td>weath_loess</td>
+<td>time</td>
+<td>Tmol C/yr</td>
+<td>loess carbonate weathering</td>
 </tr>
 <tr>
 <td>weath_sil</td>
 <td>time</td>
 <td>Tmol C/yr</td>
 <td>silicate weathering</td>
-</tr>
-<tr>
-<td>C14flx_atm_lnd</td>
-<td>time</td>
-<td>PgC/yr</td>
-<td>net atmosphere-land carbon 14 flux</td>
-</tr>
-<tr>
-<td>Cperm_pimask</td>
-<td>time</td>
-<td>PgC</td>
-<td>carbon in pre-industrial permafrost area</td>
 </tr>
 </tbody>
 </table>

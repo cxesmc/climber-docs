@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">sic_ts.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -161,6 +161,12 @@
 <td>N/A</td>
 </tr>
 <tr>
+<td>lon</td>
+<td>lon</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
 <td>month</td>
 <td>month</td>
 <td>months</td>
@@ -173,94 +179,10 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>lon</td>
-<td>lon</td>
-<td>1</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>e_sh_min</td>
-<td>time</td>
-<td>mln km2</td>
-<td>minimum SH sea ice extent</td>
-</tr>
-<tr>
-<td>v_sh</td>
-<td>month, time</td>
-<td>10^4 km3</td>
-<td>monthly SH sea ice volume</td>
-</tr>
-<tr>
-<td>denmark_exp</td>
-<td>time</td>
-<td>Sv</td>
-<td>sea ice export through the denmark strait, positive northward (-0.1 Sv)</td>
-</tr>
-<tr>
-<td>v_sh_max</td>
-<td>time</td>
-<td>10^4 km3</td>
-<td>maximum SH sea ice volume</td>
-</tr>
-<tr>
-<td>v_nh_max</td>
-<td>time</td>
-<td>10^4 km3</td>
-<td>maximum NH sea ice volume</td>
-</tr>
-<tr>
-<td>a_sh_min</td>
-<td>time</td>
-<td>mln km2</td>
-<td>minimum SH sea ice area (2 NSIDC)</td>
-</tr>
-<tr>
-<td>v_nh_min</td>
-<td>time</td>
-<td>10^4 km3</td>
-<td>minimum NH sea ice volume</td>
-</tr>
-<tr>
-<td>e_nh_max</td>
-<td>time</td>
-<td>mln km2</td>
-<td>maximum NH sea ice extent</td>
-</tr>
-<tr>
 <td>a_nh</td>
 <td>month, time</td>
 <td>mln km2</td>
 <td>monthly NH sea ice area</td>
-</tr>
-<tr>
-<td>e_nh</td>
-<td>month, time</td>
-<td>mln km2</td>
-<td>monthly NH sea ice extent (&gt;15 percent)</td>
-</tr>
-<tr>
-<td>area</td>
-<td>time</td>
-<td>mln km2</td>
-<td>area of sea ice domain</td>
-</tr>
-<tr>
-<td>a_sh</td>
-<td>month, time</td>
-<td>mln km2</td>
-<td>monthly SH sea ice area</td>
-</tr>
-<tr>
-<td>v_nh</td>
-<td>month, time</td>
-<td>10^4 km3</td>
-<td>monthly NH sea ice volume</td>
-</tr>
-<tr>
-<td>ncells</td>
-<td>time</td>
-<td>1</td>
-<td>number of active sea ice grid cells</td>
 </tr>
 <tr>
 <td>a_nh_max</td>
@@ -269,28 +191,34 @@
 <td>maximum NH sea ice area (13 NSIDC)</td>
 </tr>
 <tr>
-<td>a_sh_max</td>
-<td>time</td>
-<td>mln km2</td>
-<td>maximum SH sea ice area (14.5 NSIDC)</td>
-</tr>
-<tr>
-<td>e_sh_max</td>
-<td>time</td>
-<td>mln km2</td>
-<td>maximum SH sea ice extent</td>
-</tr>
-<tr>
 <td>a_nh_min</td>
 <td>time</td>
 <td>mln km2</td>
 <td>minimum NH sea ice area (4.4 NSIDC)</td>
 </tr>
 <tr>
-<td>fram_exp</td>
+<td>a_sh</td>
+<td>month, time</td>
+<td>mln km2</td>
+<td>monthly SH sea ice area</td>
+</tr>
+<tr>
+<td>a_sh_max</td>
 <td>time</td>
-<td>Sv</td>
-<td>sea ice export through the Fram strait, positive northward (-0.1 Sv)</td>
+<td>mln km2</td>
+<td>maximum SH sea ice area (14.5 NSIDC)</td>
+</tr>
+<tr>
+<td>a_sh_min</td>
+<td>time</td>
+<td>mln km2</td>
+<td>minimum SH sea ice area (2 NSIDC)</td>
+</tr>
+<tr>
+<td>area</td>
+<td>time</td>
+<td>mln km2</td>
+<td>area of sea ice domain</td>
 </tr>
 <tr>
 <td>buoy_sic_NA</td>
@@ -299,10 +227,34 @@
 <td>Bouyancy flux from export of sea ice through southern border of North Atlantic</td>
 </tr>
 <tr>
-<td>v_sh_min</td>
+<td>buoy_sic_NA55</td>
 <td>time</td>
-<td>10^4 km3</td>
-<td>minimum SH sea ice volume</td>
+<td>N</td>
+<td>Bouyancy flux from export of sea ice through southern border of North Atlantic</td>
+</tr>
+<tr>
+<td>denmark_exp</td>
+<td>time</td>
+<td>Sv</td>
+<td>sea ice export through the denmark strait, positive northward (-0.1 Sv)</td>
+</tr>
+<tr>
+<td>e_nh</td>
+<td>month, time</td>
+<td>mln km2</td>
+<td>monthly NH sea ice extent (&gt;15 percent)</td>
+</tr>
+<tr>
+<td>e_nh_max</td>
+<td>time</td>
+<td>mln km2</td>
+<td>maximum NH sea ice extent</td>
+</tr>
+<tr>
+<td>e_nh_min</td>
+<td>time</td>
+<td>mln km2</td>
+<td>minimum NH sea ice extent</td>
 </tr>
 <tr>
 <td>e_sh</td>
@@ -311,16 +263,64 @@
 <td>monthly SH sea ice extent (&gt;15 percent)</td>
 </tr>
 <tr>
-<td>buoy_sic_NA55</td>
-<td>time</td>
-<td>N</td>
-<td>Bouyancy flux from export of sea ice through southern border of North Atlantic</td>
-</tr>
-<tr>
-<td>e_nh_min</td>
+<td>e_sh_max</td>
 <td>time</td>
 <td>mln km2</td>
-<td>minimum NH sea ice extent</td>
+<td>maximum SH sea ice extent</td>
+</tr>
+<tr>
+<td>e_sh_min</td>
+<td>time</td>
+<td>mln km2</td>
+<td>minimum SH sea ice extent</td>
+</tr>
+<tr>
+<td>fram_exp</td>
+<td>time</td>
+<td>Sv</td>
+<td>sea ice export through the Fram strait, positive northward (-0.1 Sv)</td>
+</tr>
+<tr>
+<td>ncells</td>
+<td>time</td>
+<td>1</td>
+<td>number of active sea ice grid cells</td>
+</tr>
+<tr>
+<td>v_nh</td>
+<td>month, time</td>
+<td>10^4 km3</td>
+<td>monthly NH sea ice volume</td>
+</tr>
+<tr>
+<td>v_nh_max</td>
+<td>time</td>
+<td>10^4 km3</td>
+<td>maximum NH sea ice volume</td>
+</tr>
+<tr>
+<td>v_nh_min</td>
+<td>time</td>
+<td>10^4 km3</td>
+<td>minimum NH sea ice volume</td>
+</tr>
+<tr>
+<td>v_sh</td>
+<td>month, time</td>
+<td>10^4 km3</td>
+<td>monthly SH sea ice volume</td>
+</tr>
+<tr>
+<td>v_sh_max</td>
+<td>time</td>
+<td>10^4 km3</td>
+<td>maximum SH sea ice volume</td>
+</tr>
+<tr>
+<td>v_sh_min</td>
+<td>time</td>
+<td>10^4 km3</td>
+<td>minimum SH sea ice volume</td>
 </tr>
 </tbody>
 </table>

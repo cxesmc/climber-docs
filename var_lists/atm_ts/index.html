@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">atm_ts.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -173,112 +173,40 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>tskin_l</td>
+<td>ch4</td>
 <td>time</td>
-<td>degC</td>
-<td>temperature</td>
+<td>ppb</td>
+<td>atmospheric CH4 concentration</td>
 </tr>
 <tr>
-<td>precession</td>
-<td>time</td>
-<td>1</td>
-<td>climatic precession</td>
-</tr>
-<tr>
-<td>slp</td>
-<td>time</td>
-<td>hPa</td>
-<td>sea level pressure</td>
-</tr>
-<tr>
-<td>lnetsur_l</td>
-<td>time</td>
-<td>W/m2</td>
-<td>longwave net at the surface</td>
-</tr>
-<tr>
-<td>tnatl</td>
-<td>time</td>
-<td>degC</td>
-<td>North Atlantic surface air temperature</td>
-</tr>
-<tr>
-<td>ldwnsur</td>
-<td>time</td>
-<td>W/m2</td>
-<td>longwave down at the surface</td>
-</tr>
-<tr>
-<td>sh_l</td>
-<td>time</td>
-<td>W/m2</td>
-<td>surface sensible heat flux</td>
-</tr>
-<tr>
-<td>lnettop</td>
-<td>time</td>
-<td>W/m2</td>
-<td>longwave net at TOA</td>
-</tr>
-<tr>
-<td>prc</td>
-<td>time</td>
-<td>10^15 kg</td>
-<td>precipitation</td>
-</tr>
-<tr>
-<td>itcz_max</td>
-<td>time</td>
-<td>deg</td>
-<td>Max latitude of the ITCZ</td>
-</tr>
-<tr>
-<td>rbsur_l</td>
-<td>time</td>
-<td>W/m2</td>
-<td>radiative balance at the surface</td>
-</tr>
-<tr>
-<td>rbatm</td>
-<td>time</td>
-<td>W/m2</td>
-<td>radiative balance of the atmosphere</td>
-</tr>
-<tr>
-<td>plan</td>
+<td>cld</td>
 <td>time</td>
 <td>N/A</td>
-<td>planetary albedo</td>
+<td>cloud fraction</td>
 </tr>
 <tr>
-<td>r2</td>
+<td>cld_l</td>
 <td>time</td>
-<td>1</td>
-<td>surface air relative humidity</td>
+<td>N/A</td>
+<td>cloud fraction</td>
 </tr>
 <tr>
-<td>swrcrf</td>
+<td>co2</td>
 <td>time</td>
-<td>W/m2</td>
-<td>shortwave cloud radiative forcing</td>
+<td>ppm</td>
+<td>atmospheric CO2 concentration for radiation</td>
 </tr>
 <tr>
-<td>tgrl1</td>
+<td>co2e</td>
 <td>time</td>
-<td>degC</td>
-<td>Greenland surface air temperature</td>
+<td>ppm</td>
+<td>equivalent atmospheric CO2 concentration for radiation</td>
 </tr>
 <tr>
-<td>lnettopcs</td>
-<td>time</td>
-<td>W/m2</td>
-<td>clear-sky longwave net at TOA</td>
-</tr>
-<tr>
-<td>tam</td>
+<td>dtnsh</td>
 <td>time</td>
 <td>degC</td>
-<td>temperature</td>
+<td>difference between mean NH and SH surface air temperature</td>
 </tr>
 <tr>
 <td>dust_grl</td>
@@ -287,46 +215,214 @@
 <td>Greenland dust deposition</td>
 </tr>
 <tr>
+<td>dust_wais</td>
+<td>time</td>
+<td>kg/m2/s</td>
+<td>WAIS dust deposition</td>
+</tr>
+<tr>
+<td>dustdep</td>
+<td>time</td>
+<td>Tg/yr</td>
+<td>dust deposition</td>
+</tr>
+<tr>
 <td>dustdrydep</td>
 <td>time</td>
 <td>Tg/yr</td>
 <td>dust dry deposition</td>
 </tr>
 <tr>
-<td>Smax30N</td>
+<td>dustload</td>
 <td>time</td>
-<td>W/m2</td>
-<td>maximum insolation at 30N</td>
+<td>Tg</td>
+<td>dust load</td>
 </tr>
 <tr>
-<td>Smax65S</td>
+<td>dustwetdep</td>
 <td>time</td>
-<td>W/m2</td>
-<td>maximum insolation at 65S</td>
+<td>Tg/yr</td>
+<td>dust wet deposition</td>
 </tr>
 <tr>
-<td>r2_l</td>
+<td>eccentricity</td>
 <td>time</td>
 <td>1</td>
-<td>surface air relative humidity</td>
+<td>eccentricity</td>
 </tr>
 <tr>
-<td>Smax30S</td>
+<td>evp</td>
+<td>time</td>
+<td>10^15 kg</td>
+<td>evaporation</td>
+</tr>
+<tr>
+<td>evp_l</td>
+<td>time</td>
+<td>10^15 kg</td>
+<td>evaporation</td>
+</tr>
+<tr>
+<td>fw_atl_indpac</td>
+<td>time</td>
+<td>Sv</td>
+<td>water vapor transport from Atlantic to Indo-Pacific</td>
+</tr>
+<tr>
+<td>fw_pac_atl</td>
+<td>time</td>
+<td>Sv</td>
+<td>water vapor transport from Pacific to Atlantic</td>
+</tr>
+<tr>
+<td>had_width</td>
+<td>time</td>
+<td>deg</td>
+<td>Width of the Hadley cells (annual average)</td>
+</tr>
+<tr>
+<td>hcld</td>
+<td>time</td>
+<td>m</td>
+<td>cloud height</td>
+</tr>
+<tr>
+<td>htrop</td>
+<td>time</td>
+<td>m</td>
+<td>tropopause height</td>
+</tr>
+<tr>
+<td>itcz</td>
+<td>time</td>
+<td>deg</td>
+<td>Latitude of the ITCZ (annual average)</td>
+</tr>
+<tr>
+<td>itcz_max</td>
+<td>time</td>
+<td>deg</td>
+<td>Max latitude of the ITCZ</td>
+</tr>
+<tr>
+<td>itcz_min</td>
+<td>time</td>
+<td>deg</td>
+<td>Min latitude of the ITCZ</td>
+</tr>
+<tr>
+<td>ldwnsur</td>
 <td>time</td>
 <td>W/m2</td>
-<td>maximum insolation at 30S</td>
+<td>longwave down at the surface</td>
 </tr>
 <tr>
-<td>snetsur_l</td>
+<td>ldwnsurcs</td>
 <td>time</td>
 <td>W/m2</td>
-<td>shortwave net at the surface</td>
+<td>clear-sky longwave down at the surface</td>
 </tr>
 <tr>
-<td>tg_l</td>
+<td>lh</td>
 <td>time</td>
-<td>degC</td>
-<td>temperature</td>
+<td>W/m2</td>
+<td>surface latent heat flux</td>
+</tr>
+<tr>
+<td>lh_l</td>
+<td>time</td>
+<td>W/m2</td>
+<td>surface latent heat flux</td>
+</tr>
+<tr>
+<td>lnetsur</td>
+<td>time</td>
+<td>W/m2</td>
+<td>longwave net at the surface</td>
+</tr>
+<tr>
+<td>lnetsur_l</td>
+<td>time</td>
+<td>W/m2</td>
+<td>longwave net at the surface</td>
+</tr>
+<tr>
+<td>lnetsurcs</td>
+<td>time</td>
+<td>W/m2</td>
+<td>clear-sky longwave net at the surface</td>
+</tr>
+<tr>
+<td>lnettop</td>
+<td>time</td>
+<td>W/m2</td>
+<td>longwave net at TOA</td>
+</tr>
+<tr>
+<td>lnettop_l</td>
+<td>time</td>
+<td>W/m2</td>
+<td>longwave net at TOA</td>
+</tr>
+<tr>
+<td>lnettopcs</td>
+<td>time</td>
+<td>W/m2</td>
+<td>clear-sky longwave net at TOA</td>
+</tr>
+<tr>
+<td>lupsur</td>
+<td>time</td>
+<td>W/m2</td>
+<td>longwave up at the surface</td>
+</tr>
+<tr>
+<td>lwrcrf</td>
+<td>time</td>
+<td>W/m2</td>
+<td>longwave cloud radiative forcing</td>
+</tr>
+<tr>
+<td>n2o</td>
+<td>time</td>
+<td>ppb</td>
+<td>atmospheric N2O concentration</td>
+</tr>
+<tr>
+<td>obliquity</td>
+<td>time</td>
+<td>degrees</td>
+<td>obliquity</td>
+</tr>
+<tr>
+<td>plan</td>
+<td>time</td>
+<td>N/A</td>
+<td>planetary albedo</td>
+</tr>
+<tr>
+<td>prc</td>
+<td>time</td>
+<td>10^15 kg</td>
+<td>precipitation</td>
+</tr>
+<tr>
+<td>prc_l</td>
+<td>time</td>
+<td>10^15 kg</td>
+<td>precipitation</td>
+</tr>
+<tr>
+<td>precession</td>
+<td>time</td>
+<td>1</td>
+<td>climatic precession</td>
+</tr>
+<tr>
+<td>q2</td>
+<td>time</td>
+<td>kg/kg</td>
+<td>surface air humidity</td>
 </tr>
 <tr>
 <td>q2_l</td>
@@ -335,16 +431,34 @@
 <td>surface air humidity</td>
 </tr>
 <tr>
-<td>wcon</td>
+<td>r2</td>
 <td>time</td>
-<td>N/A</td>
-<td>water content</td>
+<td>1</td>
+<td>surface air relative humidity</td>
 </tr>
 <tr>
-<td>tskin</td>
+<td>r2_l</td>
 <td>time</td>
-<td>degC</td>
-<td>skin temperature</td>
+<td>1</td>
+<td>surface air relative humidity</td>
+</tr>
+<tr>
+<td>rbatm</td>
+<td>time</td>
+<td>W/m2</td>
+<td>radiative balance of the atmosphere</td>
+</tr>
+<tr>
+<td>rbatm_l</td>
+<td>time</td>
+<td>W/m2</td>
+<td>radiative balance of the atmosphere</td>
+</tr>
+<tr>
+<td>rbatmcs</td>
+<td>time</td>
+<td>W/m2</td>
+<td>clear-sky radiative balance of the atmosphere</td>
 </tr>
 <tr>
 <td>rbsur</td>
@@ -353,10 +467,112 @@
 <td>radiative balance at the surface</td>
 </tr>
 <tr>
-<td>lupsur</td>
+<td>rbsur_l</td>
 <td>time</td>
 <td>W/m2</td>
-<td>longwave up at the surface</td>
+<td>radiative balance at the surface</td>
+</tr>
+<tr>
+<td>rbsurcs</td>
+<td>time</td>
+<td>W/m2</td>
+<td>clear-sky radiative balance at the surface</td>
+</tr>
+<tr>
+<td>rbtop</td>
+<td>time</td>
+<td>W/m2</td>
+<td>radiative balance at TOA</td>
+</tr>
+<tr>
+<td>rbtop_l</td>
+<td>time</td>
+<td>W/m2</td>
+<td>radiative balance at TOA</td>
+</tr>
+<tr>
+<td>rbtopcs</td>
+<td>time</td>
+<td>W/m2</td>
+<td>clear-sky radiative balance at TOA</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>time</td>
+<td>W/m2</td>
+<td>surface sensible heat flux</td>
+</tr>
+<tr>
+<td>sh_l</td>
+<td>time</td>
+<td>W/m2</td>
+<td>surface sensible heat flux</td>
+</tr>
+<tr>
+<td>slp</td>
+<td>time</td>
+<td>hPa</td>
+<td>sea level pressure</td>
+</tr>
+<tr>
+<td>Smax30N</td>
+<td>time</td>
+<td>W/m2</td>
+<td>maximum insolation at 30N</td>
+</tr>
+<tr>
+<td>Smax30S</td>
+<td>time</td>
+<td>W/m2</td>
+<td>maximum insolation at 30S</td>
+</tr>
+<tr>
+<td>Smax65N</td>
+<td>time</td>
+<td>W/m2</td>
+<td>maximum insolation at 65N</td>
+</tr>
+<tr>
+<td>Smax65S</td>
+<td>time</td>
+<td>W/m2</td>
+<td>maximum insolation at 65S</td>
+</tr>
+<tr>
+<td>snetsur</td>
+<td>time</td>
+<td>W/m2</td>
+<td>shortwave net at the surface</td>
+</tr>
+<tr>
+<td>snetsur_l</td>
+<td>time</td>
+<td>W/m2</td>
+<td>shortwave net at the surface</td>
+</tr>
+<tr>
+<td>snetsurcs</td>
+<td>time</td>
+<td>W/m2</td>
+<td>clear-sky shortwave net at the surface</td>
+</tr>
+<tr>
+<td>snettop</td>
+<td>time</td>
+<td>W/m2</td>
+<td>shortwave net at TOA</td>
+</tr>
+<tr>
+<td>snettop_l</td>
+<td>time</td>
+<td>W/m2</td>
+<td>shortwave net at TOA</td>
+</tr>
+<tr>
+<td>snettopcs</td>
+<td>time</td>
+<td>W/m2</td>
+<td>clear-sky shortwave net at TOA</td>
 </tr>
 <tr>
 <td>so4</td>
@@ -371,172 +587,16 @@
 <td>shortwave in at TOA</td>
 </tr>
 <tr>
-<td>tsh</td>
+<td>swrcrf</td>
+<td>time</td>
+<td>W/m2</td>
+<td>shortwave cloud radiative forcing</td>
+</tr>
+<tr>
+<td>tam</td>
 <td>time</td>
 <td>degC</td>
-<td>SH surface air temperature</td>
-</tr>
-<tr>
-<td>rbatm_l</td>
-<td>time</td>
-<td>W/m2</td>
-<td>radiative balance of the atmosphere</td>
-</tr>
-<tr>
-<td>co2e</td>
-<td>time</td>
-<td>ppm</td>
-<td>equivalent atmospheric CO2 concentration for radiation</td>
-</tr>
-<tr>
-<td>itcz_min</td>
-<td>time</td>
-<td>deg</td>
-<td>Min latitude of the ITCZ</td>
-</tr>
-<tr>
-<td>htrop</td>
-<td>time</td>
-<td>m</td>
-<td>tropopause height</td>
-</tr>
-<tr>
-<td>rbtopcs</td>
-<td>time</td>
-<td>W/m2</td>
-<td>clear-sky radiative balance at TOA</td>
-</tr>
-<tr>
-<td>lh_l</td>
-<td>time</td>
-<td>W/m2</td>
-<td>surface latent heat flux</td>
-</tr>
-<tr>
-<td>lnettop_l</td>
-<td>time</td>
-<td>W/m2</td>
-<td>longwave net at TOA</td>
-</tr>
-<tr>
-<td>tg</td>
-<td>time</td>
-<td>degC</td>
-<td>global surface air temperature</td>
-</tr>
-<tr>
-<td>hcld</td>
-<td>time</td>
-<td>m</td>
-<td>cloud height</td>
-</tr>
-<tr>
-<td>rbatmcs</td>
-<td>time</td>
-<td>W/m2</td>
-<td>clear-sky radiative balance of the atmosphere</td>
-</tr>
-<tr>
-<td>q2</td>
-<td>time</td>
-<td>kg/kg</td>
-<td>surface air humidity</td>
-</tr>
-<tr>
-<td>snetsurcs</td>
-<td>time</td>
-<td>W/m2</td>
-<td>clear-sky shortwave net at the surface</td>
-</tr>
-<tr>
-<td>wcon_l</td>
-<td>time</td>
-<td>N/A</td>
-<td>water content</td>
-</tr>
-<tr>
-<td>tant</td>
-<td>time</td>
-<td>degC</td>
-<td>Antarctica surface air temperature</td>
-</tr>
-<tr>
-<td>snettop_l</td>
-<td>time</td>
-<td>W/m2</td>
-<td>shortwave net at TOA</td>
-</tr>
-<tr>
-<td>eccentricity</td>
-<td>time</td>
-<td>1</td>
-<td>eccentricity</td>
-</tr>
-<tr>
-<td>tn6090</td>
-<td>time</td>
-<td>degC</td>
-<td>surface air temperature between 60-90N</td>
-</tr>
-<tr>
-<td>ttrop</td>
-<td>time</td>
-<td>K</td>
-<td>tropopause temperature</td>
-</tr>
-<tr>
-<td>itcz</td>
-<td>time</td>
-<td>deg</td>
-<td>Latitude of the ITCZ (annual average)</td>
-</tr>
-<tr>
-<td>ts6090</td>
-<td>time</td>
-<td>degC</td>
-<td>surface air temperature between 60-90S</td>
-</tr>
-<tr>
-<td>lwrcrf</td>
-<td>time</td>
-<td>W/m2</td>
-<td>longwave cloud radiative forcing</td>
-</tr>
-<tr>
-<td>had_width</td>
-<td>time</td>
-<td>deg</td>
-<td>Width of the Hadley cells (annual average)</td>
-</tr>
-<tr>
-<td>rbtop</td>
-<td>time</td>
-<td>W/m2</td>
-<td>radiative balance at TOA</td>
-</tr>
-<tr>
-<td>snettopcs</td>
-<td>time</td>
-<td>W/m2</td>
-<td>clear-sky shortwave net at TOA</td>
-</tr>
-<tr>
-<td>evp_l</td>
-<td>time</td>
-<td>10^15 kg</td>
-<td>evaporation</td>
-</tr>
-<tr>
-<td>ldwnsurcs</td>
-<td>time</td>
-<td>W/m2</td>
-<td>clear-sky longwave down at the surface</td>
-</tr>
-<tr>
-<td>dustdep</td>
-<td>time</td>
-<td>Tg/yr</td>
-<td>dust deposition</td>
+<td>temperature</td>
 </tr>
 <tr>
 <td>tam_l</td>
@@ -545,124 +605,34 @@
 <td>temperature</td>
 </tr>
 <tr>
-<td>n2o</td>
-<td>time</td>
-<td>ppb</td>
-<td>atmospheric N2O concentration</td>
-</tr>
-<tr>
-<td>dustload</td>
-<td>time</td>
-<td>Tg</td>
-<td>dust load</td>
-</tr>
-<tr>
-<td>rbsurcs</td>
-<td>time</td>
-<td>W/m2</td>
-<td>clear-sky radiative balance at the surface</td>
-</tr>
-<tr>
-<td>tnh</td>
+<td>tant</td>
 <td>time</td>
 <td>degC</td>
-<td>NH surface air temperature</td>
+<td>Antarctica surface air temperature</td>
 </tr>
 <tr>
-<td>evp</td>
-<td>time</td>
-<td>10^15 kg</td>
-<td>evaporation</td>
-</tr>
-<tr>
-<td>sh</td>
-<td>time</td>
-<td>W/m2</td>
-<td>surface sensible heat flux</td>
-</tr>
-<tr>
-<td>Smax65N</td>
-<td>time</td>
-<td>W/m2</td>
-<td>maximum insolation at 65N</td>
-</tr>
-<tr>
-<td>lnetsur</td>
-<td>time</td>
-<td>W/m2</td>
-<td>longwave net at the surface</td>
-</tr>
-<tr>
-<td>co2</td>
-<td>time</td>
-<td>ppm</td>
-<td>atmospheric CO2 concentration for radiation</td>
-</tr>
-<tr>
-<td>fw_pac_atl</td>
-<td>time</td>
-<td>Sv</td>
-<td>water vapor transport from Pacific to Atlantic</td>
-</tr>
-<tr>
-<td>ch4</td>
-<td>time</td>
-<td>ppb</td>
-<td>atmospheric CH4 concentration</td>
-</tr>
-<tr>
-<td>snetsur</td>
-<td>time</td>
-<td>W/m2</td>
-<td>shortwave net at the surface</td>
-</tr>
-<tr>
-<td>dustwetdep</td>
-<td>time</td>
-<td>Tg/yr</td>
-<td>dust wet deposition</td>
-</tr>
-<tr>
-<td>prc_l</td>
-<td>time</td>
-<td>10^15 kg</td>
-<td>precipitation</td>
-</tr>
-<tr>
-<td>dust_wais</td>
-<td>time</td>
-<td>kg/m2/s</td>
-<td>WAIS dust deposition</td>
-</tr>
-<tr>
-<td>snettop</td>
-<td>time</td>
-<td>W/m2</td>
-<td>shortwave net at TOA</td>
-</tr>
-<tr>
-<td>obliquity</td>
-<td>time</td>
-<td>degrees</td>
-<td>obliquity</td>
-</tr>
-<tr>
-<td>lh</td>
-<td>time</td>
-<td>W/m2</td>
-<td>surface latent heat flux</td>
-</tr>
-<tr>
-<td>dtnsh</td>
+<td>tg</td>
 <td>time</td>
 <td>degC</td>
-<td>difference between mean NH and SH surface air temperature</td>
+<td>global surface air temperature</td>
 </tr>
 <tr>
-<td>lnetsurcs</td>
+<td>tg_l</td>
 <td>time</td>
-<td>W/m2</td>
-<td>clear-sky longwave net at the surface</td>
+<td>degC</td>
+<td>temperature</td>
+</tr>
+<tr>
+<td>tgrl</td>
+<td>time</td>
+<td>degC</td>
+<td>Greenland surface air temperature NGRIP</td>
+</tr>
+<tr>
+<td>tgrl1</td>
+<td>time</td>
+<td>degC</td>
+<td>Greenland surface air temperature</td>
 </tr>
 <tr>
 <td>tgrl1_jja</td>
@@ -671,34 +641,64 @@
 <td>JJA Greenland surface air temperature</td>
 </tr>
 <tr>
-<td>cld</td>
-<td>time</td>
-<td>N/A</td>
-<td>cloud fraction</td>
-</tr>
-<tr>
-<td>rbtop_l</td>
-<td>time</td>
-<td>W/m2</td>
-<td>radiative balance at TOA</td>
-</tr>
-<tr>
-<td>cld_l</td>
-<td>time</td>
-<td>N/A</td>
-<td>cloud fraction</td>
-</tr>
-<tr>
-<td>fw_atl_indpac</td>
-<td>time</td>
-<td>Sv</td>
-<td>water vapor transport from Atlantic to Indo-Pacific</td>
-</tr>
-<tr>
-<td>tgrl</td>
+<td>tn6090</td>
 <td>time</td>
 <td>degC</td>
-<td>Greenland surface air temperature NGRIP</td>
+<td>surface air temperature between 60-90N</td>
+</tr>
+<tr>
+<td>tnatl</td>
+<td>time</td>
+<td>degC</td>
+<td>North Atlantic surface air temperature</td>
+</tr>
+<tr>
+<td>tnh</td>
+<td>time</td>
+<td>degC</td>
+<td>NH surface air temperature</td>
+</tr>
+<tr>
+<td>ts6090</td>
+<td>time</td>
+<td>degC</td>
+<td>surface air temperature between 60-90S</td>
+</tr>
+<tr>
+<td>tsh</td>
+<td>time</td>
+<td>degC</td>
+<td>SH surface air temperature</td>
+</tr>
+<tr>
+<td>tskin</td>
+<td>time</td>
+<td>degC</td>
+<td>skin temperature</td>
+</tr>
+<tr>
+<td>tskin_l</td>
+<td>time</td>
+<td>degC</td>
+<td>temperature</td>
+</tr>
+<tr>
+<td>ttrop</td>
+<td>time</td>
+<td>K</td>
+<td>tropopause temperature</td>
+</tr>
+<tr>
+<td>wcon</td>
+<td>time</td>
+<td>N/A</td>
+<td>water content</td>
+</tr>
+<tr>
+<td>wcon_l</td>
+<td>time</td>
+<td>N/A</td>
+<td>water content</td>
 </tr>
 </tbody>
 </table>

@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">ice_sico.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -155,14 +155,20 @@
 </thead>
 <tbody>
 <tr>
+<td>kc</td>
+<td>kc</td>
+<td>1</td>
+<td>N/A</td>
+</tr>
+<tr>
 <td>kr</td>
 <td>kr</td>
 <td>1</td>
 <td>N/A</td>
 </tr>
 <tr>
-<td>kc</td>
-<td>kc</td>
+<td>kt</td>
+<td>kt</td>
 <td>1</td>
 <td>N/A</td>
 </tr>
@@ -173,12 +179,6 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>kt</td>
-<td>kt</td>
-<td>1</td>
-<td>N/A</td>
-</tr>
-<tr>
 <td>x</td>
 <td>x</td>
 <td>km</td>
@@ -189,570 +189,6 @@
 <td>y</td>
 <td>km</td>
 <td>N/A</td>
-</tr>
-<tr>
-<td>Q_b</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Basal melting rate + Water drainage from the temperate layer</td>
-</tr>
-<tr>
-<td>vy_m_g</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Vertical mean of horizontal velocity vy</td>
-</tr>
-<tr>
-<td>q_geo</td>
-<td>x, y, time</td>
-<td>W/m2</td>
-<td>geothermal heat flux</td>
-</tr>
-<tr>
-<td>ratio_sl_y</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>Ratio of basal to surface velocity (slip ratio) in y-direction at (i+1/2,j)?</td>
-</tr>
-<tr>
-<td>p_b</td>
-<td>x, y, time</td>
-<td>Pa</td>
-<td>Basal pressure</td>
-</tr>
-<tr>
-<td>vh_m_ssa</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Vertical mean of SSA horizontal velocity</td>
-</tr>
-<tr>
-<td>sigma_level_c</td>
-<td>kc</td>
-<td>1</td>
-<td>sigma level in cold ice</td>
-</tr>
-<tr>
-<td>ratio_sl_x</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>Ratio of basal to surface velocity (slip ratio) in x-direction at (i+1/2,j)</td>
-</tr>
-<tr>
-<td>calving</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>calving flux</td>
-</tr>
-<tr>
-<td>maske</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>ice-land-sea mask</td>
-</tr>
-<tr>
-<td>q_gl_g</td>
-<td>x, y, time</td>
-<td>m2/yr</td>
-<td>Horizontal volume flux across the grounding line</td>
-</tr>
-<tr>
-<td>mask_mar</td>
-<td>x, y, time</td>
-<td>1</td>
-<td>margina ring mask</td>
-</tr>
-<tr>
-<td>vh_b</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Horizontal velocity vh at the ice base</td>
-</tr>
-<tr>
-<td>zl</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Topography of the lithosphere surface</td>
-</tr>
-<tr>
-<td>tau_b_drag</td>
-<td>x, y, time</td>
-<td>Pa</td>
-<td>Basal drag</td>
-</tr>
-<tr>
-<td>vh_m_sia</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Vertical mean of SIA horizontal velocity</td>
-</tr>
-<tr>
-<td>n_cts</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>mask for polythermal conditions</td>
-</tr>
-<tr>
-<td>H_eff</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Effective thickness at shelf ice front</td>
-</tr>
-<tr>
-<td>tau_b_driving</td>
-<td>x, y, time</td>
-<td>Pa</td>
-<td>Driving stress</td>
-</tr>
-<tr>
-<td>vis_int_g</td>
-<td>x, y, time</td>
-<td>Pa s m</td>
-<td>Depth-integrated viscosity</td>
-</tr>
-<tr>
-<td>dzs_dt</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Rate of change of the topography of the free surface</td>
-</tr>
-<tr>
-<td>eta</td>
-<td>y</td>
-<td>m</td>
-<td>y-coordinate</td>
-</tr>
-<tr>
-<td>vy_m_sia</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>y depth-averaged horizontal velocity from SIA</td>
-</tr>
-<tr>
-<td>zb</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Topography of the ice base</td>
-</tr>
-<tr>
-<td>temp_b</td>
-<td>x, y, time</td>
-<td>degC</td>
-<td>Temperature at the ice base</td>
-</tr>
-<tr>
-<td>p_b_red_lim</td>
-<td>x, y, time</td>
-<td>Pa</td>
-<td>Reduced basal pressure</td>
-</tr>
-<tr>
-<td>flag_shelfy_stream</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>Shelfy stream flag</td>
-</tr>
-<tr>
-<td>temp_s</td>
-<td>x, y, time</td>
-<td>degC</td>
-<td>surface temperature</td>
-</tr>
-<tr>
-<td>sigma_level_r</td>
-<td>kr</td>
-<td>1</td>
-<td>sigma level in litosphere</td>
-</tr>
-<tr>
-<td>vx_m_g</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Vertical mean of horizontal velocity vx</td>
-</tr>
-<tr>
-<td>Q_tld</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Water drainage from the temperate layer</td>
-</tr>
-<tr>
-<td>runoff_apl</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>applied runoff flux</td>
-</tr>
-<tr>
-<td>Q_b_apl</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>applied Basal melting rate + Water drainage from the temperate layer</td>
-</tr>
-<tr>
-<td>c_slide</td>
-<td>x, y, time</td>
-<td>m/(a*Pa^(p-q))</td>
-<td>basal sliding coefficient</td>
-</tr>
-<tr>
-<td>mask_ablation_type</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>Mask indicating ablation type</td>
-</tr>
-<tr>
-<td>beta_drag</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>basal drag parameter for shelfy stream</td>
-</tr>
-<tr>
-<td>vh_m</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Vertical mean of horizontal velocity vh</td>
-</tr>
-<tr>
-<td>maske_old</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>ice-land-sea mask (old)</td>
-</tr>
-<tr>
-<td>xi</td>
-<td>x</td>
-<td>m</td>
-<td>x-coordinate</td>
-</tr>
-<tr>
-<td>H</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Thickness of ice</td>
-</tr>
-<tr>
-<td>vx_b_g</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Horizontal velocity vx at the ice base</td>
-</tr>
-<tr>
-<td>vx_m_sia</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>x depth-averaged horizontal velocity from SIA</td>
-</tr>
-<tr>
-<td>zl_fil</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Topography of the filtered lithosphere surface</td>
-</tr>
-<tr>
-<td>mb_source</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>total mass balance</td>
-</tr>
-<tr>
-<td>dH_dt</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Rate of change of the ice thickness</td>
-</tr>
-<tr>
-<td>as_perp_apl</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>applied surface mass balance</td>
-</tr>
-<tr>
-<td>vy_b_g</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Horizontal velocity vy at the ice base</td>
-</tr>
-<tr>
-<td>am_perp</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Volume flux across the z=zm interface</td>
-</tr>
-<tr>
-<td>H_temp</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>thickness of the temperate ice layer</td>
-</tr>
-<tr>
-<td>zm</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Topography of z=zm interface</td>
-</tr>
-<tr>
-<td>z_sl</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>sea level</td>
-</tr>
-<tr>
-<td>vh_s</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Horizontal velocity vh at the ice surface</td>
-</tr>
-<tr>
-<td>kc_cts</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>Grid index of the CTS position</td>
-</tr>
-<tr>
-<td>calving_apl</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>applied calving flux</td>
-</tr>
-<tr>
-<td>zl_std</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>sub-grid standard deviation of topography of the lithosphere surface</td>
-</tr>
-<tr>
-<td>phi</td>
-<td>x, y</td>
-<td>degN</td>
-<td>geographic latitude</td>
-</tr>
-<tr>
-<td>H_calv</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Calvin Threshold</td>
-</tr>
-<tr>
-<td>Q_bm</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Basal melting rate</td>
-</tr>
-<tr>
-<td>H_cold</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Thickness of the cold ice layer</td>
-</tr>
-<tr>
-<td>p_b_w</td>
-<td>x, y, time</td>
-<td>Pa</td>
-<td>Basal water pressure</td>
-</tr>
-<tr>
-<td>f_sed</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>sediment fraction</td>
-</tr>
-<tr>
-<td>vz_s</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Vertical velocity vz at the ice surface</td>
-</tr>
-<tr>
-<td>temph_b</td>
-<td>x, y, time</td>
-<td>degC</td>
-<td>Temperature at the ice base relative to the pressure melting point</td>
-</tr>
-<tr>
-<td>vy_s_g</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Horizontal velocity vy at the ice surface</td>
-</tr>
-<tr>
-<td>dH_t_dt</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Rate of change of the thickness of the lower (kt) ice layer</td>
-</tr>
-<tr>
-<td>vb_t</td>
-<td>x, y, time</td>
-<td>m/a</td>
-<td>threshold basal velocity for regularized Coulomb law</td>
-</tr>
-<tr>
-<td>weigh_ssta_sia_x</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>weight of SStA vs SIA in x-direction at (i+1/2,j)</td>
-</tr>
-<tr>
-<td>vx_m_ssa</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>x depth-averaged horizontal velocity from SSA</td>
-</tr>
-<tr>
-<td>c_fric</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>basal friction coefficient</td>
-</tr>
-<tr>
-<td>H_sed</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>sediment thickness</td>
-</tr>
-<tr>
-<td>dH_c_dt</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Rate of change of the thickness of the upper (kc) ice layer</td>
-</tr>
-<tr>
-<td>flag_shelfy_stream_x</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>Shelfy stream flag in x-direction, at (i+1/2,j)</td>
-</tr>
-<tr>
-<td>id_mask</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>Mask indicating ice IDs</td>
-</tr>
-<tr>
-<td>delta</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>Fraction of overburden pressure at saturation</td>
-</tr>
-<tr>
-<td>vz_b</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Vertical velocity vz at the ice base</td>
-</tr>
-<tr>
-<td>sigma_level_t</td>
-<td>kt</td>
-<td>1</td>
-<td>sigma level in temperate ice</td>
-</tr>
-<tr>
-<td>qy</td>
-<td>x, y, time</td>
-<td>m2/yr</td>
-<td>Horizontal volume flux qy</td>
-</tr>
-<tr>
-<td>weigh_ssta_sia_y</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>weight of SStA vs SIA in y-direction at (i,j+1/2)</td>
-</tr>
-<tr>
-<td>zs</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Topography of the free surface</td>
-</tr>
-<tr>
-<td>lambda</td>
-<td>x, y</td>
-<td>degE</td>
-<td>geographic longitude</td>
-</tr>
-<tr>
-<td>qx</td>
-<td>x, y, time</td>
-<td>m2/yr</td>
-<td>Horizontal volume flux qx</td>
-</tr>
-<tr>
-<td>dzl_dt</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Rate of change of the topography of the lithosphere surface</td>
-</tr>
-<tr>
-<td>vx_s_g</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Horizontal velocity vx at the ice surface</td>
-</tr>
-<tr>
-<td>cst_dist</td>
-<td>x, y, time</td>
-<td>km</td>
-<td>coastal distance</td>
-</tr>
-<tr>
-<td>H_w</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Thickness of the water column under the ice base</td>
-</tr>
-<tr>
-<td>runoff</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>runoff flux</td>
-</tr>
-<tr>
-<td>as_perp</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>surface mass balance</td>
-</tr>
-<tr>
-<td>dis_perp</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>applied calving flux from discharge parameterisation</td>
-</tr>
-<tr>
-<td>mb_source_apl</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>applied total mass balance</td>
-</tr>
-<tr>
-<td>cos_grad_tc</td>
-<td>x, y, time</td>
-<td>/</td>
-<td>Cosine of angle between surface gradient and cst dist gradient</td>
-</tr>
-<tr>
-<td>dzm_dt</td>
-<td>x, y, time</td>
-<td>m/yr</td>
-<td>Rate of change of the topography of the z=zm interface</td>
-</tr>
-<tr>
-<td>zl0</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Topography of isostatically relaxed lithosphere surface</td>
-</tr>
-<tr>
-<td>temp_g</td>
-<td>x, y, time</td>
-<td>degC</td>
-<td>ground temperature</td>
-</tr>
-<tr>
-<td>H_flow</td>
-<td>x, y, time</td>
-<td>m</td>
-<td>Thickness of ice after dynamics (without source term)</td>
 </tr>
 <tr>
 <td>accum</td>
@@ -767,10 +203,142 @@
 <td>applied accumulation flux</td>
 </tr>
 <tr>
-<td>vy_m_ssa</td>
+<td>am_perp</td>
 <td>x, y, time</td>
 <td>m/yr</td>
-<td>y depth-averaged horizontal velocity from SSA</td>
+<td>Volume flux across the z=zm interface</td>
+</tr>
+<tr>
+<td>as_perp</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>surface mass balance</td>
+</tr>
+<tr>
+<td>as_perp_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied surface mass balance</td>
+</tr>
+<tr>
+<td>beta_drag</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>basal drag parameter for shelfy stream</td>
+</tr>
+<tr>
+<td>c_fric</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>basal friction coefficient</td>
+</tr>
+<tr>
+<td>c_slide</td>
+<td>x, y, time</td>
+<td>m/(a*Pa^(p-q))</td>
+<td>basal sliding coefficient</td>
+</tr>
+<tr>
+<td>calving</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>calving flux</td>
+</tr>
+<tr>
+<td>calving_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied calving flux</td>
+</tr>
+<tr>
+<td>cos_grad_tc</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Cosine of angle between surface gradient and cst dist gradient</td>
+</tr>
+<tr>
+<td>cst_dist</td>
+<td>x, y, time</td>
+<td>km</td>
+<td>coastal distance</td>
+</tr>
+<tr>
+<td>delta</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Fraction of overburden pressure at saturation</td>
+</tr>
+<tr>
+<td>dH_c_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the thickness of the upper (kc) ice layer</td>
+</tr>
+<tr>
+<td>dH_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the ice thickness</td>
+</tr>
+<tr>
+<td>dH_t_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the thickness of the lower (kt) ice layer</td>
+</tr>
+<tr>
+<td>dis_perp</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied calving flux from discharge parameterisation</td>
+</tr>
+<tr>
+<td>dzb_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the topography of the ice base</td>
+</tr>
+<tr>
+<td>dzl_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the topography of the lithosphere surface</td>
+</tr>
+<tr>
+<td>dzm_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the topography of the z=zm interface</td>
+</tr>
+<tr>
+<td>dzs_dt</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Rate of change of the topography of the free surface</td>
+</tr>
+<tr>
+<td>eta</td>
+<td>y</td>
+<td>m</td>
+<td>y-coordinate</td>
+</tr>
+<tr>
+<td>f_sed</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>sediment fraction</td>
+</tr>
+<tr>
+<td>flag_shelfy_stream</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Shelfy stream flag</td>
+</tr>
+<tr>
+<td>flag_shelfy_stream_x</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Shelfy stream flag in x-direction, at (i+1/2,j)</td>
 </tr>
 <tr>
 <td>flag_shelfy_stream_y</td>
@@ -779,10 +347,442 @@
 <td>Shelfy stream flag in y-direction, at (i,j+1/2)</td>
 </tr>
 <tr>
-<td>dzb_dt</td>
+<td>H</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Thickness of ice</td>
+</tr>
+<tr>
+<td>H_calv</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Calvin Threshold</td>
+</tr>
+<tr>
+<td>H_cold</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Thickness of the cold ice layer</td>
+</tr>
+<tr>
+<td>H_eff</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Effective thickness at shelf ice front</td>
+</tr>
+<tr>
+<td>H_flow</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Thickness of ice after dynamics (without source term)</td>
+</tr>
+<tr>
+<td>H_sed</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>sediment thickness</td>
+</tr>
+<tr>
+<td>H_temp</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>thickness of the temperate ice layer</td>
+</tr>
+<tr>
+<td>H_w</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Thickness of the water column under the ice base</td>
+</tr>
+<tr>
+<td>id_mask</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Mask indicating ice IDs</td>
+</tr>
+<tr>
+<td>kc_cts</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Grid index of the CTS position</td>
+</tr>
+<tr>
+<td>lambda</td>
+<td>x, y</td>
+<td>degE</td>
+<td>geographic longitude</td>
+</tr>
+<tr>
+<td>mask_ablation_type</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Mask indicating ablation type</td>
+</tr>
+<tr>
+<td>mask_mar</td>
+<td>x, y, time</td>
+<td>1</td>
+<td>margina ring mask</td>
+</tr>
+<tr>
+<td>maske</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>ice-land-sea mask</td>
+</tr>
+<tr>
+<td>maske_old</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>ice-land-sea mask (old)</td>
+</tr>
+<tr>
+<td>mb_source</td>
 <td>x, y, time</td>
 <td>m/yr</td>
-<td>Rate of change of the topography of the ice base</td>
+<td>total mass balance</td>
+</tr>
+<tr>
+<td>mb_source_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied total mass balance</td>
+</tr>
+<tr>
+<td>n_cts</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>mask for polythermal conditions</td>
+</tr>
+<tr>
+<td>p_b</td>
+<td>x, y, time</td>
+<td>Pa</td>
+<td>Basal pressure</td>
+</tr>
+<tr>
+<td>p_b_red_lim</td>
+<td>x, y, time</td>
+<td>Pa</td>
+<td>Reduced basal pressure</td>
+</tr>
+<tr>
+<td>p_b_w</td>
+<td>x, y, time</td>
+<td>Pa</td>
+<td>Basal water pressure</td>
+</tr>
+<tr>
+<td>phi</td>
+<td>x, y</td>
+<td>degN</td>
+<td>geographic latitude</td>
+</tr>
+<tr>
+<td>Q_b</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Basal melting rate + Water drainage from the temperate layer</td>
+</tr>
+<tr>
+<td>Q_b_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied Basal melting rate + Water drainage from the temperate layer</td>
+</tr>
+<tr>
+<td>Q_bm</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Basal melting rate</td>
+</tr>
+<tr>
+<td>q_geo</td>
+<td>x, y, time</td>
+<td>W/m2</td>
+<td>geothermal heat flux</td>
+</tr>
+<tr>
+<td>q_gl_g</td>
+<td>x, y, time</td>
+<td>m2/yr</td>
+<td>Horizontal volume flux across the grounding line</td>
+</tr>
+<tr>
+<td>Q_tld</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Water drainage from the temperate layer</td>
+</tr>
+<tr>
+<td>qx</td>
+<td>x, y, time</td>
+<td>m2/yr</td>
+<td>Horizontal volume flux qx</td>
+</tr>
+<tr>
+<td>qy</td>
+<td>x, y, time</td>
+<td>m2/yr</td>
+<td>Horizontal volume flux qy</td>
+</tr>
+<tr>
+<td>ratio_sl_x</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Ratio of basal to surface velocity (slip ratio) in x-direction at (i+1/2,j)</td>
+</tr>
+<tr>
+<td>ratio_sl_y</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>Ratio of basal to surface velocity (slip ratio) in y-direction at (i+1/2,j)?</td>
+</tr>
+<tr>
+<td>runoff</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>runoff flux</td>
+</tr>
+<tr>
+<td>runoff_apl</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>applied runoff flux</td>
+</tr>
+<tr>
+<td>sigma_level_c</td>
+<td>kc</td>
+<td>1</td>
+<td>sigma level in cold ice</td>
+</tr>
+<tr>
+<td>sigma_level_r</td>
+<td>kr</td>
+<td>1</td>
+<td>sigma level in litosphere</td>
+</tr>
+<tr>
+<td>sigma_level_t</td>
+<td>kt</td>
+<td>1</td>
+<td>sigma level in temperate ice</td>
+</tr>
+<tr>
+<td>tau_b_drag</td>
+<td>x, y, time</td>
+<td>Pa</td>
+<td>Basal drag</td>
+</tr>
+<tr>
+<td>tau_b_driving</td>
+<td>x, y, time</td>
+<td>Pa</td>
+<td>Driving stress</td>
+</tr>
+<tr>
+<td>temp_b</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>Temperature at the ice base</td>
+</tr>
+<tr>
+<td>temp_g</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>ground temperature</td>
+</tr>
+<tr>
+<td>temp_s</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>surface temperature</td>
+</tr>
+<tr>
+<td>temph_b</td>
+<td>x, y, time</td>
+<td>degC</td>
+<td>Temperature at the ice base relative to the pressure melting point</td>
+</tr>
+<tr>
+<td>vb_t</td>
+<td>x, y, time</td>
+<td>m/a</td>
+<td>threshold basal velocity for regularized Coulomb law</td>
+</tr>
+<tr>
+<td>vh_b</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vh at the ice base</td>
+</tr>
+<tr>
+<td>vh_m</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical mean of horizontal velocity vh</td>
+</tr>
+<tr>
+<td>vh_m_sia</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical mean of SIA horizontal velocity</td>
+</tr>
+<tr>
+<td>vh_m_ssa</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical mean of SSA horizontal velocity</td>
+</tr>
+<tr>
+<td>vh_s</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vh at the ice surface</td>
+</tr>
+<tr>
+<td>vis_int_g</td>
+<td>x, y, time</td>
+<td>Pa s m</td>
+<td>Depth-integrated viscosity</td>
+</tr>
+<tr>
+<td>vx_b_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vx at the ice base</td>
+</tr>
+<tr>
+<td>vx_m_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical mean of horizontal velocity vx</td>
+</tr>
+<tr>
+<td>vx_m_sia</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>x depth-averaged horizontal velocity from SIA</td>
+</tr>
+<tr>
+<td>vx_m_ssa</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>x depth-averaged horizontal velocity from SSA</td>
+</tr>
+<tr>
+<td>vx_s_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vx at the ice surface</td>
+</tr>
+<tr>
+<td>vy_b_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vy at the ice base</td>
+</tr>
+<tr>
+<td>vy_m_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical mean of horizontal velocity vy</td>
+</tr>
+<tr>
+<td>vy_m_sia</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>y depth-averaged horizontal velocity from SIA</td>
+</tr>
+<tr>
+<td>vy_m_ssa</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>y depth-averaged horizontal velocity from SSA</td>
+</tr>
+<tr>
+<td>vy_s_g</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Horizontal velocity vy at the ice surface</td>
+</tr>
+<tr>
+<td>vz_b</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical velocity vz at the ice base</td>
+</tr>
+<tr>
+<td>vz_s</td>
+<td>x, y, time</td>
+<td>m/yr</td>
+<td>Vertical velocity vz at the ice surface</td>
+</tr>
+<tr>
+<td>weigh_ssta_sia_x</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>weight of SStA vs SIA in x-direction at (i+1/2,j)</td>
+</tr>
+<tr>
+<td>weigh_ssta_sia_y</td>
+<td>x, y, time</td>
+<td>/</td>
+<td>weight of SStA vs SIA in y-direction at (i,j+1/2)</td>
+</tr>
+<tr>
+<td>xi</td>
+<td>x</td>
+<td>m</td>
+<td>x-coordinate</td>
+</tr>
+<tr>
+<td>z_sl</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>sea level</td>
+</tr>
+<tr>
+<td>zb</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of the ice base</td>
+</tr>
+<tr>
+<td>zl</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of the lithosphere surface</td>
+</tr>
+<tr>
+<td>zl0</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of isostatically relaxed lithosphere surface</td>
+</tr>
+<tr>
+<td>zl_fil</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of the filtered lithosphere surface</td>
+</tr>
+<tr>
+<td>zl_std</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>sub-grid standard deviation of topography of the lithosphere surface</td>
+</tr>
+<tr>
+<td>zm</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of z=zm interface</td>
+</tr>
+<tr>
+<td>zs</td>
+<td>x, y, time</td>
+<td>m</td>
+<td>Topography of the free surface</td>
 </tr>
 </tbody>
 </table>

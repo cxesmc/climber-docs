@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">ocn.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -155,15 +155,39 @@
 </thead>
 <tbody>
 <tr>
+<td>isles</td>
+<td>isles</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
 <td>lat</td>
 <td>lat</td>
 <td>N/A</td>
 <td>N/A</td>
 </tr>
 <tr>
-<td>time</td>
-<td>time</td>
-<td>years BP</td>
+<td>latv</td>
+<td>latv</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>latv1</td>
+<td>latv1</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lev</td>
+<td>lev</td>
+<td>m</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>levw</td>
+<td>levw</td>
+<td>m</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -173,8 +197,8 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>latv1</td>
-<td>latv1</td>
+<td>lonu</td>
+<td>lonu</td>
 <td>N/A</td>
 <td>N/A</td>
 </tr>
@@ -185,33 +209,9 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>lev</td>
-<td>lev</td>
-<td>m</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>levw</td>
-<td>levw</td>
-<td>m</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>isles</td>
-<td>isles</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>lonu</td>
-<td>lonu</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>latv</td>
-<td>latv</td>
-<td>N/A</td>
+<td>time</td>
+<td>time</td>
+<td>years BP</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -221,352 +221,10 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>dS_dt_diff</td>
-<td>lon, lat, lev, time</td>
-<td>psu/year</td>
-<td>Salinity tendency due to diffusion</td>
-</tr>
-<tr>
-<td>ubisl</td>
-<td>lonu, lat, isles, month, time</td>
-<td>m/s</td>
-<td>islands barotropic zonal velocity</td>
-</tr>
-<tr>
-<td>hft</td>
-<td>type, latv, month, time</td>
-<td>PW</td>
-<td>Global ocean northward heat transport</td>
-</tr>
-<tr>
-<td>fayti</td>
-<td>lon, latv, month, time</td>
-<td>W</td>
-<td>vertically integrated northward advective heat transport</td>
-</tr>
-<tr>
-<td>vb</td>
-<td>lon, latv, month, time</td>
-<td>m/s</td>
-<td>barotropic meridional velocity</td>
-</tr>
-<tr>
-<td>fwpz</td>
-<td>latv, lev, month, time</td>
-<td>Sv/m</td>
-<td>Indo-Pacific ocean northward freshwater transport</td>
-</tr>
-<tr>
-<td>sbot</td>
-<td>lon, lat, month, time</td>
-<td>psu</td>
-<td>bottom ocean salinity</td>
-</tr>
-<tr>
-<td>taux</td>
-<td>lonu, lat, month, time</td>
-<td>N/m2</td>
-<td>zonal wind/sea ice stress</td>
-</tr>
-<tr>
-<td>buoyS</td>
-<td>lon, lat, month, time</td>
-<td>N/m2/s</td>
-<td>haline component of surface buoyancy flux</td>
-</tr>
-<tr>
-<td>rho_atl</td>
-<td>lat, lev, month, time</td>
-<td>kg/m3</td>
-<td>Zonal mean Atlantic in-situ density</td>
-</tr>
-<tr>
-<td>calving</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>calving to ocean</td>
-</tr>
-<tr>
-<td>rho_pac</td>
-<td>lat, lev, month, time</td>
-<td>kg/m3</td>
-<td>Zonal mean Pacific in-situ density</td>
-</tr>
-<tr>
-<td>conv_pe_max</td>
-<td>lon, lat, time</td>
-<td>J/m2</td>
-<td>maximum potential energy released by convection</td>
-</tr>
-<tr>
-<td>buoyT</td>
-<td>lon, lat, month, time</td>
-<td>N/m2/s</td>
-<td>thermal component of surface buoyancy flux</td>
-</tr>
-<tr>
-<td>dxv</td>
-<td>latv1</td>
-<td>m</td>
-<td>longitude grid distance at cell edges on v-grid</td>
-</tr>
-<tr>
-<td>opsi_p</td>
-<td>latv1, levw, month, time</td>
-<td>Sv</td>
-<td>Pacific overturning circulation</td>
-</tr>
-<tr>
-<td>dx</td>
-<td>lat</td>
-<td>m</td>
-<td>longitude grid distance at cell centers</td>
-</tr>
-<tr>
-<td>dT_dt</td>
-<td>lon, lat, lev, time</td>
-<td>degC/year</td>
-<td>Temperature tendency due to advection and diffusion</td>
-</tr>
-<tr>
-<td>fwt</td>
-<td>type, latv, month, time</td>
-<td>Sv</td>
-<td>Global ocean northward freshwater transport</td>
-</tr>
-<tr>
-<td>runoffSv</td>
-<td>lon, lat, month, time</td>
-<td>Sv</td>
-<td>runoff to ocean in Sv</td>
-</tr>
-<tr>
-<td>fw</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>net ocean freshwater flux</td>
-</tr>
-<tr>
-<td>s_ind</td>
-<td>lat, lev, month, time</td>
-<td>psu</td>
-<td>Zonal mean Indian Ocean salinity</td>
-</tr>
-<tr>
-<td>f_ocn</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>surface ocean fraction</td>
-</tr>
-<tr>
-<td>d_so</td>
+<td>a_atl</td>
 <td>lat, lev, time</td>
 <td>years</td>
-<td>Zonal mean Southern Ocean dye</td>
-</tr>
-<tr>
-<td>ke_tau</td>
-<td>lon, lat, month, time</td>
-<td>mW/m2</td>
-<td>kinetic energy input into the ocean by wind stress</td>
-</tr>
-<tr>
-<td>s_so</td>
-<td>lat, lev, month, time</td>
-<td>psu</td>
-<td>Zonal mean Southern Ocean salinity</td>
-</tr>
-<tr>
-<td>t_pac</td>
-<td>lat, lev, month, time</td>
-<td>C</td>
-<td>Zonal mean Pacific potential temperature</td>
-</tr>
-<tr>
-<td>tauy</td>
-<td>lon, latv, month, time</td>
-<td>N/m2</td>
-<td>meridional wind/sea ice stress</td>
-</tr>
-<tr>
-<td>u</td>
-<td>lonu, lat, lev, month, time</td>
-<td>m/s</td>
-<td>zonal velocity</td>
-</tr>
-<tr>
-<td>topo</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>topography</td>
-</tr>
-<tr>
-<td>bathy</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>bathymetry</td>
-</tr>
-<tr>
-<td>dS_dt_adv</td>
-<td>lon, lat, lev, time</td>
-<td>psu/year</td>
-<td>Salinity tendency due to advection</td>
-</tr>
-<tr>
-<td>vbisl</td>
-<td>lon, latv, isles, month, time</td>
-<td>m/s</td>
-<td>islands barotropic meridional velocity</td>
-</tr>
-<tr>
-<td>psi</td>
-<td>lon, lat, month, time</td>
-<td>Sv</td>
-<td>barotropic streamfunction</td>
-</tr>
-<tr>
-<td>mld</td>
-<td>lon, lat, month, time</td>
-<td>m</td>
-<td>mixed layer depth from mixed layer scheme</td>
-</tr>
-<tr>
-<td>nconv</td>
-<td>lon, lat, month, time</td>
-<td>\</td>
-<td>number of mixed layers</td>
-</tr>
-<tr>
-<td>drho_0_3000</td>
-<td>lon, lat, month, time</td>
-<td>kg/m3</td>
-<td>density difference between the surface and 3000 m depth</td>
-</tr>
-<tr>
-<td>map_edge</td>
-<td>lon, lat, isles, time</td>
-<td>/</td>
-<td>island edges</td>
-</tr>
-<tr>
-<td>dven</td>
-<td>lon, lat, month, time</td>
-<td>m</td>
-<td>surface water ventilation depth</td>
-</tr>
-<tr>
-<td>buoy</td>
-<td>lon, lat, month, time</td>
-<td>N/m2/s</td>
-<td>surface buoyancy flux</td>
-</tr>
-<tr>
-<td>conv_pe</td>
-<td>lon, lat, month, time</td>
-<td>J/m2</td>
-<td>potential energy released by convection</td>
-</tr>
-<tr>
-<td>age</td>
-<td>lon, lat, lev, time</td>
-<td>years</td>
-<td>age</td>
-</tr>
-<tr>
-<td>dye</td>
-<td>lon, lat, lev, time</td>
-<td>/</td>
-<td>dye tracer</td>
-</tr>
-<tr>
-<td>drag_bcl</td>
-<td>lon, lat, time</td>
-<td>s^-1</td>
-<td>drag</td>
-</tr>
-<tr>
-<td>fwtz</td>
-<td>latv, lev, month, time</td>
-<td>Sv/m</td>
-<td>Global ocean northward freshwater transport</td>
-</tr>
-<tr>
-<td>dz</td>
-<td>lev</td>
-<td>m</td>
-<td>thickness of grid cells</td>
-</tr>
-<tr>
-<td>a_pac</td>
-<td>lat, lev, time</td>
-<td>years</td>
-<td>Zonal mean Pacific age</td>
-</tr>
-<tr>
-<td>runoffSv_ice</td>
-<td>lon, lat, month, time</td>
-<td>Sv</td>
-<td>runoff from ice sheets to ocean in Sv</td>
-</tr>
-<tr>
-<td>area</td>
-<td>lon, lat, time</td>
-<td>m2</td>
-<td>surface ocean area</td>
-</tr>
-<tr>
-<td>t_atl</td>
-<td>lat, lev, month, time</td>
-<td>C</td>
-<td>Zonal mean Atlantic potential temperature</td>
-</tr>
-<tr>
-<td>rho2</td>
-<td>lon, lat, lev, month, time</td>
-<td>kg/m3</td>
-<td>density</td>
-</tr>
-<tr>
-<td>rho</td>
-<td>lon, lat, lev, month, time</td>
-<td>kg/m3</td>
-<td>in-situ density</td>
-</tr>
-<tr>
-<td>dzw</td>
-<td>levw</td>
-<td>m</td>
-<td>thickness between layer centers</td>
-</tr>
-<tr>
-<td>rho_so</td>
-<td>lat, lev, month, time</td>
-<td>kg/m3</td>
-<td>Zonal mean Southern Ocean in-situ density</td>
-</tr>
-<tr>
-<td>mldmax</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>maximum mixed layer depth from mixed layer scheme</td>
-</tr>
-<tr>
-<td>dT_dt_flxsur</td>
-<td>lon, lat, time</td>
-<td>degC/year</td>
-<td>Sea surface temperature tendency due to surface heat flux</td>
-</tr>
-<tr>
-<td>mask_ocn</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>surface ocean mask</td>
-</tr>
-<tr>
-<td>opsi_i</td>
-<td>latv1, levw, month, time</td>
-<td>Sv</td>
-<td>Indian overturning circulation</td>
+<td>Zonal mean Atlantic age</td>
 </tr>
 <tr>
 <td>a_ind</td>
@@ -575,88 +233,10 @@
 <td>Zonal mean Indian Ocean age</td>
 </tr>
 <tr>
-<td>tbot</td>
-<td>lon, lat, month, time</td>
-<td>C</td>
-<td>bottom ocean potential temperature</td>
-</tr>
-<tr>
-<td>rho_ind</td>
-<td>lat, lev, month, time</td>
-<td>kg/m3</td>
-<td>Zonal mean Indian Ocean in-situ density</td>
-</tr>
-<tr>
-<td>vsf</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>virtual salinity flux</td>
-</tr>
-<tr>
-<td>fwp</td>
-<td>type, latv, month, time</td>
-<td>Sv</td>
-<td>Indo-Pacific ocean northward freshwater transport</td>
-</tr>
-<tr>
-<td>drho_0_1000</td>
-<td>lon, lat, month, time</td>
-<td>kg/m3</td>
-<td>density difference between the surface and 1000 m depth</td>
-</tr>
-<tr>
-<td>p_e_sic</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>net ocean P-E+sea ice fluxes</td>
-</tr>
-<tr>
-<td>s_pac</td>
-<td>lat, lev, month, time</td>
-<td>psu</td>
-<td>Zonal mean Pacific salinity</td>
-</tr>
-<tr>
-<td>vol</td>
-<td>lon, lat, lev, time</td>
-<td>m3</td>
-<td>ocean volume</td>
-</tr>
-<tr>
-<td>ub</td>
-<td>lonu, lat, month, time</td>
-<td>m/s</td>
-<td>barotropic zonal velocity</td>
-</tr>
-<tr>
-<td>fwa</td>
-<td>type, latv, month, time</td>
-<td>Sv</td>
-<td>Atlantic ocean northward freshwater transport</td>
-</tr>
-<tr>
-<td>kven</td>
-<td>lon, lat, month, time</td>
-<td>PW</td>
-<td>maximum integer surface water ventilation</td>
-</tr>
-<tr>
-<td>fdyti</td>
-<td>lon, latv, month, time</td>
-<td>W</td>
-<td>vertically integrated northward diffusive heat transport</td>
-</tr>
-<tr>
-<td>a_atl</td>
+<td>a_pac</td>
 <td>lat, lev, time</td>
 <td>years</td>
-<td>Zonal mean Atlantic age</td>
-</tr>
-<tr>
-<td>w</td>
-<td>lon, lat, levw, month, time</td>
-<td>m/s</td>
-<td>vertical velocity</td>
+<td>Zonal mean Pacific age</td>
 </tr>
 <tr>
 <td>a_so</td>
@@ -665,10 +245,22 @@
 <td>Zonal mean Southern Ocean age</td>
 </tr>
 <tr>
-<td>sss</td>
-<td>lon, lat, month, time</td>
-<td>psu</td>
-<td>sea surface salinity</td>
+<td>age</td>
+<td>lon, lat, lev, time</td>
+<td>years</td>
+<td>age</td>
+</tr>
+<tr>
+<td>area</td>
+<td>lon, lat, time</td>
+<td>m2</td>
+<td>surface ocean area</td>
+</tr>
+<tr>
+<td>bathy</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>bathymetry</td>
 </tr>
 <tr>
 <td>bmelt</td>
@@ -677,34 +269,52 @@
 <td>basal melt freshwater flux to ocean</td>
 </tr>
 <tr>
+<td>buoy</td>
+<td>lon, lat, month, time</td>
+<td>N/m2/s</td>
+<td>surface buoyancy flux</td>
+</tr>
+<tr>
+<td>buoyS</td>
+<td>lon, lat, month, time</td>
+<td>N/m2/s</td>
+<td>haline component of surface buoyancy flux</td>
+</tr>
+<tr>
+<td>buoyT</td>
+<td>lon, lat, month, time</td>
+<td>N/m2/s</td>
+<td>thermal component of surface buoyancy flux</td>
+</tr>
+<tr>
+<td>calving</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>calving to ocean</td>
+</tr>
+<tr>
+<td>conv_pe</td>
+<td>lon, lat, month, time</td>
+<td>J/m2</td>
+<td>potential energy released by convection</td>
+</tr>
+<tr>
+<td>conv_pe_max</td>
+<td>lon, lat, time</td>
+<td>J/m2</td>
+<td>maximum potential energy released by convection</td>
+</tr>
+<tr>
 <td>d_atl</td>
 <td>lat, lev, time</td>
 <td>years</td>
 <td>Zonal mean Atlantic dye</td>
 </tr>
 <tr>
-<td>dT_dt_adv</td>
-<td>lon, lat, lev, time</td>
-<td>degC/year</td>
-<td>Temperature tendency due to advection</td>
-</tr>
-<tr>
-<td>hfp</td>
-<td>type, latv, month, time</td>
-<td>PW</td>
-<td>Indo-Pacific ocean northward heat transport</td>
-</tr>
-<tr>
-<td>t_ind</td>
-<td>lat, lev, month, time</td>
-<td>C</td>
-<td>Zonal mean Indian Ocean potential temperature</td>
-</tr>
-<tr>
-<td>dS_dt_flxsur</td>
-<td>lon, lat, time</td>
-<td>psu/year</td>
-<td>Sea surface salinity tendency due to surface freshwater flux</td>
+<td>d_ind</td>
+<td>lat, lev, time</td>
+<td>years</td>
+<td>Zonal mean Indian Ocean dye</td>
 </tr>
 <tr>
 <td>d_pac</td>
@@ -713,40 +323,10 @@
 <td>Zonal mean Pacific dye</td>
 </tr>
 <tr>
-<td>flx</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>net ocean heat flux</td>
-</tr>
-<tr>
-<td>t_so</td>
-<td>lat, lev, month, time</td>
-<td>C</td>
-<td>Zonal mean Southern Ocean potential temperature</td>
-</tr>
-<tr>
-<td>hfaz</td>
-<td>latv, lev, month, time</td>
-<td>PW/m</td>
-<td>Atlantic ocean northward heat transport</td>
-</tr>
-<tr>
-<td>dy</td>
-<td></td>
-<td>m</td>
-<td>latitudinal grid distance at cell centers and cell edges</td>
-</tr>
-<tr>
-<td>hfpz</td>
-<td>latv, lev, month, time</td>
-<td>PW/m</td>
-<td>Indo-Pacific ocean northward heat transport</td>
-</tr>
-<tr>
-<td>dT_dt_diff</td>
-<td>lon, lat, lev, time</td>
-<td>degC/year</td>
-<td>Temperature tendency due to diffusion</td>
+<td>d_so</td>
+<td>lat, lev, time</td>
+<td>years</td>
+<td>Zonal mean Southern Ocean dye</td>
 </tr>
 <tr>
 <td>dconv</td>
@@ -755,70 +335,28 @@
 <td>maximum depth of convection</td>
 </tr>
 <tr>
-<td>map_isles</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>island map</td>
-</tr>
-<tr>
-<td>t</td>
-<td>lon, lat, lev, month, time</td>
-<td>C</td>
-<td>potential temperature</td>
-</tr>
-<tr>
-<td>hfa</td>
-<td>type, latv, month, time</td>
-<td>PW</td>
-<td>Atlantic ocean northward heat transport</td>
-</tr>
-<tr>
-<td>mldst</td>
-<td>lon, lat, month, time</td>
-<td>m</td>
-<td>mixed layer depth from sigma-t criterion</td>
-</tr>
-<tr>
-<td>s</td>
-<td>lon, lat, lev, month, time</td>
-<td>psu</td>
-<td>salinity</td>
-</tr>
-<tr>
-<td>v</td>
-<td>lon, latv, lev, month, time</td>
-<td>m/s</td>
-<td>meridional velocity</td>
-</tr>
-<tr>
-<td>runoff</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>runoff to ocean</td>
-</tr>
-<tr>
-<td>s_atl</td>
-<td>lat, lev, month, time</td>
-<td>psu</td>
-<td>Zonal mean Atlantic salinity</td>
-</tr>
-<tr>
-<td>hftz</td>
-<td>latv, lev, month, time</td>
-<td>PW/m</td>
-<td>Global ocean northward heat transport</td>
-</tr>
-<tr>
-<td>ssh</td>
-<td>lon, lat, month, time</td>
-<td>m</td>
-<td>elevation of the free surface</td>
-</tr>
-<tr>
 <td>drag</td>
 <td>lon, lat, time</td>
 <td>s^-1</td>
 <td>drag</td>
+</tr>
+<tr>
+<td>drag_bcl</td>
+<td>lon, lat, time</td>
+<td>s^-1</td>
+<td>drag</td>
+</tr>
+<tr>
+<td>drho_0_1000</td>
+<td>lon, lat, month, time</td>
+<td>kg/m3</td>
+<td>density difference between the surface and 1000 m depth</td>
+</tr>
+<tr>
+<td>drho_0_3000</td>
+<td>lon, lat, month, time</td>
+<td>kg/m3</td>
+<td>density difference between the surface and 3000 m depth</td>
 </tr>
 <tr>
 <td>dS_dt</td>
@@ -827,16 +365,124 @@
 <td>Salinity tendency due to advection and diffusion</td>
 </tr>
 <tr>
-<td>sst</td>
-<td>lon, lat, month, time</td>
-<td>C</td>
-<td>sea surface temperature</td>
+<td>dS_dt_adv</td>
+<td>lon, lat, lev, time</td>
+<td>psu/year</td>
+<td>Salinity tendency due to advection</td>
 </tr>
 <tr>
-<td>opsi_a</td>
-<td>latv1, levw, month, time</td>
+<td>dS_dt_diff</td>
+<td>lon, lat, lev, time</td>
+<td>psu/year</td>
+<td>Salinity tendency due to diffusion</td>
+</tr>
+<tr>
+<td>dS_dt_flxsur</td>
+<td>lon, lat, time</td>
+<td>psu/year</td>
+<td>Sea surface salinity tendency due to surface freshwater flux</td>
+</tr>
+<tr>
+<td>dT_dt</td>
+<td>lon, lat, lev, time</td>
+<td>degC/year</td>
+<td>Temperature tendency due to advection and diffusion</td>
+</tr>
+<tr>
+<td>dT_dt_adv</td>
+<td>lon, lat, lev, time</td>
+<td>degC/year</td>
+<td>Temperature tendency due to advection</td>
+</tr>
+<tr>
+<td>dT_dt_diff</td>
+<td>lon, lat, lev, time</td>
+<td>degC/year</td>
+<td>Temperature tendency due to diffusion</td>
+</tr>
+<tr>
+<td>dT_dt_flxsur</td>
+<td>lon, lat, time</td>
+<td>degC/year</td>
+<td>Sea surface temperature tendency due to surface heat flux</td>
+</tr>
+<tr>
+<td>dven</td>
+<td>lon, lat, month, time</td>
+<td>m</td>
+<td>surface water ventilation depth</td>
+</tr>
+<tr>
+<td>dx</td>
+<td>lat</td>
+<td>m</td>
+<td>longitude grid distance at cell centers</td>
+</tr>
+<tr>
+<td>dxv</td>
+<td>latv1</td>
+<td>m</td>
+<td>longitude grid distance at cell edges on v-grid</td>
+</tr>
+<tr>
+<td>dy</td>
+<td></td>
+<td>m</td>
+<td>latitudinal grid distance at cell centers and cell edges</td>
+</tr>
+<tr>
+<td>dye</td>
+<td>lon, lat, lev, time</td>
+<td>/</td>
+<td>dye tracer</td>
+</tr>
+<tr>
+<td>dz</td>
+<td>lev</td>
+<td>m</td>
+<td>thickness of grid cells</td>
+</tr>
+<tr>
+<td>dzw</td>
+<td>levw</td>
+<td>m</td>
+<td>thickness between layer centers</td>
+</tr>
+<tr>
+<td>f_ocn</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>surface ocean fraction</td>
+</tr>
+<tr>
+<td>fayti</td>
+<td>lon, latv, month, time</td>
+<td>W</td>
+<td>vertically integrated northward advective heat transport</td>
+</tr>
+<tr>
+<td>fdyti</td>
+<td>lon, latv, month, time</td>
+<td>W</td>
+<td>vertically integrated northward diffusive heat transport</td>
+</tr>
+<tr>
+<td>flx</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>net ocean heat flux</td>
+</tr>
+<tr>
+<td>fw</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>net ocean freshwater flux</td>
+</tr>
+<tr>
+<td>fwa</td>
+<td>type, latv, month, time</td>
 <td>Sv</td>
-<td>Atlantic overturning circulation</td>
+<td>Atlantic ocean northward freshwater transport</td>
 </tr>
 <tr>
 <td>fwaz</td>
@@ -845,10 +491,124 @@
 <td>Atlantic ocean northward freshwater transport</td>
 </tr>
 <tr>
+<td>fwp</td>
+<td>type, latv, month, time</td>
+<td>Sv</td>
+<td>Indo-Pacific ocean northward freshwater transport</td>
+</tr>
+<tr>
+<td>fwpz</td>
+<td>latv, lev, month, time</td>
+<td>Sv/m</td>
+<td>Indo-Pacific ocean northward freshwater transport</td>
+</tr>
+<tr>
+<td>fwt</td>
+<td>type, latv, month, time</td>
+<td>Sv</td>
+<td>Global ocean northward freshwater transport</td>
+</tr>
+<tr>
+<td>fwtz</td>
+<td>latv, lev, month, time</td>
+<td>Sv/m</td>
+<td>Global ocean northward freshwater transport</td>
+</tr>
+<tr>
+<td>hfa</td>
+<td>type, latv, month, time</td>
+<td>PW</td>
+<td>Atlantic ocean northward heat transport</td>
+</tr>
+<tr>
+<td>hfaz</td>
+<td>latv, lev, month, time</td>
+<td>PW/m</td>
+<td>Atlantic ocean northward heat transport</td>
+</tr>
+<tr>
+<td>hfp</td>
+<td>type, latv, month, time</td>
+<td>PW</td>
+<td>Indo-Pacific ocean northward heat transport</td>
+</tr>
+<tr>
+<td>hfpz</td>
+<td>latv, lev, month, time</td>
+<td>PW/m</td>
+<td>Indo-Pacific ocean northward heat transport</td>
+</tr>
+<tr>
+<td>hft</td>
+<td>type, latv, month, time</td>
+<td>PW</td>
+<td>Global ocean northward heat transport</td>
+</tr>
+<tr>
+<td>hftz</td>
+<td>latv, lev, month, time</td>
+<td>PW/m</td>
+<td>Global ocean northward heat transport</td>
+</tr>
+<tr>
 <td>k1</td>
 <td>lon, lat, time</td>
 <td>/</td>
 <td>index of first (bottom) layer</td>
+</tr>
+<tr>
+<td>ke_tau</td>
+<td>lon, lat, month, time</td>
+<td>mW/m2</td>
+<td>kinetic energy input into the ocean by wind stress</td>
+</tr>
+<tr>
+<td>kven</td>
+<td>lon, lat, month, time</td>
+<td>PW</td>
+<td>maximum integer surface water ventilation</td>
+</tr>
+<tr>
+<td>map_edge</td>
+<td>lon, lat, isles, time</td>
+<td>/</td>
+<td>island edges</td>
+</tr>
+<tr>
+<td>map_isles</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>island map</td>
+</tr>
+<tr>
+<td>mask_ocn</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>surface ocean mask</td>
+</tr>
+<tr>
+<td>mld</td>
+<td>lon, lat, month, time</td>
+<td>m</td>
+<td>mixed layer depth from mixed layer scheme</td>
+</tr>
+<tr>
+<td>mldmax</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>maximum mixed layer depth from mixed layer scheme</td>
+</tr>
+<tr>
+<td>mldst</td>
+<td>lon, lat, month, time</td>
+<td>m</td>
+<td>mixed layer depth from sigma-t criterion</td>
+</tr>
+<tr>
+<td>nconv</td>
+<td>lon, lat, month, time</td>
+<td>\</td>
+<td>number of mixed layers</td>
 </tr>
 <tr>
 <td>opsi</td>
@@ -857,10 +617,250 @@
 <td>global overturning circulation</td>
 </tr>
 <tr>
-<td>d_ind</td>
-<td>lat, lev, time</td>
-<td>years</td>
-<td>Zonal mean Indian Ocean dye</td>
+<td>opsi_a</td>
+<td>latv1, levw, month, time</td>
+<td>Sv</td>
+<td>Atlantic overturning circulation</td>
+</tr>
+<tr>
+<td>opsi_i</td>
+<td>latv1, levw, month, time</td>
+<td>Sv</td>
+<td>Indian overturning circulation</td>
+</tr>
+<tr>
+<td>opsi_p</td>
+<td>latv1, levw, month, time</td>
+<td>Sv</td>
+<td>Pacific overturning circulation</td>
+</tr>
+<tr>
+<td>p_e_sic</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>net ocean P-E+sea ice fluxes</td>
+</tr>
+<tr>
+<td>psi</td>
+<td>lon, lat, month, time</td>
+<td>Sv</td>
+<td>barotropic streamfunction</td>
+</tr>
+<tr>
+<td>rho</td>
+<td>lon, lat, lev, month, time</td>
+<td>kg/m3</td>
+<td>in-situ density</td>
+</tr>
+<tr>
+<td>rho2</td>
+<td>lon, lat, lev, month, time</td>
+<td>kg/m3</td>
+<td>density</td>
+</tr>
+<tr>
+<td>rho_atl</td>
+<td>lat, lev, month, time</td>
+<td>kg/m3</td>
+<td>Zonal mean Atlantic in-situ density</td>
+</tr>
+<tr>
+<td>rho_ind</td>
+<td>lat, lev, month, time</td>
+<td>kg/m3</td>
+<td>Zonal mean Indian Ocean in-situ density</td>
+</tr>
+<tr>
+<td>rho_pac</td>
+<td>lat, lev, month, time</td>
+<td>kg/m3</td>
+<td>Zonal mean Pacific in-situ density</td>
+</tr>
+<tr>
+<td>rho_so</td>
+<td>lat, lev, month, time</td>
+<td>kg/m3</td>
+<td>Zonal mean Southern Ocean in-situ density</td>
+</tr>
+<tr>
+<td>runoff</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>runoff to ocean</td>
+</tr>
+<tr>
+<td>runoffSv</td>
+<td>lon, lat, month, time</td>
+<td>Sv</td>
+<td>runoff to ocean in Sv</td>
+</tr>
+<tr>
+<td>runoffSv_ice</td>
+<td>lon, lat, month, time</td>
+<td>Sv</td>
+<td>runoff from ice sheets to ocean in Sv</td>
+</tr>
+<tr>
+<td>s</td>
+<td>lon, lat, lev, month, time</td>
+<td>psu</td>
+<td>salinity</td>
+</tr>
+<tr>
+<td>s_atl</td>
+<td>lat, lev, month, time</td>
+<td>psu</td>
+<td>Zonal mean Atlantic salinity</td>
+</tr>
+<tr>
+<td>s_ind</td>
+<td>lat, lev, month, time</td>
+<td>psu</td>
+<td>Zonal mean Indian Ocean salinity</td>
+</tr>
+<tr>
+<td>s_pac</td>
+<td>lat, lev, month, time</td>
+<td>psu</td>
+<td>Zonal mean Pacific salinity</td>
+</tr>
+<tr>
+<td>s_so</td>
+<td>lat, lev, month, time</td>
+<td>psu</td>
+<td>Zonal mean Southern Ocean salinity</td>
+</tr>
+<tr>
+<td>sbot</td>
+<td>lon, lat, month, time</td>
+<td>psu</td>
+<td>bottom ocean salinity</td>
+</tr>
+<tr>
+<td>ssh</td>
+<td>lon, lat, month, time</td>
+<td>m</td>
+<td>elevation of the free surface</td>
+</tr>
+<tr>
+<td>sss</td>
+<td>lon, lat, month, time</td>
+<td>psu</td>
+<td>sea surface salinity</td>
+</tr>
+<tr>
+<td>sst</td>
+<td>lon, lat, month, time</td>
+<td>C</td>
+<td>sea surface temperature</td>
+</tr>
+<tr>
+<td>t</td>
+<td>lon, lat, lev, month, time</td>
+<td>C</td>
+<td>potential temperature</td>
+</tr>
+<tr>
+<td>t_atl</td>
+<td>lat, lev, month, time</td>
+<td>C</td>
+<td>Zonal mean Atlantic potential temperature</td>
+</tr>
+<tr>
+<td>t_ind</td>
+<td>lat, lev, month, time</td>
+<td>C</td>
+<td>Zonal mean Indian Ocean potential temperature</td>
+</tr>
+<tr>
+<td>t_pac</td>
+<td>lat, lev, month, time</td>
+<td>C</td>
+<td>Zonal mean Pacific potential temperature</td>
+</tr>
+<tr>
+<td>t_so</td>
+<td>lat, lev, month, time</td>
+<td>C</td>
+<td>Zonal mean Southern Ocean potential temperature</td>
+</tr>
+<tr>
+<td>taux</td>
+<td>lonu, lat, month, time</td>
+<td>N/m2</td>
+<td>zonal wind/sea ice stress</td>
+</tr>
+<tr>
+<td>tauy</td>
+<td>lon, latv, month, time</td>
+<td>N/m2</td>
+<td>meridional wind/sea ice stress</td>
+</tr>
+<tr>
+<td>tbot</td>
+<td>lon, lat, month, time</td>
+<td>C</td>
+<td>bottom ocean potential temperature</td>
+</tr>
+<tr>
+<td>topo</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>topography</td>
+</tr>
+<tr>
+<td>u</td>
+<td>lonu, lat, lev, month, time</td>
+<td>m/s</td>
+<td>zonal velocity</td>
+</tr>
+<tr>
+<td>ub</td>
+<td>lonu, lat, month, time</td>
+<td>m/s</td>
+<td>barotropic zonal velocity</td>
+</tr>
+<tr>
+<td>ubisl</td>
+<td>lonu, lat, isles, month, time</td>
+<td>m/s</td>
+<td>islands barotropic zonal velocity</td>
+</tr>
+<tr>
+<td>v</td>
+<td>lon, latv, lev, month, time</td>
+<td>m/s</td>
+<td>meridional velocity</td>
+</tr>
+<tr>
+<td>vb</td>
+<td>lon, latv, month, time</td>
+<td>m/s</td>
+<td>barotropic meridional velocity</td>
+</tr>
+<tr>
+<td>vbisl</td>
+<td>lon, latv, isles, month, time</td>
+<td>m/s</td>
+<td>islands barotropic meridional velocity</td>
+</tr>
+<tr>
+<td>vol</td>
+<td>lon, lat, lev, time</td>
+<td>m3</td>
+<td>ocean volume</td>
+</tr>
+<tr>
+<td>vsf</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>virtual salinity flux</td>
+</tr>
+<tr>
+<td>w</td>
+<td>lon, lat, levw, month, time</td>
+<td>m/s</td>
+<td>vertical velocity</td>
 </tr>
 </tbody>
 </table>

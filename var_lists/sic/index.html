@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">sic.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -161,6 +161,24 @@
 <td>N/A</td>
 </tr>
 <tr>
+<td>latv</td>
+<td>latv</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lon</td>
+<td>lon</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lonu</td>
+<td>lonu</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
 <td>month</td>
 <td>month</td>
 <td>months</td>
@@ -173,130 +191,10 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>lonu</td>
-<td>lonu</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>lon</td>
-<td>lon</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>latv</td>
-<td>latv</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr>
 <td>type</td>
 <td>type</td>
 <td>[tot,adv,diff]</td>
 <td>N/A</td>
-</tr>
-<tr>
-<td>tocn</td>
-<td>lon, lat, month, time</td>
-<td>�C</td>
-<td>ocean skin temperature</td>
-</tr>
-<tr>
-<td>flx_melt_top</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>snow/ice melt flux from top</td>
-</tr>
-<tr>
-<td>tauyo</td>
-<td>lon, lat, month, time</td>
-<td>N/m2</td>
-<td>meridional ocean stress on sea ice</td>
-</tr>
-<tr>
-<td>vsic</td>
-<td>lon, latv, month, time</td>
-<td>cm/s</td>
-<td>meridional sea ice drift on v-grid</td>
-</tr>
-<tr>
-<td>sh_ocn</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>sensible heat flux from ocean</td>
-</tr>
-<tr>
-<td>p-e</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>precipitation - evaporation</td>
-</tr>
-<tr>
-<td>fsic</td>
-<td>lon, lat, month, time</td>
-<td>/</td>
-<td>sea ice fraction</td>
-</tr>
-<tr>
-<td>fwt</td>
-<td>type, latv, month, time</td>
-<td>Sv</td>
-<td>Meridional freshwater transport by sea ice</td>
-</tr>
-<tr>
-<td>lh_sic</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>latent heat flux over sea ice</td>
-</tr>
-<tr>
-<td>str_s</td>
-<td>lonu, latv, month, time</td>
-<td>Pa m</td>
-<td>The shearing stress tensor component</td>
-</tr>
-<tr>
-<td>str_d</td>
-<td>lon, lat, month, time</td>
-<td>Pa m</td>
-<td>The divergence stress tensor component</td>
-</tr>
-<tr>
-<td>tauya</td>
-<td>lon, lat, month, time</td>
-<td>N/m2</td>
-<td>meridional wind stress on sea ice</td>
-</tr>
-<tr>
-<td>fw</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>sea ice freshwater flux to the ocean</td>
-</tr>
-<tr>
-<td>fx_sic</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>heat flux to the ocean from sea ice fraction</td>
-</tr>
-<tr>
-<td>dh_sic_dt_dyn</td>
-<td>lon, lat, month, time</td>
-<td>m/day</td>
-<td>sea ice thickness change from transport</td>
-</tr>
-<tr>
-<td>cdh_ocn</td>
-<td>lon, lat, month, time</td>
-<td>/</td>
-<td>drag coefficient for heat over ocean water</td>
-</tr>
-<tr>
-<td>cde_sic</td>
-<td>lon, lat, month, time</td>
-<td>/</td>
-<td>drag coefficient for moisture over sea ice</td>
 </tr>
 <tr>
 <td>alb_ocn</td>
@@ -305,28 +203,10 @@
 <td>ocean albedo</td>
 </tr>
 <tr>
-<td>fw_brines</td>
+<td>alb_sic</td>
 <td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>freshwater flux to the ocean from brine rejection</td>
-</tr>
-<tr>
-<td>lh_ocn</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>latent heat flux from ocean</td>
-</tr>
-<tr>
-<td>str_t</td>
-<td>lon, lat, month, time</td>
-<td>Pa m</td>
-<td>The tension stress tensor component</td>
-</tr>
-<tr>
-<td>focn</td>
-<td>lon, lat, time</td>
 <td>/</td>
-<td>ocean fraction</td>
+<td>sea ice albedo</td>
 </tr>
 <tr>
 <td>cde_ocn</td>
@@ -335,94 +215,16 @@
 <td>drag coefficient for moisture over ocean water</td>
 </tr>
 <tr>
-<td>fx_ocn</td>
+<td>cde_sic</td>
 <td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>heat flux to the ocean from ice free fraction</td>
+<td>/</td>
+<td>drag coefficient for moisture over sea ice</td>
 </tr>
 <tr>
-<td>hsnow</td>
+<td>cdh_ocn</td>
 <td>lon, lat, month, time</td>
-<td>m</td>
-<td>snow thickness of sea ice fraction</td>
-</tr>
-<tr>
-<td>usic</td>
-<td>lonu, lat, month, time</td>
-<td>cm/s</td>
-<td>zonal sea ice drift on u-grid</td>
-</tr>
-<tr>
-<td>dh_sic_dt_therm_sic</td>
-<td>lon, lat, month, time</td>
-<td>m/day</td>
-<td>sea ice thickness change from thermodynamics over sea ice area</td>
-</tr>
-<tr>
-<td>snow</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>snowfall</td>
-</tr>
-<tr>
-<td>tsic</td>
-<td>lon, lat, month, time</td>
-<td>�C</td>
-<td>sea ice skin temperature</td>
-</tr>
-<tr>
-<td>fwp</td>
-<td>type, latv, month, time</td>
-<td>Sv</td>
-<td>Meridional freshwater transport by sea ice in the Indo-Pacific</td>
-</tr>
-<tr>
-<td>sh_sic</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>sensible heat flux over sea ice</td>
-</tr>
-<tr>
-<td>fx</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>heat flux to the ocean</td>
-</tr>
-<tr>
-<td>lwu_ocn</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>upwelling longwave radiation from ocean</td>
-</tr>
-<tr>
-<td>dust_con</td>
-<td>lon, lat, month, time</td>
-<td>mg/kg</td>
-<td>dust concentration in snow</td>
-</tr>
-<tr>
-<td>fw_sic</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>sea ice freshwater flux to the ocean from sea ice fraction</td>
-</tr>
-<tr>
-<td>rain</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>rainfall</td>
-</tr>
-<tr>
-<td>fwa</td>
-<td>type, latv, month, time</td>
-<td>Sv</td>
-<td>Meridional freshwater transport by sea ice in the Atlantic</td>
-</tr>
-<tr>
-<td>hsic</td>
-<td>lon, lat, month, time</td>
-<td>m</td>
-<td>sea ice thickness of sea ice fraction</td>
+<td>/</td>
+<td>drag coefficient for heat over ocean water</td>
 </tr>
 <tr>
 <td>cdh_sic</td>
@@ -431,64 +233,10 @@
 <td>drag coefficient for heat over sea ice</td>
 </tr>
 <tr>
-<td>dh_sic_dt_therm_ocn</td>
+<td>dh_sic_dt_dyn</td>
 <td>lon, lat, month, time</td>
 <td>m/day</td>
-<td>sea ice thickness change from thermodynamics in leads</td>
-</tr>
-<tr>
-<td>lwu</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>upwelling longwave radiation</td>
-</tr>
-<tr>
-<td>evp_ocn</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>evaporation from ocean</td>
-</tr>
-<tr>
-<td>tauxo</td>
-<td>lon, lat, month, time</td>
-<td>N/m2</td>
-<td>zonal ocean stress on sea ice</td>
-</tr>
-<tr>
-<td>sh</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>sensible heat flux</td>
-</tr>
-<tr>
-<td>evp</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>evaporation/sublimation</td>
-</tr>
-<tr>
-<td>tauxa</td>
-<td>lon, lat, month, time</td>
-<td>N/m2</td>
-<td>zonal wind stress on sea ice</td>
-</tr>
-<tr>
-<td>evp_sic</td>
-<td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>sublimation from sea ice</td>
-</tr>
-<tr>
-<td>lwu_sic</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>upwelling longwave radiation over sea ice</td>
-</tr>
-<tr>
-<td>flx_melt_bot</td>
-<td>lon, lat, month, time</td>
-<td>W/m2</td>
-<td>snow/ice melt flux from bottom</td>
+<td>sea ice thickness change from transport</td>
 </tr>
 <tr>
 <td>dh_sic_dt_therm</td>
@@ -497,10 +245,208 @@
 <td>sea ice thickness change from thermodynamics</td>
 </tr>
 <tr>
+<td>dh_sic_dt_therm_ocn</td>
+<td>lon, lat, month, time</td>
+<td>m/day</td>
+<td>sea ice thickness change from thermodynamics in leads</td>
+</tr>
+<tr>
+<td>dh_sic_dt_therm_sic</td>
+<td>lon, lat, month, time</td>
+<td>m/day</td>
+<td>sea ice thickness change from thermodynamics over sea ice area</td>
+</tr>
+<tr>
+<td>dust_con</td>
+<td>lon, lat, month, time</td>
+<td>mg/kg</td>
+<td>dust concentration in snow</td>
+</tr>
+<tr>
+<td>evp</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>evaporation/sublimation</td>
+</tr>
+<tr>
+<td>evp_ocn</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>evaporation from ocean</td>
+</tr>
+<tr>
+<td>evp_sic</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>sublimation from sea ice</td>
+</tr>
+<tr>
+<td>flx_melt_bot</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>snow/ice melt flux from bottom</td>
+</tr>
+<tr>
+<td>flx_melt_top</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>snow/ice melt flux from top</td>
+</tr>
+<tr>
+<td>focn</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>ocean fraction</td>
+</tr>
+<tr>
+<td>fsic</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>sea ice fraction</td>
+</tr>
+<tr>
+<td>fw</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>sea ice freshwater flux to the ocean</td>
+</tr>
+<tr>
+<td>fw_brines</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>freshwater flux to the ocean from brine rejection</td>
+</tr>
+<tr>
+<td>fw_ocn</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>sea ice freshwater flux to the ocean from ice free fraction</td>
+</tr>
+<tr>
+<td>fw_sic</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>sea ice freshwater flux to the ocean from sea ice fraction</td>
+</tr>
+<tr>
+<td>fwa</td>
+<td>type, latv, month, time</td>
+<td>Sv</td>
+<td>Meridional freshwater transport by sea ice in the Atlantic</td>
+</tr>
+<tr>
+<td>fwp</td>
+<td>type, latv, month, time</td>
+<td>Sv</td>
+<td>Meridional freshwater transport by sea ice in the Indo-Pacific</td>
+</tr>
+<tr>
+<td>fwt</td>
+<td>type, latv, month, time</td>
+<td>Sv</td>
+<td>Meridional freshwater transport by sea ice</td>
+</tr>
+<tr>
+<td>fx</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>heat flux to the ocean</td>
+</tr>
+<tr>
+<td>fx_ocn</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>heat flux to the ocean from ice free fraction</td>
+</tr>
+<tr>
+<td>fx_sic</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>heat flux to the ocean from sea ice fraction</td>
+</tr>
+<tr>
+<td>hsic</td>
+<td>lon, lat, month, time</td>
+<td>m</td>
+<td>sea ice thickness of sea ice fraction</td>
+</tr>
+<tr>
+<td>hsnow</td>
+<td>lon, lat, month, time</td>
+<td>m</td>
+<td>snow thickness of sea ice fraction</td>
+</tr>
+<tr>
 <td>lh</td>
 <td>lon, lat, month, time</td>
 <td>W/m2</td>
 <td>latent heat flux</td>
+</tr>
+<tr>
+<td>lh_ocn</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>latent heat flux from ocean</td>
+</tr>
+<tr>
+<td>lh_sic</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>latent heat flux over sea ice</td>
+</tr>
+<tr>
+<td>lwu</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>upwelling longwave radiation</td>
+</tr>
+<tr>
+<td>lwu_ocn</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>upwelling longwave radiation from ocean</td>
+</tr>
+<tr>
+<td>lwu_sic</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>upwelling longwave radiation over sea ice</td>
+</tr>
+<tr>
+<td>p-e</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>precipitation - evaporation</td>
+</tr>
+<tr>
+<td>rain</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>rainfall</td>
+</tr>
+<tr>
+<td>sh</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>sensible heat flux</td>
+</tr>
+<tr>
+<td>sh_ocn</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>sensible heat flux from ocean</td>
+</tr>
+<tr>
+<td>sh_sic</td>
+<td>lon, lat, month, time</td>
+<td>W/m2</td>
+<td>sensible heat flux over sea ice</td>
+</tr>
+<tr>
+<td>snow</td>
+<td>lon, lat, month, time</td>
+<td>kg/m2/day</td>
+<td>snowfall</td>
 </tr>
 <tr>
 <td>snow_grain</td>
@@ -509,16 +455,70 @@
 <td>snow grain size</td>
 </tr>
 <tr>
-<td>alb_sic</td>
+<td>str_d</td>
 <td>lon, lat, month, time</td>
-<td>/</td>
-<td>sea ice albedo</td>
+<td>Pa m</td>
+<td>The divergence stress tensor component</td>
 </tr>
 <tr>
-<td>fw_ocn</td>
+<td>str_s</td>
+<td>lonu, latv, month, time</td>
+<td>Pa m</td>
+<td>The shearing stress tensor component</td>
+</tr>
+<tr>
+<td>str_t</td>
 <td>lon, lat, month, time</td>
-<td>kg/m2/day</td>
-<td>sea ice freshwater flux to the ocean from ice free fraction</td>
+<td>Pa m</td>
+<td>The tension stress tensor component</td>
+</tr>
+<tr>
+<td>tauxa</td>
+<td>lon, lat, month, time</td>
+<td>N/m2</td>
+<td>zonal wind stress on sea ice</td>
+</tr>
+<tr>
+<td>tauxo</td>
+<td>lon, lat, month, time</td>
+<td>N/m2</td>
+<td>zonal ocean stress on sea ice</td>
+</tr>
+<tr>
+<td>tauya</td>
+<td>lon, lat, month, time</td>
+<td>N/m2</td>
+<td>meridional wind stress on sea ice</td>
+</tr>
+<tr>
+<td>tauyo</td>
+<td>lon, lat, month, time</td>
+<td>N/m2</td>
+<td>meridional ocean stress on sea ice</td>
+</tr>
+<tr>
+<td>tocn</td>
+<td>lon, lat, month, time</td>
+<td>�C</td>
+<td>ocean skin temperature</td>
+</tr>
+<tr>
+<td>tsic</td>
+<td>lon, lat, month, time</td>
+<td>�C</td>
+<td>sea ice skin temperature</td>
+</tr>
+<tr>
+<td>usic</td>
+<td>lonu, lat, month, time</td>
+<td>cm/s</td>
+<td>zonal sea ice drift on u-grid</td>
+</tr>
+<tr>
+<td>vsic</td>
+<td>lon, latv, month, time</td>
+<td>cm/s</td>
+<td>meridional sea ice drift on v-grid</td>
 </tr>
 </tbody>
 </table>

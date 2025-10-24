@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">lnd_carb.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -155,21 +155,21 @@
 </thead>
 <tbody>
 <tr>
-<td>lat</td>
-<td>lat</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr>
 <td>depth</td>
 <td>depth</td>
 <td>m</td>
 <td>N/A</td>
 </tr>
 <tr>
-<td>nlit</td>
-<td>nlit</td>
-<td>n/a</td>
+<td>lat</td>
+<td>lat</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>lon</td>
+<td>lon</td>
+<td>N/A</td>
 <td>N/A</td>
 </tr>
 <tr>
@@ -179,190 +179,28 @@
 <td>N/A</td>
 </tr>
 <tr>
+<td>ncarb</td>
+<td>ncarb</td>
+<td>n/a</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>nlit</td>
+<td>nlit</td>
+<td>n/a</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>npft</td>
+<td>npft</td>
+<td>n/a</td>
+<td>N/A</td>
+</tr>
+<tr>
 <td>time</td>
 <td>time</td>
 <td>years BP</td>
 <td>N/A</td>
-</tr>
-<tr>
-<td>ncarb</td>
-<td>ncarb</td>
-<td>n/a</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>npft</td>
-<td>npft</td>
-<td>n/a</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>lon</td>
-<td>lon</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>soilc_prof</td>
-<td>lon, lat, depth, ncarb, time</td>
-<td>kgC/m3</td>
-<td>total soil carbon</td>
-</tr>
-<tr>
-<td>npp</td>
-<td>lon, lat, npft, month, time</td>
-<td>kgC/m2/yr</td>
-<td>net primary productivity</td>
-</tr>
-<tr>
-<td>fpeat</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>peatland fraction</td>
-</tr>
-<tr>
-<td>aresp_g</td>
-<td>lon, lat, month, time</td>
-<td>kgC/m2/yr</td>
-<td>autotrophic respiration</td>
-</tr>
-<tr>
-<td>aresp</td>
-<td>lon, lat, npft, month, time</td>
-<td>kgC/m2/yr</td>
-<td>autotrophic respiration</td>
-</tr>
-<tr>
-<td>litterc_prof</td>
-<td>lon, lat, depth, ncarb, time</td>
-<td>kgC/m3</td>
-<td>litter carbon</td>
-</tr>
-<tr>
-<td>lai_g</td>
-<td>lon, lat, month, time</td>
-<td>m2/m2</td>
-<td>leaf area index</td>
-</tr>
-<tr>
-<td>d13C_veg</td>
-<td>lon, lat, npft, time</td>
-<td>permil</td>
-<td>d13C vegetation carbon</td>
-</tr>
-<tr>
-<td>poc_export</td>
-<td>lon, lat, time</td>
-<td>kgC/m2/yr</td>
-<td>particulate organic output export through rivers</td>
-</tr>
-<tr>
-<td>ch4lake</td>
-<td>lon, lat, month, time</td>
-<td>gCH4/m2 gridcell/yr</td>
-<td>methane emissions from lakes</td>
-</tr>
-<tr>
-<td>sai</td>
-<td>lon, lat, npft, time</td>
-<td>m2/m2</td>
-<td>stem area index</td>
-</tr>
-<tr>
-<td>d13C_litter_prof</td>
-<td>lon, lat, depth, ncarb, time</td>
-<td>permil</td>
-<td>d13C profile of litter input into the soil</td>
-</tr>
-<tr>
-<td>disc_g</td>
-<td>lon, lat, month, time</td>
-<td>permil</td>
-<td>discrimination</td>
-</tr>
-<tr>
-<td>catoh</td>
-<td>lon, lat, time</td>
-<td>m</td>
-<td>catotelm thickness</td>
-</tr>
-<tr>
-<td>fpeatpot</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>potential peatland fraction</td>
-</tr>
-<tr>
-<td>d13C_veg_g</td>
-<td>lon, lat, time</td>
-<td>permil</td>
-<td>d13C vegetation carbon</td>
-</tr>
-<tr>
-<td>gamma_dist</td>
-<td>lon, lat, npft, time</td>
-<td>years</td>
-<td>disturbance rate</td>
-</tr>
-<tr>
-<td>vegc</td>
-<td>lon, lat, npft, time</td>
-<td>kgC/m2</td>
-<td>vegetation carbon</td>
-</tr>
-<tr>
-<td>ch4wet</td>
-<td>lon, lat, month, time</td>
-<td>gCH4/m2 gridcell/yr</td>
-<td>methane emissions from wetlands</td>
-</tr>
-<tr>
-<td>seeds</td>
-<td>lon, lat, npft, time</td>
-<td>/</td>
-<td>seed fraction</td>
-</tr>
-<tr>
-<td>sresp_g</td>
-<td>lon, lat, month, time</td>
-<td>kgC/m2/yr</td>
-<td>soil respiration</td>
-</tr>
-<tr>
-<td>xi</td>
-<td>lon, lat, npft, month, time</td>
-<td>1</td>
-<td>ratio of leaf internal to ambient partial pressure of CO2</td>
-</tr>
-<tr>
-<td>weath_carb</td>
-<td>lon, lat, time</td>
-<td>mol C/m2/yr</td>
-<td>carbonate weathering</td>
-</tr>
-<tr>
-<td>lithology</td>
-<td>lon, lat, nlit, time</td>
-<td>/</td>
-<td>lithology</td>
-</tr>
-<tr>
-<td>d13C_soilc_prof</td>
-<td>lon, lat, depth, ncarb, time</td>
-<td>permil</td>
-<td>d13C soil carbon profile</td>
-</tr>
-<tr>
-<td>gcan_g</td>
-<td>lon, lat, month, time</td>
-<td>m/s</td>
-<td>canopy conductance</td>
-</tr>
-<tr>
-<td>Cflx_atm_lnd</td>
-<td>lon, lat, month, time</td>
-<td>kgC/m2/yr</td>
-<td>net land carbon flux</td>
 </tr>
 <tr>
 <td>acroh</td>
@@ -371,10 +209,208 @@
 <td>acrotelm thickness</td>
 </tr>
 <tr>
+<td>aresp</td>
+<td>lon, lat, npft, month, time</td>
+<td>kgC/m2/yr</td>
+<td>autotrophic respiration</td>
+</tr>
+<tr>
+<td>aresp_g</td>
+<td>lon, lat, month, time</td>
+<td>kgC/m2/yr</td>
+<td>autotrophic respiration</td>
+</tr>
+<tr>
+<td>bare</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>bare soil fraction of icefree area</td>
+</tr>
+<tr>
+<td>C13flx_atm_lnd</td>
+<td>lon, lat, month, time</td>
+<td>kgC/m2/yr</td>
+<td>net land carbon 13 flux</td>
+</tr>
+<tr>
+<td>C14flx_atm_lnd</td>
+<td>lon, lat, month, time</td>
+<td>kgC/m2/yr</td>
+<td>net land carbon 14 flux</td>
+</tr>
+<tr>
+<td>catoh</td>
+<td>lon, lat, time</td>
+<td>m</td>
+<td>catotelm thickness</td>
+</tr>
+<tr>
+<td>Cflx_atm_lnd</td>
+<td>lon, lat, month, time</td>
+<td>kgC/m2/yr</td>
+<td>net land carbon flux</td>
+</tr>
+<tr>
+<td>ch4</td>
+<td>lon, lat, month, time</td>
+<td>gCH4/m2 gridcell/yr</td>
+<td>methane emissions</td>
+</tr>
+<tr>
+<td>ch4lake</td>
+<td>lon, lat, month, time</td>
+<td>gCH4/m2 gridcell/yr</td>
+<td>methane emissions from lakes</td>
+</tr>
+<tr>
+<td>ch4peat</td>
+<td>lon, lat, month, time</td>
+<td>gCH4/m2 gridcell/yr</td>
+<td>methane emissions from peatlands</td>
+</tr>
+<tr>
+<td>ch4shelf</td>
+<td>lon, lat, month, time</td>
+<td>gCH4/m2 gridcell/yr</td>
+<td>methane emissions from ocean shelf</td>
+</tr>
+<tr>
+<td>ch4wet</td>
+<td>lon, lat, month, time</td>
+<td>gCH4/m2 gridcell/yr</td>
+<td>methane emissions from wetlands</td>
+</tr>
+<tr>
+<td>d13C_litter_prof</td>
+<td>lon, lat, depth, ncarb, time</td>
+<td>permil</td>
+<td>d13C profile of litter input into the soil</td>
+</tr>
+<tr>
+<td>d13C_soilc</td>
+<td>lon, lat, ncarb, time</td>
+<td>permil</td>
+<td>d13C soil carbon</td>
+</tr>
+<tr>
+<td>d13C_soilc_prof</td>
+<td>lon, lat, depth, ncarb, time</td>
+<td>permil</td>
+<td>d13C soil carbon profile</td>
+</tr>
+<tr>
+<td>d13C_veg</td>
+<td>lon, lat, npft, time</td>
+<td>permil</td>
+<td>d13C vegetation carbon</td>
+</tr>
+<tr>
+<td>d13C_veg_g</td>
+<td>lon, lat, time</td>
+<td>permil</td>
+<td>d13C vegetation carbon</td>
+</tr>
+<tr>
+<td>D14C_litter_prof</td>
+<td>lon, lat, depth, ncarb, time</td>
+<td>permil</td>
+<td>D14C profile of litter input into the soil</td>
+</tr>
+<tr>
+<td>D14C_soilc</td>
+<td>lon, lat, ncarb, time</td>
+<td>permil</td>
+<td>D14C soil carbon</td>
+</tr>
+<tr>
+<td>D14C_soilc_prof</td>
+<td>lon, lat, depth, ncarb, time</td>
+<td>permil</td>
+<td>D14C soil carbon profile</td>
+</tr>
+<tr>
+<td>D14C_veg</td>
+<td>lon, lat, npft, time</td>
+<td>permil</td>
+<td>D14C vegetation carbon</td>
+</tr>
+<tr>
+<td>D14C_veg_g</td>
+<td>lon, lat, time</td>
+<td>permil</td>
+<td>D14C vegetation carbon</td>
+</tr>
+<tr>
+<td>dCpeatdt</td>
+<td>lon, lat, time</td>
+<td>gC/m2/yr</td>
+<td>peat carbon accumulation rate</td>
+</tr>
+<tr>
+<td>disc</td>
+<td>lon, lat, npft, month, time</td>
+<td>permil</td>
+<td>discrimination during photosynthesis</td>
+</tr>
+<tr>
+<td>disc_g</td>
+<td>lon, lat, month, time</td>
+<td>permil</td>
+<td>discrimination</td>
+</tr>
+<tr>
+<td>doc_export</td>
+<td>lon, lat, time</td>
+<td>kgC/m2/yr</td>
+<td>dissolved organic output export through rivers</td>
+</tr>
+<tr>
+<td>fastc_prof</td>
+<td>lon, lat, depth, ncarb, time</td>
+<td>kgC/m3</td>
+<td>fast soil carbon</td>
+</tr>
+<tr>
+<td>fpeat</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>peatland fraction</td>
+</tr>
+<tr>
+<td>fpeatpot</td>
+<td>lon, lat, time</td>
+<td>/</td>
+<td>potential peatland fraction</td>
+</tr>
+<tr>
+<td>gamma_dist</td>
+<td>lon, lat, npft, time</td>
+<td>years</td>
+<td>disturbance rate</td>
+</tr>
+<tr>
 <td>gamma_ice</td>
 <td>lon, lat, npft, time</td>
 <td>years</td>
 <td>disturbance rate from ice sheets</td>
+</tr>
+<tr>
+<td>gamma_luc</td>
+<td>lon, lat, npft, time</td>
+<td>years</td>
+<td>disturbance rate from land use change</td>
+</tr>
+<tr>
+<td>gcan</td>
+<td>lon, lat, npft, month, time</td>
+<td>m/s</td>
+<td>canopy conductance</td>
+</tr>
+<tr>
+<td>gcan_g</td>
+<td>lon, lat, month, time</td>
+<td>m/s</td>
+<td>canopy conductance</td>
 </tr>
 <tr>
 <td>gpp</td>
@@ -389,136 +425,16 @@
 <td>gross primary productivity</td>
 </tr>
 <tr>
-<td>ch4shelf</td>
-<td>lon, lat, month, time</td>
-<td>gCH4/m2 gridcell/yr</td>
-<td>methane emissions from ocean shelf</td>
-</tr>
-<tr>
-<td>litter_prof</td>
-<td>lon, lat, depth, ncarb, time</td>
-<td>kgC/m2/yr</td>
-<td>profile of litter input into the soil</td>
-</tr>
-<tr>
-<td>D14C_soilc</td>
-<td>lon, lat, ncarb, time</td>
-<td>permil</td>
-<td>D14C soil carbon</td>
-</tr>
-<tr>
-<td>veg_h</td>
-<td>lon, lat, npft, time</td>
-<td>m</td>
-<td>vegetation height</td>
-</tr>
-<tr>
-<td>pfts</td>
-<td>lon, lat, npft, time</td>
-<td>/</td>
-<td>pft fraction of icefree area</td>
-</tr>
-<tr>
-<td>d13C_soilc</td>
-<td>lon, lat, ncarb, time</td>
-<td>permil</td>
-<td>d13C soil carbon</td>
-</tr>
-<tr>
-<td>D14C_soilc_prof</td>
-<td>lon, lat, depth, ncarb, time</td>
-<td>permil</td>
-<td>D14C soil carbon profile</td>
-</tr>
-<tr>
-<td>gcan</td>
+<td>lai</td>
 <td>lon, lat, npft, month, time</td>
-<td>m/s</td>
-<td>canopy conductance</td>
+<td>m2/m2</td>
+<td>leaf area index</td>
 </tr>
 <tr>
-<td>soilc_g</td>
-<td>lon, lat, time</td>
-<td>kgC/m2</td>
-<td>soil carbon</td>
-</tr>
-<tr>
-<td>soilc</td>
-<td>lon, lat, ncarb, time</td>
-<td>kgC/m2</td>
-<td>soil carbon</td>
-</tr>
-<tr>
-<td>bare</td>
-<td>lon, lat, time</td>
-<td>/</td>
-<td>bare soil fraction of icefree area</td>
-</tr>
-<tr>
-<td>wue</td>
-<td>lon, lat, npft, month, time</td>
-<td>micro mol/mol</td>
-<td>intrinsic water use efficiency</td>
-</tr>
-<tr>
-<td>slowc_prof</td>
-<td>lon, lat, depth, ncarb, time</td>
-<td>kgC/m3</td>
-<td>slow soil carbon</td>
-</tr>
-<tr>
-<td>dCpeatdt</td>
-<td>lon, lat, time</td>
-<td>gC/m2/yr</td>
-<td>peat carbon accumulation rate</td>
-</tr>
-<tr>
-<td>gamma_luc</td>
-<td>lon, lat, npft, time</td>
-<td>years</td>
-<td>disturbance rate from land use change</td>
-</tr>
-<tr>
-<td>ch4peat</td>
+<td>lai_g</td>
 <td>lon, lat, month, time</td>
-<td>gCH4/m2 gridcell/yr</td>
-<td>methane emissions from peatlands</td>
-</tr>
-<tr>
-<td>disc</td>
-<td>lon, lat, npft, month, time</td>
-<td>permil</td>
-<td>discrimination during photosynthesis</td>
-</tr>
-<tr>
-<td>D14C_litter_prof</td>
-<td>lon, lat, depth, ncarb, time</td>
-<td>permil</td>
-<td>D14C profile of litter input into the soil</td>
-</tr>
-<tr>
-<td>doc_export</td>
-<td>lon, lat, time</td>
-<td>kgC/m2/yr</td>
-<td>dissolved organic output export through rivers</td>
-</tr>
-<tr>
-<td>D14C_veg_g</td>
-<td>lon, lat, time</td>
-<td>permil</td>
-<td>D14C vegetation carbon</td>
-</tr>
-<tr>
-<td>npp_g</td>
-<td>lon, lat, month, time</td>
-<td>kgC/m2/yr</td>
-<td>net primary productivity</td>
-</tr>
-<tr>
-<td>ch4</td>
-<td>lon, lat, month, time</td>
-<td>gCH4/m2 gridcell/yr</td>
-<td>methane emissions</td>
+<td>m2/m2</td>
+<td>leaf area index</td>
 </tr>
 <tr>
 <td>lambda</td>
@@ -527,28 +443,10 @@
 <td>NPP partitioning factor</td>
 </tr>
 <tr>
-<td>lai</td>
-<td>lon, lat, npft, month, time</td>
-<td>m2/m2</td>
-<td>leaf area index</td>
-</tr>
-<tr>
-<td>D14C_veg</td>
-<td>lon, lat, npft, time</td>
-<td>permil</td>
-<td>D14C vegetation carbon</td>
-</tr>
-<tr>
-<td>sresp</td>
-<td>lon, lat, ncarb, month, time</td>
-<td>kgC/m2/yr</td>
-<td>soil respiration</td>
-</tr>
-<tr>
-<td>C13flx_atm_lnd</td>
-<td>lon, lat, month, time</td>
-<td>kgC/m2/yr</td>
-<td>net land carbon 13 flux</td>
+<td>lithology</td>
+<td>lon, lat, nlit, time</td>
+<td>/</td>
+<td>lithology</td>
 </tr>
 <tr>
 <td>litter</td>
@@ -557,10 +455,112 @@
 <td>litterfall</td>
 </tr>
 <tr>
-<td>fastc_prof</td>
+<td>litter_prof</td>
+<td>lon, lat, depth, ncarb, time</td>
+<td>kgC/m2/yr</td>
+<td>profile of litter input into the soil</td>
+</tr>
+<tr>
+<td>litterc_prof</td>
 <td>lon, lat, depth, ncarb, time</td>
 <td>kgC/m3</td>
-<td>fast soil carbon</td>
+<td>litter carbon</td>
+</tr>
+<tr>
+<td>npp</td>
+<td>lon, lat, npft, month, time</td>
+<td>kgC/m2/yr</td>
+<td>net primary productivity</td>
+</tr>
+<tr>
+<td>npp_g</td>
+<td>lon, lat, month, time</td>
+<td>kgC/m2/yr</td>
+<td>net primary productivity</td>
+</tr>
+<tr>
+<td>pfts</td>
+<td>lon, lat, npft, time</td>
+<td>/</td>
+<td>pft fraction of icefree area</td>
+</tr>
+<tr>
+<td>poc_export</td>
+<td>lon, lat, time</td>
+<td>kgC/m2/yr</td>
+<td>particulate organic output export through rivers</td>
+</tr>
+<tr>
+<td>sai</td>
+<td>lon, lat, npft, time</td>
+<td>m2/m2</td>
+<td>stem area index</td>
+</tr>
+<tr>
+<td>seeds</td>
+<td>lon, lat, npft, time</td>
+<td>/</td>
+<td>seed fraction</td>
+</tr>
+<tr>
+<td>slowc_prof</td>
+<td>lon, lat, depth, ncarb, time</td>
+<td>kgC/m3</td>
+<td>slow soil carbon</td>
+</tr>
+<tr>
+<td>soilc</td>
+<td>lon, lat, ncarb, time</td>
+<td>kgC/m2</td>
+<td>soil carbon</td>
+</tr>
+<tr>
+<td>soilc_g</td>
+<td>lon, lat, time</td>
+<td>kgC/m2</td>
+<td>soil carbon</td>
+</tr>
+<tr>
+<td>soilc_prof</td>
+<td>lon, lat, depth, ncarb, time</td>
+<td>kgC/m3</td>
+<td>total soil carbon</td>
+</tr>
+<tr>
+<td>sresp</td>
+<td>lon, lat, ncarb, month, time</td>
+<td>kgC/m2/yr</td>
+<td>soil respiration</td>
+</tr>
+<tr>
+<td>sresp_g</td>
+<td>lon, lat, month, time</td>
+<td>kgC/m2/yr</td>
+<td>soil respiration</td>
+</tr>
+<tr>
+<td>veg_h</td>
+<td>lon, lat, npft, time</td>
+<td>m</td>
+<td>vegetation height</td>
+</tr>
+<tr>
+<td>vegc</td>
+<td>lon, lat, npft, time</td>
+<td>kgC/m2</td>
+<td>vegetation carbon</td>
+</tr>
+<tr>
+<td>vegc_g</td>
+<td>lon, lat, time</td>
+<td>kgC/m2</td>
+<td>vegetation carbon</td>
+</tr>
+<tr>
+<td>weath_carb</td>
+<td>lon, lat, time</td>
+<td>mol C/m2/yr</td>
+<td>carbonate weathering</td>
 </tr>
 <tr>
 <td>weath_sil</td>
@@ -569,16 +569,16 @@
 <td>silicate weathering</td>
 </tr>
 <tr>
-<td>C14flx_atm_lnd</td>
-<td>lon, lat, month, time</td>
-<td>kgC/m2/yr</td>
-<td>net land carbon 14 flux</td>
+<td>wue</td>
+<td>lon, lat, npft, month, time</td>
+<td>micro mol/mol</td>
+<td>intrinsic water use efficiency</td>
 </tr>
 <tr>
-<td>vegc_g</td>
-<td>lon, lat, time</td>
-<td>kgC/m2</td>
-<td>vegetation carbon</td>
+<td>xi</td>
+<td>lon, lat, npft, month, time</td>
+<td>1</td>
+<td>ratio of leaf internal to ambient partial pressure of CO2</td>
 </tr>
 </tbody>
 </table>

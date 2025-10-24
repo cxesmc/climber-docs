@@ -63,7 +63,7 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">historical</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Variables lists</span></p>
+              <p class="caption"><span class="caption-text">Output description</span></p>
               <ul class="current">
                   <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
                   </li>
@@ -134,7 +134,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Variables lists</li>
+          <li class="breadcrumb-item">Output description</li>
       <li class="breadcrumb-item active">bgc.nc</li>
     <li class="wy-breadcrumbs-aside">
     </li>
@@ -167,6 +167,12 @@
 <td>N/A</td>
 </tr>
 <tr>
+<td>lon</td>
+<td>lon</td>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+<tr>
 <td>month</td>
 <td>month</td>
 <td>months</td>
@@ -179,40 +185,34 @@
 <td>N/A</td>
 </tr>
 <tr>
-<td>lon</td>
-<td>lon</td>
-<td>N/A</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>d13PHY</td>
+<td>AOU</td>
 <td>lon, lat, depth, time</td>
-<td>permil</td>
-<td>delta13C of phytoplankton</td>
+<td>mol O2 m-3</td>
+<td>apparent oxyen utilisation</td>
 </tr>
 <tr>
-<td>flx_inp_Alk</td>
-<td>lon, lat, time</td>
-<td>mol m-2 yr-1</td>
-<td>Alkalinity input flux at the surface</td>
-</tr>
-<tr>
-<td>Feflux</td>
-<td>lon, lat, month, time</td>
-<td>mol Fe m-2 yr-1</td>
-<td>Fe surface flux</td>
-</tr>
-<tr>
-<td>Si</td>
+<td>av_d_C</td>
 <td>lon, lat, depth, time</td>
-<td>mmol/m3</td>
-<td>silicate</td>
+<td>m</td>
+<td>conc-weighted mean aggregate diameter</td>
 </tr>
 <tr>
-<td>H2S</td>
+<td>av_dp</td>
 <td>lon, lat, depth, time</td>
-<td>mmol/l</td>
-<td>hydrogen sulfide</td>
+<td>m</td>
+<td>mean primary particle size</td>
+</tr>
+<tr>
+<td>av_por_V</td>
+<td>lon, lat, depth, time</td>
+<td>?</td>
+<td>vol-weighted aggregate porosity</td>
+</tr>
+<tr>
+<td>av_rho_p</td>
+<td>lon, lat, depth, time</td>
+<td>kg m-3</td>
+<td>mean primary particle density</td>
 </tr>
 <tr>
 <td>av_rhof_V</td>
@@ -221,64 +221,16 @@
 <td>vol-weighted aggregate density</td>
 </tr>
 <tr>
-<td>CO3</td>
-<td>lon, lat, depth, time</td>
-<td>molC/m3</td>
-<td>dissolved carbonate ion concentration</td>
-</tr>
-<tr>
-<td>TCO214</td>
-<td>lon, lat, depth, time</td>
-<td>micro-molC/l</td>
-<td>dissolved inorganic carbon C14</td>
-</tr>
-<tr>
-<td>Fe_lim</td>
-<td>lon, lat, depth, time</td>
-<td>N/A</td>
-<td>Iron limitation of primary production</td>
-</tr>
-<tr>
-<td>exp2000_POC</td>
-<td>lon, lat, month, time</td>
-<td>mol C m-2 yr-1</td>
-<td>particulate organic carbon export at 2000 m</td>
-</tr>
-<tr>
-<td>N2fix</td>
-<td>lon, lat, depth, time</td>
-<td>kmol N m-3 d-1</td>
-<td>N2 fixation</td>
-</tr>
-<tr>
-<td>pH</td>
-<td>lon, lat, depth, time</td>
-<td>/</td>
-<td>sea water pH</td>
-</tr>
-<tr>
-<td>POC_prod</td>
-<td>lon, lat, depth, time</td>
-<td>kmol C m-3 d-1</td>
-<td>particulate organic carbon production</td>
-</tr>
-<tr>
 <td>b_agg</td>
 <td>lon, lat, depth, time</td>
 <td>?</td>
 <td>slope of aggregate number distribution</td>
 </tr>
 <tr>
-<td>exp100_CaCO3</td>
-<td>lon, lat, month, time</td>
-<td>mol C m-2 yr-1</td>
-<td>calcium carbonate export at 100 m</td>
-</tr>
-<tr>
-<td>rem_via_grazer</td>
+<td>bacterial activity</td>
 <td>lon, lat, depth, time</td>
 <td>kmol Pm-3 d-1</td>
-<td>remineralisation via grazer</td>
+<td>bacterial activity</td>
 </tr>
 <tr>
 <td>C14age</td>
@@ -287,70 +239,88 @@
 <td>radiocarbon ventilation age</td>
 </tr>
 <tr>
-<td>dms_bac</td>
-<td>lon, lat, depth, time</td>
-<td>kmol S m-3 d-1</td>
-<td>dms bacterial consumption</td>
+<td>C14flux</td>
+<td>lon, lat, month, time</td>
+<td>kg C m-2 yr-1</td>
+<td>C14O2 surface flux (positive into ocean)</td>
 </tr>
 <tr>
-<td>exp1000_POC</td>
+<td>CaCO3</td>
+<td>lon, lat, depth, time</td>
+<td>mmolC/m3</td>
+<td>calcite</td>
+</tr>
+<tr>
+<td>CaCO3_coral</td>
+<td>lon, lat, depth, time</td>
+<td>kmol C m-3 d-1</td>
+<td>calcium carbonate production by corals</td>
+</tr>
+<tr>
+<td>CaCO3_disso</td>
+<td>lon, lat, depth, time</td>
+<td>kmol C m-3 d-1</td>
+<td>calcite dissolution</td>
+</tr>
+<tr>
+<td>CaCO3_prod</td>
+<td>lon, lat, depth, time</td>
+<td>kmol C m-3 d-1</td>
+<td>calcite production</td>
+</tr>
+<tr>
+<td>CaCO3_prod_int</td>
 <td>lon, lat, month, time</td>
 <td>mol C m-2 yr-1</td>
-<td>particulate organic carbon export at 1000 m</td>
+<td>vertically integrated calcium carbonate production</td>
 </tr>
 <tr>
-<td>flx_sed_POC</td>
-<td>lon, lat, month, time</td>
-<td>gC m-2 yr-1</td>
-<td>particulate organic carbon flux to sediment</td>
-</tr>
-<tr>
-<td>flx_sed_OPAL</td>
-<td>lon, lat, month, time</td>
-<td>kmol Si m-2 yr-1</td>
-<td>OPAL flux to sediment</td>
-</tr>
-<tr>
-<td>NO3_lim_cya</td>
+<td>Chl</td>
 <td>lon, lat, depth, time</td>
-<td>N/A</td>
-<td>Nitrate uptake preference factor for cyanobacteria growth</td>
+<td>mg Chl/m3</td>
+<td>Chlorophyll concentration</td>
 </tr>
 <tr>
-<td>dmsflux</td>
+<td>CO2flux</td>
 <td>lon, lat, month, time</td>
-<td>mol S m-2 yr-1</td>
-<td>DMS surface flux</td>
+<td>kg C m-2 yr-1</td>
+<td>CO2 surface flux (positive into ocean)</td>
 </tr>
 <tr>
-<td>OPAL_prod_int</td>
+<td>CO2fxd</td>
 <td>lon, lat, month, time</td>
-<td>mol Si m-2 yr-1</td>
-<td>vertically integrated opal production</td>
+<td>mol C m-2 yr-1</td>
+<td>CO2 flux down (into the ocean)</td>
 </tr>
 <tr>
-<td>stickiness_frustule</td>
+<td>CO2fxu</td>
+<td>lon, lat, month, time</td>
+<td>mol C m-2 yr-1</td>
+<td>CO2 flux up (out of the ocean)</td>
+</tr>
+<tr>
+<td>CO3</td>
 <td>lon, lat, depth, time</td>
-<td>?</td>
-<td>stickiness of diatom frustules</td>
+<td>molC/m3</td>
+<td>dissolved carbonate ion concentration</td>
 </tr>
 <tr>
-<td>Fe_scav</td>
-<td>lon, lat, depth, time</td>
-<td>nmol Fe m-3 d-1</td>
-<td>iron scavenging rate</td>
-</tr>
-<tr>
-<td>d13POC</td>
+<td>d13CAL</td>
 <td>lon, lat, depth, time</td>
 <td>permil</td>
-<td>delta13C of particulate organic carbon</td>
+<td>delta13C of calcite</td>
 </tr>
 <tr>
-<td>pho_pot</td>
+<td>d13Cflux</td>
+<td>lon, lat, month, time</td>
+<td>permil</td>
+<td>delta13C of air-sea CO2 flux</td>
+</tr>
+<tr>
+<td>d13DIC</td>
 <td>lon, lat, depth, time</td>
-<td>d-1</td>
-<td>potential photosynthesis (light and temperature limited)</td>
+<td>permil</td>
+<td>delta13C of dissolved inorganic carbon</td>
 </tr>
 <tr>
 <td>d13DOC</td>
@@ -359,10 +329,388 @@
 <td>delta13C of dissolved organic carbon</td>
 </tr>
 <tr>
+<td>d13PHY</td>
+<td>lon, lat, depth, time</td>
+<td>permil</td>
+<td>delta13C of phytoplankton</td>
+</tr>
+<tr>
+<td>d13POC</td>
+<td>lon, lat, depth, time</td>
+<td>permil</td>
+<td>delta13C of particulate organic carbon</td>
+</tr>
+<tr>
+<td>d13ZOO</td>
+<td>lon, lat, depth, time</td>
+<td>permil</td>
+<td>delta13C of zooplankton</td>
+</tr>
+<tr>
+<td>D14C</td>
+<td>lon, lat, depth, time</td>
+<td>permil</td>
+<td>Delta14C of dissolved inorganic carbon</td>
+</tr>
+<tr>
+<td>denit</td>
+<td>lon, lat, depth, time</td>
+<td>kmol N m-3 d-1</td>
+<td>denitrification</td>
+</tr>
+<tr>
+<td>denit_int</td>
+<td>lon, lat, month, time</td>
+<td>mol N m-2 yr-1</td>
+<td>vertically integrated denitrification</td>
+</tr>
+<tr>
+<td>df_agg</td>
+<td>lon, lat, depth, time</td>
+<td>1</td>
+<td>fractal dimension of aggregates</td>
+</tr>
+<tr>
+<td>DMS</td>
+<td>lon, lat, depth, time</td>
+<td>mmol/m3</td>
+<td>dimethylsulfide</td>
+</tr>
+<tr>
+<td>dms_bac</td>
+<td>lon, lat, depth, time</td>
+<td>kmol S m-3 d-1</td>
+<td>dms bacterial consumption</td>
+</tr>
+<tr>
+<td>dms_prod</td>
+<td>lon, lat, depth, time</td>
+<td>kmol S m-3 d-1</td>
+<td>dms production</td>
+</tr>
+<tr>
+<td>dms_uv</td>
+<td>lon, lat, depth, time</td>
+<td>kmol S m-3 d-1</td>
+<td>dms UV-ligth destruction</td>
+</tr>
+<tr>
+<td>dmsflux</td>
+<td>lon, lat, month, time</td>
+<td>mol S m-2 yr-1</td>
+<td>DMS surface flux</td>
+</tr>
+<tr>
+<td>DOC</td>
+<td>lon, lat, depth, time</td>
+<td>mmol/m3</td>
+<td>dissolved organic carbon</td>
+</tr>
+<tr>
+<td>Dust</td>
+<td>lon, lat, depth, time</td>
+<td>g/m3</td>
+<td>terrigenuous material</td>
+</tr>
+<tr>
+<td>exp1000_CaCO3</td>
+<td>lon, lat, month, time</td>
+<td>mol C m-2 yr-1</td>
+<td>calcium carbonate export at 1000 m</td>
+</tr>
+<tr>
+<td>exp1000_opal</td>
+<td>lon, lat, month, time</td>
+<td>mol Si m-2 yr-1</td>
+<td>opal export at 1000 m</td>
+</tr>
+<tr>
+<td>exp1000_POC</td>
+<td>lon, lat, month, time</td>
+<td>mol C m-2 yr-1</td>
+<td>particulate organic carbon export at 1000 m</td>
+</tr>
+<tr>
+<td>exp100_CaCO3</td>
+<td>lon, lat, month, time</td>
+<td>mol C m-2 yr-1</td>
+<td>calcium carbonate export at 100 m</td>
+</tr>
+<tr>
+<td>exp100_opal</td>
+<td>lon, lat, month, time</td>
+<td>mol Si m-2 yr-1</td>
+<td>opal export at 100 m</td>
+</tr>
+<tr>
+<td>exp100_POC</td>
+<td>lon, lat, month, time</td>
+<td>mol C m-2 yr-1</td>
+<td>particulate organic carbon export at 100 m</td>
+</tr>
+<tr>
+<td>exp2000_CaCO3</td>
+<td>lon, lat, month, time</td>
+<td>mol C m-2 yr-1</td>
+<td>calcium carbon export at 2000 m</td>
+</tr>
+<tr>
+<td>exp2000_opal</td>
+<td>lon, lat, month, time</td>
+<td>mol Si m-2 yr-1</td>
+<td>opal export at 2000 m</td>
+</tr>
+<tr>
+<td>exp2000_POC</td>
+<td>lon, lat, month, time</td>
+<td>mol C m-2 yr-1</td>
+<td>particulate organic carbon export at 2000 m</td>
+</tr>
+<tr>
+<td>Fe</td>
+<td>lon, lat, depth, time</td>
+<td>nmol/l</td>
+<td>dissolved iron</td>
+</tr>
+<tr>
+<td>Fe_lim</td>
+<td>lon, lat, depth, time</td>
+<td>N/A</td>
+<td>Iron limitation of primary production</td>
+</tr>
+<tr>
+<td>Fe_lim_cya</td>
+<td>lon, lat, depth, time</td>
+<td>N/A</td>
+<td>Iron limitation of cyanobacteria growth</td>
+</tr>
+<tr>
+<td>Fe_scav</td>
+<td>lon, lat, depth, time</td>
+<td>nmol Fe m-3 d-1</td>
+<td>iron scavenging rate</td>
+</tr>
+<tr>
+<td>Feflux</td>
+<td>lon, lat, month, time</td>
+<td>mol Fe m-2 yr-1</td>
+<td>Fe surface flux</td>
+</tr>
+<tr>
+<td>flx_inp_Alk</td>
+<td>lon, lat, time</td>
+<td>mol m-2 yr-1</td>
+<td>Alkalinity input flux at the surface</td>
+</tr>
+<tr>
+<td>flx_inp_DIC</td>
+<td>lon, lat, time</td>
+<td>mol m-2 yr-1</td>
+<td>Dissolved inorganic carbon input flux at the surface</td>
+</tr>
+<tr>
+<td>flx_inp_DOC</td>
+<td>lon, lat, time</td>
+<td>mol m-2 yr-1</td>
+<td>Dissolved organic carbon input flux at the surface</td>
+</tr>
+<tr>
+<td>flx_inp_POC</td>
+<td>lon, lat, time</td>
+<td>mol m-2 yr-1</td>
+<td>Particulate organic carbon input flux at the surface</td>
+</tr>
+<tr>
+<td>flx_inp_Si</td>
+<td>lon, lat, time</td>
+<td>mol m-2 yr-1</td>
+<td>Silicate input flux at the surface</td>
+</tr>
+<tr>
+<td>flx_sed_CaCO3</td>
+<td>lon, lat, month, time</td>
+<td>mol C m-2 yr-1</td>
+<td>CaCO3 flux to sediment</td>
+</tr>
+<tr>
+<td>flx_sed_dust</td>
+<td>lon, lat, month, time</td>
+<td>kmol m-2 yr-1</td>
+<td>dust (clay) flux to sediment</td>
+</tr>
+<tr>
+<td>flx_sed_OPAL</td>
+<td>lon, lat, month, time</td>
+<td>kmol Si m-2 yr-1</td>
+<td>OPAL flux to sediment</td>
+</tr>
+<tr>
+<td>flx_sed_POC</td>
+<td>lon, lat, month, time</td>
+<td>gC m-2 yr-1</td>
+<td>particulate organic carbon flux to sediment</td>
+</tr>
+<tr>
 <td>frac_aq_gas</td>
 <td>lon, lat, month, time</td>
 <td>permil</td>
 <td>fractionation from gas to dissolved CO2</td>
+</tr>
+<tr>
+<td>frac_dic_gas</td>
+<td>lon, lat, month, time</td>
+<td>permil</td>
+<td>fractionation from gas to DIC</td>
+</tr>
+<tr>
+<td>frac_poc_aq</td>
+<td>lon, lat, month, time</td>
+<td>permil</td>
+<td>fractionation from dissolved CO2 to POC</td>
+</tr>
+<tr>
+<td>grazing</td>
+<td>lon, lat, depth, time</td>
+<td>mol Fe m-3 d-1</td>
+<td>zoo grazing</td>
+</tr>
+<tr>
+<td>H2S</td>
+<td>lon, lat, depth, time</td>
+<td>mmol/l</td>
+<td>hydrogen sulfide</td>
+</tr>
+<tr>
+<td>I_lim_cya</td>
+<td>lon, lat, depth, time</td>
+<td>N/A</td>
+<td>Light limitation of cyanobacteria growth</td>
+</tr>
+<tr>
+<td>kwco2</td>
+<td>lon, lat, month, time</td>
+<td>kmol m-2 yr-1 ppm-1</td>
+<td>CO2 exchange coefficient</td>
+</tr>
+<tr>
+<td>Lmax_agg</td>
+<td>lon, lat, depth, time</td>
+<td>m</td>
+<td>maximum aggregate diameter</td>
+</tr>
+<tr>
+<td>lysocline</td>
+<td>lon, lat, month, time</td>
+<td>m</td>
+<td>lysocline depth</td>
+</tr>
+<tr>
+<td>N2</td>
+<td>lon, lat, depth, time</td>
+<td>mmol/m3</td>
+<td>dinitrogen</td>
+</tr>
+<tr>
+<td>N2fix</td>
+<td>lon, lat, depth, time</td>
+<td>kmol N m-3 d-1</td>
+<td>N2 fixation</td>
+</tr>
+<tr>
+<td>N2fix_int</td>
+<td>lon, lat, month, time</td>
+<td>mol N m-2 yr-1</td>
+<td>vertically integrated N2 fixation</td>
+</tr>
+<tr>
+<td>N2flux</td>
+<td>lon, lat, month, time</td>
+<td>kmol N2 m-2 yr-1</td>
+<td>N2 surface flux</td>
+</tr>
+<tr>
+<td>N2O</td>
+<td>lon, lat, depth, time</td>
+<td>mmol/m3</td>
+<td>nitrous oxide</td>
+</tr>
+<tr>
+<td>N2Oflux</td>
+<td>lon, lat, month, time</td>
+<td>kmol N2 m-2 yr-1</td>
+<td>N2O surface flux</td>
+</tr>
+<tr>
+<td>NO3</td>
+<td>lon, lat, depth, time</td>
+<td>mmol/m3</td>
+<td>nitrate</td>
+</tr>
+<tr>
+<td>NO3_lim</td>
+<td>lon, lat, depth, time</td>
+<td>N/A</td>
+<td>Nitrogen limitation of primary production</td>
+</tr>
+<tr>
+<td>NO3_lim_cya</td>
+<td>lon, lat, depth, time</td>
+<td>N/A</td>
+<td>Nitrate uptake preference factor for cyanobacteria growth</td>
+</tr>
+<tr>
+<td>npp_int</td>
+<td>lon, lat, month, time</td>
+<td>gC m-2 yr-1</td>
+<td>vertically integrated photosynthesis</td>
+</tr>
+<tr>
+<td>npp_int_cya</td>
+<td>lon, lat, month, time</td>
+<td>gC m-2 yr-1</td>
+<td>vertically integrated photosynthesis by cyanobacteria</td>
+</tr>
+<tr>
+<td>O2</td>
+<td>lon, lat, depth, time</td>
+<td>mol/m3</td>
+<td>oxygen</td>
+</tr>
+<tr>
+<td>O2flux</td>
+<td>lon, lat, month, time</td>
+<td>mol O2 m-2 yr-1</td>
+<td>O2 surface flux</td>
+</tr>
+<tr>
+<td>Opal</td>
+<td>lon, lat, depth, time</td>
+<td>mmolSi/m3</td>
+<td>Opal (BSi)</td>
+</tr>
+<tr>
+<td>opal_prod</td>
+<td>lon, lat, depth, time</td>
+<td>kmol Si m-3 d-1</td>
+<td>opal production</td>
+</tr>
+<tr>
+<td>OPAL_prod_int</td>
+<td>lon, lat, month, time</td>
+<td>mol Si m-2 yr-1</td>
+<td>vertically integrated opal production</td>
+</tr>
+<tr>
+<td>pco2</td>
+<td>lon, lat, month, time</td>
+<td>ppm</td>
+<td>CO2 partial pressure</td>
+</tr>
+<tr>
+<td>pH</td>
+<td>lon, lat, depth, time</td>
+<td>/</td>
+<td>sea water pH</td>
 </tr>
 <tr>
 <td>pho_lim_irr</td>
@@ -377,538 +725,10 @@
 <td>nutrient limitation factor</td>
 </tr>
 <tr>
-<td>flx_sed_dust</td>
-<td>lon, lat, month, time</td>
-<td>kmol m-2 yr-1</td>
-<td>dust (clay) flux to sediment</td>
-</tr>
-<tr>
-<td>av_dp</td>
-<td>lon, lat, depth, time</td>
-<td>m</td>
-<td>mean primary particle size</td>
-</tr>
-<tr>
-<td>opal_prod</td>
-<td>lon, lat, depth, time</td>
-<td>kmol Si m-3 d-1</td>
-<td>opal production</td>
-</tr>
-<tr>
-<td>CaCO3_prod_int</td>
-<td>lon, lat, month, time</td>
-<td>mol C m-2 yr-1</td>
-<td>vertically integrated calcium carbonate production</td>
-</tr>
-<tr>
-<td>PHY</td>
-<td>lon, lat, depth, time</td>
-<td>mmol P/m3</td>
-<td>phytoplankton</td>
-</tr>
-<tr>
-<td>N2flux</td>
-<td>lon, lat, month, time</td>
-<td>kmol N2 m-2 yr-1</td>
-<td>N2 surface flux</td>
-</tr>
-<tr>
-<td>rem_POC_S</td>
-<td>lon, lat, depth, time</td>
-<td>kmol Pm-3 d-1</td>
-<td>remineralisation of POC by sulfate</td>
-</tr>
-<tr>
-<td>Lmax_agg</td>
-<td>lon, lat, depth, time</td>
-<td>m</td>
-<td>maximum aggregate diameter</td>
-</tr>
-<tr>
-<td>Dust</td>
-<td>lon, lat, depth, time</td>
-<td>g/m3</td>
-<td>terrigenuous material</td>
-</tr>
-<tr>
-<td>sedflualk</td>
-<td>lon, lat, month, time</td>
-<td>mol m-2 yr-1</td>
-<td>sedimentflux to ocean alkalinity</td>
-</tr>
-<tr>
-<td>sedfluo2</td>
-<td>lon, lat, month, time</td>
-<td>mol O2 m-2 yr-1</td>
-<td>sedimentflux to ocean oxygen</td>
-</tr>
-<tr>
-<td>PO4</td>
-<td>lon, lat, depth, time</td>
-<td>micro-mol/l</td>
-<td>phosphate</td>
-</tr>
-<tr>
-<td>rain_100</td>
-<td>lon, lat, month, time</td>
-<td>/</td>
-<td>rain ratio (C[CaCO3]/C[POC]) at 100 m</td>
-</tr>
-<tr>
-<td>sedfluno3</td>
-<td>lon, lat, month, time</td>
-<td>mol N m-2 yr-1</td>
-<td>sedimentflux to ocean nitrate</td>
-</tr>
-<tr>
-<td>grazing</td>
-<td>lon, lat, depth, time</td>
-<td>mol Fe m-3 d-1</td>
-<td>zoo grazing</td>
-</tr>
-<tr>
-<td>npp_int</td>
-<td>lon, lat, month, time</td>
-<td>gC m-2 yr-1</td>
-<td>vertically integrated photosynthesis</td>
-</tr>
-<tr>
-<td>d13Cflux</td>
-<td>lon, lat, month, time</td>
-<td>permil</td>
-<td>delta13C of air-sea CO2 flux</td>
-</tr>
-<tr>
-<td>av_rho_p</td>
-<td>lon, lat, depth, time</td>
-<td>kg m-3</td>
-<td>mean primary particle density</td>
-</tr>
-<tr>
-<td>CaCO3_coral</td>
-<td>lon, lat, depth, time</td>
-<td>kmol C m-3 d-1</td>
-<td>calcium carbonate production by corals</td>
-</tr>
-<tr>
-<td>CO2fxu</td>
-<td>lon, lat, month, time</td>
-<td>mol C m-2 yr-1</td>
-<td>CO2 flux up (out of the ocean)</td>
-</tr>
-<tr>
-<td>d13DIC</td>
-<td>lon, lat, depth, time</td>
-<td>permil</td>
-<td>delta13C of dissolved inorganic carbon</td>
-</tr>
-<tr>
-<td>flx_sed_CaCO3</td>
-<td>lon, lat, month, time</td>
-<td>mol C m-2 yr-1</td>
-<td>CaCO3 flux to sediment</td>
-</tr>
-<tr>
-<td>sedflun2</td>
-<td>lon, lat, month, time</td>
-<td>mol N m-2 yr-1</td>
-<td>sedimentflux to ocean nitrogen</td>
-</tr>
-<tr>
-<td>sedflusi</td>
-<td>lon, lat, month, time</td>
-<td>mol Si m-2 yr-1</td>
-<td>sedimentflux to ocean silicate</td>
-</tr>
-<tr>
-<td>D14C</td>
-<td>lon, lat, depth, time</td>
-<td>permil</td>
-<td>Delta14C of dissolved inorganic carbon</td>
-</tr>
-<tr>
-<td>lysocline</td>
-<td>lon, lat, month, time</td>
-<td>m</td>
-<td>lysocline depth</td>
-</tr>
-<tr>
-<td>C14flux</td>
-<td>lon, lat, month, time</td>
-<td>kg C m-2 yr-1</td>
-<td>C14O2 surface flux (positive into ocean)</td>
-</tr>
-<tr>
-<td>kwco2</td>
-<td>lon, lat, month, time</td>
-<td>kmol m-2 yr-1 ppm-1</td>
-<td>CO2 exchange coefficient</td>
-</tr>
-<tr>
-<td>sedflufe</td>
-<td>lon, lat, month, time</td>
-<td>mol Fe m-2 yr-1</td>
-<td>sedimentflux to ocean iron</td>
-</tr>
-<tr>
-<td>DMS</td>
-<td>lon, lat, depth, time</td>
-<td>mmol/m3</td>
-<td>dimethylsulfide</td>
-</tr>
-<tr>
-<td>AOU</td>
-<td>lon, lat, depth, time</td>
-<td>mol O2 m-3</td>
-<td>apparent oxyen utilisation</td>
-</tr>
-<tr>
-<td>Fe</td>
-<td>lon, lat, depth, time</td>
-<td>nmol/l</td>
-<td>dissolved iron</td>
-</tr>
-<tr>
-<td>phy_gr</td>
+<td>pho_pot</td>
 <td>lon, lat, depth, time</td>
 <td>d-1</td>
-<td>phytoplankton growth rate</td>
-</tr>
-<tr>
-<td>exp100_POC</td>
-<td>lon, lat, month, time</td>
-<td>mol C m-2 yr-1</td>
-<td>particulate organic carbon export at 100 m</td>
-</tr>
-<tr>
-<td>T_lim_cya</td>
-<td>lon, lat, depth, time</td>
-<td>N/A</td>
-<td>Temperature limitation of cyanobacteria growth</td>
-</tr>
-<tr>
-<td>PO4_lim_cya</td>
-<td>lon, lat, depth, time</td>
-<td>N/A</td>
-<td>Phosphorus limitation of cyanobacteria growth</td>
-</tr>
-<tr>
-<td>flx_inp_DIC</td>
-<td>lon, lat, time</td>
-<td>mol m-2 yr-1</td>
-<td>Dissolved inorganic carbon input flux at the surface</td>
-</tr>
-<tr>
-<td>sedflupo4</td>
-<td>lon, lat, month, time</td>
-<td>mol P m-2 yr-1</td>
-<td>sedimentflux to ocean phosphate</td>
-</tr>
-<tr>
-<td>bacterial activity</td>
-<td>lon, lat, depth, time</td>
-<td>kmol Pm-3 d-1</td>
-<td>bacterial activity</td>
-</tr>
-<tr>
-<td>Opal</td>
-<td>lon, lat, depth, time</td>
-<td>mmolSi/m3</td>
-<td>Opal (BSi)</td>
-</tr>
-<tr>
-<td>rain_2000</td>
-<td>lon, lat, month, time</td>
-<td>/</td>
-<td>rain ratio (C[CaCO3]/C[POC]) at 2000 m</td>
-</tr>
-<tr>
-<td>CaCO3_prod</td>
-<td>lon, lat, depth, time</td>
-<td>kmol C m-3 d-1</td>
-<td>calcite production</td>
-</tr>
-<tr>
-<td>dms_uv</td>
-<td>lon, lat, depth, time</td>
-<td>kmol S m-3 d-1</td>
-<td>dms UV-ligth destruction</td>
-</tr>
-<tr>
-<td>rem_POC_O2</td>
-<td>lon, lat, depth, time</td>
-<td>kmol Pm-3 d-1</td>
-<td>remineraliastion of POC by oxygen</td>
-</tr>
-<tr>
-<td>sedfludic</td>
-<td>lon, lat, month, time</td>
-<td>mol C m-2 yr-1</td>
-<td>sedimentflux to ocean dissolved inorganic carbon</td>
-</tr>
-<tr>
-<td>ZOO</td>
-<td>lon, lat, depth, time</td>
-<td>mmol P/m3</td>
-<td>zooplankton</td>
-</tr>
-<tr>
-<td>wpoc</td>
-<td>lon, lat, depth, time</td>
-<td>m/day</td>
-<td>POC sinkspeed</td>
-</tr>
-<tr>
-<td>N2Oflux</td>
-<td>lon, lat, month, time</td>
-<td>kmol N2 m-2 yr-1</td>
-<td>N2O surface flux</td>
-</tr>
-<tr>
-<td>rain_1000</td>
-<td>lon, lat, month, time</td>
-<td>/</td>
-<td>rain ratio (C[CaCO3]/C[POC]) at 1000 m</td>
-</tr>
-<tr>
-<td>av_por_V</td>
-<td>lon, lat, depth, time</td>
-<td>?</td>
-<td>vol-weighted aggregate porosity</td>
-</tr>
-<tr>
-<td>N2O</td>
-<td>lon, lat, depth, time</td>
-<td>mmol/m3</td>
-<td>nitrous oxide</td>
-</tr>
-<tr>
-<td>df_agg</td>
-<td>lon, lat, depth, time</td>
-<td>1</td>
-<td>fractal dimension of aggregates</td>
-</tr>
-<tr>
-<td>dms_prod</td>
-<td>lon, lat, depth, time</td>
-<td>kmol S m-3 d-1</td>
-<td>dms production</td>
-</tr>
-<tr>
-<td>DOC</td>
-<td>lon, lat, depth, time</td>
-<td>mmol/m3</td>
-<td>dissolved organic carbon</td>
-</tr>
-<tr>
-<td>frac_dic_gas</td>
-<td>lon, lat, month, time</td>
-<td>permil</td>
-<td>fractionation from gas to DIC</td>
-</tr>
-<tr>
-<td>PO4_lim</td>
-<td>lon, lat, depth, time</td>
-<td>N/A</td>
-<td>Phosphorus limitation of primary production</td>
-</tr>
-<tr>
-<td>TCO2</td>
-<td>lon, lat, depth, time</td>
-<td>micro-molC/l</td>
-<td>total dissolved inorganic C12</td>
-</tr>
-<tr>
-<td>Fe_lim_cya</td>
-<td>lon, lat, depth, time</td>
-<td>N/A</td>
-<td>Iron limitation of cyanobacteria growth</td>
-</tr>
-<tr>
-<td>denit</td>
-<td>lon, lat, depth, time</td>
-<td>kmol N m-3 d-1</td>
-<td>denitrification</td>
-</tr>
-<tr>
-<td>av_d_C</td>
-<td>lon, lat, depth, time</td>
-<td>m</td>
-<td>conc-weighted mean aggregate diameter</td>
-</tr>
-<tr>
-<td>d13ZOO</td>
-<td>lon, lat, depth, time</td>
-<td>permil</td>
-<td>delta13C of zooplankton</td>
-</tr>
-<tr>
-<td>Chl</td>
-<td>lon, lat, depth, time</td>
-<td>mg Chl/m3</td>
-<td>Chlorophyll concentration</td>
-</tr>
-<tr>
-<td>I_lim_cya</td>
-<td>lon, lat, depth, time</td>
-<td>N/A</td>
-<td>Light limitation of cyanobacteria growth</td>
-</tr>
-<tr>
-<td>d13CAL</td>
-<td>lon, lat, depth, time</td>
-<td>permil</td>
-<td>delta13C of calcite</td>
-</tr>
-<tr>
-<td>CO2flux</td>
-<td>lon, lat, month, time</td>
-<td>kg C m-2 yr-1</td>
-<td>CO2 surface flux (positive into ocean)</td>
-</tr>
-<tr>
-<td>frac_poc_aq</td>
-<td>lon, lat, month, time</td>
-<td>permil</td>
-<td>fractionation from dissolved CO2 to POC</td>
-</tr>
-<tr>
-<td>N2</td>
-<td>lon, lat, depth, time</td>
-<td>mmol/m3</td>
-<td>dinitrogen</td>
-</tr>
-<tr>
-<td>rem_POC_N</td>
-<td>lon, lat, depth, time</td>
-<td>kmol Pm-3 d-1</td>
-<td>remineralisation of POC by nitrogen</td>
-</tr>
-<tr>
-<td>phosy_cya</td>
-<td>lon, lat, depth, time</td>
-<td>mol C m-3 d-1</td>
-<td>photosynthesis by cyanobacteria</td>
-</tr>
-<tr>
-<td>visco</td>
-<td>lon, lat, depth, time</td>
-<td>kg m-1 s-1</td>
-<td>seawater viscosity</td>
-</tr>
-<tr>
-<td>CaCO3</td>
-<td>lon, lat, depth, time</td>
-<td>mmolC/m3</td>
-<td>calcite</td>
-</tr>
-<tr>
-<td>exp2000_opal</td>
-<td>lon, lat, month, time</td>
-<td>mol Si m-2 yr-1</td>
-<td>opal export at 2000 m</td>
-</tr>
-<tr>
-<td>flx_inp_Si</td>
-<td>lon, lat, time</td>
-<td>mol m-2 yr-1</td>
-<td>Silicate input flux at the surface</td>
-</tr>
-<tr>
-<td>denit_int</td>
-<td>lon, lat, month, time</td>
-<td>mol N m-2 yr-1</td>
-<td>vertically integrated denitrification</td>
-</tr>
-<tr>
-<td>O2</td>
-<td>lon, lat, depth, time</td>
-<td>mol/m3</td>
-<td>oxygen</td>
-</tr>
-<tr>
-<td>TCO213</td>
-<td>lon, lat, depth, time</td>
-<td>micro-molC/l</td>
-<td>dissolved inorganic carbon C13</td>
-</tr>
-<tr>
-<td>NO3_lim</td>
-<td>lon, lat, depth, time</td>
-<td>N/A</td>
-<td>Nitrogen limitation of primary production</td>
-</tr>
-<tr>
-<td>pco2</td>
-<td>lon, lat, month, time</td>
-<td>ppm</td>
-<td>CO2 partial pressure</td>
-</tr>
-<tr>
-<td>exp1000_CaCO3</td>
-<td>lon, lat, month, time</td>
-<td>mol C m-2 yr-1</td>
-<td>calcium carbonate export at 1000 m</td>
-</tr>
-<tr>
-<td>exp2000_CaCO3</td>
-<td>lon, lat, month, time</td>
-<td>mol C m-2 yr-1</td>
-<td>calcium carbon export at 2000 m</td>
-</tr>
-<tr>
-<td>TAlk</td>
-<td>lon, lat, depth, time</td>
-<td>micro-mol/l</td>
-<td>total alaklinity</td>
-</tr>
-<tr>
-<td>flx_inp_DOC</td>
-<td>lon, lat, time</td>
-<td>mol m-2 yr-1</td>
-<td>Dissolved organic carbon input flux at the surface</td>
-</tr>
-<tr>
-<td>N2fix_int</td>
-<td>lon, lat, month, time</td>
-<td>mol N m-2 yr-1</td>
-<td>vertically integrated N2 fixation</td>
-</tr>
-<tr>
-<td>exp100_opal</td>
-<td>lon, lat, month, time</td>
-<td>mol Si m-2 yr-1</td>
-<td>opal export at 100 m</td>
-</tr>
-<tr>
-<td>CO2fxd</td>
-<td>lon, lat, month, time</td>
-<td>mol C m-2 yr-1</td>
-<td>CO2 flux down (into the ocean)</td>
-</tr>
-<tr>
-<td>exp1000_opal</td>
-<td>lon, lat, month, time</td>
-<td>mol Si m-2 yr-1</td>
-<td>opal export at 1000 m</td>
-</tr>
-<tr>
-<td>npp_int_cya</td>
-<td>lon, lat, month, time</td>
-<td>gC m-2 yr-1</td>
-<td>vertically integrated photosynthesis by cyanobacteria</td>
-</tr>
-<tr>
-<td>flx_inp_POC</td>
-<td>lon, lat, time</td>
-<td>mol m-2 yr-1</td>
-<td>Particulate organic carbon input flux at the surface</td>
-</tr>
-<tr>
-<td>stickiness_agg</td>
-<td>lon, lat, depth, time</td>
-<td>?</td>
-<td>mean stickiness of aggregates</td>
+<td>potential photosynthesis (light and temperature limited)</td>
 </tr>
 <tr>
 <td>phosy</td>
@@ -917,10 +737,40 @@
 <td>photosynthesis</td>
 </tr>
 <tr>
-<td>NO3</td>
+<td>phosy_cya</td>
 <td>lon, lat, depth, time</td>
-<td>mmol/m3</td>
-<td>nitrate</td>
+<td>mol C m-3 d-1</td>
+<td>photosynthesis by cyanobacteria</td>
+</tr>
+<tr>
+<td>PHY</td>
+<td>lon, lat, depth, time</td>
+<td>mmol P/m3</td>
+<td>phytoplankton</td>
+</tr>
+<tr>
+<td>phy_gr</td>
+<td>lon, lat, depth, time</td>
+<td>d-1</td>
+<td>phytoplankton growth rate</td>
+</tr>
+<tr>
+<td>PO4</td>
+<td>lon, lat, depth, time</td>
+<td>micro-mol/l</td>
+<td>phosphate</td>
+</tr>
+<tr>
+<td>PO4_lim</td>
+<td>lon, lat, depth, time</td>
+<td>N/A</td>
+<td>Phosphorus limitation of primary production</td>
+</tr>
+<tr>
+<td>PO4_lim_cya</td>
+<td>lon, lat, depth, time</td>
+<td>N/A</td>
+<td>Phosphorus limitation of cyanobacteria growth</td>
 </tr>
 <tr>
 <td>POC</td>
@@ -929,16 +779,166 @@
 <td>particulate organic carbon</td>
 </tr>
 <tr>
-<td>O2flux</td>
-<td>lon, lat, month, time</td>
-<td>mol O2 m-2 yr-1</td>
-<td>O2 surface flux</td>
-</tr>
-<tr>
-<td>CaCO3_disso</td>
+<td>POC_prod</td>
 <td>lon, lat, depth, time</td>
 <td>kmol C m-3 d-1</td>
-<td>calcite dissolution</td>
+<td>particulate organic carbon production</td>
+</tr>
+<tr>
+<td>rain_100</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>rain ratio (C[CaCO3]/C[POC]) at 100 m</td>
+</tr>
+<tr>
+<td>rain_1000</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>rain ratio (C[CaCO3]/C[POC]) at 1000 m</td>
+</tr>
+<tr>
+<td>rain_2000</td>
+<td>lon, lat, month, time</td>
+<td>/</td>
+<td>rain ratio (C[CaCO3]/C[POC]) at 2000 m</td>
+</tr>
+<tr>
+<td>rem_POC_N</td>
+<td>lon, lat, depth, time</td>
+<td>kmol Pm-3 d-1</td>
+<td>remineralisation of POC by nitrogen</td>
+</tr>
+<tr>
+<td>rem_POC_O2</td>
+<td>lon, lat, depth, time</td>
+<td>kmol Pm-3 d-1</td>
+<td>remineraliastion of POC by oxygen</td>
+</tr>
+<tr>
+<td>rem_POC_S</td>
+<td>lon, lat, depth, time</td>
+<td>kmol Pm-3 d-1</td>
+<td>remineralisation of POC by sulfate</td>
+</tr>
+<tr>
+<td>rem_via_grazer</td>
+<td>lon, lat, depth, time</td>
+<td>kmol Pm-3 d-1</td>
+<td>remineralisation via grazer</td>
+</tr>
+<tr>
+<td>sedflualk</td>
+<td>lon, lat, month, time</td>
+<td>mol m-2 yr-1</td>
+<td>sedimentflux to ocean alkalinity</td>
+</tr>
+<tr>
+<td>sedfludic</td>
+<td>lon, lat, month, time</td>
+<td>mol C m-2 yr-1</td>
+<td>sedimentflux to ocean dissolved inorganic carbon</td>
+</tr>
+<tr>
+<td>sedflufe</td>
+<td>lon, lat, month, time</td>
+<td>mol Fe m-2 yr-1</td>
+<td>sedimentflux to ocean iron</td>
+</tr>
+<tr>
+<td>sedflun2</td>
+<td>lon, lat, month, time</td>
+<td>mol N m-2 yr-1</td>
+<td>sedimentflux to ocean nitrogen</td>
+</tr>
+<tr>
+<td>sedfluno3</td>
+<td>lon, lat, month, time</td>
+<td>mol N m-2 yr-1</td>
+<td>sedimentflux to ocean nitrate</td>
+</tr>
+<tr>
+<td>sedfluo2</td>
+<td>lon, lat, month, time</td>
+<td>mol O2 m-2 yr-1</td>
+<td>sedimentflux to ocean oxygen</td>
+</tr>
+<tr>
+<td>sedflupo4</td>
+<td>lon, lat, month, time</td>
+<td>mol P m-2 yr-1</td>
+<td>sedimentflux to ocean phosphate</td>
+</tr>
+<tr>
+<td>sedflusi</td>
+<td>lon, lat, month, time</td>
+<td>mol Si m-2 yr-1</td>
+<td>sedimentflux to ocean silicate</td>
+</tr>
+<tr>
+<td>Si</td>
+<td>lon, lat, depth, time</td>
+<td>mmol/m3</td>
+<td>silicate</td>
+</tr>
+<tr>
+<td>stickiness_agg</td>
+<td>lon, lat, depth, time</td>
+<td>?</td>
+<td>mean stickiness of aggregates</td>
+</tr>
+<tr>
+<td>stickiness_frustule</td>
+<td>lon, lat, depth, time</td>
+<td>?</td>
+<td>stickiness of diatom frustules</td>
+</tr>
+<tr>
+<td>T_lim_cya</td>
+<td>lon, lat, depth, time</td>
+<td>N/A</td>
+<td>Temperature limitation of cyanobacteria growth</td>
+</tr>
+<tr>
+<td>TAlk</td>
+<td>lon, lat, depth, time</td>
+<td>micro-mol/l</td>
+<td>total alaklinity</td>
+</tr>
+<tr>
+<td>TCO2</td>
+<td>lon, lat, depth, time</td>
+<td>micro-molC/l</td>
+<td>total dissolved inorganic C12</td>
+</tr>
+<tr>
+<td>TCO213</td>
+<td>lon, lat, depth, time</td>
+<td>micro-molC/l</td>
+<td>dissolved inorganic carbon C13</td>
+</tr>
+<tr>
+<td>TCO214</td>
+<td>lon, lat, depth, time</td>
+<td>micro-molC/l</td>
+<td>dissolved inorganic carbon C14</td>
+</tr>
+<tr>
+<td>visco</td>
+<td>lon, lat, depth, time</td>
+<td>kg m-1 s-1</td>
+<td>seawater viscosity</td>
+</tr>
+<tr>
+<td>wpoc</td>
+<td>lon, lat, depth, time</td>
+<td>m/day</td>
+<td>POC sinkspeed</td>
+</tr>
+<tr>
+<td>ZOO</td>
+<td>lon, lat, depth, time</td>
+<td>mmol P/m3</td>
+<td>zooplankton</td>
 </tr>
 </tbody>
 </table>
