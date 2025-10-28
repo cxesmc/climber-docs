@@ -107,7 +107,8 @@
 <h2 id="climate-only">Climate only</h2>
 <p>The default parameters in the control namelist (<code>nml/control.nml</code>) are set to pre-industrial conditions. 
 Running a climate-only pre-industrial equilibrium spinup therefore doesn't require any specific changes: </p>
-<pre><code class="language-bash">./runme -rs -q short -w 24:00:00 --omp 32 -o output/pi_spinup -p ctl.nyears=5000 ctl.i_write_restart=1
+<pre><code class="language-bash">./runme -rs -q short -w 24:00:00 --omp 32 -o output/pi_spinup \
+-p ctl.nyears=5000 ctl.i_write_restart=1
 </code></pre>
 <p>This simulation corresponds to the standard CMIP experiment <strong>piControl</strong>.</p>
 <p>The length of the simulation is set to 5000 years (which is also the default), which is generally enough to reach an equilibrium of the climate system.
@@ -115,7 +116,8 @@ Running a climate-only pre-industrial equilibrium spinup therefore doesn't requi
 <p>The pre-industrial equilibrium state of a given model release is generally included in the <code>restart/pi</code> directory, which is also the default directory from where restart files are read (<code>ctl.restart_in_dir</code>).</p>
 <h2 id="with-carbon-cycle-closed">With carbon cycle (<em>closed</em>)</h2>
 <p>To spin up the model including the carbon cycle, the ocean biogeochemistry module needs to be enabled (<code>ctl.flag_bgc=T</code>):</p>
-<pre><code class="language-bash">./runme -rs -q medium -w 60:00:00 --omp 32 -o output/pi_spinup_cc -p ctl.nyears=10000 ctl.flag_bgc=T ctl.bgc_restart=F ctl.i_write_restart=1
+<pre><code class="language-bash">./runme -rs -q medium -w 60:00:00 --omp 32 -o output/pi_spinup_cc -p \
+ctl.nyears=10000 ctl.flag_bgc=T ctl.bgc_restart=F ctl.i_write_restart=1
 </code></pre>
 <p>This simulation should generally be run a bit longer than the climate-only spinup, in particular to allow equilibration of the slow soil carbon pools. The <code>ctl.bgc_restart=F</code> specifies that the biogeochemistry module is not initialized from a previously computed state, but uses present-day observation of the tracer concentrations instead.
 The land carbon cycle is active also in the climate-only setup, and whenever <code>ctl.flag_lnd=T</code>.</p>
@@ -124,7 +126,10 @@ The land carbon cycle is active also in the climate-only setup, and whenever <co
 <p>The pre-industrial equilibrium state of a given model release, including biogeochemistry, is generally included in the <code>restart/pi</code> directory, which is also the default directory from where restart files are read (<code>ctl.restart_in_dir</code>).</p>
 <h2 id="with-carbon-cycle-open">With carbon cycle (<em>open</em>)</h2>
 <p>The spinup procedure for the <em>open</em> carbon cycle spinup is a bit more complicated and requires a simulation of at least 100,000 years in order to reach an approximate equilibrium of the carbon cycle system. Chemical weathering on land and marine sediments need to be enabled with <code>ctl.l_weathering=T bgc.l_sediments=T</code> and various carbon cycle spinup flags need to be set (<code>ctl.l_spinup_cc=T ctl.nyears_spinup_bgc=5000 ctl.year_start_offline=1000000 bgc.l_spinup_bgc=T bgc.l_spinup_sed=T</code>):</p>
-<pre><code class="language-bash">./runme -rs -q long -w 200:00:00 --omp 32 -o output/pi_spinup_cc_open -p ctl.nyears=100000 ctl.flag_bgc=T ctl.bgc_restart=F ctl.i_write_restart=1 ctl.l_spinup_cc=T ctl.nyears_spinup_bgc=5000 ctl.year_start_offline=1000000 bgc.l_spinup_bgc=T bgc.l_spinup_sed=T ctl.l_weathering=T bgc.l_sediments=T
+<pre><code class="language-bash">./runme -rs -q long -w 200:00:00 --omp 32 -o output/pi_spinup_cc_open \
+-p ctl.nyears=100000 ctl.flag_bgc=T ctl.bgc_restart=F ctl.i_write_restart=1 \
+ctl.l_spinup_cc=T ctl.nyears_spinup_bgc=5000 ctl.year_start_offline=1000000 bgc.l_spinup_bgc=T bgc.l_spinup_sed=T \
+ctl.l_weathering=T bgc.l_sediments=T
 </code></pre>
 <p>The pre-industrial equilibrium state of a given model release, including biogeochemistry in an <em>open</em> carbon cycle setup, is generally included in the <code>restart/pi_cc_open</code>. </p>
 <h2 id="with-ice-sheets">With ice sheets</h2>
