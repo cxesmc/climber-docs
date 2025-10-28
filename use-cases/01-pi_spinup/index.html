@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>piControl - CLIMBER-X-docs</title>
+    <title>Pre-industrial spinup - CLIMBER-X-docs</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "piControl";
-        var mkdocs_page_input_path = "use-cases/01-piControl/index.md";
+        var mkdocs_page_name = "Pre-industrial spinup";
+        var mkdocs_page_input_path = "use-cases/01-pi_spinup/index.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -58,17 +58,19 @@
               </ul>
               <p class="caption"><span class="caption-text">Use cases</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">piControl</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Pre-industrial spinup</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#basic-run">Basic run</a>
+    <li class="toctree-l2"><a class="reference internal" href="#climate-only">Climate only</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#typical-output">Typical output</a>
+    <li class="toctree-l2"><a class="reference internal" href="#with-carbon-cycle-closed">With carbon cycle (closed)</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#alternate-configurations">Alternate configurations</a>
+    <li class="toctree-l2"><a class="reference internal" href="#with-carbon-cycle-open">With carbon cycle (open)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#with-ice-sheets">With ice sheets</a>
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../02-historical/">historical</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../02-historical/">Historical</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Output description</span></p>
@@ -91,7 +93,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
           <li class="breadcrumb-item">Use cases</li>
-      <li class="breadcrumb-item active">piControl</li>
+      <li class="breadcrumb-item active">Pre-industrial spinup</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -100,23 +102,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="picontrol">piControl</h1>
-<p>Pre-industrial control spinup </p>
-<p>(General description)
-(Link to some CMIP info? protocols, whatever)</p>
-<h2 id="basic-run">Basic run</h2>
-<pre><code class="language-bash">./runme -rs -q short -w 24:00:00 --omp 32 -o output/piControl -p ctl.nyears=10000 ctl.i_write_restart=1
+                <h1 id="pre-industrial-spinup">Pre-industrial spinup</h1>
+<p>Instructions to perform a pre-industrial spinup simulation.</p>
+<h2 id="climate-only">Climate only</h2>
+<p>The default parameters in the control namelist (<code>nml/control.nml</code>) are set to pre-industrial conditions. 
+Running a climate-only pre-industrial equilibrium spinup therefore doesn't require any specific changes: </p>
+<pre><code class="language-bash">./runme -rs -q short -w 24:00:00 --omp 32 -o output/pi_spinup -p ctl.nyears=5000 ctl.i_write_restart=1
 </code></pre>
-<p>(Explain parameters choices, etc)</p>
-<h2 id="typical-output">Typical output</h2>
-<h2 id="alternate-configurations">Alternate configurations</h2>
-<p>...</p>
+<p>This simulation corresponds to the standard CMIP experiment <strong>piControl</strong>.</p>
+<p>The length of the simulation is set to 5000 years (which is also the default), which is generally enough to reach an equilibrium of the climate system.
+<code>ctl.i_write_restart=1</code> enforces a regular writing of the restart files every 1000 years. By default the restart files are written out only at the end of the simulation.</p>
+<p>The pre-industrial equilibrium state of a given model release is generally included in the <code>restart/pi</code> directory, which is also the default directory from where restart files are read (<code>ctl.restart_in_dir</code>).</p>
+<h2 id="with-carbon-cycle-closed">With carbon cycle (<em>closed</em>)</h2>
+<p>To spin up the model including the carbon cycle, the ocean biogeochemistry module needs to be enabled (<code>ctl.flag_bgc=T</code>):</p>
+<pre><code class="language-bash">./runme -rs -q medium -w 60:00:00 --omp 32 -o output/pi_spinup_cc -p ctl.nyears=10000 ctl.flag_bgc=T ctl.bgc_restart=F ctl.i_write_restart=1
+</code></pre>
+<p>This simulation should generally be run a bit longer than the climate-only spinup, in particular to allow equilibration of the slow soil carbon pools. The <code>ctl.bgc_restart=F</code> specifies that the biogeochemistry module is not initialized from a previously computed state, but uses present-day observation of the tracer concentrations instead.
+The land carbon cycle is active also in the climate-only setup, and whenever <code>ctl.flag_lnd=T</code>.</p>
+<p>This simulation corresponds to the standard CMIP experiment <strong>esm-piControl</strong>.</p>
+<p>The default carbon cycle configuration in the model is the so-called <em>closed</em> setup, in which marine sediments and weathering fluxes from continental weathering are disabled. This setup is expected to work reasonably well for time scales up to a few millennial. For longer-term simulations the <code>open</code> carbon cycle setup described below should be used.</p>
+<p>The pre-industrial equilibrium state of a given model release, including biogeochemistry, is generally included in the <code>restart/pi</code> directory, which is also the default directory from where restart files are read (<code>ctl.restart_in_dir</code>).</p>
+<h2 id="with-carbon-cycle-open">With carbon cycle (<em>open</em>)</h2>
+<p>The spinup procedure for the <em>open</em> carbon cycle spinup is a bit more complicated and requires a simulation of at least 100,000 years in order to reach an approximate equilibrium of the carbon cycle system. Chemical weathering on land and marine sediments need to be enabled with <code>ctl.l_weathering=T bgc.l_sediments=T</code> and various carbon cycle spinup flags need to be set (<code>ctl.l_spinup_cc=T ctl.nyears_spinup_bgc=5000 ctl.year_start_offline=1000000 bgc.l_spinup_bgc=T bgc.l_spinup_sed=T</code>):</p>
+<pre><code class="language-bash">./runme -rs -q long -w 200:00:00 --omp 32 -o output/pi_spinup_cc_open -p ctl.nyears=100000 ctl.flag_bgc=T ctl.bgc_restart=F ctl.i_write_restart=1 ctl.l_spinup_cc=T ctl.nyears_spinup_bgc=5000 ctl.year_start_offline=1000000 bgc.l_spinup_bgc=T bgc.l_spinup_sed=T ctl.l_weathering=T bgc.l_sediments=T
+</code></pre>
+<p>The pre-industrial equilibrium state of a given model release, including biogeochemistry in an <em>open</em> carbon cycle setup, is generally included in the <code>restart/pi_cc_open</code>. </p>
+<h2 id="with-ice-sheets">With ice sheets</h2>
+<pre><code class="language-bash">./runme -rs -q medium --omp 32 -o output/pi_ice_nh -p ctl.nyears=100000 ctl.n_accel=10 ctl.flag_geo=T ctl.flag_ice=T ctl.flag_smb=T ctl.flag_bmb=T ctl.ice_domain_name=NH-32KM ctl.ice_model_name=yelmo
+</code></pre>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../../quick-start/" class="btn btn-neutral float-left" title="Quick start"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../02-historical/" class="btn btn-neutral float-right" title="historical">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../02-historical/" class="btn btn-neutral float-right" title="Historical">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
