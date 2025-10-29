@@ -1,5 +1,6 @@
 
-## Directory structure
+# Directory structure
+
 ```fortran
     config/
         Configuration files for compilation on different systems.

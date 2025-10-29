@@ -31,6 +31,11 @@ installation instructions are available from the Unidata website:
 
 [https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html](https://www.unidata.ucar.edu/software/netcdf/docs/getting_and_building_netcdf.html)
 
+## Installing CDO
+
+The Climate Data Operators can be installed following the instructions here:
+[https://code.mpimet.mpg.de/projects/cdo/](https://code.mpimet.mpg.de/projects/cdo/embedded/index.html#x1-30001.1)
+
 ## Installing coordinates
 
 Download the coordinates source:
@@ -48,7 +53,7 @@ make coord-static openmp=1
 
 ## Install LIS, FFTW and utils
 
-These packages could be installed individually and linked into the main directories of Yelmox and Yelmo. However, to ensure the right versions are used, etc., we have now made a separate repository for managing the installation of LIS and FFTW from the versions available in that repository, as well as some custom modules. This repository is managed as part of the Fast Earth System Model Community (FESMC).
+These packages could be installed individually and linked into the main directories of climber-x and yelmo. However, to ensure the right versions are used, etc., we have now made a separate repository for managing the installation of LIS and FFTW from the versions available in that repository, as well as some custom modules. This repository is managed as part of the Fast Earth System Model Community (FESMC).
 
 Please download the code from this repository and see the README for installation instructions:
 [https://github.com/fesmc/fesm-utils](https://github.com/fesmc/fesm-utils)

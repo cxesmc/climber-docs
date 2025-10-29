@@ -4,16 +4,16 @@ nav:
     - Getting started:
       - Getting started: getting-started.md
       - Installation: installation.md
-#      - Running on an HPC: running-on-hpc.md
       - Usage: usage.md
       - Dependencies: dependencies.md
       - Quick start: quick-start.md
     - Use cases:
-      - piControl: use-cases/01-piControl/index.md
-      - historical: use-cases/02-historical/index.md
-    - Variables lists: 
-      - atm.nc: climber-variables-atm.md
-    - GitHub: https://github.com/cxesmc
+      - Pre-industrial spinup: use-cases/01-pi_spinup/index.md
+      - Historical: use-cases/02-historical/index.md
+    - Output description: 
+      - Output files:    var_lists/index.md
+
+#    - GitHub: https://github.com/cxesmc
 
 #theme: mkdocs
 theme:
