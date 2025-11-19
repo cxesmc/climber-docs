@@ -12,8 +12,9 @@ nav:
       - Historical: use-cases/02-historical/index.md
     - Output description: 
       - Output files:    var_lists/index.md
-
-#    - GitHub: https://github.com/cxesmc
+    - Workshops:
+      - Workshop 2025: workshops/2025/index.md
+    - GitHub CLIMBER-X: https://github.com/cxesmc/climber-x
 
 #theme: mkdocs
 theme:
