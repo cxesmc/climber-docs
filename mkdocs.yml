@@ -1,10 +1,20 @@
 site_name: CLIMBER-X-docs
 nav:
     - Home: index.md
-    - Getting started: getting-started.md
-    - Running on an HPC: running-on-hpc.md
-    - Dependencies: dependencies.md
-    - Variables list: climber-variables-atm.md
+    - Getting started:
+      - Getting started: getting-started.md
+      - Installation: installation.md
+      - Usage: usage.md
+      - Dependencies: dependencies.md
+      - Quick start: quick-start.md
+    - Use cases:
+      - Pre-industrial spinup: use-cases/01-pi_spinup/index.md
+      - Historical: use-cases/02-historical/index.md
+    - Output description: 
+      - Output files:    var_lists/index.md
+
+#    - GitHub: https://github.com/cxesmc
+
 #theme: mkdocs
 theme:
     name: readthedocs
