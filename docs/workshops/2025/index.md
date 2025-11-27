@@ -15,8 +15,8 @@ Welcome to the inugural workshop. The goal is to discuss how CLIMBER-X can be us
 | --- | --- | --- |
 | **09:00 – 09:05** | **Welcome** 
 | **Introduction** 
-| 09:05 – 09:15	| Why CLIMBER-X? 				| Andrey Ganopolski |
-| 09:15 – 09:30	| History of development and current state 	| Matteo Willeit |
+| 09:05 – 09:20	| Why CLIMBER-X? 				| Andrey Ganopolski |
+| 09:20 – 09:30	| History of development and current state 	| Matteo Willeit |
 | **Technical aspects** 
 | 09:30 – 09:40	| Organization of repositories 			| Alex Robinson |
 | 09:40 – 09:50	| Documentation 				| Alex Robinson
@@ -37,7 +37,7 @@ Welcome to the inugural workshop. The goal is to discuss how CLIMBER-X can be us
 | 13:30 – 13:45	| Dansgaard-Oeschger + Heinrich events 		| Matteo Willeit
 | 13:45 – 14:00	| Last deglaciation – carbon cycle		| Malte Heinemann
 | 14:00 – 14:15	| Greenland – LGM and deglaciation		| Lucía Gutiérrez González
-| 14:15 – 14:40	| Deep past – Late Paleozoic Ice Ages		| Julius Eberhard, Karoline Ramin, Louis Lacassagne |
+| 14:15 – 14:40	| Deep past – Paleozoic Ice Ages		| Julius Eberhard, Karoline Ramin, Louis Lacassagne |
 | **14:40 – 15:00** | **Discussion and outlook**
 | **15:00 – 15:30** | **Mixer**
 | **End**
