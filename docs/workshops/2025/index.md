@@ -3,9 +3,11 @@
 
 Welcome to the inugural workshop. The goal is to discuss how CLIMBER-X can be used in a very practical way, and outline what it is being used for so far, and ideas for how it can be improved in the future.
 
-**Date:** 05 December 2025, 9:00–15:00 CET (Berlin)
+**Date:** 05 December 2025, 9:00–15:30 CET (Berlin)
+
 **Location:** PIK, Potsdam, Telegrafenberg A56, Hasselmann Hall  
-**Zoom link:** *(not provided)*
+
+**Zoom link:** [https://pik-potsdam.zoom-x.de/j/65685784025?pwd=nW498HRV8lQHCsrsLKklYJ5JGuav8d.1](https://pik-potsdam.zoom-x.de/j/65685784025?pwd=nW498HRV8lQHCsrsLKklYJ5JGuav8d.1)
 
 ## Schedule
 
@@ -20,6 +22,7 @@ Welcome to the inugural workshop. The goal is to discuss how CLIMBER-X can be us
 | 09:40 – 09:50	| Documentation 				| Alex Robinson
 | 09:50 – 10:00	| Code organization 				| Matteo Willeit
 | 10:00 – 10:10	| Controlling and understanding output		| Matteo Willeit
+| 10:10 – 10:20	| *runme*: running the model			| Alex Robinson
 | **Model capabilities**
 | 10:10 – 10:30 | What can CLIMBER-X do/not do? 		| Matteo Willeit
 | **10:30 – 11:00** | **Coffee break** |
@@ -34,8 +37,9 @@ Welcome to the inugural workshop. The goal is to discuss how CLIMBER-X can be us
 | 13:30 – 13:45	| Dansgaard-Oeschger + Heinrich events 		| Matteo Willeit
 | 13:45 – 14:00	| Last deglaciation – carbon cycle		| Malte Heinemann
 | 14:00 – 14:15	| Greenland – LGM and deglaciation		| Lucía Gutiérrez González
-| 14:15 – 14:35	| Deep past – Late Paleozoic Ice Ages		| Julius Eberhard, Karoline Ramin, Louis Lacassagne |
-| **14:40 – 15:00** | **General discussion**
+| 14:15 – 14:40	| Deep past – Late Paleozoic Ice Ages		| Julius Eberhard, Karoline Ramin, Louis Lacassagne |
+| **14:40 – 15:00** | **Discussion and outlook**
+| **15:00 – 15:30** | **Mixer**
 | **End**
 
 
