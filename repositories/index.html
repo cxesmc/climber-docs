@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Output files - CLIMBER-X-docs</title>
+    <title>CLIMBER-X repository overview - CLIMBER-X-docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Output files";
-        var mkdocs_page_input_path = "var_lists/index.md";
+        var mkdocs_page_name = "CLIMBER-X repository overview";
+        var mkdocs_page_input_path = "repositories.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -64,38 +64,8 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Output description</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Output files</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#atmosphere">Atmosphere</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ocean">Ocean</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#sea-ice">Sea ice</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#land">Land</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ocean-biogeochemistry">Ocean biogeochemistry</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#atmospheric-co2">Atmospheric CO2</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#atmospheric-ch4">Atmospheric CH4</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#geography-and-topography">Geography and Topography</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ice-sheets">Ice sheets</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#yelmo">Yelmo</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#sicopolis">SICOPOLIS</a>
-    </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#surface-mass-balance-of-ice-sheets">Surface mass balance of ice sheets</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#basal-mass-balance-of-ice-sheets">Basal mass balance of ice sheets</a>
-    </li>
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../var_lists/">Output files</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Workshops</span></p>
@@ -128,8 +98,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Output description</li>
-      <li class="breadcrumb-item active">Output files</li>
+      <li class="breadcrumb-item active">CLIMBER-X repository overview</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -138,79 +107,64 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="output-files">Output files</h1>
-<p>Each model component has its own separate output files, one for the spatially explicit output (<code>*.nc</code>) and one for the output of global/integrated/averaged time series (<code>*_ts.nc</code>).</p>
-<h2 id="atmosphere">Atmosphere</h2>
+                <h1 id="climber-x-repository-overview">CLIMBER-X repository overview</h1>
+<p>Repositories are organized into several communities.</p>
 <ul>
-<li><a href="atm/">atm.nc</a></li>
-<li><a href="atm_ts/">atm_ts.nc</a></li>
+<li><code>cxesmc</code> on GitHub: the main CLIMBER-X ESM community - for CLIMBER-X specific development.</li>
+<li><code>cxesmc</code> on PIK-Gitlab: necessary for housing large input files (otherwise GitHub home would be enough).</li>
+<li><code>fesmc</code> on GitHub: the Fast ESM community - for shared resources.</li>
+<li><code>palma-ice</code> on GitHub: the PalMA ice-sheet modeling group at the Complutense University of Madrid, where the ice-sheet model Yelmo is developed.</li>
 </ul>
-<h2 id="ocean">Ocean</h2>
-<ul>
-<li><a href="ocn/">ocn.nc</a></li>
-<li><a href="ocn_ts/">ocn_ts.nc</a></li>
-</ul>
-<h2 id="sea-ice">Sea ice</h2>
-<ul>
-<li><a href="sic/">sic.nc</a></li>
-<li><a href="sic_ts/">sic_ts.nc</a></li>
-</ul>
-<h2 id="land">Land</h2>
-<ul>
-<li><a href="lnd_carb/">lnd_carb.nc</a></li>
-<li><a href="lnd_lake/">lnd_lake.nc</a></li>
-<li><a href="lnd_soil/">lnd_soil.nc</a></li>
-<li><a href="lnd_surf/">lnd_surf.nc</a></li>
-<li><a href="lnd_ts/">lnd_ts.nc</a></li>
-</ul>
-<h2 id="ocean-biogeochemistry">Ocean biogeochemistry</h2>
-<ul>
-<li><a href="bgc/">bgc.nc</a></li>
-<li><a href="bgc_ts/">bgc_ts.nc</a></li>
-</ul>
-<h2 id="atmospheric-co2">Atmospheric CO2</h2>
-<ul>
-<li><a href="co2_ts/">co2_ts.nc</a></li>
-</ul>
-<h2 id="atmospheric-ch4">Atmospheric CH4</h2>
-<ul>
-<li><a href="ch4_ts/">ch4_ts.nc</a></li>
-</ul>
-<h2 id="geography-and-topography">Geography and Topography</h2>
-<ul>
-<li><a href="geo_hires/">geo_hires.nc</a></li>
-<li><a href="geo/">geo.nc</a></li>
-<li><a href="geo_ts/">geo_ts.nc</a></li>
-</ul>
-<h2 id="ice-sheets">Ice sheets</h2>
-<p>All ice-sheets related output will have a separate output file for each of the ice sheet domains, with the domain name included in the file name.</p>
-<h3 id="yelmo">Yelmo</h3>
-<ul>
-<li><a href="ice_yelmo/">ice.nc</a></li>
-<li><a href="ice_yelmo_ts/">ice_ts.nc</a></li>
-</ul>
-<h3 id="sicopolis">SICOPOLIS</h3>
-<ul>
-<li><a href="ice_sico/">ice.nc</a></li>
-<li><a href="ice_sico_ts/">ice_ts.nc</a></li>
-</ul>
-<h2 id="surface-mass-balance-of-ice-sheets">Surface mass balance of ice sheets</h2>
-<ul>
-<li><a href="smb/">smb.nc</a></li>
-<li><a href="smb_ts/">smb_ts.nc</a></li>
-</ul>
-<h2 id="basal-mass-balance-of-ice-sheets">Basal mass balance of ice sheets</h2>
-<ul>
-<li><a href="bmb/">bmb.nc</a></li>
-<li><a href="bmb_ts/">bmb_ts.nc</a></li>
-</ul>
+<h2 id="repository-list">Repository list</h2>
+<table>
+<thead>
+<tr>
+<th>Repository</th>
+<th>Level</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main CLIMBER-X code base</td>
+<td>base</td>
+<td><a href="https://github.com/cxesmc/climber-x">https://github.com/cxesmc/climber-x</a></td>
+</tr>
+<tr>
+<td>CLIMBER-X input files</td>
+<td>base</td>
+<td><a href="https://gitlab.pik-potsdam.de/cxesmc/climber-x-input">https://gitlab.pik-potsdam.de/cxesmc/climber-x-input</a></td>
+</tr>
+<tr>
+<td>FESM Utilities</td>
+<td>base</td>
+<td><a href="https://github.com/fesmc/fesm-utils">https://github.com/fesmc/fesm-utils</a></td>
+</tr>
+<tr>
+<td>Coordinates package</td>
+<td>base</td>
+<td><a href="https://github.com/fesmc/coordinates">https://github.com/fesmc/coordinates</a></td>
+</tr>
+<tr>
+<td>Biogeochemistry (BGC, i.e. HAMOCC)$^*$</td>
+<td>optional</td>
+<td><a href="https://github.com/cxesmc/bgc">https://github.com/cxesmc/bgc</a></td>
+</tr>
+<tr>
+<td>Solid Earth model (VILMA)$^*$</td>
+<td>optional</td>
+<td><a href="https://github.com/cxesmc/vilma">https://github.com/cxesmc/vilma</a></td>
+</tr>
+<tr>
+<td>Ice-sheet model (Yelmo)</td>
+<td>optional</td>
+<td><a href="https://github.com/palma-ice/yelmo">https://github.com/palma-ice/yelmo</a></td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../use-cases/02-historical/" class="btn btn-neutral float-left" title="Historical"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../workshops/2025/" class="btn btn-neutral float-right" title="Workshop 2025">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -232,10 +186,6 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../use-cases/02-historical/" style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../workshops/2025/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
