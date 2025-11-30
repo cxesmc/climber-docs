@@ -1,7 +1,12 @@
 /* Make container wider */
 
-.container {
-    max-width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
+/* Make main content wider */
+.document {
+    max-width: 1200px !important;   /* or any width */
+    width: 100%;
+}
+
+/* Optional: widen inner section too */
+.document .section {
+    max-width: 1200px !important;
 }
