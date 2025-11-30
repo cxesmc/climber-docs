@@ -3,11 +3,11 @@
 /* Wider main document container */
 .document {
   max-width: 100% !important;
-  width: 100%;
+  width: 100% !important;
 }
 
 /* If there is a wrapper around the article section, also override it */
 .document .section {
   max-width: 100% !important;
-  width: 100%;
+  width: 100% !important;
 }
