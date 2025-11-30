@@ -18,6 +18,4 @@ The model dependencies vary according to the desired model configuration:
 
 See: [Dependencies](dependencies.md) for more details.
 
-Follow the steps in [Installation](installation.md) to get the code and compile the model and then you are ready to run
-your first simulations following the instructions in [Usage](usage.md)
-
+Follow the steps in [Installation](installation.md) to get the code and compile the model and then you are ready to run your first simulations. Learn about how to use the `runme` script to prepare simulations automatically ([runme-notes](runme-notes.md)), or see some examples in [quick-start](quick-start.md) or within the benchmark script in the main repository (`run_bench.sh`).

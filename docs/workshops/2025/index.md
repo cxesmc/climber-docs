@@ -20,8 +20,9 @@ Welcome to the inugural workshop. The goal is to discuss how CLIMBER-X can be us
 | 09:40 – 09:50 | Documentation          | Alex Robinson |
 | 09:50 – 10:00 | Code organization          | Matteo Willeit |
 | 10:00 – 10:10 | Controlling and understanding output | Matteo Willeit |
+| 10:10 – 10:20 | Using `runme` for submitting jobs    | Alex Robinson |
 | | **Model capabilities**| |
-| 10:10 – 10:30 | What can CLIMBER-X do/not do? | Matteo Willeit |
+| 10:20 – 10:30 | What can CLIMBER-X do/not do? | Matteo Willeit |
 | **10:30 – 11:00** | **Coffee break** | |
 | | **Specific use cases – Part 1** | |
 | 11:00 – 11:30 | Benchmarks           | Matteo Willeit |

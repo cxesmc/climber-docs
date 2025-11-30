@@ -1,4 +1,6 @@
-# Running CLIMBER-X
+# Running CLIMBER-X with `runme`
+
+## General steps to prepare a simulation
 
 After **CLIMBER-X** has been compiled, several steps must be completed to run the executable `climber.x`:
 

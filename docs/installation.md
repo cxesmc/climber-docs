@@ -16,9 +16,8 @@ The model dependencies vary according to the desired model configuration:
 
 See: [Dependencies](dependencies.md) for more details.
 
-
 Follow the steps below to (1) obtain the code, (2) configure the Makefile(s) for your system,
-(3) compile an executable program 
+(3) compile an executable program.
 
 ## 1. Get the code
 
@@ -45,7 +44,6 @@ git checkout -b user-dev
 
 You should now be working on the branch `user-dev`.
 
-
 If you would also like to run CLIMBER-X with an interactive carbon cycle, then the **HAMOCC**
 ocean biogeochemistry (`bgc`) code must also be downloaded:
 
@@ -64,7 +62,6 @@ Meteorology software licence agreement as part of the MPI-ESM ([https://code.mpi
 A pre-requisite to access the `bgc` repository is therefore that you agree to the MPI-ESM license
 by following the steps outlined here: [https://code.mpimet.mpg.de/projects/mpi-esm-license](https://code.mpimet.mpg.de/projects/mpi-esm-license).
 Once you have done so, send an email to [Matteo Willeit](mailto:matteo.willeit@gmail.com?subject=[GitHub]%20bgc%20source%20code) and you will be granted permission to access the `bgc` repository.
-
 
 If you would also like to run with an interactive ice sheet, the **Yelmo** ice-sheet code
 must be downloaded and configured and the solid Earth model **VILMA** libraries must be

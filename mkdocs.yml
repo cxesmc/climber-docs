@@ -3,9 +3,9 @@ nav:
     - Home: index.md
     - Getting started:
       - Getting started: getting-started.md
-      - Installation: installation.md
-      - Usage: usage.md
       - Dependencies: dependencies.md
+      - Installation: installation.md
+      - runme notes: runme-notes.md
       - Quick start: quick-start.md
     - Use cases:
       - Pre-industrial spinup: use-cases/01-pi_spinup/index.md
@@ -14,11 +14,11 @@ nav:
       - Output files:    var_lists/index.md
     - Workshops:
       - Workshop 2025: workshops/2025/index.md
-    - GitHub repos:
-      - Climber community: https://github.com/cxesmc
-      - CLIMBER-X: https://github.com/cxesmc/climber-x
-      - fesm-utils: https://github.com/fesmc/fesm-utils
-      - coordinates: https://github.com/fesmc/coordinates
+    #- GitHub repos:
+    #  - Climber community: https://github.com/cxesmc
+    #  - CLIMBER-X: https://github.com/cxesmc/climber-x
+    #  - fesm-utils: https://github.com/fesmc/fesm-utils
+    #  - coordinates: https://github.com/fesmc/coordinates
 
 #theme: mkdocs
 theme:
