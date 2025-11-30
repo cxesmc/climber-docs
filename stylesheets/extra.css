@@ -1,12 +1,13 @@
 /* Make container wider */
 
-/* Make main content wider */
+/* Wider main document container */
 .document {
-    max-width: 1200px !important;   /* or any width */
-    width: 100%;
+  max-width: 100% !important;
+  width: 100%;
 }
 
-/* Optional: widen inner section too */
+/* If there is a wrapper around the article section, also override it */
 .document .section {
-    max-width: 1200px !important;
+  max-width: 100% !important;
+  width: 100%;
 }
