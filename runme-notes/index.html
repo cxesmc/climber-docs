@@ -56,11 +56,9 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#general-steps-to-prepare-a-simulation">General steps to prepare a simulation</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#using-runme">Using runme</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#using-jobrun-with-runme">Using jobrun with runme</a>
+    <li class="toctree-l2"><a class="reference internal" href="#using-runme-for-one-simulation">Using runme for one simulation</a>
     </li>
-        </ul>
+    <li class="toctree-l2"><a class="reference internal" href="#using-runme-with-jobrun-for-ensembles">Using runme with jobrun for ensembles</a>
     </li>
     </ul>
                   </li>
@@ -129,7 +127,7 @@ sbatch job.submit
 </code></pre>
 <p>Either of the above will run climber in <code>RUNDIR</code> with all simulation output stored in the same directory. Because the directory includes the executable and is self-contained, assuming the contents of the linked directories do not change, the simulation can be re-run at any time.</p>
 <p>To perform all of the above steps manually for multiple simulations is very tedious and time-consuming, so a "run" script called <code>runme</code> is used to handle the process.</p>
-<h2 id="using-runme">Using <code>runme</code></h2>
+<h2 id="using-runme-for-one-simulation">Using <code>runme</code> for one simulation</h2>
 <p>Before using <code>runme</code>, the user should store a configuration file with some personal choices. To get started, copy the template config file to the main directory:</p>
 <pre><code class="language-bash">cp .runme/runme_config .runme_config
 </code></pre>
@@ -144,9 +142,8 @@ sbatch job.submit
 </code></pre>
 <p>will run <code>climber.x</code> on the cluster in the output directory <code>RUNDIR</code> with the control parameter <code>control.n_accel</code> set to <code>10</code>. Note that <code>ctl</code> is a convenient alias for the namelist group <code>control</code>, as defined in <code>.runme/climberx_info.json</code>.</p>
 <p>To perform a simulation an ensemble of simulations with modified parameter values, <code>runme</code> should be called via <code>jobrun</code> (see below).</p>
-<h3 id="using-jobrun-with-runme">Using <code>jobrun</code> with <code>runme</code></h3>
-<p><code>jobrun</code> is a command that is part of the Python <code>runner</code> library, found here:
-<a href="https://github.com/cxesmc/runner">https://github.com/cxesmc/runner</a>. This command facilitates running ensembles of simulations, or simulations with modified parameters via a convenient command-line interface. See <a href="../dependencies/">Dependencies</a> for its installation instructions.</p>
+<h2 id="using-runme-with-jobrun-for-ensembles">Using <code>runme</code> with <code>jobrun</code> for ensembles</h2>
+<p><code>jobrun</code> is a command that is part of the FESMC <code>runner</code> library (Python package). This command facilitates running ensembles of simulations, or simulations with modified parameters via a convenient command-line interface. See <a href="../dependencies/">Dependencies</a> for its installation instructions.</p>
 <p>Using <code>jobrun</code>, the following command would produce the same simulation as <code>./runme -s RUNDIR</code>:</p>
 <pre><code class="language-bash">jobrun ./runme -rs -o OUTDIR
 </code></pre>
