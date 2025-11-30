@@ -48,11 +48,11 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
                   </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../dependencies/">Dependencies</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../usage/">Usage</a>
-                  </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../dependencies/">Dependencies</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../runme-notes/">runme notes</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../quick-start/">Quick start</a>
                   </li>
@@ -72,17 +72,6 @@
               <p class="caption"><span class="caption-text">Workshops</span></p>
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../workshops/2025/">Workshop 2025</a>
-                  </li>
-              </ul>
-              <p class="caption"><span class="caption-text">GitHub repos</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="" href="https://github.com/cxesmc">Climber community</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="https://github.com/cxesmc/climber-x">CLIMBER-X</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="https://github.com/fesmc/fesm-utils">fesm-utils</a>
-                  </li>
-                  <li class="toctree-l1"><a class="" href="https://github.com/fesmc/coordinates">coordinates</a>
                   </li>
               </ul>
       </div>
@@ -111,12 +100,12 @@
                 <h1 id="climber-x-repository-overview">CLIMBER-X repository overview</h1>
 <p>Repositories are organized into several communities.</p>
 <ul>
-<li><code>cxesmc</code> on GitHub: the main CLIMBER-X ESM community - for CLIMBER-X specific development.</li>
-<li><code>cxesmc</code> on PIK-Gitlab: necessary for housing large input files (otherwise GitHub home would be enough).</li>
-<li><code>fesmc</code> on GitHub: the Fast ESM community - for shared resources.</li>
-<li><code>palma-ice</code> on GitHub: the PalMA ice-sheet modeling group at the Complutense University of Madrid, where the ice-sheet model Yelmo is developed.</li>
+<li><a href="https://github.com/cxesmc">github.com/cxesmc</a>: the main CLIMBER-X ESM community - for CLIMBER-X specific development.</li>
+<li><a href="https://gitlab.pik-potsdam.de/cxesmc">gitlab.pik-potsdam.de/cxesmc</a>: necessary for housing large input files (otherwise GitHub home would be enough).</li>
+<li><a href="https://github.com/fesmc">github.com/fesmc</a>: the Fast ESM community - for shared resources.</li>
+<li><a href="https://github.com/palma-ice">github.com/palma-ice</a>: the PalMA ice-sheet modeling group at the Complutense University of Madrid, where the ice-sheet model Yelmo is developed.</li>
 </ul>
-<h2 id="repository-list">Repository list</h2>
+<h2 id="specific-repository-list">Specific repository list</h2>
 <table>
 <thead>
 <tr>
@@ -142,17 +131,17 @@
 <td><a href="https://github.com/fesmc/fesm-utils">https://github.com/fesmc/fesm-utils</a></td>
 </tr>
 <tr>
-<td>Coordinates package</td>
+<td>Coordinates package¹</td>
 <td>base</td>
 <td><a href="https://github.com/fesmc/coordinates">https://github.com/fesmc/coordinates</a></td>
 </tr>
 <tr>
-<td>Biogeochemistry (BGC, i.e. HAMOCC)$^*$</td>
+<td>Biogeochemistry (BGC, i.e. HAMOCC)²</td>
 <td>optional</td>
 <td><a href="https://github.com/cxesmc/bgc">https://github.com/cxesmc/bgc</a></td>
 </tr>
 <tr>
-<td>Solid Earth model (VILMA)$^*$</td>
+<td>Solid Earth model (VILMA)³</td>
 <td>optional</td>
 <td><a href="https://github.com/cxesmc/vilma">https://github.com/cxesmc/vilma</a></td>
 </tr>
@@ -163,6 +152,17 @@
 </tr>
 </tbody>
 </table>
+<p>¹Repository will eventually be merged into <code>fesm-utils</code>.</p>
+<p>²PRIVATE. Since the HAMOCC model code is not open source, the <code>bgc</code> repository is private at the moment and
+you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for
+Meteorology software licence agreement as part of the MPI-ESM (<a href="https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf">https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf</a>).
+A pre-requisite to access the <code>bgc</code> repository is therefore that you agree to the MPI-ESM license
+by following the steps outlined here: <a href="https://code.mpimet.mpg.de/projects/mpi-esm-license">https://code.mpimet.mpg.de/projects/mpi-esm-license</a>.
+Once you have done so, send an email to <a href="mailto:matteo.willeit@gmail.com?subject=[GitHub]%20bgc%20source%20code">Matteo Willeit</a> and you will be granted permission to access the <code>bgc</code> repository.</p>
+<p>³PRIVATE. Since the VILMA model code is not open source, the <code>vilma</code> repository is private at the moment 
+and you need to be given permission in order to access it. Please send an email 
+to <a href="mailto:matteo.willeit@gmail.com,volkerk@gfz-potsdam.de?subject=[GitHub]%20VILMA%20access">Matteo Willeit and Volker Klemann</a> 
+and you will be granted permission to access the <code>vilma</code> repository.</p>
               
             </div>
           </div><footer>
