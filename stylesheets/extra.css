@@ -1,13 +1,7 @@
-/* Make container wider */
-
-/* Wider main document container */
-.document {
-  max-width: 100% !important;
-  width: 100% !important;
-}
-
-/* If there is a wrapper around the article section, also override it */
-.document .section {
-  max-width: 100% !important;
-  width: 100% !important;
+/* Override RTD theme width limit */
+.wy-nav-content {
+    max-width: none !important;   /* or set a number, e.g. 1300px */
+    width: 100% !important;
+    margin: 0 !important;         /* optional: remove centering */
+    padding: 1.618em 3.236em;     /* keep the default padding */
 }
