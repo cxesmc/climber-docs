@@ -1,5 +1,5 @@
 /* Override RTD theme width limit */
-.wy-nav-content {
+.wy-nav-content.wy-nav-content {
     max-width: none !important;   /* or set a number, e.g. 1300px */
     width: 100% !important;
     margin: 0 !important;         /* optional: remove centering */
