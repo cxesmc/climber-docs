@@ -19,30 +19,89 @@ See: [Dependencies](dependencies.md) for more details.
 Follow the steps below to (1) obtain the code, (2) configure the Makefile(s) for your system,
 (3) compile an executable program.
 
-## 1. Get the code
+# Quick start
 
-Clone the repository from [https://github.com/cxesmc/climber-x](https://github.com/cxesmc/climber-x):
+## CLIMBER-X climate model
 
 ```bash
-# Clone code repository
+
+### Download the CLIMBER-X code ###
+
+# Clone repository
 git clone https://github.com/cxesmc/climber-x.git
 git clone git@github.com:cxesmc/climber-x.git # via ssh
 
+# Enter directory 
 cd climber-x
+
+# Run configuration script
+python config.py config/pik_hpc2024_ifx   # Or config file for your system
 
 # Clone input file directory
 git clone https://gitlab.pik-potsdam.de/cxesmc/climber-x-input.git input
 git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input    # via ssh
 
+# Download and configure coordinates
+cd src/utils/
+git clone git@github.com:fesmc/coordinates.git
+cd coordinates
+python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
+cd ../../..   # Return to climber-x parent directory
+
+# Step back out of climber-x parente directory and 
+# clone and install external libraries repository
+cd ..
+git clone git@github.com:fesmc/fesm-utils.git
+cd fesm-utils
+./install_pik.sh ifx   # Use install_dkrz.sh as needed
+FESMUSRC=$PWD
+cd ../climber-x/       # Return to climber-x parent directory
+ln -s $FESMUSRC ./src/utils/
+
+# Install other external utils library
+cd src/utils/fesm-utils/utils
+python config.py config/pik_hpc2024_ifx  # replace with config file for your system
+make clean
+make fesmutils-static openmp=0    # serial version
+make fesmutils-static openmp=1    # parallel version
+cd ../../../.. # Return to climber-x parent directory
+
+### Compile and run ###
+
+# Compile the climate model 
+make cleanall
+make climber-clim
+
+# Set up your `runme` config file for your system
+cp .runme/runme_config .runme_config
+# - Edit hpc and account name to match your settings
+
+# Make sure to install the `runner` package too
+pip install https://github.com/fesmc/runner/archive/refs/heads/master.zip 
+
+# Run a pre-industrial equilibrium climate-only test simulation
+./runme -rs -q short --omp 32 -o output/clim
 ```
 
-If you plan to make changes to the code, it is wise to check out a new branch:
+The climate only version `climber-clim` corresponds to the version described by Willeit et al. (2022). This particular model setup does not require non-climate source code or the LIS library for compilation.
+
+That's it. The executable `climber.x` should now be available in the main directory.
+
+To compile the model with debug flags enabled use:
 
 ```bash
-git checkout -b user-dev
+make climber-clim debug=1
 ```
 
-You should now be working on the branch `user-dev`.
+By default, the model is compiled with `openmp`. To compile the model without openmp use:
+
+```bash
+make climber-clim openmp=0
+```
+
+This version should typically not be used.
+
+## CLIMBER-X climate and carbon cycle model
 
 If you would also like to run CLIMBER-X with an interactive carbon cycle, then the **HAMOCC**
 ocean biogeochemistry (`bgc`) code must also be downloaded:
@@ -63,6 +122,17 @@ A pre-requisite to access the `bgc` repository is therefore that you agree to th
 by following the steps outlined here: [https://code.mpimet.mpg.de/projects/mpi-esm-license](https://code.mpimet.mpg.de/projects/mpi-esm-license).
 Once you have done so, send an email to [Matteo Willeit](mailto:matteo.willeit@gmail.com?subject=[GitHub]%20bgc%20source%20code) and you will be granted permission to access the `bgc` repository.
 
+```bash
+# Compile the climate and carbon cycle model 
+make clean
+make climber-clim-bgc
+
+# Run a pre-industrial equilibrium simulation with ocean biogeochemistry
+./runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
+```
+
+## CLIMBER-X climate and ice sheet model
+
 If you would also like to run with an interactive ice sheet, the **Yelmo** ice-sheet code
 must be downloaded and configured and the solid Earth model **VILMA** libraries must be
 downloaded before compiling:
@@ -73,6 +143,8 @@ cd src
 git clone git@github.com:palma-ice/yelmo.git
 cd yelmo
 git checkout climber-x                     # Get climber-x branch
+python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
+ln -s $FESMUSRC .              # Link absolute path
 cd ../..            # Return to climber-x parent directory
 
 # vilma
@@ -81,66 +153,99 @@ git clone git@github.com:cxesmc/vilma.git  # private repository, premission need
 cd ..
 ```
 
-## 2. Create the system-specific Makefile
-
-To compile **CLIMBER-X**, you need to generate a Makefile that is appropriate for your system. In the folder `config`, you need to specify a configuration file that defines the compiler and flags, including definition of the paths to the `NetCDF`, `FFTW`, `coordinates`, `Yelmo` and `LIS` libraries. Note that it can be convenient to install `FFTW`, `coordinates`, `Yelmo` and `LIS` as subdirectories of the `src/` folder, to be sure they are compiled consistently with **CLIMBER-X**.
-
-You can use another configuration file in the config folder as a template, e.g.,
+Since the VILMA model code is not open source, the `vilma` repository is private at the moment and you need to be given permission in order to access it. Please send an email to [Matteo Willeit and Volker Klemann](mailto:matteo.willeit@gmail.com,volkerk@gfz-potsdam.de?subject=[GitHub]%20VILMA%20access) and you will be granted permission to access the `vilma` repository.
 
 ```bash
-cd config
-cp pik_ifort myhost_mycompiler
-```
-
-Then you would modify the file `myhost_mycompiler` to match your paths. Back in `climber-x`, you can then generate your Makefile with the provided python configuration script:
-
-```bash
-cd ../climber-x
-python config.py config/myhost_mycompiler
-```
-
-The result should be a Makefile that is ready for use.
-
-If you want to use the ice sheet model you have to similarly create the Makefile for Yelmo:
-
-```bash
-cd src/yelmo/
-python config.py config/myhost_mycompiler 
-cd ../..
-```
-
-## 3. Compiling **CLIMBER-X**
-
-Assuming the source has been downloaded and configured, and all [dependencies](dependencies.md) have also been compiled, now you are ready to compile **CLIMBER-X**.
-
-There are currently four different flavors of **CLIMBER-X** that can be compiled:
-
-- `climber-clim`: minimal climate configuration with atmosphere, ocean, sea ice and land
-- `climber-clim-bgc`: clim plus with ocean biogeochemistry
-- `climber-clim-ice`: clim plus with ice sheets
-- `climber-clim-bgc-ice`: clim plus with ocean biogeochemistry and ice sheets
-
-These can be compiled by calling the individual names, e.g. `make climber-clim` or `make climber-clim-bgc-ice`. By default, it is also possible to call `make climber` as a shorter alias for `make climber-clim-bgc-ice`, e.g.:
-
-```bash
+# Compile the climate and ice sheet model
 make clean
-make climber
+make climber-clim-ice
+
+# Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
+./runme -rs -q short --omp 16 -o output/clim-ice -p ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 ```
 
-The climate only version `climber-clim` corresponds to the version described by Willeit et al. (2022). This particular model setup does not require non-climate source code or the LIS library for compilation.
+## Fully coupled CLIMBER-X configuration
 
-That's it. The executable `climber.x` should now be available in the main directory.
-
-To compile the model with debug flags enabled use:
+If you have followed all steps above you will also be ready to run fully coupled simulations:
 
 ```bash
-make climber debug=1
+# Compile the fully coupled model
+make clean
+make climber-clim-bgc-ice  # or equivalently make climber
+
+# Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
+./runme -s -q short --omp 16 -o output/clim-bgc-ice -p ctl.flag_bgc=T ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 ```
 
-By default, the model is compiled with `openmp`. To compile the model without openmp use:
+## Notes for specific systems
+
+### Running at PIK on HPC2024 (foote)
+
+The following modules have to be loaded in order to compile and run the model.
+For convenience you can also add those commands to your `.profile` file in your home directory.
 
 ```bash
-make climber openmp=0
+    module purge
+    module use /p/system/modulefiles/compiler \
+               /p/system/modulefiles/gpu \
+               /p/system/modulefiles/libraries \
+               /p/system/modulefiles/parallel \
+               /p/system/modulefiles/tools
+
+    module load intel/oneAPI/2024.0.0
+    module load netcdf-c/4.9.2
+    module load netcdf-fortran-intel/4.6.1
+    module load udunits/2.2.28
+    module load ncview/2.1.10
+    module load cdo/2.4.2
 ```
 
-This version should typically not be used.
+When installing `fesm-utils` (see [Dependencies](dependencies.md)) use the `pik` script:
+
+```bash
+./install_pik.sh ifx
+```
+
+### Running at AWI on albedo
+
+Load the following modules in your `.bashrc` file in your home directory.
+
+```bash
+    module load intel-oneapi-compilers/2024.0.0
+    module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
+    module load netcdf-fortran/4.5.4-oneapi2022.1.0
+    module load udunits/2.2.28
+    module load ncview/2.1.8
+    module load cdo/2.2.0
+    module load python/3.10.4
+```
+
+When installing `fesm-utils` (see [Dependencies](dependencies.md)) use the `awi` script (which is actually a link to the `dkrz` script since they work the same way):
+
+```bash
+./install_awi.sh ifx
+```
+
+### Running at DKRZ on levante
+
+Load the following modules in your `.bashrc` file in your home directory.
+
+```bash
+# Tools
+module load cdo/2.4.0-gcc-11.2.0
+module load esmvaltool/2.5.0
+module load ncview/2.1.8-gcc-11.2.0
+module load git/2.43.3-gcc-11.2.0
+module load python3/2023.01-gcc-11.2.0
+
+# Compilers and libs
+module load intel-oneapi-compilers/2023.2.1-gcc-11.2.0
+module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
+module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
+```
+
+When installing `fesm-utils` (see [Dependencies](dependencies.md)) use the `dkrz` script:
+
+```bash
+./install_dkrz.sh ifx
+```
