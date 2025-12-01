@@ -39,5 +39,5 @@ Welcome to the inugural workshop. The goal is to discuss how CLIMBER-X can be us
 | 14:00 – 14:15 | Greenland – LGM and deglaciation  | Lucía Gutiérrez González |
 | 14:15 – 14:40 | Deep past – Paleozoic Ice Ages  | Julius Eberhard, Karoline Ramin, Louis Lacassagne |
 | **14:40 – 15:00** | **General discussion** | |
-| **15:00 – 15:30** | **Mixer**
+| **15:00 – 15:30** | **Mixer** | |
 | -- | **End** | -- |
