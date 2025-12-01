@@ -29,7 +29,7 @@ A pre-requisite to access the `bgc` repository is therefore that you agree to th
 by following the steps outlined here: [https://code.mpimet.mpg.de/projects/mpi-esm-license](https://code.mpimet.mpg.de/projects/mpi-esm-license).
 Once you have done so, send an email to [Matteo Willeit](mailto:matteo.willeit@gmail.com?subject=[GitHub]%20bgc%20source%20code) and you will be granted permission to access the `bgc` repository.
 
-³PRIVATE. Since the VILMA model code is not open source, the `vilma` repository is private at the moment 
-and you need to be given permission in order to access it. Please send an email 
-to [Matteo Willeit and Volker Klemann](mailto:matteo.willeit@gmail.com,volkerk@gfz-potsdam.de?subject=[GitHub]%20VILMA%20access) 
+³PRIVATE. Since the VILMA model code is not open source, the `vilma` repository is private at the moment
+and you need to be given permission in order to access it. Please send an email
+to [Matteo Willeit and Volker Klemann](mailto:matteo.willeit@gmail.com,volkerk@gfz-potsdam.de?subject=[GitHub]%20VILMA%20access)
 and you will be granted permission to access the `vilma` repository.

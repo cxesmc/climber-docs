@@ -41,3 +41,5 @@ Welcome to the inugural workshop. The goal is to discuss how CLIMBER-X can be us
 | **14:40 – 15:00** | **General discussion** | |
 | **15:00 – 15:30** | **Mixer** | |
 | -- | **End** | -- |
+
+<br><br><br><br><br><br>
