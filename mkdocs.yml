@@ -6,7 +6,6 @@ nav:
       - Dependencies: dependencies.md
       - Installation: installation.md
       - runme notes: runme-notes.md
-      - Quick start: quick-start.md
     - Use cases:
       - Pre-industrial spinup: use-cases/01-pi_spinup/index.md
       - Historical: use-cases/02-historical/index.md
