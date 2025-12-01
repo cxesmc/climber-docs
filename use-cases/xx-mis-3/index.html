@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>Ice sico ts - CLIMBER-X-docs</title>
+    <title>Use case: MIS-3 - CLIMBER-X-docs</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Ice sico ts";
-        var mkdocs_page_input_path = "var_lists/ice_sico_ts.md";
+        var mkdocs_page_name = "Use case: MIS-3";
+        var mkdocs_page_input_path = "use-cases/xx-mis-3/index.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -59,14 +59,14 @@
               </ul>
               <p class="caption"><span class="caption-text">Use cases</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/01-pi_spinup/">Pre-industrial spinup</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../01-pi_spinup/">Pre-industrial spinup</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../../use-cases/02-historical/">Historical</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../02-historical/">Historical</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Output description</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../">Output files</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../var_lists/">Output files</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Workshops</span></p>
@@ -88,7 +88,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-      <li class="breadcrumb-item active">Ice sico ts</li>
+      <li class="breadcrumb-item active">Use case: MIS-3</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -97,216 +97,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <table>
-<thead>
-<tr>
-<th>Variable</th>
-<th>Dimensions</th>
-<th>Units</th>
-<th>Long Name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>time</td>
-<td>time</td>
-<td>years BP</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>x</td>
-<td>x</td>
-<td>1</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>y</td>
-<td>y</td>
-<td>1</td>
-<td>N/A</td>
-</tr>
-<tr>
-<td>A_flt</td>
-<td>time</td>
-<td>mln km2</td>
-<td>floating ice area</td>
-</tr>
-<tr>
-<td>A_grd</td>
-<td>time</td>
-<td>mln km2</td>
-<td>grounded ice area</td>
-</tr>
-<tr>
-<td>A_temp</td>
-<td>time</td>
-<td>mln km2</td>
-<td>area covered by temperate ice</td>
-</tr>
-<tr>
-<td>A_tot</td>
-<td>time</td>
-<td>mln km2</td>
-<td>total ice area</td>
-</tr>
-<tr>
-<td>bmb_fl_tot</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>total basal mass balance of floating ice</td>
-</tr>
-<tr>
-<td>bmb_gr_tot</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>total basal mass balance of grounded ice</td>
-</tr>
-<tr>
-<td>bmb_tot</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>total basal mass balance</td>
-</tr>
-<tr>
-<td>calv_tot</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>total calving</td>
-</tr>
-<tr>
-<td>disc_lsc</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>Ice discharge from ice flow, large scale</td>
-</tr>
-<tr>
-<td>disc_ssc</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>Ice discharge from parameterization, small scale</td>
-</tr>
-<tr>
-<td>dV_dt</td>
-<td>time</td>
-<td>m3/yr</td>
-<td>rate of ice volume change</td>
-</tr>
-<tr>
-<td>f_temp</td>
-<td>time</td>
-<td>1</td>
-<td>fraction of basal area covered by temperate ice</td>
-</tr>
-<tr>
-<td>H_max</td>
-<td>time</td>
-<td>m</td>
-<td>maximum ice thickness</td>
-</tr>
-<tr>
-<td>H_t_max</td>
-<td>time</td>
-<td>m</td>
-<td>maximum thickness of temperate ice</td>
-</tr>
-<tr>
-<td>mb_resid</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>residual of the total mass balance</td>
-</tr>
-<tr>
-<td>mb_tot</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>total mass balance</td>
-</tr>
-<tr>
-<td>mbp</td>
-<td>time</td>
-<td>1</td>
-<td>mass balance partition</td>
-</tr>
-<tr>
-<td>Q_b</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>basal melting rate</td>
-</tr>
-<tr>
-<td>Q_temp</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>drainage rate from the temperate ice layer</td>
-</tr>
-<tr>
-<td>runoff_tot</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>total runoff</td>
-</tr>
-<tr>
-<td>smb_tot</td>
-<td>time</td>
-<td>Gt/a</td>
-<td>total surface mass balance</td>
-</tr>
-<tr>
-<td>Tbh_max</td>
-<td>time</td>
-<td>decG</td>
-<td>maximum basal temperature relative to pmp</td>
-</tr>
-<tr>
-<td>V_af</td>
-<td>time</td>
-<td>mln km3</td>
-<td>ice volume above floatation</td>
-</tr>
-<tr>
-<td>V_flt</td>
-<td>time</td>
-<td>mln km3</td>
-<td>floating ice volume</td>
-</tr>
-<tr>
-<td>V_grd</td>
-<td>time</td>
-<td>mln km3</td>
-<td>grounded ice volume</td>
-</tr>
-<tr>
-<td>V_sle</td>
-<td>time</td>
-<td>m sle</td>
-<td>ice volume in SLE</td>
-</tr>
-<tr>
-<td>V_temp</td>
-<td>time</td>
-<td>mln km3</td>
-<td>volume of temperate ice</td>
-</tr>
-<tr>
-<td>V_tot</td>
-<td>time</td>
-<td>mln km3</td>
-<td>total ice volume</td>
-</tr>
-<tr>
-<td>vs_max</td>
-<td>time</td>
-<td>m/yr</td>
-<td>maximum surface speed</td>
-</tr>
-<tr>
-<td>zs_max</td>
-<td>time</td>
-<td>m</td>
-<td>maximum surface elevation</td>
-</tr>
-</tbody>
-</table>
+                <h1 id="use-case-mis-3">Use case: MIS-3</h1>
+<p>(General description)</p>
+<h2 id="basic-run">Basic run</h2>
+<pre><code class="language-bash">outdir=mis3
+./runme -rs -q 48h -w 24:00:00 --omp 32 -o output/$outdir/h4 -p ctl.nyears=5000 ctl.i_write_restart=1 ctl.iorbit=0 ctl.ifake_ice=2 ctl.ifake_geo=2 ctl.ico2=-1 ctl.year_ini=-39e3
+</code></pre>
+<h2 id="with-talento-smb">With Talento SMB</h2>
+<pre><code class="language-bash">outdir=mis3-talento-smb
+./runme -rs -q 48h -w 24:00:00 --omp 32 -o output/$outdir/h4 -p ctl.nyears=5000 ctl.i_write_restart=1 ctl.iorbit=0 ctl.ifake_ice=2 ctl.ifake_geo=2 ctl.ico2=-1 ctl.year_ini=-39e3 smb.i_smb=3
+</code></pre>
+<h2 id="basic-run-with-ice-sheets-active">Basic run with ice sheets active</h2>
+<p>CRASHES!!</p>
+<pre><code class="language-bash">outdir=mis3-nh
+./runme -rs -q 48h -w 24:00:00 --omp 32 -o output/$outdir/h4 -p ctl.nyears=5000 ctl.i_write_restart=1 ctl.iorbit=0 ctl.ifake_ice=2 ctl.ifake_geo=2 ctl.ico2=-1 ctl.year_ini=-39e3 ctl.flag_geo=T ctl.flag_ice=T ctl.flag_smb=T ctl.flag_bmb=T ctl.ice_domain_name=NH-32KM
+</code></pre>
+<h2 id="with-talento-smb_1">With Talento SMB</h2>
+<pre><code class="language-bash">outdir=mis3-nh-talento-smb
+./runme -rs -q 48h -w 24:00:00 --omp 32 -o output/$outdir/h4 -p ctl.nyears=5000 ctl.i_write_restart=1 ctl.iorbit=0 ctl.ifake_ice=2 ctl.ifake_geo=2 ctl.ico2=-1 ctl.year_ini=-39e3 smb.i_smb=3  ctl.flag_geo=T ctl.flag_ice=T ctl.flag_smb=T ctl.flag_bmb=T ctl.ice_domain_name=NH-32KM
+</code></pre>
+<p>(Explain parameters choices, etc)</p>
+<h2 id="typical-output">Typical output</h2>
+<h2 id="alternate-configurations">Alternate configurations</h2>
+<p>...</p>
               
             </div>
           </div><footer>
