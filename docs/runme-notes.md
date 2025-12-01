@@ -1,4 +1,6 @@
-# Running CLIMBER-X
+# Running CLIMBER-X with `runme`
+
+## General steps to prepare a simulation
 
 After **CLIMBER-X** has been compiled, several steps must be completed to run the executable `climber.x`:
 
@@ -27,7 +29,7 @@ Either of the above will run climber in `RUNDIR` with all simulation output stor
 
 To perform all of the above steps manually for multiple simulations is very tedious and time-consuming, so a "run" script called `runme` is used to handle the process.
 
-## Using `runme`
+## Using `runme` for one simulation
 
 Before using `runme`, the user should store a configuration file with some personal choices. To get started, copy the template config file to the main directory:
 
@@ -57,10 +59,9 @@ will run `climber.x` on the cluster in the output directory `RUNDIR` with the co
 
 To perform a simulation an ensemble of simulations with modified parameter values, `runme` should be called via `jobrun` (see below).
 
-### Using `jobrun` with `runme`
+## Using `runme` with `jobrun` for ensembles
 
-`jobrun` is a command that is part of the Python `runner` library, found here:
-[https://github.com/cxesmc/runner](https://github.com/cxesmc/runner). This command facilitates running ensembles of simulations, or simulations with modified parameters via a convenient command-line interface. See [Dependencies](dependencies.md) for its installation instructions.
+`jobrun` is a command that is part of the FESMC `runner` library (Python package). This command facilitates running ensembles of simulations, or simulations with modified parameters via a convenient command-line interface. See [Dependencies](dependencies.md) for its installation instructions.
 
 Using `jobrun`, the following command would produce the same simulation as `./runme -s RUNDIR`:
 
@@ -125,4 +126,3 @@ jobrun ./runme -rs -o OUTDIR -i lhs.txt
 ```
 
 This two-step method facilitates checking that the ensemble was generated properly and improves reproducibility, since the exact parameter values are available in the table.
-
