@@ -188,7 +188,7 @@ git clone git@github.com:cxesmc/vilma.git  # private repository, premission need
 cd ..
 ```
 
-Since the VILMA model code is not open source, the `vilma` repository is private at the moment and you need to be given permission in order to access it. Please send an email to [Matteo Willeit and Volker Klemann](mailto:matteo.willeit@gmail.com,volkerk@gfz-potsdam.de?subject=[GitHub]%20VILMA%20access) and you will be granted permission to access the `vilma` repository.
+Since the VILMA model code is not open source, the `vilma` repository is private at the moment and you need to be given permission in order to access it. Please send an email to [Matteo Willeit and Volker Klemann](mailto:matteo.willeit@gmail.com,volker.klemann@gfz.de?subject=[GitHub]%20VILMA%20access) and you will be granted permission to access the `vilma` repository.
 
 ```bash
 # Compile the climate and ice sheet model
