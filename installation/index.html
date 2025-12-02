@@ -134,182 +134,194 @@
 <p>Follow the steps below to (1) obtain the code, (2) configure the Makefile(s) for your system,
 (3) compile an executable program.</p>
 <h2 id="climber-x-climate-model">CLIMBER-X climate model</h2>
-<pre><code class="language-bash">
-### Download the CLIMBER-X code ###
+<div class="codehilite"><pre><span></span><code><span class="c1">### Download the CLIMBER-X code ###</span>
 
-# Clone repository
-git clone https://github.com/cxesmc/climber-x.git
-git clone git@github.com:cxesmc/climber-x.git # via ssh
+<span class="c1"># Clone repository</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/cxesmc/climber-x.git
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:cxesmc/climber-x.git<span class="w"> </span><span class="c1"># via ssh</span>
 
-# Enter directory 
-cd climber-x
+<span class="c1"># Enter directory </span>
+<span class="nb">cd</span><span class="w"> </span>climber-x
 
-# Run configuration script
-python config.py config/pik_hpc2024_ifx   # Or config file for your system
+<span class="c1"># Run configuration script</span>
+python<span class="w"> </span>config.py<span class="w"> </span>config/pik_hpc2024_ifx<span class="w">   </span><span class="c1"># Or config file for your system</span>
 
-# Clone input file directory
-git clone https://gitlab.pik-potsdam.de/cxesmc/climber-x-input.git input
-git clone git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git input    # via ssh
+<span class="c1"># Clone input file directory</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.pik-potsdam.de/cxesmc/climber-x-input.git<span class="w"> </span>input
+git<span class="w"> </span>clone<span class="w"> </span>git@gitlab.pik-potsdam.de:cxesmc/climber-x-input.git<span class="w"> </span>input<span class="w">    </span><span class="c1"># via ssh</span>
 
-# Download and configure coordinates
-cd src/utils/
-git clone git@github.com:fesmc/coordinates.git
-cd coordinates
-python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
-cd ../../..   # Return to climber-x parent directory
+<span class="c1"># Download and configure coordinates</span>
+<span class="nb">cd</span><span class="w"> </span>src/utils/
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:fesmc/coordinates.git
+<span class="nb">cd</span><span class="w"> </span>coordinates
+python3<span class="w"> </span>config.py<span class="w"> </span>config/pik_hpc2024_ifx<span class="w">   </span><span class="c1"># Or config file for your system</span>
+<span class="nb">cd</span><span class="w"> </span>../../..<span class="w">   </span><span class="c1"># Return to climber-x parent directory</span>
 
-# Step back out of climber-x parente directory and 
-# clone and install external libraries repository
-cd ..
-git clone git@github.com:fesmc/fesm-utils.git
-cd fesm-utils
-./install_pik.sh ifx   # Use install_dkrz.sh as needed
-FESMUSRC=$PWD
-cd ../climber-x/       # Return to climber-x parent directory
-ln -s $FESMUSRC ./src/utils/
+<span class="c1"># Step back out of climber-x parente directory and </span>
+<span class="c1"># clone and install external libraries repository</span>
+<span class="nb">cd</span><span class="w"> </span>..
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:fesmc/fesm-utils.git
+<span class="nb">cd</span><span class="w"> </span>fesm-utils
+./install_pik.sh<span class="w"> </span>ifx<span class="w">   </span><span class="c1"># Use install_dkrz.sh as needed</span>
+<span class="nv">FESMUSRC</span><span class="o">=</span><span class="nv">$PWD</span>
+<span class="nb">cd</span><span class="w"> </span>../climber-x/<span class="w">       </span><span class="c1"># Return to climber-x parent directory</span>
+ln<span class="w"> </span>-s<span class="w"> </span><span class="nv">$FESMUSRC</span><span class="w"> </span>./src/utils/
 
-# Install other external utils library
-cd src/utils/fesm-utils/utils
-python config.py config/pik_hpc2024_ifx  # replace with config file for your system
-make clean
-make fesmutils-static openmp=0    # serial version
-make fesmutils-static openmp=1    # parallel version
-cd ../../../.. # Return to climber-x parent directory
+<span class="c1"># Install other external utils library</span>
+<span class="nb">cd</span><span class="w"> </span>src/utils/fesm-utils/utils
+python<span class="w"> </span>config.py<span class="w"> </span>config/pik_hpc2024_ifx<span class="w">  </span><span class="c1"># replace with config file for your system</span>
+make<span class="w"> </span>clean
+make<span class="w"> </span>fesmutils-static<span class="w"> </span><span class="nv">openmp</span><span class="o">=</span><span class="m">0</span><span class="w">    </span><span class="c1"># serial version</span>
+make<span class="w"> </span>fesmutils-static<span class="w"> </span><span class="nv">openmp</span><span class="o">=</span><span class="m">1</span><span class="w">    </span><span class="c1"># parallel version</span>
+<span class="nb">cd</span><span class="w"> </span>../../../..<span class="w"> </span><span class="c1"># Return to climber-x parent directory</span>
 
-### Compile and run ###
+<span class="c1">### Compile and run ###</span>
 
-# Compile the climate model 
-make cleanall
-make climber-clim
+<span class="c1"># Compile the climate model </span>
+make<span class="w"> </span>cleanall
+make<span class="w"> </span>climber-clim
 
-# Set up your `runme` config file for your system
-cp .runme/runme_config .runme_config
-# - Edit hpc and account name to match your settings
+<span class="c1"># Set up your `runme` config file for your system</span>
+cp<span class="w"> </span>.runme/runme_config<span class="w"> </span>.runme_config
+<span class="c1"># - Edit hpc and account name to match your settings</span>
 
-# Make sure to install the `runner` package too
-pip install https://github.com/fesmc/runner/archive/refs/heads/master.zip 
+<span class="c1"># Make sure to install the `runner` package too</span>
+pip<span class="w"> </span>install<span class="w"> </span>https://github.com/fesmc/runner/archive/refs/heads/master.zip<span class="w"> </span>
 
-# Run a pre-industrial equilibrium climate-only test simulation
-./runme -rs -q short --omp 32 -o output/clim
-</code></pre>
+<span class="c1"># Run a pre-industrial equilibrium climate-only test simulation</span>
+./runme<span class="w"> </span>-rs<span class="w"> </span>-q<span class="w"> </span>short<span class="w"> </span>--omp<span class="w"> </span><span class="m">32</span><span class="w"> </span>-o<span class="w"> </span>output/clim
+</code></pre></div>
+
 <p>The climate only version <code>climber-clim</code> corresponds to the version described by Willeit et al. (2022). This particular model setup does not require non-climate source code or the LIS library for compilation.</p>
 <p>That's it. The executable <code>climber.x</code> should now be available in the main directory.</p>
 <p>To compile the model with debug flags enabled use:</p>
-<pre><code class="language-bash">make climber-clim debug=1
-</code></pre>
+<div class="codehilite"><pre><span></span><code>make<span class="w"> </span>climber-clim<span class="w"> </span><span class="nv">debug</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+
 <p>By default, the model is compiled with <code>openmp</code>. To compile the model without openmp use:</p>
-<pre><code class="language-bash">make climber-clim openmp=0
-</code></pre>
+<div class="codehilite"><pre><span></span><code>make<span class="w"> </span>climber-clim<span class="w"> </span><span class="nv">openmp</span><span class="o">=</span><span class="m">0</span>
+</code></pre></div>
+
 <p>This version should typically not be used.</p>
 <h2 id="climber-x-climate-and-carbon-cycle-model">CLIMBER-X climate and carbon cycle model</h2>
 <p>If you would also like to run CLIMBER-X with an interactive carbon cycle, then the <strong>HAMOCC</strong>
 ocean biogeochemistry (<code>bgc</code>) code must also be downloaded:</p>
-<pre><code class="language-bash"># bgc
-cd src/
-git clone git@github.com:cxesmc/bgc.git
-cd bgc/
-git submodule update --init --recursive     # for submodule M4AGO 
-cd ../..
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># bgc</span>
+<span class="nb">cd</span><span class="w"> </span>src/
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:cxesmc/bgc.git
+<span class="nb">cd</span><span class="w"> </span>bgc/
+git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive<span class="w">     </span><span class="c1"># for submodule M4AGO </span>
+<span class="nb">cd</span><span class="w"> </span>../..
+</code></pre></div>
+
 <p>Since the HAMOCC model code is not open source, the <code>bgc</code> repository is private at the moment and
 you need to be given permission in order to access it. HAMOCC is covered by the Max Planck Institute for
 Meteorology software licence agreement as part of the MPI-ESM (<a href="https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf">https://code.mpimet.mpg.de/attachments/download/26986/MPI-ESM_SLA_v3.4.pdf</a>).
 A pre-requisite to access the <code>bgc</code> repository is therefore that you agree to the MPI-ESM license
 by following the steps outlined here: <a href="https://code.mpimet.mpg.de/projects/mpi-esm-license">https://code.mpimet.mpg.de/projects/mpi-esm-license</a>.
 Once you have done so, send an email to <a href="mailto:matteo.willeit@gmail.com?subject=[GitHub]%20bgc%20source%20code">Matteo Willeit</a> and you will be granted permission to access the <code>bgc</code> repository.</p>
-<pre><code class="language-bash"># Compile the climate and carbon cycle model 
-make clean
-make climber-clim-bgc
+<div class="codehilite"><pre><span></span><code><span class="c1"># Compile the climate and carbon cycle model </span>
+make<span class="w"> </span>clean
+make<span class="w"> </span>climber-clim-bgc
 
-# Run a pre-industrial equilibrium simulation with ocean biogeochemistry
-./runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
-</code></pre>
+<span class="c1"># Run a pre-industrial equilibrium simulation with ocean biogeochemistry</span>
+./runme<span class="w"> </span>-rs<span class="w"> </span>-q<span class="w"> </span>short<span class="w"> </span>--omp<span class="w"> </span><span class="m">16</span><span class="w"> </span>-o<span class="w"> </span>output/clim-bgc<span class="w"> </span>-p<span class="w"> </span>ctl.flag_bgc<span class="o">=</span>T
+</code></pre></div>
+
 <h2 id="climber-x-climate-and-ice-sheet-model">CLIMBER-X climate and ice sheet model</h2>
 <p>If you would also like to run with an interactive ice sheet, the <strong>Yelmo</strong> ice-sheet code
 must be downloaded and configured and the solid Earth model <strong>VILMA</strong> libraries must be
 downloaded before compiling:</p>
-<pre><code class="language-bash"># yelmo
-cd src
-git clone git@github.com:palma-ice/yelmo.git
-cd yelmo
-git checkout climber-x                     # Get climber-x branch
-python3 config.py config/pik_hpc2024_ifx   # Or config file for your system
-ln -s $FESMUSRC .              # Link absolute path
-cd ../..            # Return to climber-x parent directory
+<div class="codehilite"><pre><span></span><code><span class="c1"># yelmo</span>
+<span class="nb">cd</span><span class="w"> </span>src
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:palma-ice/yelmo.git
+<span class="nb">cd</span><span class="w"> </span>yelmo
+git<span class="w"> </span>checkout<span class="w"> </span>climber-x<span class="w">                     </span><span class="c1"># Get climber-x branch</span>
+python3<span class="w"> </span>config.py<span class="w"> </span>config/pik_hpc2024_ifx<span class="w">   </span><span class="c1"># Or config file for your system</span>
+ln<span class="w"> </span>-s<span class="w"> </span><span class="nv">$FESMUSRC</span><span class="w"> </span>.<span class="w">              </span><span class="c1"># Link absolute path</span>
+<span class="nb">cd</span><span class="w"> </span>../..<span class="w">            </span><span class="c1"># Return to climber-x parent directory</span>
 
-# vilma
-cd src/
-git clone git@github.com:cxesmc/vilma.git  # private repository, premission needed
-cd ..
-</code></pre>
+<span class="c1"># vilma</span>
+<span class="nb">cd</span><span class="w"> </span>src/
+git<span class="w"> </span>clone<span class="w"> </span>git@github.com:cxesmc/vilma.git<span class="w">  </span><span class="c1"># private repository, premission needed</span>
+<span class="nb">cd</span><span class="w"> </span>..
+</code></pre></div>
+
 <p>Since the VILMA model code is not open source, the <code>vilma</code> repository is private at the moment and you need to be given permission in order to access it. Please send an email to <a href="mailto:matteo.willeit@gmail.com,volkerk@gfz-potsdam.de?subject=[GitHub]%20VILMA%20access">Matteo Willeit and Volker Klemann</a> and you will be granted permission to access the <code>vilma</code> repository.</p>
-<pre><code class="language-bash"># Compile the climate and ice sheet model
-make clean
-make climber-clim-ice
+<div class="codehilite"><pre><span></span><code><span class="c1"># Compile the climate and ice sheet model</span>
+make<span class="w"> </span>clean
+make<span class="w"> </span>climber-clim-ice
 
-# Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
-./runme -rs -q short --omp 16 -o output/clim-ice -p ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
-</code></pre>
+<span class="c1"># Run pre-industrial equilibrium simulation with interactive Greenland ice sheet</span>
+./runme<span class="w"> </span>-rs<span class="w"> </span>-q<span class="w"> </span>short<span class="w"> </span>--omp<span class="w"> </span><span class="m">16</span><span class="w"> </span>-o<span class="w"> </span>output/clim-ice<span class="w"> </span>-p<span class="w"> </span>ctl.flag_ice<span class="o">=</span>T<span class="w"> </span>ctl.flag_geo<span class="o">=</span>T<span class="w"> </span>ctl.flag_smb<span class="o">=</span>T<span class="w"> </span>ctl.flag_imo<span class="o">=</span>T<span class="w"> </span>ctl.ice_model_name<span class="o">=</span>yelmo<span class="w"> </span>ctl.ice_domain_name<span class="o">=</span>GRL-16KM
+</code></pre></div>
+
 <h2 id="fully-coupled-climber-x-configuration">Fully coupled CLIMBER-X configuration</h2>
 <p>If you have followed all steps above you will also be ready to run fully coupled simulations:</p>
-<pre><code class="language-bash"># Compile the fully coupled model
-make clean
-make climber-clim-bgc-ice  # or equivalently make climber
+<div class="codehilite"><pre><span></span><code><span class="c1"># Compile the fully coupled model</span>
+make<span class="w"> </span>clean
+make<span class="w"> </span>climber-clim-bgc-ice<span class="w">  </span><span class="c1"># or equivalently make climber</span>
 
-# Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
-./runme -s -q short --omp 16 -o output/clim-bgc-ice -p ctl.flag_bgc=T ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
-</code></pre>
+<span class="c1"># Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet</span>
+./runme<span class="w"> </span>-s<span class="w"> </span>-q<span class="w"> </span>short<span class="w"> </span>--omp<span class="w"> </span><span class="m">16</span><span class="w"> </span>-o<span class="w"> </span>output/clim-bgc-ice<span class="w"> </span>-p<span class="w"> </span>ctl.flag_bgc<span class="o">=</span>T<span class="w"> </span>ctl.flag_ice<span class="o">=</span>T<span class="w"> </span>ctl.flag_geo<span class="o">=</span>T<span class="w"> </span>ctl.flag_smb<span class="o">=</span>T<span class="w"> </span>ctl.flag_imo<span class="o">=</span>T<span class="w"> </span>ctl.ice_model_name<span class="o">=</span>yelmo<span class="w"> </span>ctl.ice_domain_name<span class="o">=</span>GRL-16KM
+</code></pre></div>
+
 <h2 id="notes-for-specific-systems">Notes for specific systems</h2>
 <h3 id="running-at-pik-on-hpc2024-foote">Running at PIK on HPC2024 (foote)</h3>
 <p>The following modules have to be loaded in order to compile and run the model.
 For convenience you can also add those commands to your <code>.profile</code> file in your home directory.</p>
-<pre><code class="language-bash">    module purge
-    module use /p/system/modulefiles/compiler \
-               /p/system/modulefiles/gpu \
-               /p/system/modulefiles/libraries \
-               /p/system/modulefiles/parallel \
-               /p/system/modulefiles/tools
+<div class="codehilite"><pre><span></span><code><span class="w">    </span>module<span class="w"> </span>purge
+<span class="w">    </span>module<span class="w"> </span>use<span class="w"> </span>/p/system/modulefiles/compiler<span class="w"> </span><span class="se">\</span>
+<span class="w">               </span>/p/system/modulefiles/gpu<span class="w"> </span><span class="se">\</span>
+<span class="w">               </span>/p/system/modulefiles/libraries<span class="w"> </span><span class="se">\</span>
+<span class="w">               </span>/p/system/modulefiles/parallel<span class="w"> </span><span class="se">\</span>
+<span class="w">               </span>/p/system/modulefiles/tools
 
-    module load intel/oneAPI/2024.0.0
-    module load netcdf-c/4.9.2
-    module load netcdf-fortran-intel/4.6.1
-    module load udunits/2.2.28
-    module load ncview/2.1.10
-    module load cdo/2.4.2
-</code></pre>
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>intel/oneAPI/2024.0.0
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>netcdf-c/4.9.2
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>netcdf-fortran-intel/4.6.1
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>udunits/2.2.28
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>ncview/2.1.10
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>cdo/2.4.2
+</code></pre></div>
+
 <p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>pik</code> script:</p>
-<pre><code class="language-bash">./install_pik.sh ifx
-</code></pre>
+<div class="codehilite"><pre><span></span><code>./install_pik.sh<span class="w"> </span>ifx
+</code></pre></div>
+
 <h3 id="running-at-awi-on-albedo">Running at AWI on albedo</h3>
 <p>Load the following modules in your <code>.bashrc</code> file in your home directory.</p>
-<pre><code class="language-bash">    module load intel-oneapi-compilers/2024.0.0
-    module load netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
-    module load netcdf-fortran/4.5.4-oneapi2022.1.0
-    module load udunits/2.2.28
-    module load ncview/2.1.8
-    module load cdo/2.2.0
-    module load python/3.10.4
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>intel-oneapi-compilers/2024.0.0
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>netcdf-c/4.8.1-openmpi4.1.3-oneapi2022.1.0
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>netcdf-fortran/4.5.4-oneapi2022.1.0
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>udunits/2.2.28
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>ncview/2.1.8
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>cdo/2.2.0
+<span class="w">    </span>module<span class="w"> </span>load<span class="w"> </span>python/3.10.4
+</code></pre></div>
+
 <p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>awi</code> script (which is actually a link to the <code>dkrz</code> script since they work the same way):</p>
-<pre><code class="language-bash">./install_awi.sh ifx
-</code></pre>
+<div class="codehilite"><pre><span></span><code>./install_awi.sh<span class="w"> </span>ifx
+</code></pre></div>
+
 <h3 id="running-at-dkrz-on-levante">Running at DKRZ on levante</h3>
 <p>Load the following modules in your <code>.bashrc</code> file in your home directory.</p>
-<pre><code class="language-bash"># Tools
-module load cdo/2.4.0-gcc-11.2.0
-module load esmvaltool/2.5.0
-module load ncview/2.1.8-gcc-11.2.0
-module load git/2.43.3-gcc-11.2.0
-module load python3/2023.01-gcc-11.2.0
+<div class="codehilite"><pre><span></span><code><span class="c1"># Tools</span>
+module<span class="w"> </span>load<span class="w"> </span>cdo/2.4.0-gcc-11.2.0
+module<span class="w"> </span>load<span class="w"> </span>esmvaltool/2.5.0
+module<span class="w"> </span>load<span class="w"> </span>ncview/2.1.8-gcc-11.2.0
+module<span class="w"> </span>load<span class="w"> </span>git/2.43.3-gcc-11.2.0
+module<span class="w"> </span>load<span class="w"> </span>python3/2023.01-gcc-11.2.0
 
-# Compilers and libs
-module load intel-oneapi-compilers/2023.2.1-gcc-11.2.0
-module load netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
-module load netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
-</code></pre>
+<span class="c1"># Compilers and libs</span>
+module<span class="w"> </span>load<span class="w"> </span>intel-oneapi-compilers/2023.2.1-gcc-11.2.0
+module<span class="w"> </span>load<span class="w"> </span>netcdf-c/4.8.1-openmpi-4.1.2-intel-2021.5.0
+module<span class="w"> </span>load<span class="w"> </span>netcdf-fortran/4.5.3-openmpi-4.1.2-intel-2021.5.0
+</code></pre></div>
+
 <p>When installing <code>fesm-utils</code> (see <a href="../dependencies/">Dependencies</a>) use the <code>dkrz</code> script:</p>
-<pre><code class="language-bash">./install_dkrz.sh ifx
-</code></pre>
+<div class="codehilite"><pre><span></span><code>./install_dkrz.sh<span class="w"> </span>ifx
+</code></pre></div>
               
             </div>
           </div><footer>

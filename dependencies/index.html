@@ -146,12 +146,13 @@ installation instructions are available from the Unidata website:</p>
 <a href="https://github.com/fesmc/coordinates">https://github.com/fesmc/coordinates</a>.
 Configure the package, and install it in the location
 of your choice (below defined as <code>$COORDROOT</code>):</p>
-<pre><code class="language-bash">git clone git@github.com:fesmc/coordinates.git $COORDROOT
-cd $COORDROOT
-python config.py config/pik_hpc2024_ifx
-make clean
-make coord-static openmp=1
-</code></pre>
+<div class="codehilite"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:fesmc/coordinates.git<span class="w"> </span><span class="nv">$COORDROOT</span>
+<span class="nb">cd</span><span class="w"> </span><span class="nv">$COORDROOT</span>
+python<span class="w"> </span>config.py<span class="w"> </span>config/pik_hpc2024_ifx
+make<span class="w"> </span>clean
+make<span class="w"> </span>coord-static<span class="w"> </span><span class="nv">openmp</span><span class="o">=</span><span class="m">1</span>
+</code></pre></div>
+
 <h2 id="install-lis-fftw-and-utils">Install LIS, FFTW and utils</h2>
 <p>These packages could be installed individually and linked into the main directories of climber-x and yelmo. However, to ensure the right versions are used, etc., we have now made a separate repository for managing the installation of LIS and FFTW from the versions available in that repository, as well as some custom modules. This repository is managed as part of the Fast Earth System Model Community (FESMC).</p>
 <p>Please download the code from this repository and see the README for installation instructions:
@@ -160,13 +161,14 @@ make coord-static openmp=1
 <ol>
 <li>Install <code>runner</code> to your system's Python installation via <code>pip</code>.</li>
 </ol>
-<pre><code class="language-bash">pip install https://github.com/fesmc/runner/archive/refs/heads/master.zip
-</code></pre>
+<div class="codehilite"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>https://github.com/fesmc/runner/archive/refs/heads/master.zip
+</code></pre></div>
+
 <p>That's it! Now check that system command <code>job</code> is available by running <code>job -h</code>.
 If the command is not found, it means that the Python bin directory is not available in your <code>PATH</code>. To add it, typically something like this is needed in your .profile or .bashrc file:</p>
-<pre><code class="language-bash">PATH=${PATH}:${HOME}/.local/bin
-export PATH
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.local/bin
+<span class="nb">export</span><span class="w"> </span>PATH
+</code></pre></div>
               
             </div>
           </div><footer>
