@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Getting started - CLIMBER-X-docs</title>
+    <title>Source directory structure - CLIMBER-X-docs</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
@@ -13,8 +13,8 @@
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Getting started";
-        var mkdocs_page_input_path = "getting-started.md";
+        var mkdocs_page_name = "Source directory structure";
+        var mkdocs_page_input_path = "src-dir.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -45,10 +45,8 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Getting started</span></p>
-              <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Getting started</a>
-    <ul class="current">
-    </ul>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../getting-started/">Getting started</a>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../dependencies/">Dependencies</a>
                   </li>
@@ -88,8 +86,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Getting started</li>
-      <li class="breadcrumb-item active">Getting started</li>
+      <li class="breadcrumb-item active">Source directory structure</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -98,30 +95,92 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="getting-started">Getting started</h1>
-<p>Here you can find the basic information and steps needed to get <strong>CLIMBER-X</strong> running.</p>
-<p>For a quick start, see <a href="../installation/">Installation</a>.</p>
-<p>There are currently four different flavors of <strong>CLIMBER-X</strong> that can be set up:</p>
-<ul>
-<li><code>climber-clim</code>: minimal climate model configuration with atmosphere, ocean, sea ice and land (including dynamic vegetation)</li>
-<li><code>climber-clim-bgc</code>: coupled climate-carbon cycle model configuration; clim plus with ocean biogeochemistry</li>
-<li><code>climber-clim-ice</code>: coupled climate-ice sheet model configuration; clim plus with ice sheets</li>
-<li><code>climber-clim-bgc-ice</code>: fully coupled model configuration; clim plus with ocean biogeochemistry and ice sheets</li>
-</ul>
-<p>The model dependencies vary according to the desired model configuration:</p>
-<ul>
-<li>Dependencies are: NetCDF, coordinates, Python3.x, runner, CDO</li>
-<li>Additional dependencies if using coupled ice sheets are: Yelmo, LIS</li>
-</ul>
-<p>See: <a href="../dependencies/">Dependencies</a> for more details.</p>
-<p>Follow the steps in <a href="../installation/">Installation</a> to get the code and compile the model and then you are ready to run your first simulations. Learn about how to use the <code>runme</code> script to prepare simulations automatically (<a href="../runme-notes/">runme-notes</a>) or within the benchmark script in the main repository (<code>run_bench.sh</code>).</p>
+                <h1 id="source-directory-structure">Source directory structure</h1>
+<table>
+<thead>
+<tr>
+<th>Directory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>main/</code></td>
+<td>Main CLIMBER-X and coupler code</td>
+</tr>
+<tr>
+<td><code>atm/</code></td>
+<td>Atmosphere model code</td>
+</tr>
+<tr>
+<td><code>ocn/</code></td>
+<td>Ocean model code</td>
+</tr>
+<tr>
+<td><code>sic/</code></td>
+<td>Sea ice model code</td>
+</tr>
+<tr>
+<td><code>lnd/</code></td>
+<td>Land model code</td>
+</tr>
+<tr>
+<td><code>bgc/</code></td>
+<td>Ocean biogeochemistry and sediment model code</td>
+</tr>
+<tr>
+<td><code>bgc-dummy/</code></td>
+<td>Dummy interface of biogeochemistry and sediment model code</td>
+</tr>
+<tr>
+<td><code>co2/</code></td>
+<td>Interactive atmospheric CO2 code</td>
+</tr>
+<tr>
+<td><code>ch4/</code></td>
+<td>Interactive atmospheric methane code</td>
+</tr>
+<tr>
+<td><code>n2o/</code></td>
+<td>Interactive atmospheric N2O code</td>
+</tr>
+<tr>
+<td><code>geo/</code></td>
+<td>Geography and topograhy model code</td>
+</tr>
+<tr>
+<td><code>smb/</code></td>
+<td>Surface mass balance model(s) code</td>
+</tr>
+<tr>
+<td><code>bmb/</code></td>
+<td>Ice sheet basal mass balance model code</td>
+</tr>
+<tr>
+<td><code>ice/</code></td>
+<td>Ice sheet model wrapper</td>
+</tr>
+<tr>
+<td><code>ice_sico/</code></td>
+<td>SICOPOLIS ice sheet model code</td>
+</tr>
+<tr>
+<td><code>yelmo/</code></td>
+<td>Yelmo ice sheet model code</td>
+</tr>
+<tr>
+<td><code>vilma/</code></td>
+<td>VILMA solid Earth model compiled libraries</td>
+</tr>
+<tr>
+<td><code>utils/</code></td>
+<td>Utilities</td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div><footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../dependencies/" class="btn btn-neutral float-right" title="Dependencies">Next <span class="icon icon-circle-arrow-right"></span></a>
-    </div>
 
   <hr/>
 
@@ -143,10 +202,6 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
-    
-    
-      <span><a href="../dependencies/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
