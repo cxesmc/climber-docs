@@ -19,8 +19,6 @@ See: [Dependencies](dependencies.md) for more details.
 Follow the steps below to (1) obtain the code, (2) configure the Makefile(s) for your system,
 (3) compile an executable program.
 
-# Quick start
-
 ## CLIMBER-X climate model
 
 ```bash

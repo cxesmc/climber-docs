@@ -1,7 +1,6 @@
+# **CLIMBER-X**, a fast Earth system model
 
 ![CLIMBER-X model schematic](img/climber-x.png)
-
-Welcome to **CLIMBER-X**, a fast Earth system model.
 
 **CLIMBER-X** simulates the response of the Earth system to changes in different climate forcings, 
 such as changes in greenhouse gas concentrations or in the Earth's orbital configuration. To do so the model
