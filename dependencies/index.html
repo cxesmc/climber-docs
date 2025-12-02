@@ -146,12 +146,12 @@ installation instructions are available from the Unidata website:</p>
 <a href="https://github.com/fesmc/coordinates">https://github.com/fesmc/coordinates</a>.
 Configure the package, and install it in the location
 of your choice (below defined as <code>$COORDROOT</code>):</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:fesmc/coordinates.git<span class="w"> </span><span class="nv">$COORDROOT</span>
-<span class="nb">cd</span><span class="w"> </span><span class="nv">$COORDROOT</span>
-python<span class="w"> </span>config.py<span class="w"> </span>config/pik_hpc2024_ifx
-make<span class="w"> </span>clean
-make<span class="w"> </span>coord-static<span class="w"> </span><span class="nv">openmp</span><span class="o">=</span><span class="m">1</span>
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:fesmc/coordinates.git<span class="w"> </span><span class="nv">$COORDROOT</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span><span class="nv">$COORDROOT</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>python<span class="w"> </span>config.py<span class="w"> </span>config/pik_hpc2024_ifx
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>make<span class="w"> </span>clean
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>make<span class="w"> </span>coord-static<span class="w"> </span><span class="nv">openmp</span><span class="o">=</span><span class="m">1</span>
+</span></code></pre></div>
 <h2 id="install-lis-fftw-and-utils">Install LIS, FFTW and utils</h2>
 <p>These packages could be installed individually and linked into the main directories of climber-x and yelmo. However, to ensure the right versions are used, etc., we have now made a separate repository for managing the installation of LIS and FFTW from the versions available in that repository, as well as some custom modules. This repository is managed as part of the Fast Earth System Model Community (FESMC).</p>
 <p>Please download the code from this repository and see the README for installation instructions:
@@ -160,13 +160,13 @@ make<span class="w"> </span>coord-static<span class="w"> </span><span class="nv"
 <ol>
 <li>Install <code>runner</code> to your system's Python installation via <code>pip</code>.</li>
 </ol>
-<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>https://github.com/fesmc/runner/archive/refs/heads/master.zip
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>https://github.com/fesmc/runner/archive/refs/heads/master.zip
+</span></code></pre></div>
 <p>That's it! Now check that system command <code>job</code> is available by running <code>job -h</code>.
 If the command is not found, it means that the Python bin directory is not available in your <code>PATH</code>. To add it, typically something like this is needed in your .profile or .bashrc file:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.local/bin
-<span class="nb">export</span><span class="w"> </span>PATH
-</code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PATH</span><span class="si">}</span>:<span class="si">${</span><span class="nv">HOME</span><span class="si">}</span>/.local/bin
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">export</span><span class="w"> </span>PATH
+</span></code></pre></div>
               
             </div>
           </div><footer>
