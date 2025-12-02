@@ -116,56 +116,47 @@
 <li>To run on the cluster, create a job submission script (e.g. <code>job.submit</code>) in <code>RUNDIR</code> to manage various computing options (number of processors, etc).</li>
 </ol>
 <p>When these steps are completed, <code>climber.x</code> should be run directly from <code>RUNDIR</code> using the job submission script. E.g., using SLURM:</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>RUNDIR
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>RUNDIR
 sbatch<span class="w"> </span>job.submit
 </code></pre></div>
-
 <p>If not using the cluster, <strong>CLIMBER-X</strong> can also be run manually by entering the <code>RUNDIR</code> and running the following:</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>RUNDIR
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>RUNDIR
 ./climber.x<span class="w"> </span>&gt;<span class="w"> </span>out.out
 </code></pre></div>
-
 <p>Either of the above will run climber in <code>RUNDIR</code> with all simulation output stored in the same directory. Because the directory includes the executable and is self-contained, assuming the contents of the linked directories do not change, the simulation can be re-run at any time.</p>
 <p>To perform all of the above steps manually for multiple simulations is very tedious and time-consuming, so a "run" script called <code>runme</code> is used to handle the process.</p>
 <h2 id="using-runme-for-one-simulation">Using <code>runme</code> for one simulation</h2>
 <p>Before using <code>runme</code>, the user should store a configuration file with some personal choices. To get started, copy the template config file to the main directory:</p>
-<div class="codehilite"><pre><span></span><code>cp<span class="w"> </span>.runme/runme_config<span class="w"> </span>.runme_config
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>.runme/runme_config<span class="w"> </span>.runme_config
 </code></pre></div>
-
 <p>Next edit <code>.runme_config</code> so that the choices match your configuration. Mostly, this means setting <code>hpc</code> to the name of your current system and <code>account</code> to the default account to be used for your jobs submitted via SLURM. Also you can add your email address if you would like to receive notifications from SLURM about your jobs.</p>
 <p>Now <code>runme</code> is ready for use. See <code>./runme -h</code> for details on possible arguments.</p>
 <p>Note that aside from possible optional arguments, <code>runme</code> is always called with the required argument <code>-o RUNDIR</code> that specifies the output directory. So, to run a <code>climber.x</code> simulation as a job on the cluster in <code>RUNDIR</code>, run the command:</p>
-<div class="codehilite"><pre><span></span><code>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>RUNDIR
+<div class="highlight"><pre><span></span><code>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>RUNDIR
 </code></pre></div>
-
 <p>where <code>RUNDIR</code> is the desired run directory. The option <code>-r</code> says that the job should actually be run (instead of just prepared) and <code>-s</code> specifies that the job should be run on the cluster. If <code>-r</code> is used alone, then the job is simply run as a background process. Other options include <code>-q, --queue</code> for the queue alias (short, priority, etc.), <code>-w, --wall</code> for the maximum wall clock time to allow in format HH:MM:SS, <code>--part</code> to name the processor partition (priority, standard, smp, etc), <code>--omp</code> to specify the number of processors, and others. See <code>./runme -h</code> for all options.</p>
 <p>When called as above, this script will run a simulation using the parameters as they are specified in the namelist parameter files in the <code>nml</code> directory. In addition, it is possible to modify the parameters of one simulation at the command line using the argument <code>-p KEY=VAL KEY=VAL ...</code>. So, for example, the following command:</p>
-<div class="codehilite"><pre><span></span><code>./runme<span class="w"> </span>-s<span class="w"> </span>-o<span class="w"> </span>RUNDIR<span class="w"> </span>-p<span class="w"> </span>ctl.n_accel<span class="o">=</span><span class="m">10</span>
+<div class="highlight"><pre><span></span><code>./runme<span class="w"> </span>-s<span class="w"> </span>-o<span class="w"> </span>RUNDIR<span class="w"> </span>-p<span class="w"> </span>ctl.n_accel<span class="o">=</span><span class="m">10</span>
 </code></pre></div>
-
 <p>will run <code>climber.x</code> on the cluster in the output directory <code>RUNDIR</code> with the control parameter <code>control.n_accel</code> set to <code>10</code>. Note that <code>ctl</code> is a convenient alias for the namelist group <code>control</code>, as defined in <code>.runme/climberx_info.json</code>.</p>
 <p>To perform a simulation an ensemble of simulations with modified parameter values, <code>runme</code> should be called via <code>jobrun</code> (see below).</p>
 <h2 id="using-runme-with-jobrun-for-ensembles">Using <code>runme</code> with <code>jobrun</code> for ensembles</h2>
 <p><code>jobrun</code> is a command that is part of the FESMC <code>runner</code> library (Python package). This command facilitates running ensembles of simulations, or simulations with modified parameters via a convenient command-line interface. See <a href="../dependencies/">Dependencies</a> for its installation instructions.</p>
 <p>Using <code>jobrun</code>, the following command would produce the same simulation as <code>./runme -s RUNDIR</code>:</p>
-<div class="codehilite"><pre><span></span><code>jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>OUTDIR
+<div class="highlight"><pre><span></span><code>jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>OUTDIR
 </code></pre></div>
-
 <p>The difference here is that now we don't specify the specific <code>RUNDIR</code>, but rather an encapsulating <code>OUTDIR</code> that will contain one or more <code>RUNDIR</code>'s. In the above example, no parameters are changed, so the simulation is saved in the <code>default</code> directory: <code>OUTDIR/default</code>.</p>
 <p>If we want to change a parameter, this can be done as with the <code>runme</code> script via the <code>-p</code> option:</p>
-<div class="codehilite"><pre><span></span><code>jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>OUTDIR<span class="w"> </span>-p<span class="w"> </span>ctl.n_accel<span class="o">=</span><span class="m">10</span>
+<div class="highlight"><pre><span></span><code>jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>OUTDIR<span class="w"> </span>-p<span class="w"> </span>ctl.n_accel<span class="o">=</span><span class="m">10</span>
 </code></pre></div>
-
 <p>This will produce one simulation with the parameter <code>control.n_accel=10</code>. Since we have changed a parameter for this simulation, <code>jobrun</code> treats this as an ensemble, so the output is saved in <code>OUTDIR/0</code> for simulation 0. In short, the above command is equivalent to <code>./runme -s -o OUTDIR -p ctl.n_accel=10</code>, but in the former case, the output is stored in <code>OUTDIR/0</code> and in the latter case, it is stored directly in <code>OUTDIR</code>.</p>
 <p>The power of <code>jobrun</code> comes when we want to run an ensemble:</p>
-<div class="codehilite"><pre><span></span><code>jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>OUTDIR<span class="w"> </span>-p<span class="w"> </span>ctl.n_accel<span class="o">=</span><span class="m">1</span>,5,10
+<div class="highlight"><pre><span></span><code>jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>OUTDIR<span class="w"> </span>-p<span class="w"> </span>ctl.n_accel<span class="o">=</span><span class="m">1</span>,5,10
 </code></pre></div>
-
 <p>This ensemble of simulations will appear in <code>OUTDIR/0</code>, <code>OUTDIR/1</code> and <code>OUTDIR/2</code>, respectively.</p>
 <p>A more informative output directory can be made using the option <code>-a</code> along with <code>-o</code>:</p>
-<div class="codehilite"><pre><span></span><code>jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-a<span class="w"> </span>-o<span class="w"> </span>OUTDIR<span class="w"> </span>-p<span class="w"> </span>ctl.n_accel<span class="o">=</span><span class="m">1</span>,5,10
+<div class="highlight"><pre><span></span><code>jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-a<span class="w"> </span>-o<span class="w"> </span>OUTDIR<span class="w"> </span>-p<span class="w"> </span>ctl.n_accel<span class="o">=</span><span class="m">1</span>,5,10
 </code></pre></div>
-
 <p>In this case, the run directories are <code>OUTDIR/ctl.nccl.1</code>, <code>OUTDIR/ctl.nccl.5</code> and <code>OUTDIR/ctl.nccl.10</code>, respectively.</p>
 <p>General information about the ensemble can be found in the main ensemble directory <code>OUTDIR</code>:</p>
 <ul>
@@ -173,24 +164,21 @@ sbatch<span class="w"> </span>job.submit
 <li><code>info.txt</code> : the same parameter table as <code>params.txt</code>, but also including an index of the <code>runid</code> (0,1,2, etc) and the <code>RUNDIR</code>:</li>
 </ul>
 <p><code>info.txt</code>:</p>
-<div class="codehilite"><pre><span></span><code>  <span class="n">runid</span>    <span class="n">ctl</span><span class="o">.</span><span class="n">n_accel</span>  <span class="n">rundir</span>
+<div class="highlight"><pre><span></span><code>  <span class="n">runid</span>    <span class="n">ctl</span><span class="o">.</span><span class="n">n_accel</span>  <span class="n">rundir</span>
       <span class="mi">0</span>              <span class="mi">1</span>  <span class="n">ctl</span><span class="o">.</span><span class="n">nccl</span><span class="mf">.1</span>
       <span class="mi">1</span>              <span class="mi">5</span>  <span class="n">ctl</span><span class="o">.</span><span class="n">nccl</span><span class="mf">.5</span>
       <span class="mi">2</span>             <span class="mi">10</span>  <span class="n">ctl</span><span class="o">.</span><span class="n">nccl</span><span class="mf">.10</span>
 </code></pre></div>
-
 <p>It is of course possible to define multiple parameter permutations:</p>
-<div class="codehilite"><pre><span></span><code>jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>OUTDIR<span class="w"> </span>-p<span class="w"> </span>ctl.n_accel<span class="o">=</span><span class="m">1</span>,5,10<span class="w"> </span>smb.alb_ice<span class="o">=</span><span class="m">0</span>.3,0.4
+<div class="highlight"><pre><span></span><code>jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>OUTDIR<span class="w"> </span>-p<span class="w"> </span>ctl.n_accel<span class="o">=</span><span class="m">1</span>,5,10<span class="w"> </span>smb.alb_ice<span class="o">=</span><span class="m">0</span>.3,0.4
 </code></pre></div>
-
 <p>To generate a more complex ensemble, using e.g. Latin-Hypercube sampling, then a two step approach is often better. First, use the <code>runner</code> command <code>job sample</code> to build the ensemble, then use <code>jobrun</code> to run it:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Generate ensemble parameters</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Generate ensemble parameters</span>
 job<span class="w"> </span>sample<span class="w"> </span>-o<span class="w"> </span>lhs.txt<span class="w"> </span>--seed<span class="w"> </span><span class="m">4</span><span class="w"> </span>-N<span class="w"> </span><span class="m">100</span><span class="w"> </span>atm.c_trop_2<span class="o">=</span><span class="m">0</span>.8,1.2<span class="w"> </span>smb.alb_ice<span class="o">=</span><span class="m">0</span>.3,0.4
 
 <span class="c1"># Run ensemble</span>
 jobrun<span class="w"> </span>./runme<span class="w"> </span>-rs<span class="w"> </span>-o<span class="w"> </span>OUTDIR<span class="w"> </span>-i<span class="w"> </span>lhs.txt
 </code></pre></div>
-
 <p>This two-step method facilitates checking that the ensemble was generated properly and improves reproducibility, since the exact parameter values are available in the table.</p>
               
             </div>
