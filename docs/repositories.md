@@ -4,7 +4,7 @@
 Repositories are organized into several communities.
 
 - [github.com/cxesmc](https://github.com/cxesmc): the main CLIMBER-X ESM community - for CLIMBER-X specific development.
-- [gitlab.pik-potsdam.de/cxesmc](https://gitlab.pik-potsdam.de/cxesmc): necessary for housing large input files (otherwise GitHub home would be enough).
+- [gitlab.pik-potsdam.de/cxesmc](https://gitlab.pik-potsdam.de/cxesmc): necessary for housing large input files (otherwise GitHub community would be enough).
 - [github.com/fesmc](https://github.com/fesmc): the Fast ESM community - for shared resources.
 - [github.com/palma-ice](https://github.com/palma-ice): the PalMA ice-sheet modeling group at the Complutense University of Madrid, where the ice-sheet model Yelmo is developed.
 

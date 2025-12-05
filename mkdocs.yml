@@ -6,9 +6,10 @@ nav:
       - Dependencies: dependencies.md
       - Installation: installation.md
       - runme notes: runme-notes.md
+      - repository notes: repositories.md
     - Use cases:
       - Pre-industrial spinup: use-cases/01-pi_spinup/index.md
-      - Historical: use-cases/02-historical/index.md
+      #- Historical: use-cases/02-historical/index.md
     - Output description: 
       - Output files:    var_lists/index.md
     - Workshops:
