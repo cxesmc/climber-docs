@@ -227,14 +227,14 @@
       fill.style.transition  = 'opacity 0.5s ease, filter 0.25s ease';
       fill.style.opacity  = '1';
       ghost.style.transition = 'opacity 0.5s ease';
-      ghost.style.opacity = '0.20';
+      ghost.style.opacity = '0.15';
     }, 60 + i * 80);
   });
 
   const titleEl = document.getElementById('title-el');
   titleEl.setAttribute('font-family', "'IBM Plex Sans', Arial, sans-serif");
-  titleEl.setAttribute('font-weight', '600');
-  titleEl.setAttribute('font-size', '62');
+  titleEl.setAttribute('font-weight', '1000');
+  titleEl.setAttribute('font-size', '80');
 
   svg.appendChild(document.getElementById('center-circle'));
   svg.appendChild(titleEl);
