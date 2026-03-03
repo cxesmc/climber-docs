@@ -32,4 +32,4 @@ extra_javascript:
 
 markdown_extensions:
     - mdx_math
-
+    - md_in_html
