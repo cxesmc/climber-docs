@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html, body {
@@ -45,8 +45,8 @@
   }
   .ring:hover .arc-label { opacity: 1; }
   .title-text {
-    font-family: 'IBM Plex Sans', Arial, sans-serif;
-    font-weight: 600;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 700;
     fill: white;
     text-anchor: middle;
     dominant-baseline: middle;
@@ -175,7 +175,7 @@
     ghost.setAttribute('d', makeFullAnnulus(R, r));
     ghost.setAttribute('fill', flat);
     ghost.setAttribute('fill-rule', 'evenodd');
-    ghost.setAttribute('opacity', '0.20');
+    ghost.setAttribute('opacity', '0.15');
     g.appendChild(ghost);
 
     const fill = document.createElementNS(NS, 'path');
@@ -232,9 +232,9 @@
   });
 
   const titleEl = document.getElementById('title-el');
-  titleEl.setAttribute('font-family', "'IBM Plex Sans', Arial, sans-serif");
-  titleEl.setAttribute('font-weight', '1000');
-  titleEl.setAttribute('font-size', '80');
+  titleEl.setAttribute('font-family', "'Trebuchet MS', Arial, sans-serif");
+  titleEl.setAttribute('font-weight', '900');
+  titleEl.setAttribute('font-size', '87');
 
   svg.appendChild(document.getElementById('center-circle'));
   svg.appendChild(titleEl);
