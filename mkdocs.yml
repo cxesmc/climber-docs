@@ -10,6 +10,7 @@ nav:
     - Use cases:
       - Pre-industrial spinup: use-cases/01-pi_spinup/index.md
       #- Historical: use-cases/02-historical/index.md
+      - Last glacial maximum: use-cases/03-lgm/index.md
     - Output description: 
       - Output files:    var_lists/index.md
     - Workshops:

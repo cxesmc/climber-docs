@@ -53,7 +53,8 @@ The pre-industrial equilibrium state of a given model release, including biogeoc
 ## With ice sheets
 
 ```bash
-./runme -rs -q medium --omp 32 -o output/pi_ice_nh -p ctl.nyears=100000 ctl.n_accel=10 ctl.flag_geo=T ctl.flag_ice=T ctl.flag_smb=T ctl.flag_bmb=T ctl.ice_domain_name=NH-32KM ctl.ice_model_name=yelmo
+./runme -rs -q medium --omp 32 -o output/pi_ice_nh -p ctl.nyears=100000 ctl.n_accel=10 ctl.ice_domain_name=NH-16KM ctl.ice_model_name=yelmo \
+ctl.flag_geo=T ctl.flag_ice=T ctl.flag_smb=T ctl.flag_bmb=T
 ```
 
 
