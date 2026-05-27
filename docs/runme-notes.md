@@ -39,90 +39,82 @@ cp .runme/runme_config .runme_config
 
 Next edit `.runme_config` so that the choices match your configuration. Mostly, this means setting `hpc` to the name of your current system and `account` to the default account to be used for your jobs submitted via SLURM. Also you can add your email address if you would like to receive notifications from SLURM about your jobs.
 
-Now `runme` is ready for use. See `./runme -h` for details on possible arguments.
+Now `runme` is ready for use. See `runme -h` for details on possible arguments.
 
 Note that aside from possible optional arguments, `runme` is always called with the required argument `-o RUNDIR` that specifies the output directory. So, to run a `climber.x` simulation as a job on the cluster in `RUNDIR`, run the command:
 
 ```bash
-./runme -rs -o RUNDIR
+runme -rs -o RUNDIR
 ```
 
-where `RUNDIR` is the desired run directory. The option `-r` says that the job should actually be run (instead of just prepared) and `-s` specifies that the job should be run on the cluster. If `-r` is used alone, then the job is simply run as a background process. Other options include `-q, --queue` for the queue alias (short, priority, etc.), `-w, --wall` for the maximum wall clock time to allow in format HH:MM:SS, `--part` to name the processor partition (priority, standard, smp, etc), `--omp` to specify the number of processors, and others. See `./runme -h` for all options.
+where `RUNDIR` is the desired run directory. The option `-r` says that the job should actually be run (instead of just prepared) and `-s` specifies that the job should be run on the cluster. If `-r` is used alone, then the job is simply run as a background process. Other options include `-q, --queue` for the queue alias (short, priority, etc.), `-w, --wall` for the maximum wall clock time to allow in format HH:MM:SS, `--part` to name the processor partition (priority, standard, smp, etc), `--omp` to specify the number of processors, and others. See `runme -h` for all options.
 
 When called as above, this script will run a simulation using the parameters as they are specified in the namelist parameter files in the `nml` directory. In addition, it is possible to modify the parameters of one simulation at the command line using the argument `-p KEY=VAL KEY=VAL ...`. So, for example, the following command:
 
 ```bash
-./runme -s -o RUNDIR -p ctl.n_accel=10
+runme -s -o RUNDIR -p ctl.n_accel=10
 ```
 
 will run `climber.x` on the cluster in the output directory `RUNDIR` with the control parameter `control.n_accel` set to `10`. Note that `ctl` is a convenient alias for the namelist group `control`, as defined in `.runme/climberx_info.json`.
 
-To perform a simulation an ensemble of simulations with modified parameter values, `runme` should be called via `jobrun` (see below).
+To run an ensemble of simulations with modified parameter values, `runme` handles the ensemble internally (see below) — no external tool is required.
 
-## Using `runme` with `jobrun` for ensembles
+## Running ensembles with `runme`
 
-`jobrun` is a command that is part of the FESMC `runner` library (Python package). This command facilitates running ensembles of simulations, or simulations with modified parameters via a convenient command-line interface. See [Dependencies](dependencies.md) for its installation instructions.
+`runme` switches to ensemble mode automatically whenever a `-p` value is *ensemble-shaped* — a comma list (`a=1,2,3`), a range (`a=0:10:5`), or a distribution (`a=U?0,1`) — or whenever an ensemble parameter file is supplied with `-i FILE`. A single-valued `-p` entry is instead a *fixed override* applied to every member.
 
-Using `jobrun`, the following command would produce the same simulation as `./runme -s RUNDIR`:
+When running an ensemble, the `-o` argument no longer names a single `RUNDIR` but an encapsulating experiment directory `OUTDIR` that will contain one run directory per member.
 
-```bash
-jobrun ./runme -rs -o OUTDIR
-```
-
-The difference here is that now we don't specify the specific `RUNDIR`, but rather an encapsulating `OUTDIR` that will contain one or more `RUNDIR`'s. In the above example, no parameters are changed, so the simulation is saved in the `default` directory: `OUTDIR/default`.
-
-If we want to change a parameter, this can be done as with the `runme` script via the `-p` option:
+The simplest ensemble varies one parameter over a comma list:
 
 ```bash
-jobrun ./runme -rs -o OUTDIR -p ctl.n_accel=10
-```
-
-This will produce one simulation with the parameter `control.n_accel=10`. Since we have changed a parameter for this simulation, `jobrun` treats this as an ensemble, so the output is saved in `OUTDIR/0` for simulation 0. In short, the above command is equivalent to `./runme -s -o OUTDIR -p ctl.n_accel=10`, but in the former case, the output is stored in `OUTDIR/0` and in the latter case, it is stored directly in `OUTDIR`.
-
-The power of `jobrun` comes when we want to run an ensemble:
-
-```bash
-jobrun ./runme -rs -o OUTDIR -p ctl.n_accel=1,5,10
+runme -rs -o OUTDIR -p ctl.n_accel=1,5,10
 ```
 
 This ensemble of simulations will appear in `OUTDIR/0`, `OUTDIR/1` and `OUTDIR/2`, respectively.
 
-A more informative output directory can be made using the option `-a` along with `-o`:
+A more informative directory naming can be obtained using the option `-a` (auto-dir) along with `-o`:
 
 ```bash
-jobrun ./runme -rs -a -o OUTDIR -p ctl.n_accel=1,5,10
+runme -rs -a -o OUTDIR -p ctl.n_accel=1,5,10
 ```
 
-In this case, the run directories are `OUTDIR/ctl.nccl.1`, `OUTDIR/ctl.nccl.5` and `OUTDIR/ctl.nccl.10`, respectively.
+In this case, the run directories are named from the parameter values (group prefix dropped, vowels removed): `OUTDIR/nccl.1`, `OUTDIR/nccl.5` and `OUTDIR/nccl.10`, respectively.
 
-General information about the ensemble can be found in the main ensemble directory `OUTDIR`:
+General information about the ensemble can be found in the main experiment directory `OUTDIR`:
 
-- `params.txt` : contains a table of the parameter combinations set on the command line (can be used to run a new ensemble).
-- `info.txt` : the same parameter table as `params.txt`, but also including an index of the `runid` (0,1,2, etc) and the `RUNDIR`:
+- `params.txt` : contains a table of the parameter combinations set on the command line (can be used to run a new ensemble with `-i`).
+- `info.txt` : the same parameter table as `params.txt`, but also including an index of the `runid` (0,1,2, etc) and the `rundir`:
 
 `info.txt`:
 
 ```python
   runid    ctl.n_accel  rundir
-      0              1  ctl.nccl.1
-      1              5  ctl.nccl.5
-      2             10  ctl.nccl.10
+      0              1  nccl.1
+      1              5  nccl.5
+      2             10  nccl.10
 ```
 
-It is of course possible to define multiple parameter permutations:
+It is of course possible to vary multiple parameters at once; `runme` takes the product of all ensemble-shaped dimensions:
 
 ```bash
-jobrun ./runme -rs -o OUTDIR -p ctl.n_accel=1,5,10 smb.alb_ice=0.3,0.4
+runme -rs -o OUTDIR -p ctl.n_accel=1,5,10 smb.alb_ice=0.3,0.4
 ```
 
-To generate a more complex ensemble, using e.g. Latin-Hypercube sampling, then a two step approach is often better. First, use the `runner` command `job sample` to build the ensemble, then use `jobrun` to run it:
+Single-valued entries can be mixed in as fixed overrides applied to every member:
 
 ```bash
-# Generate ensemble parameters
-job sample -o lhs.txt --seed 4 -N 100 atm.c_trop_2=0.8,1.2 smb.alb_ice=0.3,0.4
+runme -rs -o OUTDIR -p ctl.n_accel=1,5,10 ctl.flag_bgc=T
+```
+
+To generate a more complex ensemble, using e.g. Latin-Hypercube sampling, a two-step approach is often better. First use the `runme sample` subcommand to build the ensemble parameter file, then run it with `-i`:
+
+```bash
+# Generate ensemble parameters (LHS by default)
+runme sample -o lhs.txt --seed 4 -N 100 atm.c_trop_2=U?0.8,1.2 smb.alb_ice=U?0.3,0.4
 
 # Run ensemble
-jobrun ./runme -rs -o OUTDIR -i lhs.txt
+runme -rs -o OUTDIR -i lhs.txt
 ```
 
-This two-step method facilitates checking that the ensemble was generated properly and improves reproducibility, since the exact parameter values are available in the table.
+Here `U?0.8,1.2` denotes a uniform distribution between 0.8 and 1.2 (use `N?mean,std` for a normal distribution, or a plain comma list for discrete values). The companion `runme product` subcommand writes a full-factorial parameter file instead of sampling. This two-step method facilitates checking that the ensemble was generated properly and improves reproducibility, since the exact parameter values are available in the table.

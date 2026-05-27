@@ -13,7 +13,7 @@ There are currently four different flavors of **CLIMBER-X** that can be set up:
 
 The model dependencies vary according to the desired model configuration:
 
-- Dependencies are: NetCDF, coordinates, Python3.x, runner, CDO
+- Dependencies are: NetCDF, coordinates, Python3.x, runme, CDO
 - Additional dependencies if using coupled ice sheets are: Yelmo, LIS
 
 See: [Dependencies](dependencies.md) for more details.

@@ -11,7 +11,7 @@ There are currently four different flavors of **CLIMBER-X** that can be set up:
 
 The model dependencies vary according to the desired model configuration:
 
-- Dependencies are: NetCDF, coordinates, Python3.x, runner, CDO
+- Dependencies are: NetCDF, coordinates, Python3.x, runme, CDO
 - Additional dependencies if using coupled ice sheets are: Yelmo, LIS
 
 See: [Dependencies](dependencies.md) for more details.
@@ -74,11 +74,11 @@ make climber-clim
 cp .runme/runme_config .runme_config
 # - Edit hpc and account name to match your settings
 
-# Make sure to install the `runner` package too
-pip install https://github.com/fesmc/runner/archive/refs/heads/master.zip 
+# Make sure to install the `runme` package too
+pip install https://github.com/fesmc/runme 
 
 # Run a pre-industrial equilibrium climate-only test simulation
-./runme -rs -q short --omp 32 -o output/clim
+runme -rs -q short --omp 32 -o output/clim
 ```
 
 The climate only version `climber-clim` corresponds to the version described by Willeit et al. (2022). This particular model setup does not require non-climate source code or the LIS library for compilation.
@@ -126,7 +126,7 @@ make clean
 make climber-clim-bgc
 
 # Run a pre-industrial equilibrium simulation with ocean biogeochemistry
-./runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
+runme -rs -q short --omp 16 -o output/clim-bgc -p ctl.flag_bgc=T
 ```
 
 ## CLIMBER-X climate and ice sheet model
@@ -159,7 +159,7 @@ make clean
 make climber-clim-ice
 
 # Run pre-industrial equilibrium simulation with interactive Greenland ice sheet
-./runme -rs -q short --omp 16 -o output/clim-ice -p ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
+runme -rs -q short --omp 16 -o output/clim-ice -p ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 ```
 
 ## Fully coupled CLIMBER-X configuration
@@ -172,7 +172,7 @@ make clean
 make climber-clim-bgc-ice  # or equivalently make climber
 
 # Run pre-industrial equilibrium simulation with ocean biogeochemistry and interactive Greenland ice sheet
-./runme -s -q short --omp 16 -o output/clim-bgc-ice -p ctl.flag_bgc=T ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
+runme -s -q short --omp 16 -o output/clim-bgc-ice -p ctl.flag_bgc=T ctl.flag_ice=T ctl.flag_geo=T ctl.flag_smb=T ctl.flag_imo=T ctl.ice_model_name=yelmo ctl.ice_domain_name=GRL-16KM
 ```
 
 ## Notes for specific systems

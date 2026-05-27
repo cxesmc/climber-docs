@@ -8,7 +8,7 @@
 
 - Python 3.x, which is only needed for automatic configuration of the Makefile
 and the use of the `runme` script for job preparation and submission.
-- runner: ['runner' Python library (fesmc version)](https://github.com/fesmc/runner)
+- runme: ['runme' Python library (fesmc version)](https://github.com/fesmc/runme), used to stage, run, and submit single simulations and ensembles.
 - CDO: [Climate Data Operators](https://code.mpimet.mpg.de/projects/cdo/), used for more efficient
 creation of maps to transform between different coordinate grids.
 
@@ -58,15 +58,15 @@ These packages could be installed individually and linked into the main director
 Please download the code from this repository and see the README for installation instructions:
 [https://github.com/fesmc/fesm-utils](https://github.com/fesmc/fesm-utils)
 
-## Installing runner
+## Installing runme
 
-1. Install `runner` to your system's Python installation via `pip`.
+1. Install `runme` to your system's Python installation via `pip`.
 
 ```bash
-pip install https://github.com/fesmc/runner/archive/refs/heads/master.zip
+pip install https://github.com/fesmc/runme
 ```
 
-That's it! Now check that system command `job` is available by running `job -h`.
+That's it! Now check that system command `runme` is available by running `runme -h`.
 If the command is not found, it means that the Python bin directory is not available in your `PATH`. To add it, typically something like this is needed in your .profile or .bashrc file:
 
 ```bash

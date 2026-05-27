@@ -9,7 +9,7 @@ This simulation corresponds to the standard PMIP experiment **lgm**.
 The length of the simulation is set to 10000 years, which is generally enough to reach an equilibrium of the climate system.
 
 ```bash
-./runme -rs -q short -w 24:00:00 --omp 32 -o output/lgm -p ctl.nyears=10000 \
+runme -rs -q short -w 24:00:00 --omp 32 -o output/lgm -p ctl.nyears=10000 \
 ctl.iorbit=1 ctl.ecc_const=0.018994 ctl.obl_const=22.949 ctl.per_const=114.42 \
 ctl.co2_const=190 ctl.ch4_const=375 ctl.n2o_const=200 \
 ctl.fake_geo_const_file=input/geo_ice_tarasov_lgm.nc ctl.fake_geo_ref_file=input/geo_ice_tarasov_lgc_0ka.nc geo.geo_ref_file=input/RTopo-2.0.1_0.125deg_DRThydrocorr.nc \
@@ -29,7 +29,7 @@ The change in topography and ice sheets also affect the ocean volume. In the pro
 The following command runs an LGM simulation with interactive ice sheets in the NH, starting from the LGM ice sheet reconstructions of GLAC1D:
 
 ```bash
-./runme -rs -q medium --omp 32 -o output/lgm_ice_nh -p ctl.nyears=100000 ctl.n_accel=10 \
+runme -rs -q medium --omp 32 -o output/lgm_ice_nh -p ctl.nyears=100000 ctl.n_accel=10 \
 ctl.iorbit=1 ctl.ecc_const=0.018994 ctl.obl_const=22.949 ctl.per_const=114.42 \
 ctl.co2_const=190 ctl.ch4_const=375 ctl.n2o_const=200 \
 ctl.fake_geo_const_file=input/geo_ice_tarasov_lgm.nc ctl.fake_geo_ref_file=input/geo_ice_tarasov_lgc_0ka.nc geo.geo_ref_file=input/RTopo-2.0.1_0.125deg_DRThydrocorr.nc \

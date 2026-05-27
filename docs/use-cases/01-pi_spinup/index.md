@@ -8,7 +8,7 @@ The default parameters in the control namelist (`nml/control.nml`) are set to pr
 Running a climate-only pre-industrial equilibrium spinup therefore doesn't require any specific changes: 
 
 ```bash
-./runme -rs -q short -w 24:00:00 --omp 32 -o output/pi_spinup \
+runme -rs -q short -w 24:00:00 --omp 32 -o output/pi_spinup \
 -p ctl.nyears=5000 ctl.i_write_restart=1
 ```
 
@@ -24,7 +24,7 @@ The pre-industrial equilibrium state of a given model release is generally inclu
 To spin up the model including the carbon cycle, the ocean biogeochemistry module needs to be enabled (`ctl.flag_bgc=T`):
 
 ```bash
-./runme -rs -q medium -w 60:00:00 --omp 32 -o output/pi_spinup_cc -p \
+runme -rs -q medium -w 60:00:00 --omp 32 -o output/pi_spinup_cc -p \
 ctl.nyears=10000 ctl.flag_bgc=T ctl.bgc_restart=F ctl.i_write_restart=1
 ```
 
@@ -42,7 +42,7 @@ The pre-industrial equilibrium state of a given model release, including biogeoc
 The spinup procedure for the *open* carbon cycle spinup is a bit more complicated and requires a simulation of at least 100,000 years in order to reach an approximate equilibrium of the carbon cycle system. Chemical weathering on land and marine sediments need to be enabled with `ctl.l_weathering=T bgc.l_sediments=T` and various carbon cycle spinup flags need to be set (`ctl.l_spinup_cc=T ctl.nyears_spinup_bgc=5000 ctl.year_start_offline=1000000 bgc.l_spinup_bgc=T bgc.l_spinup_sed=T`):
 
 ```bash
-./runme -rs -q long -w 200:00:00 --omp 32 -o output/pi_spinup_cc_open \
+runme -rs -q long -w 200:00:00 --omp 32 -o output/pi_spinup_cc_open \
 -p ctl.nyears=100000 ctl.flag_bgc=T ctl.bgc_restart=F ctl.i_write_restart=1 \
 ctl.l_spinup_cc=T ctl.nyears_spinup_bgc=5000 ctl.year_start_offline=1000000 bgc.l_spinup_bgc=T bgc.l_spinup_sed=T \
 ctl.l_weathering=T bgc.l_sediments=T
@@ -53,7 +53,7 @@ The pre-industrial equilibrium state of a given model release, including biogeoc
 ## With ice sheets
 
 ```bash
-./runme -rs -q medium --omp 32 -o output/pi_ice_nh -p ctl.nyears=100000 ctl.n_accel=10 ctl.ice_domain_name=NH-16KM ctl.ice_model_name=yelmo \
+runme -rs -q medium --omp 32 -o output/pi_ice_nh -p ctl.nyears=100000 ctl.n_accel=10 ctl.ice_domain_name=NH-16KM ctl.ice_model_name=yelmo \
 ctl.flag_geo=T ctl.flag_ice=T ctl.flag_smb=T ctl.flag_bmb=T
 ```
 
